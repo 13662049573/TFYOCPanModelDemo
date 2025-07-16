@@ -6,9 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TFYDemoTypeModel;
 
 @interface ViewController : UIViewController
 
-
+@property (nonatomic, copy) NSArray<TFYDemoTypeModel *> *demoList;
 @end
 
