@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, PanModalHeightType) {
     PanModalHeightTypeContent NS_SWIFT_NAME(content), ///< 内容高度（底部）
     PanModalHeightTypeContentIgnoringSafeArea NS_SWIFT_NAME(contentIgnoringSafeArea), ///< 内容高度（忽略安全区）
     PanModalHeightTypeIntrinsic NS_SWIFT_NAME(intrinsic), ///< 自适应高度（不推荐）
-};
+} NS_SWIFT_NAME(PanModalHeightType);
 
 /**
  * PanModalHeight
@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, PanModalHeightType) {
 struct PanModalHeight {
     PanModalHeightType heightType NS_SWIFT_NAME(type); ///< 高度类型
     CGFloat height; ///< 高度值
-};
+} NS_SWIFT_NAME(PanModalHeight);
 
 typedef struct PanModalHeight PanModalHeight;
 
@@ -39,7 +39,7 @@ typedef struct PanModalHeight PanModalHeight;
  * @param height 高度值
  * @return PanModalHeight结构体
  */
-CG_INLINE PanModalHeight PanModalHeightMake(PanModalHeightType heightType, CGFloat height) {
+CG_INLINE PanModalHeight PanModalHeightMake(PanModalHeightType heightType, CGFloat height) NS_SWIFT_NAME(PanModalHeight.init(type:height:)) NS_REFINED_FOR_SWIFT {
     PanModalHeight modalHeight;
     modalHeight.heightType = heightType;
     modalHeight.height = height;

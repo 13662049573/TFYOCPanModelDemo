@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  * TFYPanModalShadow
  * PanModal弹窗阴影配置对象，支持自定义颜色、半径、偏移、透明度
  */
+NS_SWIFT_NAME(PanModalShadow)
 @interface TFYPanModalShadow : NSObject
 
 /**
@@ -41,12 +42,12 @@ NS_ASSUME_NONNULL_BEGIN
  * @param shadowOffset 阴影偏移
  * @param shadowOpacity 阴影透明度
  */
-- (instancetype)initWithColor:(nonnull UIColor *)shadowColor shadowRadius:(CGFloat)shadowRadius shadowOffset:(CGSize)shadowOffset shadowOpacity:(CGFloat)shadowOpacity;
+- (instancetype)initWithColor:(nonnull UIColor *)shadowColor shadowRadius:(CGFloat)shadowRadius shadowOffset:(CGSize)shadowOffset shadowOpacity:(CGFloat)shadowOpacity NS_SWIFT_NAME(init(color:radius:offset:opacity:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 返回无阴影配置
  */
-+ (instancetype)panModalShadowNil;
++ (instancetype)panModalShadowNil NS_SWIFT_NAME(shadowNil()) NS_REFINED_FOR_SWIFT;
 
 @end
 

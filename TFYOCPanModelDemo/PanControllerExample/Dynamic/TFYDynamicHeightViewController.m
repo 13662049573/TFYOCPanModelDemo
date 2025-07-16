@@ -142,7 +142,7 @@ typedef NS_ENUM(NSInteger, ChangeHeightType) {
 }
 
 - (void)onTapChangeRoundCorner {
-	self.roundRadius = 12;
+	self.roundRadius = 20;
     self.shouldRound = YES;
 	[self tfy_panModalSetNeedsLayoutUpdate];
 }

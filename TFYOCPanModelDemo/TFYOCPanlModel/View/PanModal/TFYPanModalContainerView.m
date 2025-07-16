@@ -563,6 +563,11 @@
 - (void)dealloc {
     // 彻底释放资源，移除所有子视图和手势，防止悬挂指针
     @try {
+        if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad && self.presentingView) {
+            @try {
+                [self.presentingView removeObserver:self forKeyPath:@"frame"];
+            } @catch (__unused NSException *exception) {}
+        }
         [self.backgroundView removeFromSuperview];
         self.backgroundView.tapBlock = nil;
     } @catch (__unused NSException *exception) {}

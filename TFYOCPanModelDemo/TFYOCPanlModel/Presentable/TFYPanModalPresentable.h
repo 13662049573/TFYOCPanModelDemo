@@ -42,6 +42,7 @@ typedef NS_ENUM(NSInteger, PresentingViewControllerAnimationStyle) {
  * PanModal弹窗核心配置协议，所有弹窗内容需实现本协议，支持高度、动画、手势、背景、事件等丰富配置。
  * 默认通过UIViewController Category实现，无需强制实现所有方法。
  */
+NS_SWIFT_NAME(PanModalPresentable)
 @protocol TFYPanModalPresentable <NSObject>
 
 #pragma mark - ScrollView 配置

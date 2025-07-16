@@ -17,9 +17,9 @@
  * Handler的工作模式，区分用于UIViewController还是View
  */
 typedef NS_ENUM(NSUInteger, TFYPanModalPresentableHandlerMode) {
-    TFYPanModalPresentableHandlerModeViewController, ///< 用于UIViewController
-    TFYPanModalPresentableHandlerModeView,           ///< 用于普通View
-};
+    TFYPanModalPresentableHandlerModeViewController NS_SWIFT_NAME(viewController),
+    TFYPanModalPresentableHandlerModeView NS_SWIFT_NAME(view),
+} NS_SWIFT_NAME(PanModalPresentableHandlerMode);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,42 +27,43 @@ NS_ASSUME_NONNULL_BEGIN
  * TFYPanModalPresentableHandlerDelegate
  * Handler的事件代理，负责处理弹窗位置、状态变更、交互等回调
  */
+NS_SWIFT_NAME(PanModalPresentableHandlerDelegate)
 @protocol TFYPanModalPresentableHandlerDelegate <NSObject>
 
 /**
  * 通知代理：弹窗Y坐标即将变更
  * @param yPos 新的Y坐标
  */
-- (void)adjustPresentableYPos:(CGFloat)yPos;
+- (void)adjustPresentableYPos:(CGFloat)yPos NS_SWIFT_NAME(adjustPresentableYPos(_:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 通知代理：弹窗状态即将变更（short/medium/long）
  * @param state 新的状态
  */
-- (void)presentableTransitionToState:(PresentationState)state;
+- (void)presentableTransitionToState:(PresentationState)state NS_SWIFT_NAME(presentableTransition(to:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 获取当前弹窗的状态
  * @return 当前状态
  */
-- (PresentationState)getCurrentPresentationState;
+- (PresentationState)getCurrentPresentationState NS_SWIFT_NAME(currentPresentationState()) NS_REFINED_FOR_SWIFT;
 
 /**
  * 通知代理：弹窗即将被关闭
  * @param isInteractive 是否为交互式关闭
  * @param mode 关闭模式
  */
-- (void)dismiss:(BOOL)isInteractive mode:(PanModalInteractiveMode)mode;
+- (void)dismiss:(BOOL)isInteractive mode:(PanModalInteractiveMode)mode NS_SWIFT_NAME(dismiss(_:mode:)) NS_REFINED_FOR_SWIFT;
 
 @optional
 /**
  * 取消交互式转场
  */
-- (void)cancelInteractiveTransition;
+- (void)cancelInteractiveTransition NS_SWIFT_NAME(cancelInteractiveTransition()) NS_REFINED_FOR_SWIFT;
 /**
  * 完成交互式转场
  */
-- (void)finishInteractiveTransition;
+- (void)finishInteractiveTransition NS_SWIFT_NAME(finishInteractiveTransition()) NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -70,34 +71,35 @@ NS_ASSUME_NONNULL_BEGIN
  * TFYPanModalPresentableHandlerDataSource
  * Handler的数据源协议，提供弹窗尺寸、状态等信息
  */
+NS_SWIFT_NAME(PanModalPresentableHandlerDataSource)
 @protocol TFYPanModalPresentableHandlerDataSource <NSObject>
 
 /**
  * 获取容器尺寸
  */
-- (CGSize)containerSize;
+- (CGSize)containerSize NS_SWIFT_NAME(containerSize()) NS_REFINED_FOR_SWIFT;
 /**
  * 是否正在被关闭
  */
-- (BOOL)isBeingDismissed;
+- (BOOL)isBeingDismissed NS_SWIFT_NAME(isBeingDismissed()) NS_REFINED_FOR_SWIFT;
 /**
  * 是否正在被展示
  */
-- (BOOL)isBeingPresented;
+- (BOOL)isBeingPresented NS_SWIFT_NAME(isBeingPresented()) NS_REFINED_FOR_SWIFT;
 /**
  * 弹窗位置是否正在动画中
  */
-- (BOOL)isFormPositionAnimating;
+- (BOOL)isFormPositionAnimating NS_SWIFT_NAME(isFormPositionAnimating()) NS_REFINED_FOR_SWIFT;
 
 @optional
 /**
  * 弹窗是否锚定在某个位置
  */
-- (BOOL)isPresentedViewAnchored;
+- (BOOL)isPresentedViewAnchored NS_SWIFT_NAME(isPresentedViewAnchored()) NS_REFINED_FOR_SWIFT;
 /**
  * 控制器是否为交互式弹窗
  */
-- (BOOL)isPresentedControllerInteractive;
+- (BOOL)isPresentedControllerInteractive NS_SWIFT_NAME(isPresentedControllerInteractive()) NS_REFINED_FOR_SWIFT;
 
 @end
 
@@ -105,6 +107,7 @@ NS_ASSUME_NONNULL_BEGIN
  * TFYPanModalPresentableHandler
  * 弹窗核心手势与状态管理类，负责手势处理、状态切换、滚动联动等
  */
+NS_SWIFT_NAME(PanModalPresentableHandler)
 @interface TFYPanModalPresentableHandler : NSObject <UIGestureRecognizerDelegate>
 
 /**
@@ -172,11 +175,11 @@ NS_ASSUME_NONNULL_BEGIN
  * 初始化方法
  * @param presentable 遵循TFYPanModalPresentable协议的对象
  */
-- (instancetype)initWithPresentable:(nonnull id <TFYPanModalPresentable>)presentable;
+- (instancetype)initWithPresentable:(nonnull id <TFYPanModalPresentable>)presentable NS_SWIFT_NAME(init(presentable:)) NS_REFINED_FOR_SWIFT;
 /**
  * 工厂方法
  */
-+ (instancetype)handlerWithPresentable:(nonnull id <TFYPanModalPresentable>)presentable;
++ (instancetype)handlerWithPresentable:(nonnull id <TFYPanModalPresentable>)presentable NS_SWIFT_NAME(handler(presentable:)) NS_REFINED_FOR_SWIFT;
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
@@ -184,22 +187,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 监听可滚动视图
  */
-- (void)observeScrollable;
+- (void)observeScrollable NS_SWIFT_NAME(observeScrollable()) NS_REFINED_FOR_SWIFT;
 
 /**
  * 配置滚动视图inset
  */
-- (void)configureScrollViewInsets;
+- (void)configureScrollViewInsets NS_SWIFT_NAME(configureScrollViewInsets()) NS_REFINED_FOR_SWIFT;
 
 /**
  * 设置滚动视图contentOffset
  */
-- (void)setScrollableContentOffset:(CGPoint)offset animated:(BOOL)animated;
+- (void)setScrollableContentOffset:(CGPoint)offset animated:(BOOL)animated NS_SWIFT_NAME(setScrollableContentOffset(_:animated:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 配置视图布局
  */
-- (void)configureViewLayout;
+- (void)configureViewLayout NS_SWIFT_NAME(configureViewLayout()) NS_REFINED_FOR_SWIFT;
 
 @end
 

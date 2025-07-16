@@ -24,21 +24,22 @@ static CGFloat const kIndicatorYOffset = 5;
  * TFYPanModalIndicatorProtocol
  * 拖拽指示器协议，支持自定义UI和状态切换
  */
+NS_SWIFT_NAME(PanModalIndicatorProtocol)
 @protocol TFYPanModalIndicatorProtocol <NSObject>
 
 /**
  * 拖拽状态变更回调
  * @param state 当前状态
  */
-- (void)didChangeToState:(TFYIndicatorState)state;
+- (void)didChangeToState:(TFYIndicatorState)state NS_SWIFT_NAME(didChange(to:)) NS_REFINED_FOR_SWIFT;
 /**
  * 返回指示器尺寸
  */
-- (CGSize)indicatorSize;
+- (CGSize)indicatorSize NS_SWIFT_NAME(indicatorSize()) NS_REFINED_FOR_SWIFT;
 /**
  * 指示器添加到父视图时的布局回调
  */
-- (void)setupSubviews;
+- (void)setupSubviews NS_SWIFT_NAME(setupSubviews()) NS_REFINED_FOR_SWIFT;
 
 @end
 

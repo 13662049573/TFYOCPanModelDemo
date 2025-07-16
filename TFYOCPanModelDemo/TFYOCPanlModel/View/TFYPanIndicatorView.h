@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  * TFYPanIndicatorView
  * PanModal拖拽指示器视图，支持自定义颜色
  */
+NS_SWIFT_NAME(PanIndicatorView)
 @interface TFYPanIndicatorView : UIView <TFYPanModalIndicatorProtocol>
 
 /**

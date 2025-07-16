@@ -18,10 +18,10 @@
  * @discussion 用于区分不同的交互关闭方式，如无交互、侧滑、下拉等
  */
 typedef NS_ENUM(NSInteger, PanModalInteractiveMode) {
-    PanModalInteractiveModeNone,           ///< 无交互
-    PanModalInteractiveModeSideslip,       ///< 侧滑返回
-    PanModalInteractiveModeDragDown,       ///< 向下拖拽返回
-};
+    PanModalInteractiveModeNone NS_SWIFT_NAME(none),           ///< 无交互
+    PanModalInteractiveModeSideslip NS_SWIFT_NAME(sideslip),       ///< 侧滑返回
+    PanModalInteractiveModeDragDown NS_SWIFT_NAME(dragDown),       ///< 向下拖拽返回
+} NS_SWIFT_NAME(PanModalInteractiveMode);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @brief PanModal弹窗的转场代理，负责动画与交互的管理
  * @discussion 实现UIViewControllerTransitioningDelegate等协议，统一管理弹窗的present/dismiss动画与交互
  */
+NS_SWIFT_NAME(PanModalPresentationDelegate)
 @interface TFYPanModalPresentationDelegate : NSObject <UIViewControllerTransitioningDelegate, UIAdaptivePresentationControllerDelegate, UIPopoverPresentationControllerDelegate>
 
 /**

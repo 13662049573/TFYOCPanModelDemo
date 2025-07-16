@@ -16,15 +16,16 @@ NS_ASSUME_NONNULL_BEGIN
  * 背景遮罩的显示模式
  */
 typedef NS_ENUM(NSUInteger, TFYBackgroundBehavior) {
-    TFYBackgroundBehaviorDefault, ///< 仅使用背景透明度
-    TFYBackgroundBehaviorSystemVisualEffect, ///< 使用系统UIVisualEffect（如UIBlurEffect）
-    TFYBackgroundBehaviorCustomBlurEffect,   ///< 使用自定义模糊效果
-};
+    TFYBackgroundBehaviorDefault NS_SWIFT_NAME(default),
+    TFYBackgroundBehaviorSystemVisualEffect NS_SWIFT_NAME(systemVisualEffect),
+    TFYBackgroundBehaviorCustomBlurEffect NS_SWIFT_NAME(customBlurEffect),
+} NS_SWIFT_NAME(BackgroundBehavior);
 
 /**
  * TFYBackgroundConfig
  * PanModal弹窗的背景配置对象，支持多种遮罩模式、模糊、透明度等
  */
+NS_SWIFT_NAME(BackgroundConfig)
 @interface TFYBackgroundConfig : NSObject
 
 /**
@@ -52,13 +53,13 @@ typedef NS_ENUM(NSUInteger, TFYBackgroundBehavior) {
  * 初始化方法，指定背景显示模式
  * @param backgroundBehavior 显示模式
  */
-- (instancetype)initWithBehavior:(TFYBackgroundBehavior)backgroundBehavior;
+- (instancetype)initWithBehavior:(TFYBackgroundBehavior)backgroundBehavior NS_SWIFT_NAME(init(behavior:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 工厂方法，指定背景显示模式
  * @param backgroundBehavior 显示模式
  */
-+ (instancetype)configWithBehavior:(TFYBackgroundBehavior)backgroundBehavior;
++ (instancetype)configWithBehavior:(TFYBackgroundBehavior)backgroundBehavior NS_SWIFT_NAME(config(behavior:)) NS_REFINED_FOR_SWIFT;
 
 @end
 

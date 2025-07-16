@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(VisualEffectView)
 @interface TFYVisualEffectView : UIVisualEffectView
 
 /**
@@ -33,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) CGFloat scale;
 
-- (void)updateBlurEffect:(nullable UIVisualEffect *)effect;
+- (void)updateBlurEffect:(nullable UIVisualEffect *)effect NS_SWIFT_NAME(updateBlurEffect(_:)) NS_REFINED_FOR_SWIFT;
 
 @end
 

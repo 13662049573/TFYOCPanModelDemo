@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @brief PanModal弹窗presenter扩展，便捷present/dismiss
  * @discussion 通过分类实现TFYPanModalPresenter协议，支持多种present方式
  */
+NS_SWIFT_NAME(PanModalPresenter)
 @interface UIViewController (PanModalPresenter) <TFYPanModalPresenter>
 
 @end

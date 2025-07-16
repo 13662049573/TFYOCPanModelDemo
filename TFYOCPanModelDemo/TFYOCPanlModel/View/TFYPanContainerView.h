@@ -10,22 +10,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(PanContainerView)
 @interface TFYPanContainerView : UIView
 
 /// the presented view should add to the content view.
 @property (nonatomic, strong, readonly, nonnull) UIView *contentView;
 
-- (instancetype)initWithPresentedView:(nonnull UIView *)presentedView frame:(CGRect)frame;
+- (instancetype)initWithPresentedView:(nonnull UIView *)presentedView frame:(CGRect)frame NS_SWIFT_NAME(init(presentedView:frame:)) NS_REFINED_FOR_SWIFT;
 
 - (void)updateShadow:(nonnull UIColor *)shadowColor
         shadowRadius:(CGFloat)shadowRadius
         shadowOffset:(CGSize)shadowOffset
-       shadowOpacity:(float)shadowOpacity;
+       shadowOpacity:(float)shadowOpacity NS_SWIFT_NAME(updateShadow(color:radius:offset:opacity:)) NS_REFINED_FOR_SWIFT;
 
-- (void)clearShadow;
+- (void)clearShadow NS_SWIFT_NAME(clearShadow()) NS_REFINED_FOR_SWIFT;
 
 @end
 
+NS_SWIFT_NAME(PanContainer)
 @interface UIView (PanContainer)
 
 @property (nullable, nonatomic, strong, readonly) TFYPanContainerView *panContainerView;

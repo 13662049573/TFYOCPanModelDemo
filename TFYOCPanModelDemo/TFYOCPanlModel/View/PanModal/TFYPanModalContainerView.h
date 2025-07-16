@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  * TFYPanModalContainerView
  * PanModal弹窗的容器视图，负责内容视图的管理、动画、布局等
  */
+NS_SWIFT_NAME(PanModalContainerView)
 @interface TFYPanModalContainerView : UIView
 
 /**
@@ -39,43 +40,43 @@ NS_ASSUME_NONNULL_BEGIN
  * @param presentingView 父视图
  * @param contentView    弹窗内容视图，需遵循TFYPanModalPresentable协议
  */
-- (instancetype)initWithPresentingView:(nonnull UIView *)presentingView contentView:(nonnull TFYPanModalContentView<TFYPanModalPresentable> *)contentView;
+- (instancetype)initWithPresentingView:(nonnull UIView *)presentingView contentView:(nonnull TFYPanModalContentView<TFYPanModalPresentable> *)contentView NS_SWIFT_NAME(init(presentingView:contentView:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 展示弹窗
  */
-- (void)show;
+- (void)show NS_SWIFT_NAME(show()) NS_REFINED_FOR_SWIFT;
 
 /**
  * 关闭弹窗
  * @param flag 是否动画
  * @param completion 关闭完成回调
  */
-- (void)dismissAnimated:(BOOL)flag completion:(void (^ _Nullable)(void))completion;
+- (void)dismissAnimated:(BOOL)flag completion:(void (^ _Nullable)(void))completion NS_SWIFT_NAME(dismiss(animated:completion:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 强制刷新布局
  */
-- (void)setNeedsLayoutUpdate;
+- (void)setNeedsLayoutUpdate NS_SWIFT_NAME(setNeedsLayoutUpdate()) NS_REFINED_FOR_SWIFT;
 
 /**
  * 刷新用户交互行为（如事件穿透等）
  */
-- (void)updateUserHitBehavior;
+- (void)updateUserHitBehavior NS_SWIFT_NAME(updateUserHitBehavior()) NS_REFINED_FOR_SWIFT;
 
 /**
  * 切换弹窗状态
  * @param state 目标状态
  * @param animated 是否动画
  */
-- (void)transitionToState:(PresentationState)state animated:(BOOL)animated;
+- (void)transitionToState:(PresentationState)state animated:(BOOL)animated NS_SWIFT_NAME(transition(to:animated:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 设置滚动视图的contentOffset
  * @param offset 偏移量
  * @param animated 是否动画
  */
-- (void)setScrollableContentOffset:(CGPoint)offset animated:(BOOL)animated;
+- (void)setScrollableContentOffset:(CGPoint)offset animated:(BOOL)animated NS_SWIFT_NAME(setScrollableContentOffset(_:animated:)) NS_REFINED_FOR_SWIFT;
 
 @end
 

@@ -15,6 +15,7 @@
  * @brief KVO辅助工具类，简化KVO监听与回调，自动管理生命周期
  * @discussion 通过该类可便捷实现KVO监听，自动移除，避免内存泄漏和crash
  */
+NS_SWIFT_NAME(KeyValueObserver)
 @interface KeyValueObserver : NSObject
 
 /**
@@ -34,7 +35,7 @@
  * @param selector 回调方法，参数为NSDictionary *change
  * @return KVO监听token，需要持有
  */
-+ (NSObject * _Nonnull)observeObject:(nonnull id)object keyPath:(nonnull NSString*)keyPath target:(nullable id)target selector:(nonnull SEL)selector __attribute__((warn_unused_result));
++ (NSObject * _Nonnull)observeObject:(nonnull id)object keyPath:(nonnull NSString*)keyPath target:(nullable id)target selector:(nonnull SEL)selector __attribute__((warn_unused_result)) NS_SWIFT_NAME(observe(_:keyPath:target:selector:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * @brief 创建KVO监听对象（可指定KVO选项）
@@ -45,11 +46,11 @@
  * @param options KVO选项
  * @return KVO监听token，需要持有
  */
-+ (NSObject * _Nonnull)observeObject:(nonnull id)object keyPath:(nonnull NSString*)keyPath target:(nullable id)target selector:(nonnull SEL)selector options:(NSKeyValueObservingOptions)options __attribute__((warn_unused_result));
++ (NSObject * _Nonnull)observeObject:(nonnull id)object keyPath:(nonnull NSString*)keyPath target:(nullable id)target selector:(nonnull SEL)selector options:(NSKeyValueObservingOptions)options __attribute__((warn_unused_result)) NS_SWIFT_NAME(observe(_:keyPath:target:selector:options:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * @brief 取消KVO监听（调用后需重新监听才生效）
  */
-- (void)unObserver;
+- (void)unObserver NS_SWIFT_NAME(unobserve()) NS_REFINED_FOR_SWIFT;
 
 @end

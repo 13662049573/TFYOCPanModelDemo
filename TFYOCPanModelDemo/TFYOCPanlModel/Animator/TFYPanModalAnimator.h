@@ -30,6 +30,7 @@ static NSTimeInterval kTransitionDuration = 0.5;
  * TFYPanModalAnimator
  * PanModal弹窗动画工具类，统一管理弹窗的弹出、消失、平滑动画
  */
+NS_SWIFT_NAME(PanModalAnimator)
 @interface TFYPanModalAnimator : NSObject
 
 /**
@@ -38,7 +39,7 @@ static NSTimeInterval kTransitionDuration = 0.5;
  * @param config 配置对象（可选）
  * @param completion 动画完成回调
  */
-+ (void)animate:(nonnull AnimationBlockType)animations config:(nullable id <TFYPanModalPresentable>)config completion:(nullable AnimationCompletionType)completion;
++ (void)animate:(nonnull AnimationBlockType)animations config:(nullable id <TFYPanModalPresentable>)config completion:(nullable AnimationCompletionType)completion NS_SWIFT_NAME(animate(_:config:completion:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 弹窗消失动画
@@ -46,7 +47,7 @@ static NSTimeInterval kTransitionDuration = 0.5;
  * @param config 配置对象（可选）
  * @param completion 动画完成回调
  */
-+ (void)dismissAnimate:(nonnull AnimationBlockType)animations config:(nullable id <TFYPanModalPresentable>)config completion:(nullable AnimationCompletionType)completion;
++ (void)dismissAnimate:(nonnull AnimationBlockType)animations config:(nullable id <TFYPanModalPresentable>)config completion:(nullable AnimationCompletionType)completion NS_SWIFT_NAME(dismissAnimate(_:config:completion:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 平滑线性动画（无弹性）
@@ -54,7 +55,7 @@ static NSTimeInterval kTransitionDuration = 0.5;
  * @param duration 动画时长
  * @param completion 动画完成回调
  */
-+ (void)smoothAnimate:(nonnull AnimationBlockType)animations duration:(NSTimeInterval)duration completion:(nullable AnimationCompletionType)completion;
++ (void)smoothAnimate:(nonnull AnimationBlockType)animations duration:(NSTimeInterval)duration completion:(nullable AnimationCompletionType)completion NS_SWIFT_NAME(smoothAnimate(_:duration:completion:)) NS_REFINED_FOR_SWIFT;
 
 @end
 

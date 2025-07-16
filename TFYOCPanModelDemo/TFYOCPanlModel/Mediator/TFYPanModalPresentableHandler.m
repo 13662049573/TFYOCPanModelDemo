@@ -42,6 +42,8 @@ static NSString *const kScrollViewKVOContentOffsetKey = @"contentOffset";
 @property (nonatomic, strong) id observerToken;
 @property (nonatomic, assign) CGFloat scrollViewYOffset;
 
+@property (nonatomic, assign) BOOL keyboardObserved;
+
 @end
 
 @implementation TFYPanModalPresentableHandler
@@ -582,20 +584,18 @@ static NSString *const kScrollViewKVOContentOffsetKey = @"contentOffset";
 #pragma mark - UIKeyboard Handle
 
 - (void)addKeyboardObserver {
-    static BOOL keyboardObserved = NO;
-    if (keyboardObserved) return;
+    if (self.keyboardObserved) return;
     if ([self.presentable isAutoHandleKeyboardEnabled]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-        keyboardObserved = YES;
+        self.keyboardObserved = YES;
     }
 }
 
 - (void)removeKeyboardObserver {
-    static BOOL keyboardObserved = YES;
-    if (!keyboardObserved) return;
+    if (!self.keyboardObserved) return;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    keyboardObserved = NO;
+    self.keyboardObserved = NO;
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {

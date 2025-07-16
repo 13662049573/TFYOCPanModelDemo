@@ -36,6 +36,7 @@ typedef void(^didTap)(UITapGestureRecognizer *recognizer);
  * 3. 支持无障碍（可访问性），自动为VoiceOver等辅助功能提供友好标签
  * 4. 支持自定义点击回调、模糊效果、动态配置
  */
+NS_SWIFT_NAME(DimmedView)
 @interface TFYDimmedView : UIView
 
 /**
@@ -64,19 +65,19 @@ typedef void(^didTap)(UITapGestureRecognizer *recognizer);
  * @param dimAlpha 最大透明度
  * @param blurRadius 最大模糊半径
  */
-- (instancetype)initWithDimAlpha:(CGFloat)dimAlpha blurRadius:(CGFloat)blurRadius;
+- (instancetype)initWithDimAlpha:(CGFloat)dimAlpha blurRadius:(CGFloat)blurRadius NS_SWIFT_NAME(init(dimAlpha:blurRadius:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 初始化方法，指定背景配置对象
  * @param backgroundConfig 背景配置
  */
-- (instancetype)initWithBackgroundConfig:(nonnull TFYBackgroundConfig *)backgroundConfig;
+- (instancetype)initWithBackgroundConfig:(nonnull TFYBackgroundConfig *)backgroundConfig NS_SWIFT_NAME(init(backgroundConfig:)) NS_REFINED_FOR_SWIFT;
 
 /**
  * 重新加载背景配置
  * @param backgroundConfig 新的背景配置
  */
-- (void)reloadConfig:(nonnull TFYBackgroundConfig *)backgroundConfig;
+- (void)reloadConfig:(nonnull TFYBackgroundConfig *)backgroundConfig NS_SWIFT_NAME(reloadConfig(_:)) NS_REFINED_FOR_SWIFT;
 
 @end
 
