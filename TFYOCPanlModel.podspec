@@ -14,6 +14,8 @@ Pod::Spec.new do |spec|
 
   spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
   
+  spec.platform     = :ios, "15.0"
+  spec.ios.deployment_target = "15.0"
 
   spec.license      = "MIT"
   
