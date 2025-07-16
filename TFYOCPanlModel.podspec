@@ -44,7 +44,22 @@ Pod::Spec.new do |spec|
     "TFYOCPanModelDemo/TFYOCPanlModel/View/PanModal/TFYPanModalContentView.h",
     "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYBackgroundConfig.h",
     "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanModalShadow.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/TFYPanModalPresentationUpdateProtocol.h"
+    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/TFYPanModalPresentationUpdateProtocol.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/UIViewController+LayoutHelper.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Category/UIView+TFY_Frame.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Category/UIScrollView+Helper.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/TFYPanModalAnimator.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/TFYPanModalInteractiveAnimator.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/TFYPanModalPresentationAnimator.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/PresentingVCAnimation/TFYShoppingCartPresentingAnimation.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/PresentingVCAnimation/TFYPageSheetPresentingAnimation.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanContainerView.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYVisualEffectView.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanModalShadow.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/KVO/KeyValueObserver.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Delegate/TFYPanModalPresentationDelegate.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Mediator/TFYPanModalPresentableHandler.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Controller/TFYPanModalPresentationController.h"
   ]
 
 end
