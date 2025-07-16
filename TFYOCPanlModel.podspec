@@ -15,12 +15,12 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
   
 
-  spec.license      = "MIT (example)"
+  spec.license      = "MIT"
   
 
   spec.author       = { "tianfengyou" => "420144542@qq.com" }
   
-  spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => spec.version }
 
   # 源码文件递归所有.h/.m
   spec.source_files  = "TFYOCPanModelDemo/TFYOCPanlModel/**/*.{h,m}"
