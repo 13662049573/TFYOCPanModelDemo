@@ -41,7 +41,9 @@ Pod::Spec.new do |spec|
     "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanModalIndicatorProtocol.h",
     "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanIndicatorView.h",
     "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYDimmedView.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/View/PanModal/TFYPanModalContentView.h"
+    "TFYOCPanModelDemo/TFYOCPanlModel/View/PanModal/TFYPanModalContentView.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYBackgroundConfig.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanModalShadow.h"
   ]
 
 end
