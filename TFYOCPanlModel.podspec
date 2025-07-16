@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
     TFYOCPanlModel 是一套高扩展性的 Objective-C 弹窗组件，支持多种弹窗样式、交互动画与自定义扩展，适用于 iOS 各类弹窗场景。
   DESC
 
-  spec.homepage     = "http://EXAMPLE/TFYOCPanlModel"
+  spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
   
 
   spec.license      = "MIT (example)"
@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
 
   spec.author       = { "tianfengyou" => "420144542@qq.com" }
   
-  spec.source       = { :git => "http://EXAMPLE/TFYOCPanlModel.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => "#{spec.version}" }
 
   # 源码文件递归所有.h/.m
   spec.source_files  = "TFYOCPanModelDemo/TFYOCPanlModel/**/*.{h,m}"
