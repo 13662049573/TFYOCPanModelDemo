@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
  * @category UIScrollView (Helper)
  * @brief UIScrollView滚动状态辅助分类，提供便捷属性判断当前是否正在滚动。
  */
-NS_SWIFT_NAME(Helper)
 @interface UIScrollView (Helper)
 
 /**

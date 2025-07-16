@@ -509,8 +509,8 @@ static NSString *const kScrollViewKVOContentOffsetKey = @"contentOffset";
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     
     if ([self.presentable conformsToProtocol:@protocol(TFYPanModalPanGestureDelegate)] &&
-        [self.presentable respondsToSelector:@selector(gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:)]) {
-        return [self.presentable gestureRecognizer:gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:otherGestureRecognizer];
+        [self.presentable respondsToSelector:@selector(panGestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:)]) {
+        return [self.presentable panGestureRecognizer:gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:otherGestureRecognizer];
     }
     
     if ([gestureRecognizer isKindOfClass:UIPanGestureRecognizer.class]) {
@@ -525,8 +525,8 @@ static NSString *const kScrollViewKVOContentOffsetKey = @"contentOffset";
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     
     if ([self.presentable conformsToProtocol:@protocol(TFYPanModalPanGestureDelegate)] &&
-        [self.presentable respondsToSelector:@selector(gestureRecognizer:shouldBeRequiredToFailByGestureRecognizer:)]) {
-        return [self.presentable gestureRecognizer:gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:otherGestureRecognizer];
+        [self.presentable respondsToSelector:@selector(panGestureRecognizer:shouldBeRequiredToFailByGestureRecognizer:)]) {
+        return [self.presentable panGestureRecognizer:gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:otherGestureRecognizer];
     }
     
     
@@ -538,8 +538,8 @@ static NSString *const kScrollViewKVOContentOffsetKey = @"contentOffset";
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     if ([self.presentable conformsToProtocol:@protocol(TFYPanModalPanGestureDelegate)] &&
-        [self.presentable respondsToSelector:@selector(gestureRecognizer:shouldRequireFailureOfGestureRecognizer:)]) {
-        return [self.presentable gestureRecognizer:gestureRecognizer shouldRequireFailureOfGestureRecognizer:otherGestureRecognizer];
+        [self.presentable respondsToSelector:@selector(panGestureRecognizer:shouldRequireFailureOfGestureRecognizer:)]) {
+        return [self.presentable panGestureRecognizer:gestureRecognizer shouldRequireFailureOfGestureRecognizer:otherGestureRecognizer];
     }
 
     return NO;
@@ -548,8 +548,8 @@ static NSString *const kScrollViewKVOContentOffsetKey = @"contentOffset";
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     
     if ([self.presentable conformsToProtocol:@protocol(TFYPanModalPanGestureDelegate)] &&
-        [self.presentable respondsToSelector:@selector(gestureRecognizerShouldBegin:)]) {
-        return [self.presentable gestureRecognizerShouldBegin:gestureRecognizer];
+        [self.presentable respondsToSelector:@selector(panGestureRecognizerShouldBegin:)]) {
+        return [self.presentable panGestureRecognizerShouldBegin:gestureRecognizer];
     }
     
     if (gestureRecognizer == self.screenEdgeGestureRecognizer) {

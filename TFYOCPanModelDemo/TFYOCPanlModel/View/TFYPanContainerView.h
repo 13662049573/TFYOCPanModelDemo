@@ -27,7 +27,6 @@ NS_SWIFT_NAME(PanContainerView)
 
 @end
 
-NS_SWIFT_NAME(PanContainer)
 @interface UIView (PanContainer)
 
 @property (nullable, nonatomic, strong, readonly) TFYPanContainerView *panContainerView;
