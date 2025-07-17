@@ -34,36 +34,36 @@ NS_SWIFT_NAME(PanModalPresentableHandlerDelegate)
  * 通知代理：弹窗Y坐标即将变更
  * @param yPos 新的Y坐标
  */
-- (void)adjustPresentableYPos:(CGFloat)yPos NS_SWIFT_NAME(adjustPresentableYPos(_:)) NS_REFINED_FOR_SWIFT;
+- (void)adjustPresentableYPos:(CGFloat)yPos NS_SWIFT_NAME(adjustPresentableYPos(_:));
 
 /**
  * 通知代理：弹窗状态即将变更（short/medium/long）
  * @param state 新的状态
  */
-- (void)presentableTransitionToState:(PresentationState)state NS_SWIFT_NAME(presentableTransition(to:)) NS_REFINED_FOR_SWIFT;
+- (void)presentableTransitionToState:(PresentationState)state NS_SWIFT_NAME(presentableTransition(to:));
 
 /**
  * 获取当前弹窗的状态
  * @return 当前状态
  */
-- (PresentationState)getCurrentPresentationState NS_SWIFT_NAME(currentPresentationState()) NS_REFINED_FOR_SWIFT;
+- (PresentationState)getCurrentPresentationState NS_SWIFT_NAME(currentPresentationState());
 
 /**
  * 通知代理：弹窗即将被关闭
  * @param isInteractive 是否为交互式关闭
  * @param mode 关闭模式
  */
-- (void)dismiss:(BOOL)isInteractive mode:(PanModalInteractiveMode)mode NS_SWIFT_NAME(dismiss(_:mode:)) NS_REFINED_FOR_SWIFT;
+- (void)dismiss:(BOOL)isInteractive mode:(PanModalInteractiveMode)mode NS_SWIFT_NAME(dismiss(_:mode:));
 
 @optional
 /**
  * 取消交互式转场
  */
-- (void)cancelInteractiveTransition NS_SWIFT_NAME(cancelInteractiveTransition()) NS_REFINED_FOR_SWIFT;
+- (void)cancelInteractiveTransition NS_SWIFT_NAME(cancelInteractiveTransition());
 /**
  * 完成交互式转场
  */
-- (void)finishInteractiveTransition NS_SWIFT_NAME(finishInteractiveTransition()) NS_REFINED_FOR_SWIFT;
+- (void)finishInteractiveTransition NS_SWIFT_NAME(finishInteractiveTransition());
 
 @end
 
@@ -77,29 +77,29 @@ NS_SWIFT_NAME(PanModalPresentableHandlerDataSource)
 /**
  * 获取容器尺寸
  */
-- (CGSize)containerSize NS_SWIFT_NAME(containerSize()) NS_REFINED_FOR_SWIFT;
+- (CGSize)containerSize NS_SWIFT_NAME(containerSize());
 /**
  * 是否正在被关闭
  */
-- (BOOL)isBeingDismissed NS_SWIFT_NAME(isBeingDismissed()) NS_REFINED_FOR_SWIFT;
+- (BOOL)isBeingDismissed NS_SWIFT_NAME(isBeingDismissed());
 /**
  * 是否正在被展示
  */
-- (BOOL)isBeingPresented NS_SWIFT_NAME(isBeingPresented()) NS_REFINED_FOR_SWIFT;
+- (BOOL)isBeingPresented NS_SWIFT_NAME(isBeingPresented());
 /**
  * 弹窗位置是否正在动画中
  */
-- (BOOL)isFormPositionAnimating NS_SWIFT_NAME(isFormPositionAnimating()) NS_REFINED_FOR_SWIFT;
+- (BOOL)isFormPositionAnimating NS_SWIFT_NAME(isFormPositionAnimating());
 
 @optional
 /**
  * 弹窗是否锚定在某个位置
  */
-- (BOOL)isPresentedViewAnchored NS_SWIFT_NAME(isPresentedViewAnchored()) NS_REFINED_FOR_SWIFT;
+- (BOOL)isPresentedViewAnchored NS_SWIFT_NAME(isPresentedViewAnchored());
 /**
  * 控制器是否为交互式弹窗
  */
-- (BOOL)isPresentedControllerInteractive NS_SWIFT_NAME(isPresentedControllerInteractive()) NS_REFINED_FOR_SWIFT;
+- (BOOL)isPresentedControllerInteractive NS_SWIFT_NAME(isPresentedControllerInteractive());
 
 @end
 
@@ -175,11 +175,11 @@ NS_SWIFT_NAME(PanModalPresentableHandler)
  * 初始化方法
  * @param presentable 遵循TFYPanModalPresentable协议的对象
  */
-- (instancetype)initWithPresentable:(nonnull id <TFYPanModalPresentable>)presentable NS_SWIFT_NAME(init(presentable:)) NS_REFINED_FOR_SWIFT;
+- (instancetype)initWithPresentable:(nonnull id <TFYPanModalPresentable>)presentable NS_SWIFT_NAME(init(presentable:));
 /**
  * 工厂方法
  */
-+ (instancetype)handlerWithPresentable:(nonnull id <TFYPanModalPresentable>)presentable NS_SWIFT_NAME(handler(presentable:)) NS_REFINED_FOR_SWIFT;
++ (instancetype)handlerWithPresentable:(nonnull id <TFYPanModalPresentable>)presentable NS_SWIFT_NAME(handler(presentable:));
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
@@ -187,22 +187,22 @@ NS_SWIFT_NAME(PanModalPresentableHandler)
 /**
  * 监听可滚动视图
  */
-- (void)observeScrollable NS_SWIFT_NAME(observeScrollable()) NS_REFINED_FOR_SWIFT;
+- (void)observeScrollable NS_SWIFT_NAME(observeScrollable());
 
 /**
  * 配置滚动视图inset
  */
-- (void)configureScrollViewInsets NS_SWIFT_NAME(configureScrollViewInsets()) NS_REFINED_FOR_SWIFT;
+- (void)configureScrollViewInsets NS_SWIFT_NAME(configureScrollViewInsets());
 
 /**
  * 设置滚动视图contentOffset
  */
-- (void)setScrollableContentOffset:(CGPoint)offset animated:(BOOL)animated NS_SWIFT_NAME(setScrollableContentOffset(_:animated:)) NS_REFINED_FOR_SWIFT;
+- (void)setScrollableContentOffset:(CGPoint)offset animated:(BOOL)animated NS_SWIFT_NAME(setScrollableContentOffset(_:animated:));
 
 /**
  * 配置视图布局
  */
-- (void)configureViewLayout NS_SWIFT_NAME(configureViewLayout()) NS_REFINED_FOR_SWIFT;
+- (void)configureViewLayout NS_SWIFT_NAME(configureViewLayout());
 
 @end
 

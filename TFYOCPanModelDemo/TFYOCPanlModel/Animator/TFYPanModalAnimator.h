@@ -39,7 +39,7 @@ NS_SWIFT_NAME(PanModalAnimator)
  * @param config 配置对象（可选）
  * @param completion 动画完成回调
  */
-+ (void)animate:(nonnull AnimationBlockType)animations config:(nullable id <TFYPanModalPresentable>)config completion:(nullable AnimationCompletionType)completion NS_SWIFT_NAME(animate(_:config:completion:)) NS_REFINED_FOR_SWIFT;
++ (void)animate:(nonnull AnimationBlockType)animations config:(nullable id <TFYPanModalPresentable>)config completion:(nullable AnimationCompletionType)completion NS_SWIFT_NAME(animate(_:config:completion:));
 
 /**
  * 弹窗消失动画
@@ -47,7 +47,7 @@ NS_SWIFT_NAME(PanModalAnimator)
  * @param config 配置对象（可选）
  * @param completion 动画完成回调
  */
-+ (void)dismissAnimate:(nonnull AnimationBlockType)animations config:(nullable id <TFYPanModalPresentable>)config completion:(nullable AnimationCompletionType)completion NS_SWIFT_NAME(dismissAnimate(_:config:completion:)) NS_REFINED_FOR_SWIFT;
++ (void)dismissAnimate:(nonnull AnimationBlockType)animations config:(nullable id <TFYPanModalPresentable>)config completion:(nullable AnimationCompletionType)completion NS_SWIFT_NAME(dismissAnimate(_:config:completion:));
 
 /**
  * 平滑线性动画（无弹性）
@@ -55,7 +55,7 @@ NS_SWIFT_NAME(PanModalAnimator)
  * @param duration 动画时长
  * @param completion 动画完成回调
  */
-+ (void)smoothAnimate:(nonnull AnimationBlockType)animations duration:(NSTimeInterval)duration completion:(nullable AnimationCompletionType)completion NS_SWIFT_NAME(smoothAnimate(_:duration:completion:)) NS_REFINED_FOR_SWIFT;
++ (void)smoothAnimate:(nonnull AnimationBlockType)animations duration:(NSTimeInterval)duration completion:(nullable AnimationCompletionType)completion NS_SWIFT_NAME(smoothAnimate(_:duration:completion:));
 
 @end
 

@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief 判断UIScrollView是否滚动到顶部
  */
-- (BOOL)tfy_isAtTop NS_SWIFT_NAME(isAtTop()) NS_REFINED_FOR_SWIFT;
+- (BOOL)tfy_isAtTop NS_SWIFT_NAME(isAtTop());
 
 @end
 

@@ -53,13 +53,13 @@ NS_SWIFT_NAME(BackgroundConfig)
  * 初始化方法，指定背景显示模式
  * @param backgroundBehavior 显示模式
  */
-- (instancetype)initWithBehavior:(TFYBackgroundBehavior)backgroundBehavior NS_SWIFT_NAME(init(behavior:)) NS_REFINED_FOR_SWIFT;
+- (instancetype)initWithBehavior:(TFYBackgroundBehavior)backgroundBehavior NS_SWIFT_NAME(init(behavior:));
 
 /**
  * 工厂方法，指定背景显示模式
  * @param backgroundBehavior 显示模式
  */
-+ (instancetype)configWithBehavior:(TFYBackgroundBehavior)backgroundBehavior NS_SWIFT_NAME(config(behavior:)) NS_REFINED_FOR_SWIFT;
++ (instancetype)configWithBehavior:(TFYBackgroundBehavior)backgroundBehavior NS_SWIFT_NAME(config(behavior:));
 
 @end
 

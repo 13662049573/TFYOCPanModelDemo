@@ -16,14 +16,14 @@ NS_SWIFT_NAME(PanContainerView)
 /// the presented view should add to the content view.
 @property (nonatomic, strong, readonly, nonnull) UIView *contentView;
 
-- (instancetype)initWithPresentedView:(nonnull UIView *)presentedView frame:(CGRect)frame NS_SWIFT_NAME(init(presentedView:frame:)) NS_REFINED_FOR_SWIFT;
+- (instancetype)initWithPresentedView:(nonnull UIView *)presentedView frame:(CGRect)frame NS_SWIFT_NAME(init(presentedView:frame:));
 
 - (void)updateShadow:(nonnull UIColor *)shadowColor
         shadowRadius:(CGFloat)shadowRadius
         shadowOffset:(CGSize)shadowOffset
-       shadowOpacity:(float)shadowOpacity NS_SWIFT_NAME(updateShadow(color:radius:offset:opacity:)) NS_REFINED_FOR_SWIFT;
+       shadowOpacity:(float)shadowOpacity NS_SWIFT_NAME(updateShadow(color:radius:offset:opacity:));
 
-- (void)clearShadow NS_SWIFT_NAME(clearShadow()) NS_REFINED_FOR_SWIFT;
+- (void)clearShadow NS_SWIFT_NAME(clearShadow());
 
 @end
 

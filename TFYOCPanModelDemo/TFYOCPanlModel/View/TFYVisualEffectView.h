@@ -34,7 +34,7 @@ NS_SWIFT_NAME(VisualEffectView)
  */
 @property (nonatomic, assign) CGFloat scale;
 
-- (void)updateBlurEffect:(nullable UIVisualEffect *)effect NS_SWIFT_NAME(updateBlurEffect(_:)) NS_REFINED_FOR_SWIFT;
+- (void)updateBlurEffect:(nullable UIVisualEffect *)effect NS_SWIFT_NAME(updateBlurEffect(_:));
 
 @end
 

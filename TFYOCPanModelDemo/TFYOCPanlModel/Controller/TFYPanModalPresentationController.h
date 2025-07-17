@@ -36,33 +36,33 @@ NS_SWIFT_NAME(PanModalPresentationController)
 /**
  * 强制刷新布局
  */
-- (void)setNeedsLayoutUpdate NS_SWIFT_NAME(setNeedsLayoutUpdate()) NS_REFINED_FOR_SWIFT;
+- (void)setNeedsLayoutUpdate NS_SWIFT_NAME(setNeedsLayoutUpdate());
 
 /**
  * 刷新用户交互行为（如事件穿透等）
  */
-- (void)updateUserHitBehavior NS_SWIFT_NAME(updateUserHitBehavior()) NS_REFINED_FOR_SWIFT;
+- (void)updateUserHitBehavior NS_SWIFT_NAME(updateUserHitBehavior());
 
 /**
  * 切换弹窗状态
  * @param state 目标状态
  * @param animated 是否动画
  */
-- (void)transitionToState:(PresentationState)state animated:(BOOL)animated NS_SWIFT_NAME(transition(to:animated:)) NS_REFINED_FOR_SWIFT;
+- (void)transitionToState:(PresentationState)state animated:(BOOL)animated NS_SWIFT_NAME(transition(to:animated:));
 
 /**
  * 设置滚动视图的contentOffset
  * @param offset 偏移量
  * @param animated 是否动画
  */
-- (void)setScrollableContentOffset:(CGPoint)offset animated:(BOOL)animated NS_SWIFT_NAME(setScrollableContentOffset(_:animated:)) NS_REFINED_FOR_SWIFT;
+- (void)setScrollableContentOffset:(CGPoint)offset animated:(BOOL)animated NS_SWIFT_NAME(setScrollableContentOffset(_:animated:));
 
 /**
  * 关闭弹窗
  * @param animated 是否动画
  * @param completion 关闭完成回调
  */
-- (void)dismissAnimated:(BOOL)animated completion:(void (^ _Nullable)(void))completion NS_SWIFT_NAME(dismiss(animated:completion:)) NS_REFINED_FOR_SWIFT;
+- (void)dismissAnimated:(BOOL)animated completion:(void (^ _Nullable)(void))completion NS_SWIFT_NAME(dismiss(animated:completion:));
 
 @end
 

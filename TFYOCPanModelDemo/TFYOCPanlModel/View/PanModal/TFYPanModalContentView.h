@@ -28,14 +28,14 @@ NS_SWIFT_NAME(PanModalContentView)
  * 在指定视图中present弹窗内容
  * @param view 目标父视图，若为nil则自动使用keyWindow
  */
-- (void)presentInView:(nullable UIView *)view NS_SWIFT_NAME(present(in:)) NS_REFINED_FOR_SWIFT;
+- (void)presentInView:(nullable UIView *)view NS_SWIFT_NAME(present(in:));
 
 /**
  * 关闭弹窗内容
  * @param flag 是否动画
  * @param completion 关闭完成回调
  */
-- (void)dismissAnimated:(BOOL)flag completion:(void (^)(void))completion NS_SWIFT_NAME(dismiss(animated:completion:)) NS_REFINED_FOR_SWIFT;
+- (void)dismissAnimated:(BOOL)flag completion:(void (^)(void))completion NS_SWIFT_NAME(dismiss(animated:completion:));
 
 @end
 

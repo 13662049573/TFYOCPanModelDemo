@@ -35,7 +35,7 @@ NS_SWIFT_NAME(KeyValueObserver)
  * @param selector 回调方法，参数为NSDictionary *change
  * @return KVO监听token，需要持有
  */
-+ (NSObject * _Nonnull)observeObject:(nonnull id)object keyPath:(nonnull NSString*)keyPath target:(nullable id)target selector:(nonnull SEL)selector __attribute__((warn_unused_result)) NS_SWIFT_NAME(observe(_:keyPath:target:selector:)) NS_REFINED_FOR_SWIFT;
++ (NSObject * _Nonnull)observeObject:(nonnull id)object keyPath:(nonnull NSString*)keyPath target:(nullable id)target selector:(nonnull SEL)selector __attribute__((warn_unused_result)) NS_SWIFT_NAME(observe(_:keyPath:target:selector:));
 
 /**
  * @brief 创建KVO监听对象（可指定KVO选项）
@@ -46,11 +46,11 @@ NS_SWIFT_NAME(KeyValueObserver)
  * @param options KVO选项
  * @return KVO监听token，需要持有
  */
-+ (NSObject * _Nonnull)observeObject:(nonnull id)object keyPath:(nonnull NSString*)keyPath target:(nullable id)target selector:(nonnull SEL)selector options:(NSKeyValueObservingOptions)options __attribute__((warn_unused_result)) NS_SWIFT_NAME(observe(_:keyPath:target:selector:options:)) NS_REFINED_FOR_SWIFT;
++ (NSObject * _Nonnull)observeObject:(nonnull id)object keyPath:(nonnull NSString*)keyPath target:(nullable id)target selector:(nonnull SEL)selector options:(NSKeyValueObservingOptions)options __attribute__((warn_unused_result)) NS_SWIFT_NAME(observe(_:keyPath:target:selector:options:));
 
 /**
  * @brief 取消KVO监听（调用后需重新监听才生效）
  */
-- (void)unObserver NS_SWIFT_NAME(unobserve()) NS_REFINED_FOR_SWIFT;
+- (void)unObserver NS_SWIFT_NAME(unobserve());
 
 @end

@@ -65,19 +65,19 @@ NS_SWIFT_NAME(DimmedView)
  * @param dimAlpha 最大透明度
  * @param blurRadius 最大模糊半径
  */
-- (instancetype)initWithDimAlpha:(CGFloat)dimAlpha blurRadius:(CGFloat)blurRadius NS_SWIFT_NAME(init(dimAlpha:blurRadius:)) NS_REFINED_FOR_SWIFT;
+- (instancetype)initWithDimAlpha:(CGFloat)dimAlpha blurRadius:(CGFloat)blurRadius NS_SWIFT_NAME(init(dimAlpha:blurRadius:));
 
 /**
  * 初始化方法，指定背景配置对象
  * @param backgroundConfig 背景配置
  */
-- (instancetype)initWithBackgroundConfig:(nonnull TFYBackgroundConfig *)backgroundConfig NS_SWIFT_NAME(init(backgroundConfig:)) NS_REFINED_FOR_SWIFT;
+- (instancetype)initWithBackgroundConfig:(nonnull TFYBackgroundConfig *)backgroundConfig NS_SWIFT_NAME(init(backgroundConfig:));
 
 /**
  * 重新加载背景配置
  * @param backgroundConfig 新的背景配置
  */
-- (void)reloadConfig:(nonnull TFYBackgroundConfig *)backgroundConfig NS_SWIFT_NAME(reloadConfig(_:)) NS_REFINED_FOR_SWIFT;
+- (void)reloadConfig:(nonnull TFYBackgroundConfig *)backgroundConfig NS_SWIFT_NAME(reloadConfig(_:));
 
 @end
 

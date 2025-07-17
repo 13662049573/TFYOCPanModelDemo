@@ -23,25 +23,25 @@ NS_SWIFT_NAME(PanModalPanGestureDelegate)
  * 判断手势是否可开始
  * @param gestureRecognizer 手势识别器
  */
-- (BOOL)panGestureRecognizerShouldBegin:(nonnull UIGestureRecognizer *)gestureRecognizer NS_SWIFT_NAME(panGestureRecognizerShouldBegin(_:)) NS_REFINED_FOR_SWIFT;
+- (BOOL)panGestureRecognizerShouldBegin:(nonnull UIGestureRecognizer *)gestureRecognizer NS_SWIFT_NAME(panGestureRecognizerShouldBegin(_:));
 /**
  * 是否允许与其他手势同时识别
  * @param gestureRecognizer 当前手势
  * @param otherGestureRecognizer 其他手势
  */
-- (BOOL)panGestureRecognizer:(nonnull UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(nonnull UIGestureRecognizer *)otherGestureRecognizer NS_SWIFT_NAME(panGestureRecognizer(_:shouldRecognizeSimultaneouslyWith:)) NS_REFINED_FOR_SWIFT;
+- (BOOL)panGestureRecognizer:(nonnull UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(nonnull UIGestureRecognizer *)otherGestureRecognizer NS_SWIFT_NAME(panGestureRecognizer(_:shouldRecognizeSimultaneouslyWith:));
 /**
  * 是否要求当前手势失败后再识别其他手势
  * @param gestureRecognizer 当前手势
  * @param otherGestureRecognizer 其他手势
  */
-- (BOOL)panGestureRecognizer:(nonnull UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(nonnull UIGestureRecognizer *)otherGestureRecognizer NS_SWIFT_NAME(panGestureRecognizer(_:shouldBeRequiredToFailBy:)) NS_REFINED_FOR_SWIFT;
+- (BOOL)panGestureRecognizer:(nonnull UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(nonnull UIGestureRecognizer *)otherGestureRecognizer NS_SWIFT_NAME(panGestureRecognizer(_:shouldBeRequiredToFailBy:));
 /**
  * 是否要求其他手势失败后再识别当前手势
  * @param gestureRecognizer 当前手势
  * @param otherGestureRecognizer 其他手势
  */
-- (BOOL)panGestureRecognizer:(nonnull UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(nonnull UIGestureRecognizer *)otherGestureRecognizer NS_SWIFT_NAME(panGestureRecognizer(_:shouldRequireFailureOf:)) NS_REFINED_FOR_SWIFT;
+- (BOOL)panGestureRecognizer:(nonnull UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(nonnull UIGestureRecognizer *)otherGestureRecognizer NS_SWIFT_NAME(panGestureRecognizer(_:shouldRequireFailureOf:));
 
 @end
 

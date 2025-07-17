@@ -42,12 +42,12 @@ NS_SWIFT_NAME(PanModalShadow)
  * @param shadowOffset 阴影偏移
  * @param shadowOpacity 阴影透明度
  */
-- (instancetype)initWithColor:(nonnull UIColor *)shadowColor shadowRadius:(CGFloat)shadowRadius shadowOffset:(CGSize)shadowOffset shadowOpacity:(CGFloat)shadowOpacity NS_SWIFT_NAME(init(color:radius:offset:opacity:)) NS_REFINED_FOR_SWIFT;
+- (instancetype)initWithColor:(nonnull UIColor *)shadowColor shadowRadius:(CGFloat)shadowRadius shadowOffset:(CGSize)shadowOffset shadowOpacity:(CGFloat)shadowOpacity NS_SWIFT_NAME(init(color:radius:offset:opacity:));
 
 /**
  * 返回无阴影配置
  */
-+ (instancetype)panModalShadowNil NS_SWIFT_NAME(shadowNil()) NS_REFINED_FOR_SWIFT;
++ (instancetype)panModalShadowNil NS_SWIFT_NAME(shadowNil());
 
 @end
 

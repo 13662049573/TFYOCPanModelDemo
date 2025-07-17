@@ -39,7 +39,7 @@ typedef struct PanModalHeight PanModalHeight;
  * @param height 高度值
  * @return PanModalHeight结构体
  */
-CG_INLINE PanModalHeight PanModalHeightMake(PanModalHeightType heightType, CGFloat height) NS_SWIFT_NAME(PanModalHeight.init(type:height:)) NS_REFINED_FOR_SWIFT {
+CG_INLINE PanModalHeight PanModalHeightMake(PanModalHeightType heightType, CGFloat height) NS_SWIFT_NAME(PanModalHeight.init(type:height:)) {
     PanModalHeight modalHeight;
     modalHeight.heightType = heightType;
     modalHeight.height = height;
