@@ -49,7 +49,7 @@
 }
 
 - (void)didTapCloseButton {
-    [self tfy_dismissAnimated:YES completion:^{
+    [self pan_dismissAnimated:YES completion:^{
         
     }];
 }

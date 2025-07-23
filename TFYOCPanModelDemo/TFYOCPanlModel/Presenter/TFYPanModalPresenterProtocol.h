@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * @brief 转场代理对象，内部通过runtime存储
  */
-@property (nonatomic, strong, nonnull) TFYPanModalPresentationDelegate *tfy_panModalPresentationDelegate;
+@property (nonatomic, strong, nonnull) TFYPanModalPresentationDelegate *pan_panModalPresentationDelegate;
 
 /**
  * @brief iPad专用present方法，支持popover

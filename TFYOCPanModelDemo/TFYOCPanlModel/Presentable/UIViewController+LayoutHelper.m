@@ -44,15 +44,15 @@
     }
 }
 
-- (TFYPanModalPresentationController *)tfy_presentedVC {
+- (TFYPanModalPresentationController *)pan_presentedVC {
     if (self.presentingViewController) {
-        return [self tfy_getPanModalPresentationController];
+        return [self pan_getPanModalPresentationController];
     } else {
         return nil;
     }
 }
 
-- (TFYPanModalPresentationController *)tfy_getPanModalPresentationController {
+- (TFYPanModalPresentationController *)pan_getPanModalPresentationController {
     UIViewController *ancestorsVC;
     
     // seeking for the root presentation VC.
@@ -108,8 +108,8 @@
    is adjusted in PanModalPresentationController
  */
 - (CGFloat)bottomYPos {
-    if (self.tfy_presentedVC && self.tfy_presentedVC.containerView) {
-        return self.tfy_presentedVC.containerView.bounds.size.height - [self topOffset];
+    if (self.pan_presentedVC && self.pan_presentedVC.containerView) {
+        return self.pan_presentedVC.containerView.bounds.size.height - [self topOffset];
     }
     if (!self.view) return 0;
 	return self.view.bounds.size.height;
@@ -130,7 +130,7 @@
 		{
 			[self.view layoutIfNeeded];
 
-            CGSize targetSize = CGSizeMake(self.tfy_presentedVC && self.tfy_presentedVC.containerView ? self.tfy_presentedVC.containerView.bounds.size.width : [UIScreen mainScreen].bounds.size.width, UILayoutFittingCompressedSize.height);
+            CGSize targetSize = CGSizeMake(self.pan_presentedVC && self.pan_presentedVC.containerView ? self.pan_presentedVC.containerView.bounds.size.width : [UIScreen mainScreen].bounds.size.width, UILayoutFittingCompressedSize.height);
             CGFloat intrinsicHeight = [self.view systemLayoutSizeFittingSize:targetSize].height;
 			return self.bottomYPos - (intrinsicHeight + self.bottomLayoutOffset);
 		}

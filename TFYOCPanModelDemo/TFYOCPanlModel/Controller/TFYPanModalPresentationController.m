@@ -222,7 +222,7 @@
 	CGRect frame = self.containerView.frame;
 	CGSize size = CGSizeMake(CGRectGetWidth(frame), CGRectGetHeight(frame) - self.handler.anchoredYPosition);
 
-	self.presentedView.tfy_size = frame.size;
+	self.presentedView.pan_size = frame.size;
 	self.panContainerView.contentView.frame = CGRectMake(0, 0, size.width, size.height);
 	self.presentedViewController.view.frame = self.panContainerView.contentView.bounds;
     [self.presentedViewController.view setNeedsLayout];
@@ -286,7 +286,7 @@
     CGSize indicatorSize = [self.dragIndicatorView indicatorSize];
     
     if (self.dragIndicatorView.superview == view) {
-        self.dragIndicatorView.frame = CGRectMake((view.tfy_width - indicatorSize.width) / 2, -kIndicatorYOffset - indicatorSize.height, indicatorSize.width, indicatorSize.height);
+        self.dragIndicatorView.frame = CGRectMake((view.pan_width - indicatorSize.width) / 2, -kIndicatorYOffset - indicatorSize.height, indicatorSize.width, indicatorSize.height);
         [self.dragIndicatorView didChangeToState:TFYIndicatorStateNormal];
         return;
     }
@@ -294,7 +294,7 @@
     self.handler.dragIndicatorView = self.dragIndicatorView;
 	[view addSubview:self.dragIndicatorView];
 	
-    self.dragIndicatorView.frame = CGRectMake((view.tfy_width - indicatorSize.width) / 2, -kIndicatorYOffset - indicatorSize.height, indicatorSize.width, indicatorSize.height);
+    self.dragIndicatorView.frame = CGRectMake((view.pan_width - indicatorSize.width) / 2, -kIndicatorYOffset - indicatorSize.height, indicatorSize.width, indicatorSize.height);
 	[self.dragIndicatorView setupSubviews];
 	[self.dragIndicatorView didChangeToState:TFYIndicatorStateNormal];
 }
@@ -385,13 +385,13 @@
 }
 
 - (void)adjustToYPos:(CGFloat)yPos {
-	self.presentedView.tfy_top = MAX(yPos, self.handler.anchoredYPosition);
+	self.presentedView.pan_top = MAX(yPos, self.handler.anchoredYPosition);
 
 	// change dim background starting from shortFormYPosition.
 	if (self.presentedView.frame.origin.y >= self.handler.shortFormYPosition) {
 
 		CGFloat yDistanceFromShortForm = self.presentedView.frame.origin.y - self.handler.shortFormYPosition;
-		CGFloat bottomHeight = self.containerView.tfy_height - self.handler.shortFormYPosition;
+		CGFloat bottomHeight = self.containerView.pan_height - self.handler.shortFormYPosition;
 		CGFloat percent = yDistanceFromShortForm / bottomHeight;
 		self.backgroundView.dimState = DimStatePercent;
 		self.backgroundView.percent = 1 - percent;
@@ -416,8 +416,8 @@
 }
 
 - (void)dismiss:(BOOL)isInteractive mode:(PanModalInteractiveMode)mode animated:(BOOL)animated completion:(void (^)(void))completion {
-    self.presentedViewController.tfy_panModalPresentationDelegate.interactive = isInteractive;
-    self.presentedViewController.tfy_panModalPresentationDelegate.interactiveMode = mode;
+    self.presentedViewController.pan_panModalPresentationDelegate.interactive = isInteractive;
+    self.presentedViewController.pan_panModalPresentationDelegate.interactiveMode = mode;
     [self.presentable panModalWillDismiss];
     [self.presentedViewController dismissViewControllerAnimated:animated completion:^{
         if (completion) completion();
@@ -445,12 +445,12 @@
         self.containerView.userInteractionEnabled = NO;
 		[[self interactiveAnimator] finishInteractiveTransition];
 
-		if (self.presentedViewController.tfy_panModalPresentationDelegate.interactiveMode != PanModalInteractiveModeDragDown)
+		if (self.presentedViewController.pan_panModalPresentationDelegate.interactiveMode != PanModalInteractiveModeDragDown)
 			return;
 
 		if ([[self presentable] presentingVCAnimationStyle] > PresentingViewControllerAnimationStyleNone) {
 			[TFYPanModalAnimator animate:^{
-				[self presentedView].tfy_top = self.containerView.frame.size.height;
+				[self presentedView].pan_top = self.containerView.frame.size.height;
 				self.dragIndicatorView.alpha = 0;
 				self.backgroundView.dimState = DimStateOff;
 			} config:[self presentable] completion:^(BOOL completion) {
@@ -463,8 +463,8 @@
 - (void)cancelInteractiveTransition {
 	if (self.presentedViewController.isBeingDismissed) {
 		[[self interactiveAnimator] cancelInteractiveTransition];
-		self.presentedViewController.tfy_panModalPresentationDelegate.interactiveMode = PanModalInteractiveModeNone;
-		self.presentedViewController.tfy_panModalPresentationDelegate.interactive = NO;
+		self.presentedViewController.pan_panModalPresentationDelegate.interactiveMode = PanModalInteractiveModeNone;
+		self.presentedViewController.pan_panModalPresentationDelegate.interactive = NO;
 	}
 }
 
@@ -495,7 +495,7 @@
 }
 
 - (BOOL)isPresentedControllerInteractive {
-    return self.presentedViewController.tfy_panModalPresentationDelegate.interactive;
+    return self.presentedViewController.pan_panModalPresentationDelegate.interactive;
 }
 
 - (BOOL)isFormPositionAnimating {
@@ -548,7 +548,7 @@
 }
 
 - (TFYPanModalInteractiveAnimator *)interactiveAnimator {
-	TFYPanModalPresentationDelegate *presentationDelegate = self.presentedViewController.tfy_panModalPresentationDelegate;
+	TFYPanModalPresentationDelegate *presentationDelegate = self.presentedViewController.pan_panModalPresentationDelegate;
 	return presentationDelegate.interactiveDismissalAnimator;
 }
 
@@ -593,7 +593,7 @@
 			[[self presentable] customIndicatorView] != nil) {
             _dragIndicatorView = [[self presentable] customIndicatorView];
             // set the indicator size first in case `setupSubviews` can Not get the right size.
-            _dragIndicatorView.tfy_size = [[[self presentable] customIndicatorView] indicatorSize];
+            _dragIndicatorView.pan_size = [[[self presentable] customIndicatorView] indicatorSize];
         } else {
             _dragIndicatorView = [TFYPanIndicatorView new];
         }

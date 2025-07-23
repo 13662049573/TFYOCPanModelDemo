@@ -247,23 +247,5 @@
     
 }
 
-//#pragma mark - TFYPanModalPanGestureDelegate 默认实现
-//
-//- (BOOL)tfy_gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-//    return YES;
-//}
-//
-//- (BOOL)tfy_gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-//    return YES;
-//}
-//
-//- (BOOL)tfy_gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-//    return YES;
-//}
-//
-//- (BOOL)tfy_gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-//    return YES;
-//}
-
 @end
 

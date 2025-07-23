@@ -121,39 +121,39 @@ typedef NS_ENUM(NSInteger, ChangeHeightType) {
 
 - (void)onTapChangeShort {
 	self.currentType = ChangeHeightTypeShort;
-	[self tfy_panModalSetNeedsLayoutUpdate];
-    [self tfy_panModalTransitionTo:PresentationStateShort];
+	[self pan_panModalSetNeedsLayoutUpdate];
+    [self pan_panModalTransitionTo:PresentationStateShort];
 }
 
 - (void)onTapChangeLong {
 	self.currentType = ChangeHeightTypeLong;
-	[self tfy_panModalSetNeedsLayoutUpdate];
-	[self tfy_panModalTransitionTo:PresentationStateLong];
+	[self pan_panModalSetNeedsLayoutUpdate];
+	[self pan_panModalTransitionTo:PresentationStateLong];
 }
 
 - (void)onTapDefaultShadow {
     self.shadowConfig = [[TFYPanModalShadow alloc] initWithColor:[UIColor blueColor] shadowRadius:8 shadowOffset:CGSizeMake(0, 2) shadowOpacity:1];
-	[self tfy_panModalSetNeedsLayoutUpdate];
+	[self pan_panModalSetNeedsLayoutUpdate];
 }
 
 - (void)onTapClearShadow {
     self.shadowConfig = [TFYPanModalShadow panModalShadowNil];
-	[self tfy_panModalSetNeedsLayoutUpdate];
+	[self pan_panModalSetNeedsLayoutUpdate];
 }
 
 - (void)onTapChangeRoundCorner {
 	self.roundRadius = 20;
     self.shouldRound = YES;
-	[self tfy_panModalSetNeedsLayoutUpdate];
+	[self pan_panModalSetNeedsLayoutUpdate];
 }
 
 - (void)onTapClearRoundCorner {
 	self.shouldRound = NO;
-	[self tfy_panModalSetNeedsLayoutUpdate];
+	[self pan_panModalSetNeedsLayoutUpdate];
 }
 
 - (void)onTapChangeIndicator {
-	[self tfy_panModalSetNeedsLayoutUpdate];
+	[self pan_panModalSetNeedsLayoutUpdate];
 }
 
 - (void)onTapChangeBG {
@@ -165,7 +165,7 @@ typedef NS_ENUM(NSInteger, ChangeHeightType) {
     } else {
         config.backgroundAlpha = 0.7;
     }
-    [self.tfy_dimmedView reloadConfig:config];
+    [self.pan_dimmedView reloadConfig:config];
 }
 
 #pragma mark - TFYPanModalPresentable
@@ -204,17 +204,6 @@ typedef NS_ENUM(NSInteger, ChangeHeightType) {
 	return self.indicatorSwitch.on;
 }
 
-//- (TFYBackgroundConfig *)backgroundConfig {
-//    if (self.bgFlag) {
-//        TFYBackgroundConfig *config = [TFYBackgroundConfig configWithBehavior:TFYBackgroundBehaviorDefault];
-//        config.backgroundAlpha = 0;
-//        return config;
-//    } else {
-//        TFYBackgroundConfig *config = [TFYBackgroundConfig configWithBehavior:TFYBackgroundBehaviorDefault];
-//        config.backgroundAlpha = 0.7;
-//        return config;
-//    }
-//}
 
 #pragma mark - private method
 

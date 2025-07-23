@@ -46,47 +46,47 @@
 
 #pragma mark - TFYPanModalPresentationUpdateProtocol
 
-- (void)tfy_panModalTransitionTo:(PresentationState)state {
+- (void)pan_panModalTransitionTo:(PresentationState)state {
     [self.containerView transitionToState:state animated:YES];
 }
 
-- (void)tfy_panModalSetContentOffset:(CGPoint)offset {
+- (void)pan_panModalSetContentOffset:(CGPoint)offset {
     [self.containerView setScrollableContentOffset:offset animated:YES];
 }
 
-- (void)tfy_panModalSetNeedsLayoutUpdate {
+- (void)pan_panModalSetNeedsLayoutUpdate {
     [self.containerView setNeedsLayoutUpdate];
 }
 
-- (void)tfy_panModalUpdateUserHitBehavior {
+- (void)pan_panModalUpdateUserHitBehavior {
     [self.containerView updateUserHitBehavior];
 }
 
-- (void)tfy_panModalTransitionTo:(PresentationState)state animated:(BOOL)animated {
+- (void)pan_panModalTransitionTo:(PresentationState)state animated:(BOOL)animated {
     [self.containerView transitionToState:state animated:animated];
 }
 
-- (void)tfy_panModalSetContentOffset:(CGPoint)offset animated:(BOOL)animated {
+- (void)pan_panModalSetContentOffset:(CGPoint)offset animated:(BOOL)animated {
     [self.containerView setScrollableContentOffset:offset animated:animated];
 }
 
-- (void)tfy_dismissAnimated:(BOOL)animated completion:(void (^)(void))completion {
+- (void)pan_dismissAnimated:(BOOL)animated completion:(void (^)(void))completion {
     [self dismissAnimated:animated completion:completion];
 }
 
-- (TFYDimmedView *)tfy_dimmedView {
+- (TFYDimmedView *)pan_dimmedView {
     return self.containerView.backgroundView;
 }
 
-- (UIView *)tfy_rootContainerView {
+- (UIView *)pan_rootContainerView {
     return self.containerView;
 }
 
-- (UIView *)tfy_contentView {
+- (UIView *)pan_contentView {
     return (UIView *)self.containerView.panContainerView;
 }
 
-- (PresentationState)tfy_presentationState {
+- (PresentationState)pan_presentationState {
     return self.containerView.currentPresentationState;
 }
 
@@ -380,24 +380,6 @@
             return 0;
     }
 }
-
-//#pragma mark - TFYPanModalPanGestureDelegate 默认实现
-//
-//- (BOOL)tfy_gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-//    return YES;
-//}
-//
-//- (BOOL)tfy_gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-//    return NO;
-//}
-//
-//- (BOOL)tfy_gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-//    return NO;
-//}
-//
-//- (BOOL)tfy_gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-//    return NO;
-//}
 
 #pragma mark - Getter
 

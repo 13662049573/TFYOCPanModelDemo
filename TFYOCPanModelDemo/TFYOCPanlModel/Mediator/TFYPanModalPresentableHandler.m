@@ -630,12 +630,12 @@ static NSString *const kScrollViewKVOContentOffsetKey = @"contentOffset";
     CGAffineTransform lastTransform = self.presentedView.transform;
     self.presentedView.transform = CGAffineTransformIdentity;
 
-    CGFloat textViewBottomY = [textInput convertRect:textInput.bounds toView:self.presentedView].origin.y + textInput.tfy_height;
+    CGFloat textViewBottomY = [textInput convertRect:textInput.bounds toView:self.presentedView].origin.y + textInput.pan_height;
     CGFloat keyboardHeight = [self.keyboardInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
 
     CGFloat offsetY = 0;
     CGFloat top = [self.presentable keyboardOffsetFromInputView];
-    offsetY = self.presentedView.tfy_height - (keyboardHeight + top + textViewBottomY + self.presentedView.tfy_top);
+    offsetY = self.presentedView.pan_height - (keyboardHeight + top + textViewBottomY + self.presentedView.pan_top);
 
     NSTimeInterval duration = [self.keyboardInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationCurve curve = (UIViewAnimationCurve) [self.keyboardInfo[UIKeyboardAnimationCurveUserInfoKey] intValue];

@@ -32,7 +32,7 @@
 - (void)presentPanModal:(UIViewController<TFYPanModalPresentable> *)viewControllerToPresent sourceView:(UIView *)sourceView sourceRect:(CGRect)rect completion:(void (^)(void))completion {
     
     TFYPanModalPresentationDelegate *delegate = [TFYPanModalPresentationDelegate new];
-    viewControllerToPresent.tfy_panModalPresentationDelegate = delegate;
+    viewControllerToPresent.pan_panModalPresentationDelegate = delegate;
 
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad &&
         (sourceView && !CGRectEqualToRect(rect, CGRectZero))) {
@@ -78,15 +78,15 @@
 /**
  * @brief 获取转场代理对象
  */
-- (TFYPanModalPresentationDelegate *)tfy_panModalPresentationDelegate {
+- (TFYPanModalPresentationDelegate *)pan_panModalPresentationDelegate {
 	return objc_getAssociatedObject(self, _cmd);
 }
 
 /**
  * @brief 设置转场代理对象
  */
-- (void)setTfy_panModalPresentationDelegate:(TFYPanModalPresentationDelegate *)tfy_panModalPresentationDelegate {
-	objc_setAssociatedObject(self, @selector(tfy_panModalPresentationDelegate), tfy_panModalPresentationDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setPan_panModalPresentationDelegate:(TFYPanModalPresentationDelegate *)pan_panModalPresentationDelegate {
+	objc_setAssociatedObject(self, @selector(pan_panModalPresentationDelegate), pan_panModalPresentationDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 

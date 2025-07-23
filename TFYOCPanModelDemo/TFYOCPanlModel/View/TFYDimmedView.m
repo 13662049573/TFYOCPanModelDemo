@@ -203,21 +203,13 @@
 		_backgroundView = [UIView new];
 		_backgroundView.userInteractionEnabled = NO;
 		_backgroundView.alpha = 0;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
-		if (@available(iOS 13.0, *)) {
-			_backgroundView.backgroundColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
-				if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-					return [UIColor colorWithWhite:0 alpha:0.6]; // 深色模式下更浅的黑色
-				} else {
-					return [UIColor blackColor];
-				}
-			}];
-		} else {
-			_backgroundView.backgroundColor = [UIColor blackColor];
-		}
-#else
-		_backgroundView.backgroundColor = [UIColor blackColor];
-#endif
+        _backgroundView.backgroundColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+            if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+                return [UIColor colorWithWhite:0 alpha:0.6]; // 深色模式下更浅的黑色
+            } else {
+                return [UIColor blackColor];
+            }
+        }];
 	}
 	return _backgroundView;
 }

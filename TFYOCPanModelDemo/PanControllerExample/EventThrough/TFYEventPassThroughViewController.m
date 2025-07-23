@@ -41,11 +41,11 @@
 #pragma mark - TFYMapViewControllerDelegate
 
 - (void)userMoveMapView:(TFYMapViewController *)mapViewController {
-    [self tfy_panModalTransitionTo:PresentationStateShort];
+    [self pan_panModalTransitionTo:PresentationStateShort];
 }
 
 - (void)didRelease:(TFYMapViewController *)mapController {
-    [self tfy_dismissAnimated:YES completion:NULL];
+    [self pan_dismissAnimated:YES completion:NULL];
 }
 
 #pragma mark - TFYPanModalPresentable

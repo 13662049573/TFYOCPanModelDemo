@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface UIViewController (LayoutHelper) <TFYPanModalPresentableLayoutProtocol>
 
-@property (nullable, nonatomic, strong, readonly) TFYPanModalPresentationController *tfy_presentedVC;
+@property (nullable, nonatomic, strong, readonly) TFYPanModalPresentationController *pan_presentedVC;
 
 @end
 

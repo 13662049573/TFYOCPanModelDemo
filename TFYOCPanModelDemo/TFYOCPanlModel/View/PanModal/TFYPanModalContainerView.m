@@ -117,7 +117,7 @@
 		self.frame = self.presentingView.bounds;
 		[self setNeedsLayoutUpdate];
 		[self updateDragIndicatorViewFrame];
-		[self.contentView tfy_panModalTransitionTo:self.contentView.tfy_presentationState animated:NO];
+		[self.contentView pan_panModalTransitionTo:self.contentView.pan_presentationState animated:NO];
 	} else {
 		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 	}
@@ -153,7 +153,7 @@
     [self configureViewLayout];
     [self adjustPresentedViewFrame];
 
-    self.panContainerView.tfy_top = self.tfy_height;
+    self.panContainerView.pan_top = self.pan_height;
     
     if ([[self presentable] isHapticFeedbackEnabled]) {
         if (@available(iOS 10.0, *)) {
@@ -162,7 +162,7 @@
     }
     
     [TFYPanModalAnimator animate:^{
-        self.panContainerView.tfy_top = yPos;
+        self.panContainerView.pan_top = yPos;
         self.backgroundView.dimState = DimStateMax;
     } config:[self presentable] completion:^(BOOL completion) {
         self.isPresenting = NO;
@@ -237,7 +237,7 @@
     CGRect frame = self.frame;
     CGSize size = CGSizeMake(CGRectGetWidth(frame), CGRectGetHeight(frame) - self.handler.anchoredYPosition);
     
-    self.panContainerView.tfy_size = frame.size;
+    self.panContainerView.pan_size = frame.size;
     self.panContainerView.contentView.frame = CGRectMake(0, 0, size.width, size.height);
     self.contentView.frame = self.panContainerView.contentView.bounds;
     [self.contentView setNeedsLayout];
@@ -313,7 +313,7 @@
 
 - (void)updateDragIndicatorViewFrame {
 	CGSize indicatorSize = [self.dragIndicatorView indicatorSize];
-	self.dragIndicatorView.frame = CGRectMake((self.panContainerView.tfy_width - indicatorSize.width) / 2, -kIndicatorYOffset - indicatorSize.height, indicatorSize.width, indicatorSize.height);
+	self.dragIndicatorView.frame = CGRectMake((self.panContainerView.pan_width - indicatorSize.width) / 2, -kIndicatorYOffset - indicatorSize.height, indicatorSize.width, indicatorSize.height);
 }
 
 - (void)updateContainerViewShadow {
@@ -368,13 +368,13 @@
 }
 
 - (void)adjustToYPos:(CGFloat)yPos {
-    self.panContainerView.tfy_top = MAX(yPos, self.handler.anchoredYPosition);
+    self.panContainerView.pan_top = MAX(yPos, self.handler.anchoredYPosition);
 
     // change dim background starting from shortFormYPosition.
     if (self.panContainerView.frame.origin.y >= self.handler.shortFormYPosition) {
 
         CGFloat yDistanceFromShortForm = self.panContainerView.frame.origin.y - self.handler.shortFormYPosition;
-        CGFloat bottomHeight = self.tfy_height - self.handler.shortFormYPosition;
+        CGFloat bottomHeight = self.pan_height - self.handler.shortFormYPosition;
         CGFloat percent = yDistanceFromShortForm / bottomHeight;
         self.backgroundView.dimState = DimStatePercent;
         self.backgroundView.percent = 1 - percent;
@@ -407,7 +407,7 @@
     [[self presentable] panModalWillDismiss];
 
     [TFYPanModalAnimator animate:^{
-        self.panContainerView.tfy_top = CGRectGetHeight(self.bounds);
+        self.panContainerView.pan_top = CGRectGetHeight(self.bounds);
         self.backgroundView.dimState = DimStateOff;
         self.dragIndicatorView.alpha = 0;
     } config:[self presentable] completion:^(BOOL completion) {
@@ -551,7 +551,7 @@
                 [[self presentable] customIndicatorView] != nil) {
             _dragIndicatorView = [[self presentable] customIndicatorView];
             // set the indicator size first in case `setupSubviews` can Not get the right size.
-            _dragIndicatorView.tfy_size = [[[self presentable] customIndicatorView] indicatorSize];
+            _dragIndicatorView.pan_size = [[[self presentable] customIndicatorView] indicatorSize];
         } else {
             _dragIndicatorView = [TFYPanIndicatorView new];
         }

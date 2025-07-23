@@ -16,60 +16,60 @@
 
 @implementation UIViewController (Presentation)
 
-- (void)tfy_panModalTransitionTo:(PresentationState)state {
-    if (!self.tfy_presentedVC) return;
-    [self.tfy_presentedVC transitionToState:state animated:YES];
+- (void)pan_panModalTransitionTo:(PresentationState)state {
+    if (!self.pan_presentedVC) return;
+    [self.pan_presentedVC transitionToState:state animated:YES];
 }
 
-- (void)tfy_panModalTransitionTo:(PresentationState)state animated:(BOOL)animated {
-    if (!self.tfy_presentedVC) return;
-    [self.tfy_presentedVC transitionToState:state animated:animated];
+- (void)pan_panModalTransitionTo:(PresentationState)state animated:(BOOL)animated {
+    if (!self.pan_presentedVC) return;
+    [self.pan_presentedVC transitionToState:state animated:animated];
 }
 
-- (void)tfy_panModalSetContentOffset:(CGPoint)offset animated:(BOOL)animated {
-    if (!self.tfy_presentedVC) return;
-    [self.tfy_presentedVC setScrollableContentOffset:offset animated:animated];
+- (void)pan_panModalSetContentOffset:(CGPoint)offset animated:(BOOL)animated {
+    if (!self.pan_presentedVC) return;
+    [self.pan_presentedVC setScrollableContentOffset:offset animated:animated];
 }
 
 
-- (void)tfy_panModalSetContentOffset:(CGPoint)offset {
-    if (!self.tfy_presentedVC) return;
-    [self.tfy_presentedVC setScrollableContentOffset:offset animated:YES];
+- (void)pan_panModalSetContentOffset:(CGPoint)offset {
+    if (!self.pan_presentedVC) return;
+    [self.pan_presentedVC setScrollableContentOffset:offset animated:YES];
 }
 
-- (void)tfy_panModalSetNeedsLayoutUpdate {
-    if (!self.tfy_presentedVC) return;
-    [self.tfy_presentedVC setNeedsLayoutUpdate];
+- (void)pan_panModalSetNeedsLayoutUpdate {
+    if (!self.pan_presentedVC) return;
+    [self.pan_presentedVC setNeedsLayoutUpdate];
 }
 
-- (void)tfy_panModalUpdateUserHitBehavior {
-    if (!self.tfy_presentedVC) return;
-    [self.tfy_presentedVC updateUserHitBehavior];
+- (void)pan_panModalUpdateUserHitBehavior {
+    if (!self.pan_presentedVC) return;
+    [self.pan_presentedVC updateUserHitBehavior];
 }
 
-- (void)tfy_dismissAnimated:(BOOL)animated completion:(void (^)(void))completion{
-    if (!self.tfy_presentedVC) { if (completion) completion(); return; }
-    [self.tfy_presentedVC dismissAnimated:animated completion:completion];
+- (void)pan_dismissAnimated:(BOOL)animated completion:(void (^)(void))completion{
+    if (!self.pan_presentedVC) { if (completion) completion(); return; }
+    [self.pan_presentedVC dismissAnimated:animated completion:completion];
 }
 
-- (TFYDimmedView *)tfy_dimmedView {
-    if (!self.tfy_presentedVC) return nil;
-    return self.tfy_presentedVC.backgroundView;
+- (TFYDimmedView *)pan_dimmedView {
+    if (!self.pan_presentedVC) return nil;
+    return self.pan_presentedVC.backgroundView;
 }
 
-- (UIView *)tfy_rootContainerView {
-    if (!self.tfy_presentedVC) return nil;
-    return self.tfy_presentedVC.containerView;
+- (UIView *)pan_rootContainerView {
+    if (!self.pan_presentedVC) return nil;
+    return self.pan_presentedVC.containerView;
 }
 
-- (UIView *)tfy_contentView {
-    if (!self.tfy_presentedVC) return nil;
-    return self.tfy_presentedVC.presentedView;
+- (UIView *)pan_contentView {
+    if (!self.pan_presentedVC) return nil;
+    return self.pan_presentedVC.presentedView;
 }
 
-- (PresentationState)tfy_presentationState {
-    if (!self.tfy_presentedVC) return PresentationStateShort;
-    return self.tfy_presentedVC.currentPresentationState;
+- (PresentationState)pan_presentationState {
+    if (!self.pan_presentedVC) return PresentationStateShort;
+    return self.pan_presentedVC.currentPresentationState;
 }
 
 @end

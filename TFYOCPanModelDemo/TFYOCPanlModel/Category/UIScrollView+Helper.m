@@ -23,7 +23,7 @@
  * @brief 判断UIScrollView是否滚动到顶部。
  * @return YES表示已在顶部。
  */
-- (BOOL)tfy_isAtTop {
+- (BOOL)pan_isAtTop {
     return self.contentOffset.y <= -self.contentInset.top + 0.5;
 }
 

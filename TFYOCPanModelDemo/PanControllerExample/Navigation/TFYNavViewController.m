@@ -34,24 +34,24 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [super pushViewController:viewController animated:animated];
-    [self tfy_panModalSetNeedsLayoutUpdate];
+    [self pan_panModalSetNeedsLayoutUpdate];
 }
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated {
     UIViewController *controller = [super popViewControllerAnimated:animated];
-    [self tfy_panModalSetNeedsLayoutUpdate];
+    [self pan_panModalSetNeedsLayoutUpdate];
     return controller;
 }
 
 - (NSArray<__kindof UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
     NSArray<__kindof UIViewController *> *viewControllers = [super popToViewController:viewController animated:animated];
-    [self tfy_panModalSetNeedsLayoutUpdate];
+    [self pan_panModalSetNeedsLayoutUpdate];
     return viewControllers;
 }
 
 - (NSArray<__kindof UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
     NSArray<__kindof UIViewController *> *viewControllers = [super popToRootViewControllerAnimated:animated];
-    [self tfy_panModalSetNeedsLayoutUpdate];
+    [self pan_panModalSetNeedsLayoutUpdate];
     return viewControllers;
 }
 

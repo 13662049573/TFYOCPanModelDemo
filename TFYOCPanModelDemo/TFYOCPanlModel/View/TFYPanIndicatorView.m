@@ -55,12 +55,12 @@
 	CGFloat correction = height / 2;
 
 	self.leftView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame) / 2 + correction, height);
-	self.leftView.tfy_centerY = self.tfy_height / 2;
-	self.leftView.layer.cornerRadius = MIN(self.leftView.tfy_width, self.leftView.tfy_height) / 2;
+	self.leftView.pan_centerY = self.pan_height / 2;
+	self.leftView.layer.cornerRadius = MIN(self.leftView.pan_width, self.leftView.pan_height) / 2;
 
 	self.rightView.frame = CGRectMake(CGRectGetWidth(self.frame) / 2 - correction, 0, CGRectGetWidth(self.frame) / 2 + correction, height);
-	self.rightView.tfy_centerY = self.tfy_height / 2;
-	self.rightView.layer.cornerRadius = MIN(self.rightView.tfy_width, self.rightView.tfy_height) / 2;
+	self.rightView.pan_centerY = self.pan_height / 2;
+	self.rightView.layer.cornerRadius = MIN(self.rightView.pan_width, self.rightView.pan_height) / 2;
 
 }
 

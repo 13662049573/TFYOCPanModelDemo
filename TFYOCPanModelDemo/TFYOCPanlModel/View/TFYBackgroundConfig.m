@@ -50,36 +50,18 @@
 
     switch (backgroundBehavior) {
         case TFYBackgroundBehaviorSystemVisualEffect: {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
-            if (@available(iOS 13.0, *)) {
-                self.visualEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemMaterial];
-            } else {
-                self.visualEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-            }
-#else
-            self.visualEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-#endif
+            self.visualEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemMaterial];
         }
             break;
         case TFYBackgroundBehaviorCustomBlurEffect: {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
-            if (@available(iOS 13.0, *)) {
-                self.backgroundBlurRadius = 10;
-                self.blurTintColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
-                    if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                        return [UIColor colorWithWhite:0.1 alpha:0.7];
-                    } else {
-                        return [UIColor whiteColor];
-                    }
-                }];
-            } else {
-                self.backgroundBlurRadius = 10;
-                self.blurTintColor = [UIColor whiteColor];
-            }
-#else
             self.backgroundBlurRadius = 10;
-            self.blurTintColor = [UIColor whiteColor];
-#endif
+            self.blurTintColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+                if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+                    return [UIColor colorWithWhite:0.1 alpha:0.7];
+                } else {
+                    return [UIColor whiteColor];
+                }
+            }];
         }
             break;
         default: {
@@ -88,6 +70,5 @@
             break;
     }
 }
-
 
 @end

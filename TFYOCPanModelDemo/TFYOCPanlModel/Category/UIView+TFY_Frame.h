@@ -18,25 +18,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (TFY_Frame)
 
 /** frame.origin.x 快捷访问/设置 */
-@property (nonatomic, assign) CGFloat tfy_left NS_SWIFT_NAME(panLeft);
+@property (nonatomic, assign) CGFloat pan_left NS_SWIFT_NAME(panLeft);
 /** frame.origin.y 快捷访问/设置 */
-@property (nonatomic, assign) CGFloat tfy_top NS_SWIFT_NAME(panTop);
+@property (nonatomic, assign) CGFloat pan_top NS_SWIFT_NAME(panTop);
 /** frame.origin.x + frame.size.width 快捷访问/设置 */
-@property (nonatomic, assign) CGFloat tfy_right NS_SWIFT_NAME(panRight);
+@property (nonatomic, assign) CGFloat pan_right NS_SWIFT_NAME(panRight);
 /** frame.origin.y + frame.size.height 快捷访问/设置 */
-@property (nonatomic, assign) CGFloat tfy_bottom NS_SWIFT_NAME(panBottom);
+@property (nonatomic, assign) CGFloat pan_bottom NS_SWIFT_NAME(panBottom);
 /** frame.size.width 快捷访问/设置 */
-@property (nonatomic, assign) CGFloat tfy_width NS_SWIFT_NAME(panWidth);
+@property (nonatomic, assign) CGFloat pan_width NS_SWIFT_NAME(panWidth);
 /** frame.size.height 快捷访问/设置 */
-@property (nonatomic, assign) CGFloat tfy_height NS_SWIFT_NAME(panHeight);
+@property (nonatomic, assign) CGFloat pan_height NS_SWIFT_NAME(panHeight);
 /** center.x 快捷访问/设置 */
-@property (nonatomic, assign) CGFloat tfy_centerX NS_SWIFT_NAME(panCenterX);
+@property (nonatomic, assign) CGFloat pan_centerX NS_SWIFT_NAME(panCenterX);
 /** center.y 快捷访问/设置 */
-@property (nonatomic, assign) CGFloat tfy_centerY NS_SWIFT_NAME(panCenterY);
+@property (nonatomic, assign) CGFloat pan_centerY NS_SWIFT_NAME(panCenterY);
 /** frame.origin 快捷访问/设置 */
-@property (nonatomic, assign) CGPoint tfy_origin NS_SWIFT_NAME(panRrigin);
+@property (nonatomic, assign) CGPoint pan_origin NS_SWIFT_NAME(panRrigin);
 /** frame.size 快捷访问/设置 */
-@property (nonatomic, assign) CGSize  tfy_size NS_SWIFT_NAME(panSize);
+@property (nonatomic, assign) CGSize  pan_size NS_SWIFT_NAME(panSize);
 
 @end
 

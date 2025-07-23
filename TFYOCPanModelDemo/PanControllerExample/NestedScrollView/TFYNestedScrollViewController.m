@@ -145,7 +145,7 @@
     NSInteger index = self.segmentControl.selectedSegmentIndex;
     [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollView.frame) * index, 0) animated:YES];
 
-    [self tfy_panModalSetNeedsLayoutUpdate];
+    [self pan_panModalSetNeedsLayoutUpdate];
 }
 
 #pragma mark - Getter

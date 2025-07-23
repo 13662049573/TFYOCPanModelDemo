@@ -39,7 +39,7 @@
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    [self tfy_panModalSetNeedsLayoutUpdate];
+    [self pan_panModalSetNeedsLayoutUpdate];
 }
 
 #pragma mark - TFYPanModalPresentable

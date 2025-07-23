@@ -92,7 +92,7 @@
 
 	UIView *panView = context.containerView.panContainerView ?: toVC.view;
 	panView.frame = [context finalFrameForViewController:toVC];
-	panView.tfy_top = context.containerView.frame.size.height;
+	panView.pan_top = context.containerView.frame.size.height;
 
 	if ([presentable isHapticFeedbackEnabled]) {
         if (@available(iOS 10.0, *)) {
@@ -101,7 +101,7 @@
 	}
 
 	[TFYPanModalAnimator animate:^{
-		panView.tfy_top = yPos;
+		panView.pan_top = yPos;
 	} config:presentable completion:^(BOOL completion) {
         
         if ([presentable shouldEnableAppearanceTransition]) {
@@ -162,7 +162,7 @@
 
 	[TFYPanModalAnimator dismissAnimate:^{
 		[self dismissAnimationForPresentingVC:presentable];
-		panView.tfy_top = (context.containerView.frame.size.height + offsetY);
+		panView.pan_top = (context.containerView.frame.size.height + offsetY);
 	} config:presentable completion:^(BOOL completion) {
 		[fromVC.view removeFromSuperview];
         
@@ -178,7 +178,7 @@
 - (void)interactionDismiss:(id <UIViewControllerContextTransitioning>)context fromVC:(UIViewController *)fromVC toVC:(UIViewController *)toVC presentable:(UIViewController <TFYPanModalPresentable> *)presentable panView:(UIView *)panView {
 	[TFYPanModalAnimator smoothAnimate:^{
 		if (self.interactiveMode == PanModalInteractiveModeSideslip) {
-			panView.tfy_left = panView.tfy_width;
+			panView.pan_left = panView.pan_width;
 		}
 
 		[self dismissAnimationForPresentingVC:presentable];

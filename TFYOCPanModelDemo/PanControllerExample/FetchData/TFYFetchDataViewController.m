@@ -62,12 +62,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self tfy_panModalTransitionTo:PresentationStateLong animated:NO];
+    [self pan_panModalTransitionTo:PresentationStateLong animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self tfy_panModalSetNeedsLayoutUpdate];
+    [self pan_panModalSetNeedsLayoutUpdate];
 }
 
 - (void)fetchData {
@@ -83,7 +83,7 @@
         self.dataSource = list;
         [self.tableView reloadData];
         [self.indicatorView stopAnimating];
-        [self tfy_panModalSetNeedsLayoutUpdate];
+        [self pan_panModalSetNeedsLayoutUpdate];
         
         if (self.tableView.mj_header.isRefreshing) {
             [self.tableView.mj_header endRefreshing];
@@ -247,7 +247,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self tfy_panModalTransitionTo:PresentationStateLong animated:NO];
+    [self pan_panModalTransitionTo:PresentationStateLong animated:NO];
 }
 
 #pragma mark - TFYPanModalNavViewDelegate
