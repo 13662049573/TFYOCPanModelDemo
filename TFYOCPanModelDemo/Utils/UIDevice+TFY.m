@@ -30,7 +30,7 @@
     return 49 + [UIDevice safeAreaInsetsBottomHeight];
 }
 
-+ (UIWindow *)tfy_activeKeyWindow {
++ (UIWindow *)pan_activeKeyWindow {
     UIWindow *keyWindow = nil;
     if (@available(iOS 15.0, *)) {
         for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
@@ -52,7 +52,7 @@
 + (CGFloat)safeAreaInsetsBottomHeight {
     CGFloat gap = 0.f;
     if (@available(iOS 11, *)) {
-        UIWindow *keyWindow = [self tfy_activeKeyWindow];
+        UIWindow *keyWindow = [self pan_activeKeyWindow];
         if (keyWindow.safeAreaLayoutGuide.layoutFrame.size.height > 0) {
             gap = (keyWindow.frame.size.height - keyWindow.safeAreaLayoutGuide.layoutFrame.origin.y - keyWindow.safeAreaLayoutGuide.layoutFrame.size.height);
         } else {
@@ -67,7 +67,7 @@
 + (CGFloat)safeAreaInsetsTopHeight {
     CGFloat gap = 0.f;
     if (@available(iOS 11, *)) {
-        UIWindow *keyWindow = [self tfy_activeKeyWindow];
+        UIWindow *keyWindow = [self pan_activeKeyWindow];
         gap = keyWindow.safeAreaLayoutGuide.layoutFrame.origin.y;
     } else {
         gap = 0;

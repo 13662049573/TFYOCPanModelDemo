@@ -54,9 +54,9 @@
     if (demoTypeModel.action == TFYActionTypePush) {
         [self.navigationController pushViewController:[demoTypeModel.targetClass new] animated:YES];
     } else {
-        [self presentPanModal:[[demoTypeModel.targetClass alloc] init] completion:^{
-            
-        }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self presentPanModal:[[demoTypeModel.targetClass alloc] init] completion:^{ }];
+        });
     }
         
 }

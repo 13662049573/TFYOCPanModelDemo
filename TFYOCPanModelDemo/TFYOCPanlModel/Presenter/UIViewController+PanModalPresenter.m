@@ -9,6 +9,19 @@
 #import "UIViewController+PanModalPresenter.h"
 #import "TFYPanModalPresentationDelegate.h"
 #import <objc/runtime.h>
+#import <UIKit/UIKit.h>
+
+/// 缓存待present的弹窗信息结构体
+@interface TFYPanModalPendingPresentInfo : NSObject
+@property (nonatomic, weak) UIViewController *hostVC;
+@property (nonatomic, strong) UIViewController<TFYPanModalPresentable> *viewControllerToPresent;
+@property (nonatomic, weak) UIView *sourceView;
+@property (nonatomic, assign) CGRect sourceRect;
+@property (nonatomic, copy) void (^completion)(void);
+@end
+@implementation TFYPanModalPendingPresentInfo @end
+
+static const void *kTFYPanModalPendingPresentInfoKey = &kTFYPanModalPendingPresentInfoKey;
 
 /**
  * @category UIViewController (PanModalPresenter)
@@ -30,6 +43,20 @@
  * @brief iPad专用present方法，支持popover，带完成回调
  */
 - (void)presentPanModal:(UIViewController<TFYPanModalPresentable> *)viewControllerToPresent sourceView:(UIView *)sourceView sourceRect:(CGRect)rect completion:(void (^)(void))completion {
+    // 判断当前App是否在前台
+    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive) {
+        // 缓存present请求
+        TFYPanModalPendingPresentInfo *pendingInfo = [TFYPanModalPendingPresentInfo new];
+        pendingInfo.hostVC = self;
+        pendingInfo.viewControllerToPresent = viewControllerToPresent;
+        pendingInfo.sourceView = sourceView;
+        pendingInfo.sourceRect = rect;
+        pendingInfo.completion = completion;
+        objc_setAssociatedObject(self, kTFYPanModalPendingPresentInfoKey, pendingInfo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        // 注册前台监听
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pan_handlePanModalPendingPresent) name:UIApplicationDidBecomeActiveNotification object:nil];
+        return;
+    }
     
     TFYPanModalPresentationDelegate *delegate = [TFYPanModalPresentationDelegate new];
     viewControllerToPresent.pan_panModalPresentationDelegate = delegate;
@@ -51,6 +78,18 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self presentViewController:viewControllerToPresent animated:YES completion:completion];
     });
+}
+
+/// 前台回调，自动present缓存的弹窗
+- (void)pan_handlePanModalPendingPresent {
+    TFYPanModalPendingPresentInfo *pendingInfo = objc_getAssociatedObject(self, kTFYPanModalPendingPresentInfoKey);
+    if (pendingInfo && pendingInfo.hostVC) {
+        // 移除监听和缓存
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+        objc_setAssociatedObject(self, kTFYPanModalPendingPresentInfoKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        // 重新present
+        [pendingInfo.hostVC presentPanModal:pendingInfo.viewControllerToPresent sourceView:pendingInfo.sourceView sourceRect:pendingInfo.sourceRect completion:pendingInfo.completion];
+    }
 }
 
 /**

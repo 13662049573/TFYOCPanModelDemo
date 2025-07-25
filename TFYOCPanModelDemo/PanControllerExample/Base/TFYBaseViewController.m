@@ -100,13 +100,13 @@
     return 1.0;
 }
 
-//- (void)didEndRespondToPanModalGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
-//    CGPoint velocity = [panGestureRecognizer velocityInView:self.tfy_contentView];
-//    if (velocity.y > 100 && !self.isBeingDismissed) {
-//        [self tfy_dismissAnimated:YES completion:^{
-//            // do something.
-//        }];
-//    }
-//}
+- (void)didEndRespondToPanModalGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
+    CGPoint velocity = [panGestureRecognizer velocityInView:self.pan_contentView];
+    if (velocity.y > 100 && !self.isBeingDismissed) {
+        [self pan_dismissAnimated:YES completion:^{
+            // do something.
+        }];
+    }
+}
 
 @end
