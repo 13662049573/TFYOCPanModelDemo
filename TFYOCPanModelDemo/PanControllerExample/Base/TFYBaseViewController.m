@@ -38,6 +38,27 @@
     [self.view addSubview:closeButton];
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if ([self shouldEnableAppearanceTransition]) {
+        NSLog(@"viewDidAppear=========TFYBaseViewController");
+    }
+}
+
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    if ([self shouldEnableAppearanceTransition]) {
+        NSLog(@"viewDidDisappear=======TFYBaseViewController");
+    }
+    
+}
+
+
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
@@ -101,12 +122,12 @@
 }
 
 - (void)didEndRespondToPanModalGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
-    CGPoint velocity = [panGestureRecognizer velocityInView:self.pan_contentView];
-    if (velocity.y > 100 && !self.isBeingDismissed) {
-        [self pan_dismissAnimated:YES completion:^{
-            // do something.
-        }];
-    }
+//    CGPoint velocity = [panGestureRecognizer velocityInView:self.pan_contentView];
+//    if (velocity.y > 100 && !self.isBeingDismissed) {
+//        [self pan_dismissAnimated:YES completion:^{
+//            // do something.
+//        }];
+//    }
 }
 
 @end

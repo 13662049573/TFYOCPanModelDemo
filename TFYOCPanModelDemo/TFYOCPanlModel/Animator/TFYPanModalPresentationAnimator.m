@@ -76,6 +76,7 @@
     
     UIViewController<TFYPanModalPresentable> *presentable = [self panModalViewController:context];
 
+    // 只有当shouldEnableAppearanceTransition为YES时才调用appearance方法
     if ([presentable shouldEnableAppearanceTransition]) {
         // If you are implementing a custom container controller, use this method to tell the child that its views are about to appear or disappear.
         [fromVC beginAppearanceTransition:NO animated:YES];
@@ -104,6 +105,7 @@
 		panView.pan_top = yPos;
 	} config:presentable completion:^(BOOL completion) {
         
+        // 只有当shouldEnableAppearanceTransition为YES时才调用appearance方法
         if ([presentable shouldEnableAppearanceTransition]) {
             [fromVC endAppearanceTransition];
             [self endAppearanceTransitionForController:toVC];
@@ -132,7 +134,7 @@
     
     UIViewController<TFYPanModalPresentable> *presentable = [self panModalViewController:context];
 
-    
+    // 只有当shouldEnableAppearanceTransition为YES时才调用appearance方法
     if ([presentable shouldEnableAppearanceTransition]) {
         [self beginAppearanceTransitionForController:fromVC isAppearing:NO animated:YES];
         [toVC beginAppearanceTransition:YES animated:YES];
@@ -166,6 +168,7 @@
 	} config:presentable completion:^(BOOL completion) {
 		[fromVC.view removeFromSuperview];
         
+        // 只有当shouldEnableAppearanceTransition为YES时才调用appearance方法
         if ([presentable shouldEnableAppearanceTransition]) {
             [self endAppearanceTransitionForController:fromVC];
             [toVC endAppearanceTransition];

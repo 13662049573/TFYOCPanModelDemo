@@ -106,7 +106,6 @@
             [wkSelf.containerView setValue:@(YES) forKey:@"ignoreDirectTouchEvents"];
         }
     }];
-
 }
 
 - (void)presentationTransitionDidEnd:(BOOL)completed {

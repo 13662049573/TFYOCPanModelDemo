@@ -44,11 +44,12 @@
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 1000, 1000);
     [self.mapView setRegion:region animated:YES];
-    
 }
+
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    
 }
 
 #pragma mark - show panModal
