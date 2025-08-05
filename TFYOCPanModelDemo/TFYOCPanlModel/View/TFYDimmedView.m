@@ -96,6 +96,13 @@
 	} else {
 		[self addSubview:self.backgroundView];
 	}
+    
+    // 确保视图可见
+    self.backgroundColor = [UIColor clearColor];
+    
+    // 强制更新布局
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 #pragma mark - layout
@@ -128,16 +135,27 @@
 #pragma mark - public method
 
 - (void)reloadConfig:(TFYBackgroundConfig *)backgroundConfig {
+    // 保存当前状态
+    DimState currentState = self.dimState;
+    CGFloat currentPercent = self.percent;
+    
+    // 移除所有子视图
     for (UIView *view in self.subviews) {
         [view removeFromSuperview];
     }
+    
+    // 更新配置
     self.backgroundConfig = backgroundConfig;
     _maxDimAlpha = backgroundConfig.backgroundAlpha;
     _maxBlurRadius = backgroundConfig.backgroundBlurRadius;
     _blurTintColor = backgroundConfig.blurTintColor;
+    
+    // 重新设置视图
     [self setupView];
-    DimState state = self.dimState;
-    self.dimState = state;
+    
+    // 恢复状态
+    self.dimState = currentState;
+    self.percent = currentPercent;
 }
 
 #pragma mark - private method
@@ -165,10 +183,17 @@
 	}
 
 	if (self.isBlurMode) {
-		if (self.backgroundConfig.visualEffect) return;
-
-		self.blurView.blurRadius = blurRadius;
-		self.blurView.colorTintAlpha = blurTintAlpha;
+		if (self.backgroundConfig.visualEffect) {
+			// 当使用visualEffect时，设置blurView的alpha值
+			self.blurView.alpha = alpha;
+			// 确保visualEffect可见
+			self.blurView.hidden = (alpha <= 0);
+			// 强制更新
+			[self.blurView setNeedsDisplay];
+		} else {
+			self.blurView.blurRadius = blurRadius;
+			self.blurView.colorTintAlpha = blurTintAlpha;
+		}
 	} else {
 		self.backgroundView.alpha = alpha;
 	}
@@ -177,6 +202,7 @@
 - (void)configBlurView {
     if (self.backgroundConfig.visualEffect) {
         [_blurView updateBlurEffect:self.backgroundConfig.visualEffect];
+        // 不强制设置alpha，让updateAlpha方法来控制
     } else {
         _blurView.colorTint = [UIColor whiteColor];
         _blurView.colorTintAlpha = self.maxBlurTintAlpha;
@@ -217,6 +243,8 @@
 - (TFYVisualEffectView *)blurView {
 	if (!_blurView) {
 		_blurView = [TFYVisualEffectView new];
+        // 确保blurView正确初始化
+        _blurView.userInteractionEnabled = NO;
 	}
 	return _blurView;
 }

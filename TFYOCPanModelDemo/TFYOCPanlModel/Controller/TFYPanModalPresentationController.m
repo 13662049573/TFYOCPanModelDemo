@@ -243,7 +243,8 @@
 }
 
 - (void)updateBackgroundColor {
-	self.backgroundView.blurTintColor = [self.presentable backgroundConfig].blurTintColor;
+	// 重新配置背景视图
+	[self.backgroundView reloadConfig:[self.presentable backgroundConfig]];
 }
 
 - (void)layoutPresentedView:(UIView *)containerView {

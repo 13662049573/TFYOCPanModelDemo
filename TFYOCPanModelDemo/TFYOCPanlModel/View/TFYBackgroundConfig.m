@@ -25,6 +25,8 @@
     self = [super init];
     if (self) {
         self.backgroundBehavior = TFYBackgroundBehaviorDefault;
+        self.backgroundAlpha = 0.7;
+        self.backgroundBlurRadius = 10;
     }
 
     return self;
@@ -50,7 +52,13 @@
 
     switch (backgroundBehavior) {
         case TFYBackgroundBehaviorSystemVisualEffect: {
-            self.visualEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemMaterial];
+            if (@available(iOS 13.0, *)) {
+                self.visualEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemMaterial];
+            } else {
+                self.visualEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+            }
+            // 设置默认alpha值
+            self.backgroundAlpha = 0.7;
         }
             break;
         case TFYBackgroundBehaviorCustomBlurEffect: {
@@ -62,6 +70,8 @@
                     return [UIColor whiteColor];
                 }
             }];
+            // 设置默认alpha值
+            self.backgroundAlpha = 0.7;
         }
             break;
         default: {

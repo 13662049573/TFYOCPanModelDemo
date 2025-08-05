@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithRed:0.200 green:0.400 blue:1.000 alpha:1.00];
+    self.view.backgroundColor = [UIColor redColor];
 }
 
 #pragma mark - TFYPanModalPresentable
@@ -34,8 +34,8 @@
 - (TFYBackgroundConfig *)backgroundConfig {
     TFYBackgroundConfig *backgroundConfig;
     
-    if (@available(iOS 14.0, *)) {
-        // iOS14+, the blur api has changed, use system VisualEffect.
+    if (@available(iOS 13.0, *)) {
+        // iOS13+, use system VisualEffect.
         backgroundConfig = [TFYBackgroundConfig configWithBehavior:TFYBackgroundBehaviorSystemVisualEffect];
     } else {
         backgroundConfig = [TFYBackgroundConfig configWithBehavior:TFYBackgroundBehaviorCustomBlurEffect];

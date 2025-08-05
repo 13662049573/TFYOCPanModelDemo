@@ -33,6 +33,17 @@ NSString * const kTFYBlurEffectScaleKey = @"scale";
     self = [super initWithEffect:effect];
     if (self) {
         self.scale = 1;
+        if (effect) {
+            self.blurEffect = effect;
+        }
+    }
+    return self;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.scale = 1;
     }
     return self;
 }
@@ -43,6 +54,9 @@ NSString * const kTFYBlurEffectScaleKey = @"scale";
     if (!effect) return; // 防御性编程，防止崩溃
     self.blurEffect = effect;
     self.effect = self.blurEffect;
+    // 确保effect生效
+    [self setNeedsDisplay];
+    [self layoutIfNeeded];
 }
 
 #pragma mark - private method
