@@ -31,7 +31,7 @@
 推荐使用 [CocoaPods](https://cocoapods.org/)：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.0.0'
+pod 'TFYOCPanlModel', '~> 1.0.6'
 ```
 
 - **最低支持 iOS 15+**
