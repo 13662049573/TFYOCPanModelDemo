@@ -59,7 +59,8 @@ Pod::Spec.new do |spec|
     "TFYOCPanModelDemo/TFYOCPanlModel/KVO/KeyValueObserver.h",
     "TFYOCPanModelDemo/TFYOCPanlModel/Delegate/TFYPanModalPresentationDelegate.h",
     "TFYOCPanModelDemo/TFYOCPanlModel/Mediator/TFYPanModalPresentableHandler.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Controller/TFYPanModalPresentationController.h"
+    "TFYOCPanModelDemo/TFYOCPanlModel/Controller/TFYPanModalPresentationController.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/TFYPanModalFrequentTapPrevention.h"
   ]
 
 end
