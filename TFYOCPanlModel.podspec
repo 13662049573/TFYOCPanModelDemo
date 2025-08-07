@@ -27,40 +27,39 @@ Pod::Spec.new do |spec|
   # 源码文件递归所有.h/.m
   spec.source_files  = "TFYOCPanModelDemo/TFYOCPanlModel/**/*.{h,m}"
 
-  # 公共头文件（主头文件及其import的所有头文件）
+  # 公共头文件（按文件夹结构组织）
   spec.public_header_files = [
+    # 主头文件
     "TFYOCPanModelDemo/TFYOCPanlModel/TFYOCPanlModel.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/TFYPanModalPresentable.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/TFYPanModalPanGestureDelegate.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/TFYPanModalHeight.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presenter/TFYPanModalPresenterProtocol.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/UIViewController+PanModalDefault.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/UIViewController+Presentation.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presenter/UIViewController+PanModalPresenter.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/TFYPresentingVCAnimatedTransitioning.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanModalIndicatorProtocol.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanIndicatorView.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYDimmedView.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/View/PanModal/TFYPanModalContentView.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYBackgroundConfig.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanModalShadow.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/TFYPanModalPresentationUpdateProtocol.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/UIViewController+LayoutHelper.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Category/UIView+TFY_Frame.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Category/UIScrollView+Helper.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/TFYPanModalAnimator.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/TFYPanModalInteractiveAnimator.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/TFYPanModalPresentationAnimator.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/PresentingVCAnimation/TFYShoppingCartPresentingAnimation.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/PresentingVCAnimation/TFYPageSheetPresentingAnimation.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanContainerView.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYVisualEffectView.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/View/TFYPanModalShadow.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/KVO/KeyValueObserver.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Delegate/TFYPanModalPresentationDelegate.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Mediator/TFYPanModalPresentableHandler.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Controller/TFYPanModalPresentationController.h",
-    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/TFYPanModalFrequentTapPrevention.h"
+    
+    # Presentable 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/*.h",
+    
+    # Presenter 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Presenter/*.h",
+    
+    # Controller 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Controller/*.h",
+    
+    # Mediator 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Mediator/*.h",
+    
+    # Delegate 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Delegate/*.h",
+    
+    # Animator 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/*.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/PresentingVCAnimation/*.h",
+    
+    # View 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/View/*.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/View/PanModal/*.h",
+    
+    # Category 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Category/*.h",
+    
+    # KVO 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/KVO/*.h"
   ]
 
 end
