@@ -8,6 +8,7 @@
 
 #import "UIViewController+PanModalDefault.h"
 #import "UIViewController+LayoutHelper.h"
+#import "TFYPanModalFrequentTapPrevention.h"
 
 @implementation UIViewController (PanModalDefault)
 
@@ -245,6 +246,28 @@
 
 - (void)presentedViewDidMoveToSuperView {
     
+}
+
+#pragma mark - 防频繁点击配置
+
+- (BOOL)shouldPreventFrequentTapping {
+    return YES;
+}
+
+- (NSTimeInterval)frequentTapPreventionInterval {
+    return 1.0;
+}
+
+- (BOOL)shouldShowFrequentTapPreventionHint {
+    return NO;
+}
+
+- (nullable NSString *)frequentTapPreventionHintText {
+    return @"请稍后再试";
+}
+
+- (void)panModalFrequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime {
+    // 默认实现为空，子类可以重写
 }
 
 @end

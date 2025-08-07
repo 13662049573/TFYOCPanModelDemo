@@ -260,6 +260,35 @@ NS_SWIFT_NAME(PanModalPresentable)
  * 自定义底部固定容器视图（可选），仅实现并返回非空view时显示，且始终固定底部不随内容滑动
  */
 
+#pragma mark - 防频繁点击配置
+
+/**
+ * 是否启用防频繁点击功能，默认YES
+ */
+- (BOOL)shouldPreventFrequentTapping;
+
+/**
+ * 防频繁点击的时间间隔（秒），默认1.0秒
+ */
+- (NSTimeInterval)frequentTapPreventionInterval;
+
+/**
+ * 是否允许在防频繁点击期间显示提示，默认NO
+ */
+- (BOOL)shouldShowFrequentTapPreventionHint;
+
+/**
+ * 防频繁点击提示文本，默认"请稍后再试"
+ */
+- (nullable NSString *)frequentTapPreventionHintText;
+
+/**
+ * 防频繁点击状态变更回调
+ * @param isPrevented 是否被阻止
+ * @param remainingTime 剩余等待时间
+ */
+- (void)panModalFrequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime;
+
 #pragma mark - Delegate
 
 #pragma mark - 拖拽手势代理

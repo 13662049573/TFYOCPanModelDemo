@@ -10,6 +10,7 @@
 #import "TFYPanModalPresentable.h"
 
 @class TFYDimmedView;
+@class TFYPanModalFrequentTapPrevention;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,6 +33,11 @@ NS_SWIFT_NAME(PanModalPresentationController)
  * 弹窗视图是否正在动画（只读）
  */
 @property (nonatomic, assign, readonly) BOOL isPresentedViewAnimating;
+
+/**
+ * 防频繁点击管理器（只读）
+ */
+@property (nonatomic, strong, readonly, nonnull) TFYPanModalFrequentTapPrevention *frequentTapPrevention;
 
 /**
  * 强制刷新布局
@@ -63,6 +69,19 @@ NS_SWIFT_NAME(PanModalPresentationController)
  * @param completion 关闭完成回调
  */
 - (void)dismissAnimated:(BOOL)animated completion:(void (^ _Nullable)(void))completion NS_SWIFT_NAME(dismiss(animated:completion:));
+
+/**
+ * 检查是否可以执行弹窗操作（防频繁点击）
+ * @return 是否可以执行
+ */
+- (BOOL)canExecutePanModalAction;
+
+/**
+ * 执行弹窗操作（如果允许）
+ * @param block 要执行的操作块
+ * @return 是否执行了操作
+ */
+- (BOOL)executePanModalActionIfAllowed:(void (^)(void))block;
 
 @end
 

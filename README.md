@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.0.6-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.0.7-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -37,6 +37,7 @@
 - **点击关闭** - 点击背景关闭弹窗
 - **边缘滑动** - 支持屏幕边缘滑动关闭
 - **键盘适配** - 自动处理键盘弹出和收起
+- **防频繁点击** - 防止用户频繁点击触发多次弹窗
 
 ### 🔧 高度配置 Height Configuration
 - **最大高度** - 弹窗最大显示高度
@@ -56,13 +57,19 @@
 
 ### CocoaPods (推荐)
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.0.6'
+pod 'TFYOCPanlModel', '~> 1.0.7'
 ```
 
 ### 系统要求
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 新功能
+- **防频繁点击功能** - 防止用户频繁点击触发多次弹窗
+- **可配置时间间隔** - 支持自定义防频繁点击的时间间隔
+- **实时状态反馈** - 提供防频繁点击状态的实时回调
+- **自定义提示信息** - 支持自定义防频繁点击的提示文本
 
 ---
 
@@ -164,6 +171,32 @@ presentPanModal(vc)
     return YES;
 }
 
+#pragma mark - 防频繁点击配置
+- (BOOL)shouldPreventFrequentTapping {
+    return YES;
+}
+
+- (NSTimeInterval)frequentTapPreventionInterval {
+    return 1.0;
+}
+
+- (BOOL)shouldShowFrequentTapPreventionHint {
+    return YES;
+}
+
+- (nullable NSString *)frequentTapPreventionHintText {
+    return @"请稍后再试";
+}
+
+- (void)panModalFrequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime {
+    // 处理防频繁点击状态变更
+    if (isPrevented) {
+        NSLog(@"防频繁点击中，剩余时间：%.1f秒", remainingTime);
+    } else {
+        NSLog(@"防频繁点击已解除");
+    }
+}
+
 #pragma mark - 样式配置
 - (BOOL)shouldRoundTopCorners {
     return YES;
@@ -214,6 +247,13 @@ presentPanModal(vc)
 - (BOOL)allowsTapBackgroundToDismiss;
 - (BOOL)showDragIndicator;
 - (BOOL)isUserInteractionEnabled;
+
+// 防频繁点击配置
+- (BOOL)shouldPreventFrequentTapping;
+- (NSTimeInterval)frequentTapPreventionInterval;
+- (BOOL)shouldShowFrequentTapPreventionHint;
+- (nullable NSString *)frequentTapPreventionHintText;
+- (void)panModalFrequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime;
 
 // 样式配置
 - (BOOL)shouldRoundTopCorners;
@@ -315,6 +355,38 @@ typedef NS_ENUM(NSUInteger, TFYBackgroundBehavior) {
 }
 ```
 
+### 6. 防频繁点击 Frequent Tap Prevention
+```objc
+// 启用防频繁点击
+- (BOOL)shouldPreventFrequentTapping {
+    return YES;
+}
+
+// 设置防频繁点击时间间隔
+- (NSTimeInterval)frequentTapPreventionInterval {
+    return 1.0; // 1秒间隔
+}
+
+// 显示防频繁点击提示
+- (BOOL)shouldShowFrequentTapPreventionHint {
+    return YES;
+}
+
+// 自定义提示文本
+- (nullable NSString *)frequentTapPreventionHintText {
+    return @"请等待1秒后再试";
+}
+
+// 监听防频繁点击状态变更
+- (void)panModalFrequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime {
+    if (isPrevented) {
+        NSLog(@"防频繁点击中，剩余时间：%.1f秒", remainingTime);
+    } else {
+        NSLog(@"防频繁点击已解除");
+    }
+}
+```
+
 ---
 
 ## 📁 项目结构 Project Structure
@@ -325,6 +397,7 @@ TFYOCPanlModel/
 │   ├── TFYPanModalPresentable.h   # 核心协议
 │   ├── TFYPanModalHeight.h        # 高度配置
 │   ├── TFYPanModalPanGestureDelegate.h # 手势代理
+│   ├── TFYPanModalFrequentTapPrevention.{h,m} # 防频繁点击
 │   └── UIViewController+*.{h,m}   # 控制器分类
 ├── Controller/                     # 弹窗控制器
 │   └── TFYPanModalPresentationController.{h,m}
@@ -399,6 +472,51 @@ TFYOCPanlModel/
 ---
 
 ## 🎨 自定义示例 Custom Examples
+
+### 防频繁点击示例 Frequent Tap Prevention Example
+```objc
+@interface FrequentTapPreventionViewController : UIViewController <TFYPanModalPresentable>
+@end
+
+@implementation FrequentTapPreventionViewController
+
+// 启用防频繁点击
+- (BOOL)shouldPreventFrequentTapping {
+    return YES;
+}
+
+// 设置防频繁点击时间间隔
+- (NSTimeInterval)frequentTapPreventionInterval {
+    return 1.5; // 1.5秒间隔
+}
+
+// 显示防频繁点击提示
+- (BOOL)shouldShowFrequentTapPreventionHint {
+    return YES;
+}
+
+// 自定义提示文本
+- (nullable NSString *)frequentTapPreventionHintText {
+    return @"操作过于频繁，请稍后再试";
+}
+
+// 监听防频繁点击状态变更
+- (void)panModalFrequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (isPrevented) {
+            // 更新UI显示防频繁点击状态
+            self.statusLabel.text = [NSString stringWithFormat:@"防频繁点击中，剩余 %.1f 秒", remainingTime];
+            self.statusLabel.textColor = [UIColor redColor];
+        } else {
+            // 恢复正常状态
+            self.statusLabel.text = @"可以正常操作";
+            self.statusLabel.textColor = [UIColor greenColor];
+        }
+    });
+}
+
+@end
+```
 
 ### 购物车样式 Shopping Cart Style
 ```objc
@@ -492,6 +610,24 @@ TFYOCPanlModel/
 }
 ```
 
+### Q: 如何启用防频繁点击功能？
+```objc
+// 启用防频繁点击
+- (BOOL)shouldPreventFrequentTapping {
+    return YES;
+}
+
+// 设置时间间隔
+- (NSTimeInterval)frequentTapPreventionInterval {
+    return 1.0; // 1秒间隔
+}
+
+// 显示提示
+- (BOOL)shouldShowFrequentTapPreventionHint {
+    return YES;
+}
+```
+
 ---
 
 ## 🤝 贡献指南 Contributing
@@ -509,7 +645,7 @@ TFYOCPanlModel/
 - 确保所有测试通过
 
 ### 开发环境
-- Xcode 12.0+
+- Xcode 14.0+
 - iOS 15.0+
 - CocoaPods
 
@@ -532,6 +668,170 @@ TFYOCPanlModel/
 ## 🙏 致谢 Acknowledgments
 
 感谢所有为这个项目做出贡献的开发者！
+
+---
+
+## 🛡️ 防频繁点击功能 Frequent Tap Prevention
+
+### 功能概述
+防频繁点击功能可以有效防止用户频繁点击触发多次弹窗，提升用户体验和应用稳定性。
+
+### 核心特性
+- **智能防抖** - 基于时间间隔的智能防抖机制
+- **可配置间隔** - 支持0.5-10秒的自定义时间间隔
+- **实时反馈** - 提供防频繁点击状态的实时回调
+- **自定义提示** - 支持自定义提示文本和显示方式
+- **状态监听** - 实时监听防频繁点击状态变更
+
+### 使用方法
+
+#### 1. 基础配置
+```objc
+@interface MyViewController : UIViewController <TFYPanModalPresentable>
+@end
+
+@implementation MyViewController
+
+// 启用防频繁点击
+- (BOOL)shouldPreventFrequentTapping {
+    return YES;
+}
+
+// 设置防频繁点击时间间隔（秒）
+- (NSTimeInterval)frequentTapPreventionInterval {
+    return 1.0; // 1秒间隔
+}
+
+// 是否显示防频繁点击提示
+- (BOOL)shouldShowFrequentTapPreventionHint {
+    return YES;
+}
+
+// 自定义提示文本
+- (nullable NSString *)frequentTapPreventionHintText {
+    return @"请稍后再试";
+}
+
+// 监听防频繁点击状态变更
+- (void)panModalFrequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime {
+    if (isPrevented) {
+        NSLog(@"防频繁点击中，剩余时间：%.1f秒", remainingTime);
+        // 更新UI状态
+        self.button.enabled = NO;
+    } else {
+        NSLog(@"防频繁点击已解除");
+        // 恢复UI状态
+        self.button.enabled = YES;
+    }
+}
+
+@end
+```
+
+#### 2. 高级配置
+```objc
+@implementation AdvancedViewController
+
+// 动态调整防频繁点击间隔
+- (NSTimeInterval)frequentTapPreventionInterval {
+    // 根据用户操作历史动态调整
+    if (self.userOperationCount > 5) {
+        return 2.0; // 频繁操作时增加间隔
+    }
+    return 1.0; // 正常间隔
+}
+
+// 自定义提示显示逻辑
+- (void)panModalFrequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (isPrevented) {
+            // 显示自定义提示UI
+            [self showCustomPreventionHint:remainingTime];
+        } else {
+            // 隐藏提示UI
+            [self hideCustomPreventionHint];
+        }
+    });
+}
+
+- (void)showCustomPreventionHint:(NSTimeInterval)remainingTime {
+    // 显示自定义提示UI
+    self.hintLabel.text = [NSString stringWithFormat:@"请等待 %.1f 秒", remainingTime];
+    self.hintLabel.hidden = NO;
+}
+
+- (void)hideCustomPreventionHint {
+    // 隐藏提示UI
+    self.hintLabel.hidden = YES;
+}
+
+@end
+```
+
+### 最佳实践
+
+#### 1. 合理设置时间间隔
+```objc
+// 根据操作类型设置不同的间隔
+- (NSTimeInterval)frequentTapPreventionInterval {
+    switch (self.operationType) {
+        case OperationTypeLight:
+            return 0.5; // 轻量操作
+        case OperationTypeNormal:
+            return 1.0; // 普通操作
+        case OperationTypeHeavy:
+            return 2.0; // 重量操作
+        default:
+            return 1.0;
+    }
+}
+```
+
+#### 2. 提供用户友好的提示
+```objc
+- (nullable NSString *)frequentTapPreventionHintText {
+    switch (self.currentOperation) {
+        case OperationTypeSubmit:
+            return @"提交过于频繁，请稍后再试";
+        case OperationTypeRefresh:
+            return @"刷新过于频繁，请稍后再试";
+        case OperationTypeShare:
+            return @"分享过于频繁，请稍后再试";
+        default:
+            return @"操作过于频繁，请稍后再试";
+    }
+}
+```
+
+#### 3. 实时状态反馈
+```objc
+- (void)panModalFrequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (isPrevented) {
+            // 更新按钮状态
+            [self.submitButton setTitle:[NSString stringWithFormat:@"请等待 %.0f 秒", remainingTime] forState:UIControlStateDisabled];
+            self.submitButton.enabled = NO;
+            
+            // 显示进度指示器
+            [self showProgressIndicator];
+        } else {
+            // 恢复按钮状态
+            [self.submitButton setTitle:@"提交" forState:UIControlStateNormal];
+            self.submitButton.enabled = YES;
+            
+            // 隐藏进度指示器
+            [self hideProgressIndicator];
+        }
+    });
+}
+```
+
+### 注意事项
+
+1. **时间间隔设置** - 建议根据操作类型设置合理的时间间隔，避免影响用户体验
+2. **提示信息** - 提供清晰、友好的提示信息，帮助用户理解当前状态
+3. **UI反馈** - 通过UI状态变化提供直观的视觉反馈
+4. **性能考虑** - 防频繁点击功能对性能影响很小，但建议在复杂场景下进行测试
 
 ---
 

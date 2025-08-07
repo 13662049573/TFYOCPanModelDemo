@@ -12,6 +12,7 @@
 #import "TFYPanModalPresentable.h"
 #import "TFYPanModalPanGestureDelegate.h"
 #import "TFYPanModalHeight.h"
+#import "TFYPanModalFrequentTapPrevention.h"
 
 #import "TFYPanModalPresenterProtocol.h"
 

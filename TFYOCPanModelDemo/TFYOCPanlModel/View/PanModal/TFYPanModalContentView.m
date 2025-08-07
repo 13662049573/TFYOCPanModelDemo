@@ -416,6 +416,28 @@
     return nil;
 }
 
+#pragma mark - 防频繁点击配置
+
+- (BOOL)shouldPreventFrequentTapping {
+    return YES; // 默认不启用防频繁点击
+}
+
+- (NSTimeInterval)frequentTapPreventionInterval {
+    return 1.0; // 默认1秒间隔
+}
+
+- (BOOL)shouldShowFrequentTapPreventionHint {
+    return NO; // 默认不显示提示
+}
+
+- (nullable NSString *)frequentTapPreventionHintText {
+    return @"请稍后再试"; // 默认提示文本
+}
+
+- (void)panModalFrequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime {
+    // 默认实现为空，子类可以重写
+}
+
 - (void)dealloc {
     if (_containerView) {
         [_containerView removeFromSuperview];

@@ -8,6 +8,7 @@
 
 #import "UIViewController+PanModalPresenter.h"
 #import "TFYPanModalPresentationDelegate.h"
+#import "TFYPanModalFrequentTapPrevention.h"
 #import <objc/runtime.h>
 #import <UIKit/UIKit.h>
 
@@ -56,6 +57,61 @@ static const void *kTFYPanModalPendingPresentInfoKey = &kTFYPanModalPendingPrese
         // 注册前台监听
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pan_handlePanModalPendingPresent) name:UIApplicationDidBecomeActiveNotification object:nil];
         return;
+    }
+    
+    // 检查防频繁点击
+    if ([viewControllerToPresent respondsToSelector:@selector(shouldPreventFrequentTapping)] &&
+        [viewControllerToPresent shouldPreventFrequentTapping]) {
+        
+        // 创建临时的防频繁点击管理器进行检查
+        NSTimeInterval interval = [viewControllerToPresent respondsToSelector:@selector(frequentTapPreventionInterval)] ? 
+                                 [viewControllerToPresent frequentTapPreventionInterval] : 1.0;
+        
+        static NSMutableDictionary *preventionDict = nil;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            preventionDict = [NSMutableDictionary dictionary];
+        });
+        
+        NSString *key = NSStringFromClass([viewControllerToPresent class]);
+        TFYPanModalFrequentTapPrevention *prevention = preventionDict[key];
+        if (!prevention) {
+            prevention = [TFYPanModalFrequentTapPrevention preventionWithInterval:interval];
+            preventionDict[key] = prevention;
+        }
+        
+        // 检查是否可以执行
+        if (![prevention canExecute]) {
+            // 显示提示
+            if ([viewControllerToPresent respondsToSelector:@selector(shouldShowFrequentTapPreventionHint)] &&
+                [viewControllerToPresent shouldShowFrequentTapPreventionHint]) {
+                
+                NSString *hintText = [viewControllerToPresent respondsToSelector:@selector(frequentTapPreventionHintText)] ?
+                                    [viewControllerToPresent frequentTapPreventionHintText] : @"请稍后再试";
+                
+                // 显示提示
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                             message:hintText
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+                [self presentViewController:alert animated:YES completion:nil];
+                
+                // 2秒后自动消失
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [alert dismissViewControllerAnimated:YES completion:nil];
+                });
+            }
+            
+            // 通知状态变更
+            if ([viewControllerToPresent respondsToSelector:@selector(panModalFrequentTapPreventionStateChanged:remainingTime:)]) {
+                NSTimeInterval remainingTime = [prevention getRemainingTime];
+                [viewControllerToPresent panModalFrequentTapPreventionStateChanged:YES remainingTime:remainingTime];
+            }
+            
+            return;
+        }
+        
+        // 触发防频繁点击
+        [prevention triggerPrevention];
     }
     
     TFYPanModalPresentationDelegate *delegate = [TFYPanModalPresentationDelegate new];

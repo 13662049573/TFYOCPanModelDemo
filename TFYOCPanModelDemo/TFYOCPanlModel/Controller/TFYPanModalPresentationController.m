@@ -17,13 +17,14 @@
 #import "TFYPanIndicatorView.h"
 #import "UIView+TFY_Frame.h"
 #import "TFYPanModalPresentableHandler.h"
+#import "TFYPanModalFrequentTapPrevention.h"
 
 /**
  * @brief 自定义弹窗的UIPresentationController，负责弹窗的展示、布局、交互等核心逻辑。
  * @discussion 该类实现了弹窗的生命周期管理、手势交互、状态切换、事件穿透、圆角阴影等功能，是PanModal弹窗的核心控制器。
  */
 
-@interface TFYPanModalPresentationController () <UIGestureRecognizerDelegate, TFYPanModalPresentableHandlerDelegate, TFYPanModalPresentableHandlerDataSource>
+@interface TFYPanModalPresentationController () <UIGestureRecognizerDelegate, TFYPanModalPresentableHandlerDelegate, TFYPanModalPresentableHandlerDataSource, TFYPanModalFrequentTapPreventionDelegate>
 
 // 判断弹出的view是否在做动画
 @property (nonatomic, assign) BOOL isPresentedViewAnimating;
@@ -38,6 +39,8 @@
 
 @property (nonatomic, strong) TFYPanModalPresentableHandler *handler;
 
+@property (nonatomic, strong) TFYPanModalFrequentTapPrevention *frequentTapPrevention;
+
 @end
 
 @implementation TFYPanModalPresentationController
@@ -48,6 +51,13 @@
 		_handler = [[TFYPanModalPresentableHandler alloc] initWithPresentable:[self presentable]];
 		_handler.delegate = self;
 		_handler.dataSource = self;
+		
+		// 初始化防频繁点击管理器
+		_frequentTapPrevention = [TFYPanModalFrequentTapPrevention preventionWithInterval:[[self presentable] frequentTapPreventionInterval]];
+		_frequentTapPrevention.delegate = self;
+		_frequentTapPrevention.enabled = [[self presentable] shouldPreventFrequentTapping];
+		_frequentTapPrevention.shouldShowHint = [[self presentable] shouldShowFrequentTapPreventionHint];
+		_frequentTapPrevention.hintText = [[self presentable] frequentTapPreventionHintText];
 	}
 
 	return self;
@@ -617,6 +627,49 @@
     self.handler.delegate = nil;
     self.handler.dataSource = nil;
     self.handler = nil;
+    self.frequentTapPrevention.delegate = nil;
+    self.frequentTapPrevention = nil;
+}
+
+#pragma mark - 防频繁点击相关方法
+
+- (BOOL)canExecutePanModalAction {
+    return [self.frequentTapPrevention canExecute];
+}
+
+- (BOOL)executePanModalActionIfAllowed:(void (^)(void))block {
+    return [self.frequentTapPrevention executeIfAllowed:block];
+}
+
+#pragma mark - TFYPanModalFrequentTapPreventionDelegate
+
+- (void)frequentTapPreventionStateChanged:(BOOL)isPrevented remainingTime:(NSTimeInterval)remainingTime {
+    // 通知presentable状态变更
+    if ([self presentable] && [[self presentable] respondsToSelector:@selector(panModalFrequentTapPreventionStateChanged:remainingTime:)]) {
+        [[self presentable] panModalFrequentTapPreventionStateChanged:isPrevented remainingTime:remainingTime];
+    }
+}
+
+- (void)showFrequentTapPreventionHint:(NSString *)hintText {
+    // 默认实现：显示Toast提示
+    if (hintText && hintText.length > 0) {
+        // 这里可以集成Toast库，暂时使用简单的UIAlertController
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                         message:hintText
+                                                                  preferredStyle:UIAlertControllerStyleAlert];
+            [self.presentedViewController presentViewController:alert animated:YES completion:nil];
+            
+            // 2秒后自动消失
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [alert dismissViewControllerAnimated:YES completion:nil];
+            });
+        });
+    }
+}
+
+- (void)hideFrequentTapPreventionHint {
+    // 默认实现为空，子类可以重写
 }
 
 @end

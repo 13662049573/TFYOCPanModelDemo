@@ -28,6 +28,8 @@
 #import "TFYTestViewPanModalController.h"
 #import "TFYNestedScrollViewController.h"
 #import "TFYTestWebViewController.h"
+#import "TFYFrequentTapPreventionExampleViewController.h"
+#import "TFYSimpleFrequentTapPreventionViewController.h"
 
 @implementation TFYDemoTypeModel
 
@@ -63,6 +65,12 @@
     TFYDemoTypeModel *testViewDemo = [TFYDemoTypeModel modelWithTitle:@"Use PanModal View" targetClass:TFYTestViewPanModalController.class];
     testViewDemo.action = TFYActionTypePush;
     
+    TFYDemoTypeModel *frequentTapDemo = [TFYDemoTypeModel modelWithTitle:@"Frequent Tap Prevention" targetClass:TFYFrequentTapPreventionExampleViewController.class];
+    frequentTapDemo.action = TFYActionTypePush;
+    
+    TFYDemoTypeModel *simpleFrequentTapDemo = [TFYDemoTypeModel modelWithTitle:@"Simple Frequent Tap Prevention" targetClass:TFYSimpleFrequentTapPreventionViewController.class];
+    simpleFrequentTapDemo.action = TFYActionTypePush;
+    
     TFYDemoTypeModel *appDemo = [TFYDemoTypeModel modelWithTitle:@"App Demo" targetClass:TFYAppListViewController.class];
     appDemo.action = TFYActionTypePush;
     TFYDemoTypeModel *blurDemo = [TFYDemoTypeModel modelWithTitle:@"Blur Background" targetClass:TFYColorBlocksViewController.class];
@@ -72,7 +80,7 @@
     TFYDemoTypeModel *mapDemo = [TFYDemoTypeModel modelWithTitle:@"Events Passing Through TransitionView" targetClass:TFYMapViewController.class];
     mapDemo.action = TFYActionTypePush;
 
-	[array addObjectsFromArray:@[appDemo, blurDemo, indicatorDemo, mapDemo, testViewDemo, textInputDemo, baseDemo, webDemo, alertDemo, autoAlertDemo, dynamicDemo, nestedDemo, groupDemo, stackGroupDemo, fullScreenDemo, customAnimationDemo]];
+	[array addObjectsFromArray:@[appDemo, blurDemo, indicatorDemo, mapDemo, frequentTapDemo, simpleFrequentTapDemo, testViewDemo, textInputDemo, baseDemo, webDemo, alertDemo, autoAlertDemo, dynamicDemo, nestedDemo, groupDemo, stackGroupDemo, fullScreenDemo, customAnimationDemo]];
 
 	return [array copy];
 }
