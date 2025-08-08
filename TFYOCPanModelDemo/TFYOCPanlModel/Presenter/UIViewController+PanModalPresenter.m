@@ -9,8 +9,6 @@
 #import "UIViewController+PanModalPresenter.h"
 #import "TFYPanModalPresentationDelegate.h"
 #import "TFYPanModalFrequentTapPrevention.h"
-#import <objc/runtime.h>
-#import <UIKit/UIKit.h>
 
 /// 缓存待present的弹窗信息结构体
 @interface TFYPanModalPendingPresentInfo : NSObject

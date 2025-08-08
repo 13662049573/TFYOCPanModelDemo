@@ -5,7 +5,8 @@
 //
 //  Created by heath wang on 2019/9/5.
 //
-#import <UIKit/UIKit.h>
+
+#import <Foundation/Foundation.h>
 #import "TFYPageSheetPresentingAnimation.h"
 
 @implementation TFYPageSheetPresentingAnimation
