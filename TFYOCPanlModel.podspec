@@ -34,19 +34,14 @@ Pod::Spec.new do |spec|
   # 由于这是一个framework项目，我们指定framework文件
   spec.vendored_frameworks = "TFYOCPanModelDemo/TFYOCPanlModel.framework"
   
-  # 指定framework的公共头文件
-  spec.public_header_files = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Headers/*.h"
+  # 指定源码文件（framework的Headers目录下的所有头文件）
+  spec.source_files = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Headers/*.h"
   
-  # 指定framework的私有头文件（如果需要的话）
-  spec.private_header_files = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Headers/*.h"
+  # 指定公共头文件
+  spec.public_header_files = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Headers/*.h"
   
   # 指定framework的模块映射文件
   spec.module_map = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Modules/module.modulemap"
-  
-  # 指定framework的Info.plist
-  spec.resource_bundles = {
-    'TFYOCPanlModel' => ['TFYOCPanModelDemo/TFYOCPanlModel.framework/Info.plist']
-  }
 
   # 依赖库
   spec.frameworks = "Foundation", "UIKit", "CoreGraphics", "QuartzCore"
@@ -56,13 +51,16 @@ Pod::Spec.new do |spec|
     'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TFYOCPanlModel',
     'OTHER_LDFLAGS' => '-framework TFYOCPanlModel',
     'DEFINES_MODULE' => 'YES',
-    'SWIFT_VERSION' => '5.0'
+    'VALID_ARCHS' => 'arm64',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }
   
   # 用户目标配置
   spec.user_target_xcconfig = {
     'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TFYOCPanlModel',
-    'OTHER_LDFLAGS' => '-framework TFYOCPanlModel'
+    'OTHER_LDFLAGS' => '-framework TFYOCPanlModel',
+    'VALID_ARCHS' => 'arm64',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }
 
 end
