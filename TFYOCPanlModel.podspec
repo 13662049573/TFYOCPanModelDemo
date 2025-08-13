@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFYOCPanlModel"
 
-  spec.version      = "1.0.9"
+  spec.version      = "1.0.10"
 
   spec.summary      = "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。"
 
@@ -19,6 +19,7 @@ Pod::Spec.new do |spec|
     - 完整的生命周期管理
     - 支持深色模式
     - 重构为framework架构，提升性能和稳定性
+    - 修复安装后显示源码文件的问题，现在正确显示framework结构
   DESC
 
   spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
@@ -32,11 +33,8 @@ Pod::Spec.new do |spec|
   
   spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => spec.version }
 
-  # 由于这是一个framework项目，我们指定framework文件
+  # 指定framework文件，这样安装后就会显示framework结构
   spec.vendored_frameworks = "TFYOCPanModelDemo/TFYOCPanlModel.framework"
-  
-  # 指定源码文件（framework的Headers目录下的所有头文件）
-  spec.source_files = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Headers/*.h"
   
   # 指定公共头文件
   spec.public_header_files = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Headers/*.h"
