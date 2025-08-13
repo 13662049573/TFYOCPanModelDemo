@@ -24,6 +24,7 @@ Pod::Spec.new do |spec|
     - 正确配置为静态库，解决framework加载问题
     - 支持真机架构（arm64）
     - 修复Library not loaded错误
+    - 正确处理静态库framework
   DESC
 
   spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
@@ -37,7 +38,7 @@ Pod::Spec.new do |spec|
   
   spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => "v#{spec.version}" }
 
-  # 指定framework文件
+  # 正确处理静态库framework
   spec.vendored_frameworks = "TFYOCPanModelDemo/TFYOCPanlModel.framework"
   
   # 指定framework的模块映射文件
@@ -56,7 +57,8 @@ Pod::Spec.new do |spec|
     'ENABLE_BITCODE' => 'NO',
     'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES',
     'IPHONEOS_DEPLOYMENT_TARGET' => '15.0',
-    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
+    'ALWAYS_SEARCH_USER_PATHS' => 'NO'
   }
   
   # 用户目标配置 - 静态库配置，只支持arm64
@@ -68,7 +70,8 @@ Pod::Spec.new do |spec|
     'ENABLE_BITCODE' => 'NO',
     'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'NO',
     'IPHONEOS_DEPLOYMENT_TARGET' => '15.0',
-    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
+    'ALWAYS_SEARCH_USER_PATHS' => 'NO'
   }
 
   # 确保framework正确保留
