@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFYOCPanlModel"
 
-  spec.version      = "1.0.18"
+  spec.version      = "1.0.19"
 
   spec.summary      = "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。"
 
@@ -37,21 +37,18 @@ Pod::Spec.new do |spec|
   
   spec.author       = { "tianfengyou" => "420144542@qq.com" }
   
-  spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => "v1.0.18" }
+  spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => "v1.0.19" }
 
   # 正确处理静态库framework
-  spec.vendored_libraries = "TFYOCPanModelDemo/TFYOCPanlModel.framework/TFYOCPanlModel"
-  
-  # 指定framework的模块映射文件
-  spec.module_map = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Modules/module.modulemap"
+  spec.vendored_frameworks = "TFYOCPanModelDemo/TFYOCPanlModel.framework"
 
   # 依赖库
   spec.frameworks = "Foundation", "UIKit", "CoreGraphics", "QuartzCore"
   
   # 编译设置 - 静态库配置，只支持arm64
   spec.pod_target_xcconfig = {
-    'LIBRARY_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/TFYOCPanlModel',
-    'OTHER_LDFLAGS' => '-lTFYOCPanlModel',
+    'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/TFYOCPanlModel',
+    'OTHER_LDFLAGS' => '-framework TFYOCPanlModel',
     'DEFINES_MODULE' => 'YES',
     'VALID_ARCHS' => 'arm64',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
@@ -64,8 +61,8 @@ Pod::Spec.new do |spec|
   
   # 用户目标配置 - 静态库配置，只支持arm64
   spec.user_target_xcconfig = {
-    'LIBRARY_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/TFYOCPanlModel',
-    'OTHER_LDFLAGS' => '-lTFYOCPanlModel',
+    'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/TFYOCPanlModel',
+    'OTHER_LDFLAGS' => '-framework TFYOCPanlModel',
     'VALID_ARCHS' => 'arm64',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
     'ENABLE_BITCODE' => 'NO',
