@@ -35,7 +35,7 @@ Pod::Spec.new do |spec|
   
   spec.author       = { "tianfengyou" => "420144542@qq.com" }
   
-  spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => spec.version }
+  spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => "v#{spec.version}" }
 
   # 指定framework文件
   spec.vendored_frameworks = "TFYOCPanModelDemo/TFYOCPanlModel.framework"
