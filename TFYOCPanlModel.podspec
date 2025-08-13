@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFYOCPanlModel"
 
-  spec.version      = "1.0.10"
+  spec.version      = "1.0.11"
 
   spec.summary      = "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。"
 
@@ -20,6 +20,7 @@ Pod::Spec.new do |spec|
     - 支持深色模式
     - 重构为framework架构，提升性能和稳定性
     - 修复安装后显示源码文件的问题，现在正确显示framework结构
+    - 优化podspec配置，解决验证错误
   DESC
 
   spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
