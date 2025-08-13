@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFYOCPanlModel"
 
-  spec.version      = "1.0.11"
+  spec.version      = "1.0.12"
 
   spec.summary      = "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。"
 
@@ -21,6 +21,7 @@ Pod::Spec.new do |spec|
     - 重构为framework架构，提升性能和稳定性
     - 修复安装后显示源码文件的问题，现在正确显示framework结构
     - 优化podspec配置，解决验证错误
+    - 修复framework动态库加载问题
   DESC
 
   spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
@@ -43,21 +44,31 @@ Pod::Spec.new do |spec|
   # 依赖库
   spec.frameworks = "Foundation", "UIKit", "CoreGraphics", "QuartzCore"
   
-  # 编译设置
+  # 编译设置 - 修复framework加载问题
   spec.pod_target_xcconfig = {
     'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TFYOCPanlModel',
     'OTHER_LDFLAGS' => '-framework TFYOCPanlModel',
     'DEFINES_MODULE' => 'YES',
     'VALID_ARCHS' => 'arm64',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
+    'ENABLE_BITCODE' => 'NO',
+    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES'
   }
   
-  # 用户目标配置
+  # 用户目标配置 - 修复framework嵌入问题
   spec.user_target_xcconfig = {
     'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/TFYOCPanlModel',
     'OTHER_LDFLAGS' => '-framework TFYOCPanlModel',
     'VALID_ARCHS' => 'arm64',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
+    'ENABLE_BITCODE' => 'NO',
+    'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'NO'
   }
+
+  # 确保framework正确嵌入
+  spec.preserve_paths = "TFYOCPanModelDemo/TFYOCPanlModel.framework"
+  
+  # 设置framework为动态库
+  spec.static_framework = false
 
 end
