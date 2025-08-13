@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "TFYPanModalPresenterProtocol.h"
+#import <objc/runtime.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

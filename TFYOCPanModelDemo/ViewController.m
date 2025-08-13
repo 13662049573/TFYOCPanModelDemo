@@ -7,7 +7,6 @@
 
 #import "ViewController.h"
 #import "TFYDemoTypeModel.h"
-#import "UIViewController+PanModalPresenter.h"
 #import <Masonry/Masonry.h>
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>

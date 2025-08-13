@@ -6,7 +6,6 @@
 //
 
 #import "TFYSimpleFrequentTapPreventionViewController.h"
-#import "TFYPanModalFrequentTapPrevention.h"
 
 @interface TFYSimpleFrequentTapPreventionViewController () <TFYPanModalPresentable, TFYPanModalFrequentTapPreventionDelegate>
 

@@ -7,7 +7,6 @@
 //
 
 #import "TFYEventPassThroughViewController.h"
-#import "TFYOCPanlModel.h"
 #import <Masonry/Masonry.h>
 
 @interface TFYEventPassThroughViewController () <TFYPanModalPresentable>

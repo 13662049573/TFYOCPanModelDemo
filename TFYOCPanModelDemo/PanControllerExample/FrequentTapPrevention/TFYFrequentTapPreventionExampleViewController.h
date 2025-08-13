@@ -6,7 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TFYOCPanlModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -7,7 +7,6 @@
 //
 
 #import "TFYNavViewController.h"
-#import "TFYOCPanlModel.h"
 #import "TFYFetchDataViewController.h"
 
 @interface TFYNavViewController () <TFYPanModalPresentable>
