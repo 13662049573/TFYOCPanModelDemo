@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFYOCPanlModel"
 
-  spec.version      = "1.0.16"
+  spec.version      = "1.0.17"
 
   spec.summary      = "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。"
 
@@ -25,6 +25,7 @@ Pod::Spec.new do |spec|
     - 支持真机架构（arm64）
     - 修复Library not loaded错误
     - 正确处理静态库framework
+    - 修复架构配置问题
   DESC
 
   spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
@@ -53,7 +54,6 @@ Pod::Spec.new do |spec|
     'OTHER_LDFLAGS' => '-framework TFYOCPanlModel',
     'DEFINES_MODULE' => 'YES',
     'VALID_ARCHS' => 'arm64',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
     'ENABLE_BITCODE' => 'NO',
     'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES',
     'IPHONEOS_DEPLOYMENT_TARGET' => '15.0',
@@ -66,7 +66,6 @@ Pod::Spec.new do |spec|
     'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/TFYOCPanlModel',
     'OTHER_LDFLAGS' => '-framework TFYOCPanlModel',
     'VALID_ARCHS' => 'arm64',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
     'ENABLE_BITCODE' => 'NO',
     'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'NO',
     'IPHONEOS_DEPLOYMENT_TARGET' => '15.0',
