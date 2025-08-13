@@ -21,7 +21,8 @@ Pod::Spec.new do |spec|
     - 重构为framework架构，提升性能和稳定性
     - 修复安装后显示源码文件的问题，现在正确显示framework结构
     - 优化podspec配置，解决验证错误
-    - 修正为静态库配置，解决framework加载问题
+    - 正确配置为静态库，解决framework加载问题
+    - 支持真机架构（arm64）
   DESC
 
   spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
@@ -35,7 +36,7 @@ Pod::Spec.new do |spec|
   
   spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => spec.version }
 
-  # 指定framework文件，这样安装后就会显示framework结构
+  # 指定framework文件
   spec.vendored_frameworks = "TFYOCPanModelDemo/TFYOCPanlModel.framework"
   
   # 指定framework的模块映射文件
@@ -44,7 +45,7 @@ Pod::Spec.new do |spec|
   # 依赖库
   spec.frameworks = "Foundation", "UIKit", "CoreGraphics", "QuartzCore"
   
-  # 编译设置 - 静态库配置
+  # 编译设置 - 静态库配置，只支持arm64
   spec.pod_target_xcconfig = {
     'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/TFYOCPanlModel',
     'OTHER_LDFLAGS' => '-framework TFYOCPanlModel',
@@ -52,23 +53,27 @@ Pod::Spec.new do |spec|
     'VALID_ARCHS' => 'arm64',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
     'ENABLE_BITCODE' => 'NO',
-    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES'
+    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES',
+    'IPHONEOS_DEPLOYMENT_TARGET' => '15.0',
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
   }
   
-  # 用户目标配置 - 静态库配置
+  # 用户目标配置 - 静态库配置，只支持arm64
   spec.user_target_xcconfig = {
     'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/TFYOCPanlModel',
     'OTHER_LDFLAGS' => '-framework TFYOCPanlModel',
     'VALID_ARCHS' => 'arm64',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
     'ENABLE_BITCODE' => 'NO',
-    'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'NO'
+    'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'NO',
+    'IPHONEOS_DEPLOYMENT_TARGET' => '15.0',
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
   }
 
   # 确保framework正确保留
   spec.preserve_paths = "TFYOCPanModelDemo/TFYOCPanlModel.framework"
   
-  # 设置为静态库（根据扫描结果确认）
+  # 设置为静态库（确认这是一个静态库framework）
   spec.static_framework = true
 
 end
