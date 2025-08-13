@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFYOCPanlModel"
 
-  spec.version      = "1.0.8"
+  spec.version      = "1.0.9"
 
   spec.summary      = "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。"
 
@@ -18,6 +18,7 @@ Pod::Spec.new do |spec|
     - 支持iOS 15.0+
     - 完整的生命周期管理
     - 支持深色模式
+    - 重构为framework架构，提升性能和稳定性
   DESC
 
   spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
