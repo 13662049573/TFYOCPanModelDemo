@@ -36,9 +36,6 @@ Pod::Spec.new do |spec|
   # 指定framework文件，这样安装后就会显示framework结构
   spec.vendored_frameworks = "TFYOCPanModelDemo/TFYOCPanlModel.framework"
   
-  # 指定公共头文件
-  spec.public_header_files = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Headers/*.h"
-  
   # 指定framework的模块映射文件
   spec.module_map = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Modules/module.modulemap"
 
