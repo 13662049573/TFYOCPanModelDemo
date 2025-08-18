@@ -4,28 +4,12 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFYOCPanlModel"
 
-  spec.version      = "1.0.18"
+  spec.version      = "1.2.0"
 
   spec.summary      = "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。"
 
   spec.description  = <<-DESC
     TFYOCPanlModel 是一套高扩展性的 Objective-C 弹窗组件，支持多种弹窗样式、交互动画与自定义扩展，适用于 iOS 各类弹窗场景。
-    
-    主要特性：
-    - 支持多种弹窗样式（全屏、半屏、购物车等）
-    - 丰富的交互动画和手势支持
-    - 高度可定制的UI组件
-    - 支持iOS 15.0+
-    - 完整的生命周期管理
-    - 支持深色模式
-    - 重构为framework架构，提升性能和稳定性
-    - 修复安装后显示源码文件的问题，现在正确显示framework结构
-    - 优化podspec配置，解决验证错误
-    - 正确配置为静态库，解决framework加载问题
-    - 支持真机架构（arm64）
-    - 修复Library not loaded错误
-    - 正确处理静态库framework
-    - 修复架构配置问题
   DESC
 
   spec.homepage     = "https://github.com/13662049573/TFYOCPanModelDemo"
@@ -35,50 +19,50 @@ Pod::Spec.new do |spec|
 
   spec.license      = "MIT"
   
+
   spec.author       = { "tianfengyou" => "420144542@qq.com" }
   
-  spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => "v1.0.18" }
+  spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => spec.version }
 
-  # 正确处理静态库framework
-  spec.vendored_libraries = "TFYOCPanModelDemo/TFYOCPanlModel.framework/TFYOCPanlModel"
-  
-  # 指定framework的模块映射文件
-  spec.module_map = "TFYOCPanModelDemo/TFYOCPanlModel.framework/Modules/module.modulemap"
+  # 源码文件递归所有.h/.m
+  spec.source_files  = "TFYOCPanModelDemo/TFYOCPanlModel/**/*.{h,m}"
 
-  # 依赖库
-  spec.frameworks = "Foundation", "UIKit", "CoreGraphics", "QuartzCore"
-  
-  # 编译设置 - 静态库配置，只支持arm64
-  spec.pod_target_xcconfig = {
-    'LIBRARY_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/TFYOCPanlModel',
-    'OTHER_LDFLAGS' => '-lTFYOCPanlModel',
-    'DEFINES_MODULE' => 'YES',
-    'VALID_ARCHS' => 'arm64',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
-    'ENABLE_BITCODE' => 'NO',
-    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES',
-    'IPHONEOS_DEPLOYMENT_TARGET' => '15.0',
-    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
-    'ALWAYS_SEARCH_USER_PATHS' => 'NO'
-  }
-  
-  # 用户目标配置 - 静态库配置，只支持arm64
-  spec.user_target_xcconfig = {
-    'LIBRARY_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/TFYOCPanlModel',
-    'OTHER_LDFLAGS' => '-lTFYOCPanlModel',
-    'VALID_ARCHS' => 'arm64',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
-    'ENABLE_BITCODE' => 'NO',
-    'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'NO',
-    'IPHONEOS_DEPLOYMENT_TARGET' => '15.0',
-    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
-    'ALWAYS_SEARCH_USER_PATHS' => 'NO'
-  }
+  # 公共头文件（按文件夹结构组织）
+  spec.public_header_files = [
+    # 主头文件
+    "TFYOCPanModelDemo/TFYOCPanlModel/TFYOCPanlModel.h",
+    
+    # Presentable 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/*.h",
+    
+    # Presenter 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Presenter/*.h",
+    
+    # Controller 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Controller/*.h",
+    
+    # Mediator 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Mediator/*.h",
+    
+    # Delegate 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Delegate/*.h",
+    
+    # Animator 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/*.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/Animator/PresentingVCAnimation/*.h",
+    
+    # View 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/View/*.h",
+    "TFYOCPanModelDemo/TFYOCPanlModel/View/PanModal/*.h",
+    
+    # Category 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/Category/*.h",
+    
+    # KVO 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/KVO/*.h",
 
-  # 确保framework正确保留
-  spec.preserve_paths = "TFYOCPanModelDemo/TFYOCPanlModel.framework"
-  
-  # 设置为静态库（确认这是一个静态库framework）
-  spec.static_framework = true
+    # Popup 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/popup/*.h"
+  ]
 
 end

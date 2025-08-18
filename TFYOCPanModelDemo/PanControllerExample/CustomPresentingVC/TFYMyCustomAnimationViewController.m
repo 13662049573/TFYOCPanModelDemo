@@ -7,6 +7,7 @@
 //
 
 #import "TFYMyCustomAnimationViewController.h"
+#import "TFYOCPanlModel.h"
 
 // define object conforms TFYPresentingViewControllerAnimatedTransitioning
 @interface TFYMyCustomAnimation : NSObject <TFYPresentingViewControllerAnimatedTransitioning>

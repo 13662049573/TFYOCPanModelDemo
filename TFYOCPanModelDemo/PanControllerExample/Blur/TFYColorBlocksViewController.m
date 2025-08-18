@@ -9,6 +9,8 @@
 #import <Masonry/View+MASAdditions.h>
 #import "TFYColorBlocksViewController.h"
 #import "TFYColorCollectionViewCell.h"
+#import "TFYOCPanlModel.h"
+
 #import "TFYBlurViewController.h"
 #import "UIColor+TFY.h"
 

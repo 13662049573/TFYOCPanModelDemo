@@ -7,6 +7,7 @@
 //
 
 #import "TFYNestedScrollViewController.h"
+#import "TFYOCPanlModel.h"
 #import "TFYColorCell.h"
 #import "UIColor+TFY.h"
 #import <Masonry/Masonry.h>

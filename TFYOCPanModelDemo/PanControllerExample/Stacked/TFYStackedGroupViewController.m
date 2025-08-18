@@ -8,6 +8,7 @@
 
 #import "TFYStackedGroupViewController.h"
 #import "TFYColorDetailViewController.h"
+#import "TFYOCPanlModel.h"
 
 @interface TFYStackedGroupViewController () <TFYPanModalPresentable>
 

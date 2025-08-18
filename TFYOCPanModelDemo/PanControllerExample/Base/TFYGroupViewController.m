@@ -8,6 +8,7 @@
 
 #import "TFYGroupViewController.h"
 #import "TFYColorCell.h"
+#import "TFYOCPanlModel.h"
 #import <Masonry/Masonry.h>
 
 @interface TFYGroupViewController () <TFYPanModalPresentable>

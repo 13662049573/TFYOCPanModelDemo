@@ -7,6 +7,7 @@
 //
 
 #import "TFYTextInputViewController.h"
+#import "TFYOCPanlModel.h"
 #import <Masonry/View+MASAdditions.h>
 #import "TFYInputTableViewCell.h"
 

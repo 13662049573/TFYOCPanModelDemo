@@ -10,6 +10,8 @@
 #import "TFYFetchDataViewController.h"
 #import "TFYPanModalNavView.h"
 #import "UIDevice+TFY.h"
+
+#import "TFYOCPanlModel.h"
 #import <MJRefresh/MJRefresh.h>
 
 @interface TFYFetchDataDetailViewController : UIViewController <TFYPanModalPresentable, TFYPanModalNavViewDelegate>

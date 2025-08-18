@@ -444,12 +444,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QH95759TSS;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/TFYOCPanModelDemo",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = TFYOCPanModelDemo/TFYPanPrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TFYOCPanModelDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -463,19 +457,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"MJRefresh\"",
-					"-framework",
-					"\"Masonry\"",
-					"-framework",
-					"\"UIKit\"",
-					"-ObjC",
-					"-all_load",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = tfy.TFYOCPanModelDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -494,12 +475,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QH95759TSS;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/TFYOCPanModelDemo",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = TFYOCPanModelDemo/TFYPanPrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TFYOCPanModelDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -513,19 +488,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"MJRefresh\"",
-					"-framework",
-					"\"Masonry\"",
-					"-framework",
-					"\"UIKit\"",
-					"-ObjC",
-					"-all_load",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = tfy.TFYOCPanModelDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

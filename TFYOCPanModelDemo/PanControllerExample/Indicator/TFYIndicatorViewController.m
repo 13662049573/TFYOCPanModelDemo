@@ -9,6 +9,7 @@
 #import "TFYIndicatorViewController.h"
 #import "TFYIndicatorPopViewController.h"
 #import <Masonry/Masonry.h>
+#import "TFYOCPanlModel.h"
 
 @interface TFYIndicatorModel : NSObject
 
