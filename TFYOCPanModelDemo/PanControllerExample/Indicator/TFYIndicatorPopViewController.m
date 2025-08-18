@@ -7,7 +7,6 @@
 //
 
 #import "TFYIndicatorPopViewController.h"
-#import "TFYOCPanlModel.h"
 #import "TFYTextIndicatorView.h"
 #import "TFYImmobileIndicatorView.h"
 

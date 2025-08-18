@@ -6,7 +6,7 @@
 //  Copyright © 2019 Heath Wang. All rights reserved.
 //
 
-#import "TFYOCPanlModel.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

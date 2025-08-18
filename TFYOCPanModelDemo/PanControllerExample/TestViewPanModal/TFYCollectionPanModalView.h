@@ -6,7 +6,7 @@
 //  Copyright © 2020 wangcongling. All rights reserved.
 //
 
-#import "TFYOCPanlModel.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

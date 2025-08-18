@@ -7,7 +7,6 @@
 //
 
 #import "TFYMapViewController.h"
-#import "TFYOCPanlModel.h"
 #import "TFYEventPassThroughViewController.h"
 #import <MapKit/MapKit.h>
 
