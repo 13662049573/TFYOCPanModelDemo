@@ -32,5 +32,6 @@
 // panModal view
 #import "TFYPanModalContentView.h"
 
+#import "TFYPopup.h"
 
 #endif /* TFYOCPanlModel_h */

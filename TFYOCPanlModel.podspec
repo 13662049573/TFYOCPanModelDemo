@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFYOCPanlModel"
 
-  spec.version      = "1.0.7"
+  spec.version      = "1.2.0"
 
   spec.summary      = "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。"
 
@@ -59,7 +59,10 @@ Pod::Spec.new do |spec|
     "TFYOCPanModelDemo/TFYOCPanlModel/Category/*.h",
     
     # KVO 文件夹
-    "TFYOCPanModelDemo/TFYOCPanlModel/KVO/*.h"
+    "TFYOCPanModelDemo/TFYOCPanlModel/KVO/*.h",
+
+    # Popup 文件夹
+    "TFYOCPanModelDemo/TFYOCPanlModel/popup/*.h"
   ]
 
 end

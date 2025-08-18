@@ -30,6 +30,7 @@
 #import "TFYTestWebViewController.h"
 #import "TFYFrequentTapPreventionExampleViewController.h"
 #import "TFYSimpleFrequentTapPreventionViewController.h"
+#import "TFYPopupDemoViewController.h"
 
 @implementation TFYDemoTypeModel
 
@@ -79,8 +80,11 @@
     indicatorDemo.action = TFYActionTypePush;
     TFYDemoTypeModel *mapDemo = [TFYDemoTypeModel modelWithTitle:@"Events Passing Through TransitionView" targetClass:TFYMapViewController.class];
     mapDemo.action = TFYActionTypePush;
+    
+    TFYDemoTypeModel *popupDemo = [TFYDemoTypeModel modelWithTitle:@"🚀 TFYPopup 弹窗框架演示" targetClass:TFYPopupDemoViewController.class];
+    popupDemo.action = TFYActionTypePush;
 
-	[array addObjectsFromArray:@[appDemo, blurDemo, indicatorDemo, mapDemo, frequentTapDemo, simpleFrequentTapDemo, testViewDemo, textInputDemo, baseDemo, webDemo, alertDemo, autoAlertDemo, dynamicDemo, nestedDemo, groupDemo, stackGroupDemo, fullScreenDemo, customAnimationDemo]];
+	[array addObjectsFromArray:@[popupDemo, appDemo, blurDemo, indicatorDemo, mapDemo, frequentTapDemo, simpleFrequentTapDemo, testViewDemo, textInputDemo, baseDemo, webDemo, alertDemo, autoAlertDemo, dynamicDemo, nestedDemo, groupDemo, stackGroupDemo, fullScreenDemo, customAnimationDemo]];
 
 	return [array copy];
 }
