@@ -19,7 +19,6 @@ Pod::Spec.new do |spec|
 
   spec.license      = "MIT"
   
-
   spec.author       = { "tianfengyou" => "420144542@qq.com" }
   
   spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => spec.version }
