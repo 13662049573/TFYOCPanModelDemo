@@ -9,6 +9,7 @@ target 'TFYOCPanModelDemo' do
   
   pod 'Masonry'
   pod 'MJRefresh'
+  pod 'LookinServer', :configurations => ['Debug']
 
   target 'TFYOCPanModelDemoTests' do
     inherit! :search_paths

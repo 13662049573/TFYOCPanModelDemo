@@ -65,11 +65,15 @@
 		};
 		849928492E2679D40069E0F2 /* TFYOCPanModelDemoTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = TFYOCPanModelDemoTests;
 			sourceTree = "<group>";
 		};
 		849928532E2679D40069E0F2 /* TFYOCPanModelDemoUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = TFYOCPanModelDemoUITests;
 			sourceTree = "<group>";
 		};
@@ -316,13 +320,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo/Pods-TFYOCPanModelDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo/Pods-TFYOCPanModelDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -381,13 +381,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

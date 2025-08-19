@@ -1132,6 +1132,7 @@ static dispatch_queue_t _popupQueue = nil;
     config.enablePriorityManagement = YES;
     config.priority = priority;
     config.priorityStrategy = strategy;
+    config.backgroundColor = UIColor.clearColor;
     
     TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
     
@@ -1157,6 +1158,7 @@ static dispatch_queue_t _popupQueue = nil;
     config.enablePriorityManagement = YES;
     config.priority = priority;
     config.priorityStrategy = strategy;
+    config.backgroundColor = UIColor.clearColor;
     
     // 使用默认动画器（这个方法是便捷方法，为完全自定义请使用带animator参数的方法）
     TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
@@ -1184,6 +1186,7 @@ static dispatch_queue_t _popupQueue = nil;
     config.enablePriorityManagement = YES;
     config.priority = priority;
     config.priorityStrategy = strategy;
+    config.backgroundColor = UIColor.clearColor;
     
     // 使用用户提供的动画器，如果为nil则使用默认动画器
     id<TFYPopupViewAnimator> finalAnimator = animator ?: [[TFYPopupFadeInOutAnimator alloc] init];
