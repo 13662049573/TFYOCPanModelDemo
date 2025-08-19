@@ -1121,27 +1121,83 @@ static dispatch_queue_t _popupQueue = nil;
 
 #pragma mark - Priority Methods Implementation
 
-
-
 + (instancetype)showContentView:(UIView *)contentView
                        priority:(TFYPopupPriority)priority
                        strategy:(TFYPopupPriorityStrategy)strategy
                        animated:(BOOL)animated
                      completion:(nullable TFYPopupViewCallback)completion {
-    // 使用默认配置和动画器
+    // 创建启用优先级管理的配置和默认动画器
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
+    // 确保优先级管理被启用（虽然默认就是YES，但显式设置确保一致性）
+    config.enablePriorityManagement = YES;
+    config.priority = priority;
+    config.priorityStrategy = strategy;
+    
     TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
     
-    return [self showContentView:contentView
-                   configuration:config
-                        animator:animator
-                        priority:priority
-                        strategy:strategy
-                        animated:animated
-                      completion:completion];
+    return [self showPriorityContentView:contentView
+                           configuration:config
+                                animator:animator
+                                priority:priority
+                                strategy:strategy
+                                animated:animated
+                              completion:completion];
 }
 
 + (instancetype)showContentView:(UIView *)contentView
+           baseConfiguration:(nullable TFYPopupViewConfiguration *)baseConfiguration
+                       priority:(TFYPopupPriority)priority
+                       strategy:(TFYPopupPriorityStrategy)strategy
+                       animated:(BOOL)animated
+                     completion:(nullable TFYPopupViewCallback)completion {
+    // 使用用户提供的基础配置，但确保优先级设置正确
+    TFYPopupViewConfiguration *config = baseConfiguration ? [baseConfiguration copy] : [[TFYPopupViewConfiguration alloc] init];
+    
+    // 设置优先级相关配置
+    config.enablePriorityManagement = YES;
+    config.priority = priority;
+    config.priorityStrategy = strategy;
+    
+    // 使用默认动画器（这个方法是便捷方法，为完全自定义请使用带animator参数的方法）
+    TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
+    
+    return [self showPriorityContentView:contentView
+                           configuration:config
+                                animator:animator
+                                priority:priority
+                                strategy:strategy
+                                animated:animated
+                              completion:completion];
+}
+
++ (instancetype)showContentView:(UIView *)contentView
+           baseConfiguration:(nullable TFYPopupViewConfiguration *)baseConfiguration
+                    animator:(nullable id<TFYPopupViewAnimator>)animator
+                       priority:(TFYPopupPriority)priority
+                       strategy:(TFYPopupPriorityStrategy)strategy
+                       animated:(BOOL)animated
+                     completion:(nullable TFYPopupViewCallback)completion {
+    // 使用用户提供的基础配置，但确保优先级设置正确
+    TFYPopupViewConfiguration *config = baseConfiguration ? [baseConfiguration copy] : [[TFYPopupViewConfiguration alloc] init];
+    
+    // 设置优先级相关配置
+    config.enablePriorityManagement = YES;
+    config.priority = priority;
+    config.priorityStrategy = strategy;
+    
+    // 使用用户提供的动画器，如果为nil则使用默认动画器
+    id<TFYPopupViewAnimator> finalAnimator = animator ?: [[TFYPopupFadeInOutAnimator alloc] init];
+    
+    return [self showPriorityContentView:contentView
+                           configuration:config
+                                animator:finalAnimator
+                                priority:priority
+                                strategy:strategy
+                                animated:animated
+                              completion:completion];
+}
+
++ (instancetype)showPriorityContentView:(UIView *)contentView
                   configuration:(TFYPopupViewConfiguration *)configuration
                        animator:(id<TFYPopupViewAnimator>)animator
                        priority:(TFYPopupPriority)priority

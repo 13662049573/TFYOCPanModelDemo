@@ -10,6 +10,12 @@
 #import "TFYPopupView.h"
 #import <objc/runtime.h>
 
+// 为了访问 TFYPopupView 的私有方法，需要声明
+@interface TFYPopupView ()
++ (NSMutableArray<TFYPopupView *> *)currentPopupViews;
++ (dispatch_queue_t)popupQueue;
+@end
+
 #pragma mark - Notification Names
 
 NSNotificationName const TFYPopupPriorityDidChangeNotification = @"TFYPopupPriorityDidChangeNotification";
@@ -118,7 +124,7 @@ TFYPopupPriority TFYPopupPriorityFromValue(NSInteger value) {
         
         // 默认配置
         _defaultMaxWaitingTime = 30.0; // 30秒
-        _maxSimultaneousPopups = 3;
+        _maxSimultaneousPopups = 1; // 改为1，确保优先级效果明显
         _autoCleanupExpiredPopups = YES;
         _isQueuePaused = NO;
         
@@ -232,13 +238,35 @@ TFYPopupPriority TFYPopupPriorityFromValue(NSInteger value) {
                    priority:(TFYPopupPriority)priority
                  completion:(nullable void (^)(void))completion {
     
-    // 检查是否可以立即显示
-    if ([self canDisplayImmediately:priority]) {
+    // 队列策略：严格按优先级排序，高优先级优先显示
+    BOOL shouldDisplayImmediately = [self shouldDisplayImmediatelyForPriority:priority];
+    
+    if (shouldDisplayImmediately) {
+        // 如果需要替换低优先级弹窗
+        if (self.displayedPopups.count >= self.maxSimultaneousPopups) {
+            // 找到最低优先级的弹窗并替换
+            TFYPopupView *lowestPriorityPopup = [self findLowestPriorityDisplayedPopup];
+            if (lowestPriorityPopup) {
+                TFYPopupPriority lowestPriority = [self getPriorityForPopup:lowestPriorityPopup];
+                if (TFYPopupPriorityIsHigher(priority, lowestPriority)) {
+                    if (_priorityDebugMode) {
+                        NSLog(@"TFYPopupPriorityManager: 队列策略替换 - 移除:%@, 显示:%@", 
+                              [self.class priorityDescription:lowestPriority],
+                              [self.class priorityDescription:priority]);
+                    }
+                    
+                    // 移除低优先级弹窗并重新加入等待队列
+                    [self moveDisplayedPopupToWaitingQueue:lowestPriorityPopup];
+                }
+            }
+        }
+        
+        // 显示新的高优先级弹窗
         [self displayPopup:popup withPriority:priority completion:completion];
         return YES;
     }
     
-    // 添加到等待队列
+    // 添加到等待队列，队列会自动按优先级排序
     TFYPopupPriorityItem *item = [[TFYPopupPriorityItem alloc] initWithPopupView:popup
                                                                         priority:priority
                                                                         strategy:TFYPopupPriorityStrategyQueue
@@ -248,8 +276,11 @@ TFYPopupPriority TFYPopupPriorityFromValue(NSInteger value) {
     [self insertItemIntoWaitingQueue:item];
     
     if (_priorityDebugMode) {
-        NSLog(@"TFYPopupPriorityManager: 弹窗已加入等待队列");
+        NSLog(@"TFYPopupPriorityManager: 弹窗已加入等待队列，优先级：%@", [self.class priorityDescription:priority]);
     }
+    
+    // 检查是否需要重新排序显示队列
+    [self reorderDisplayQueueIfNeeded];
     
     return YES;
 }
@@ -349,15 +380,30 @@ TFYPopupPriority TFYPopupPriorityFromValue(NSInteger value) {
     // 按优先级排序等待队列
     [self sortWaitingQueue];
     
-    // 处理等待队列中的弹窗
-    while (self.internalWaitingQueue.count > 0 && self.displayedPopups.count < self.maxSimultaneousPopups) {
+    // 处理等待队列中的弹窗，严格按优先级顺序
+    while (self.internalWaitingQueue.count > 0) {
         TFYPopupPriorityItem *item = self.internalWaitingQueue.firstObject;
-        [self.internalWaitingQueue removeObjectAtIndex:0];
         
-        if (item.popupView && !item.isExpired) {
+        // 检查弹窗是否还有效且未过期
+        if (!item.popupView || item.isExpired) {
+            [self.internalWaitingQueue removeObjectAtIndex:0];
+            continue;
+        }
+        
+        // 检查是否可以显示此弹窗
+        if ([self shouldDisplayImmediatelyForPriority:item.priority] && [self canDisplayImmediately:item.priority]) {
+            [self.internalWaitingQueue removeObjectAtIndex:0];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self displayPopup:item.popupView withPriority:item.priority completion:item.completionBlock];
             });
+            
+            if (_priorityDebugMode) {
+                NSLog(@"TFYPopupPriorityManager: 处理等待队列 - 显示弹窗：%@", [self.class priorityDescription:item.priority]);
+            }
+        } else {
+            // 如果最高优先级的弹窗都不能显示，说明需要等待
+            break;
         }
     }
 }
@@ -521,8 +567,148 @@ TFYPopupPriority TFYPopupPriorityFromValue(NSInteger value) {
     return self.displayedPopups.count < self.maxSimultaneousPopups;
 }
 
+- (BOOL)shouldDisplayImmediatelyForPriority:(TFYPopupPriority)priority {
+    // 如果没有显示任何弹窗，可以立即显示
+    if (self.displayedPopups.count == 0) {
+        return YES;
+    }
+    
+    // 检查当前显示的弹窗中是否有比当前优先级低的
+    for (TFYPopupView *displayedPopup in self.displayedPopups) {
+        TFYPopupPriority displayedPriority = [self getPriorityForPopup:displayedPopup];
+        if (TFYPopupPriorityIsHigher(priority, displayedPriority)) {
+            // 当前优先级比某个已显示的弹窗高，应该立即显示并替换
+            if (_priorityDebugMode) {
+                NSLog(@"TFYPopupPriorityManager: 发现可替换的低优先级弹窗 - 当前:%@, 显示中:%@", 
+                      [self.class priorityDescription:priority], 
+                      [self.class priorityDescription:displayedPriority]);
+            }
+            return YES;
+        }
+    }
+    
+    // 如果已达到最大显示数量，且当前优先级不比任何已显示的弹窗高，则不能立即显示
+    if (self.displayedPopups.count >= self.maxSimultaneousPopups) {
+        return NO;
+    }
+    
+    // 检查等待队列中是否有更高优先级的弹窗
+    for (TFYPopupPriorityItem *item in self.internalWaitingQueue) {
+        if (TFYPopupPriorityIsHigher(item.priority, priority)) {
+            // 有更高优先级的弹窗在等待，当前弹窗不应立即显示
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+- (void)reorderDisplayQueueIfNeeded {
+    // 检查等待队列中是否有更高优先级的弹窗需要立即显示
+    if (self.internalWaitingQueue.count == 0) {
+        return;
+    }
+    
+    // 按优先级排序等待队列
+    [self sortWaitingQueue];
+    
+    // 检查是否有空间显示更高优先级的弹窗
+    while (self.internalWaitingQueue.count > 0 && self.displayedPopups.count < self.maxSimultaneousPopups) {
+        TFYPopupPriorityItem *highestPriorityItem = self.internalWaitingQueue.firstObject;
+        
+        // 检查当前显示的弹窗中是否有比等待队列最高优先级低的
+        TFYPopupView *lowestPriorityDisplayed = [self findLowestPriorityDisplayedPopup];
+        if (lowestPriorityDisplayed) {
+            TFYPopupPriority lowestDisplayedPriority = [self getPriorityForPopup:lowestPriorityDisplayed];
+            
+            // 如果等待队列中的最高优先级比当前显示的最低优先级高，进行替换
+            if (TFYPopupPriorityIsHigher(highestPriorityItem.priority, lowestDisplayedPriority)) {
+                [self.internalWaitingQueue removeObjectAtIndex:0];
+                
+                // 隐藏低优先级弹窗（但不销毁，重新加入等待队列）
+                [self moveDisplayedPopupToWaitingQueue:lowestPriorityDisplayed];
+                
+                // 显示高优先级弹窗
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self displayPopup:highestPriorityItem.popupView 
+                          withPriority:highestPriorityItem.priority 
+                            completion:highestPriorityItem.completionBlock];
+                });
+                
+                if (_priorityDebugMode) {
+                    NSLog(@"TFYPopupPriorityManager: 重新排序 - 显示高优先级弹窗：%@", [self.class priorityDescription:highestPriorityItem.priority]);
+                }
+                
+                continue;
+            }
+        }
+        
+        // 如果有空间，直接显示
+        if (self.displayedPopups.count < self.maxSimultaneousPopups) {
+            [self.internalWaitingQueue removeObjectAtIndex:0];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self displayPopup:highestPriorityItem.popupView 
+                      withPriority:highestPriorityItem.priority 
+                        completion:highestPriorityItem.completionBlock];
+            });
+            
+            if (_priorityDebugMode) {
+                NSLog(@"TFYPopupPriorityManager: 从等待队列显示弹窗：%@", [self.class priorityDescription:highestPriorityItem.priority]);
+            }
+        } else {
+            break;
+        }
+    }
+}
+
+- (TFYPopupView *)findLowestPriorityDisplayedPopup {
+    if (self.displayedPopups.count == 0) {
+        return nil;
+    }
+    
+    TFYPopupView *lowestPriorityPopup = self.displayedPopups.firstObject;
+    TFYPopupPriority lowestPriority = [self getPriorityForPopup:lowestPriorityPopup];
+    
+    for (TFYPopupView *popup in self.displayedPopups) {
+        TFYPopupPriority priority = [self getPriorityForPopup:popup];
+        if (TFYPopupPriorityIsHigher(lowestPriority, priority)) {
+            lowestPriority = priority;
+            lowestPriorityPopup = popup;
+        }
+    }
+    
+    return lowestPriorityPopup;
+}
+
+- (void)moveDisplayedPopupToWaitingQueue:(TFYPopupView *)popup {
+    TFYPopupPriority priority = [self getPriorityForPopup:popup];
+    
+    // 从显示列表移除
+    [self removeDisplayedPopup:popup];
+    
+    // 从全局弹窗列表中移除
+    dispatch_barrier_async([TFYPopupView popupQueue], ^{
+        [[TFYPopupView currentPopupViews] removeObject:popup];
+    });
+    
+    // 直接消失弹窗，队列策略下被替换的弹窗不重新加入队列
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [popup dismissAnimated:YES completion:nil];
+    });
+    
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 移除被替换的弹窗：%@", [self.class priorityDescription:priority]);
+    }
+}
+
 - (void)displayPopup:(TFYPopupView *)popup withPriority:(TFYPopupPriority)priority completion:(nullable void (^)(void))completion {
     [self addDisplayedPopup:popup withPriority:priority];
+    
+    // 添加到全局弹窗列表中
+    dispatch_barrier_async([TFYPopupView popupQueue], ^{
+        [[TFYPopupView currentPopupViews] addObject:popup];
+    });
     
     if (_priorityDebugMode) {
         NSLog(@"TFYPopupPriorityManager: 显示弹窗 - 优先级:%@", [self.class priorityDescription:priority]);

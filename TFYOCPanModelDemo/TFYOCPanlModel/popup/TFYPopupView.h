@@ -132,6 +132,38 @@ NS_SWIFT_NAME(PopupView)
                        animated:(BOOL)animated
                      completion:(nullable TFYPopupViewCallback)completion NS_SWIFT_NAME(show(contentView:priority:strategy:animated:completion:));
 
+/// 显示弹窗（带优先级和基础配置）
+/// @param contentView 内容视图
+/// @param baseConfiguration 基础配置（可为nil，为nil时使用默认配置）
+/// @param priority 优先级
+/// @param strategy 处理策略
+/// @param animated 是否动画
+/// @param completion 完成回调
+/// @return 弹窗实例
++ (instancetype)showContentView:(UIView *)contentView
+           baseConfiguration:(nullable TFYPopupViewConfiguration *)baseConfiguration
+                       priority:(TFYPopupPriority)priority
+                       strategy:(TFYPopupPriorityStrategy)strategy
+                       animated:(BOOL)animated
+                     completion:(nullable TFYPopupViewCallback)completion NS_SWIFT_NAME(show(contentView:baseConfiguration:priority:strategy:animated:completion:));
+
+/// 显示弹窗（带优先级、基础配置和自定义动画器）
+/// @param contentView 内容视图
+/// @param baseConfiguration 基础配置（可为nil，为nil时使用默认配置）
+/// @param animator 动画器（可为nil，为nil时使用默认淡入淡出动画器）
+/// @param priority 优先级
+/// @param strategy 处理策略
+/// @param animated 是否动画
+/// @param completion 完成回调
+/// @return 弹窗实例
++ (instancetype)showContentView:(UIView *)contentView
+           baseConfiguration:(nullable TFYPopupViewConfiguration *)baseConfiguration
+                    animator:(nullable id<TFYPopupViewAnimator>)animator
+                       priority:(TFYPopupPriority)priority
+                       strategy:(TFYPopupPriorityStrategy)strategy
+                       animated:(BOOL)animated
+                     completion:(nullable TFYPopupViewCallback)completion NS_SWIFT_NAME(show(contentView:baseConfiguration:animator:priority:strategy:animated:completion:));
+
 /// 显示弹窗（带优先级和配置）
 /// @param contentView 内容视图
 /// @param configuration 配置对象
@@ -141,7 +173,7 @@ NS_SWIFT_NAME(PopupView)
 /// @param animated 是否动画
 /// @param completion 完成回调
 /// @return 弹窗实例
-+ (instancetype)showContentView:(UIView *)contentView
++ (instancetype)showPriorityContentView:(UIView *)contentView
                   configuration:(TFYPopupViewConfiguration *)configuration
                        animator:(id<TFYPopupViewAnimator>)animator
                        priority:(TFYPopupPriority)priority
