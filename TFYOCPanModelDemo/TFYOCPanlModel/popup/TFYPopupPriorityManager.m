@@ -1,0 +1,691 @@
+//
+//  TFYPopupPriorityManager.m
+//  TFYOCPanModelDemo
+//
+//  Created by 田风有 on 2024/12/19.
+//  用途：弹窗优先级管理器实现
+//
+
+#import "TFYPopupPriorityManager.h"
+#import "TFYPopupView.h"
+#import <objc/runtime.h>
+
+#pragma mark - Notification Names
+
+NSNotificationName const TFYPopupPriorityDidChangeNotification = @"TFYPopupPriorityDidChangeNotification";
+NSNotificationName const TFYPopupQueueDidUpdateNotification = @"TFYPopupQueueDidUpdateNotification";
+NSNotificationName const TFYPopupDidReplaceNotification = @"TFYPopupDidReplaceNotification";
+
+#pragma mark - Global Variables
+
+static BOOL _priorityDebugMode = NO;
+
+#pragma mark - Utility Functions Implementation
+
+BOOL TFYPopupPriorityIsHigher(TFYPopupPriority priority1, TFYPopupPriority priority2) {
+    return priority1 > priority2;
+}
+
+NSInteger TFYPopupPriorityGetValue(TFYPopupPriority priority) {
+    return (NSInteger)priority;
+}
+
+TFYPopupPriority TFYPopupPriorityFromValue(NSInteger value) {
+    // 限制在有效范围内
+    if (value < TFYPopupPriorityBackground) return TFYPopupPriorityBackground;
+    if (value > TFYPopupPriorityUrgent) return TFYPopupPriorityUrgent;
+    return (TFYPopupPriority)value;
+}
+
+#pragma mark - TFYPopupPriorityItem Implementation
+
+@implementation TFYPopupPriorityItem
+
+- (instancetype)initWithPopupView:(TFYPopupView *)popupView
+                         priority:(TFYPopupPriority)priority
+                         strategy:(TFYPopupPriorityStrategy)strategy
+                   maxWaitingTime:(NSTimeInterval)maxWaitingTime
+                       completion:(nullable void (^)(void))completion {
+    
+    self = [super init];
+    if (self) {
+        _popupView = popupView;
+        _priority = priority;
+        _strategy = strategy;
+        _maxWaitingTime = maxWaitingTime;
+        _completionBlock = [completion copy];
+        _enqueuedTime = [NSDate date];
+    }
+    return self;
+}
+
+- (BOOL)isExpired {
+    if (self.maxWaitingTime <= 0) return NO;
+    
+    NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:self.enqueuedTime];
+    return elapsedTime > self.maxWaitingTime;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<TFYPopupPriorityItem: popup=%@, priority=%@, strategy=%@, expired=%@>",
+            self.popupView,
+            [TFYPopupPriorityManager priorityDescription:self.priority],
+            [TFYPopupPriorityManager strategyDescription:self.strategy],
+            self.isExpired ? @"YES" : @"NO"];
+}
+
+@end
+
+#pragma mark - TFYPopupPriorityManager Implementation
+
+@interface TFYPopupPriorityManager ()
+
+// 当前显示的弹窗 (按优先级排序)
+@property (nonatomic, strong) NSMutableArray<TFYPopupView *> *displayedPopups;
+
+// 等待队列 (按优先级排序)
+@property (nonatomic, strong) NSMutableArray<TFYPopupPriorityItem *> *internalWaitingQueue;
+
+// 并发队列
+@property (nonatomic, strong) dispatch_queue_t concurrentQueue;
+
+// 清理定时器
+@property (nonatomic, strong, nullable) NSTimer *cleanupTimer;
+
+@end
+
+@implementation TFYPopupPriorityManager
+
+#pragma mark - Singleton
+
++ (instancetype)sharedManager {
+    static TFYPopupPriorityManager *_sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedManager = [[TFYPopupPriorityManager alloc] init];
+    });
+    return _sharedManager;
+}
+
+#pragma mark - Initialization
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _displayedPopups = [NSMutableArray array];
+        _internalWaitingQueue = [NSMutableArray array];
+        _concurrentQueue = dispatch_queue_create("com.tfy.popup.priority.queue", DISPATCH_QUEUE_CONCURRENT);
+        
+        // 默认配置
+        _defaultMaxWaitingTime = 30.0; // 30秒
+        _maxSimultaneousPopups = 3;
+        _autoCleanupExpiredPopups = YES;
+        _isQueuePaused = NO;
+        
+        [self setupCleanupTimer];
+        [self setupNotificationObservers];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [self.cleanupTimer invalidate];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Setup
+
+- (void)setupCleanupTimer {
+    if (self.autoCleanupExpiredPopups) {
+        self.cleanupTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
+                                                             target:self
+                                                           selector:@selector(periodicCleanup)
+                                                           userInfo:nil
+                                                            repeats:YES];
+    }
+}
+
+- (void)setupNotificationObservers {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleApplicationDidEnterBackground:)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleMemoryWarning:)
+                                                 name:UIApplicationDidReceiveMemoryWarningNotification
+                                               object:nil];
+}
+
+#pragma mark - Core Management
+
+- (BOOL)addPopup:(TFYPopupView *)popup
+        priority:(TFYPopupPriority)priority
+        strategy:(TFYPopupPriorityStrategy)strategy
+      completion:(nullable void (^)(void))completion {
+    
+    if (!popup) {
+        if (_priorityDebugMode) {
+            NSLog(@"TFYPopupPriorityManager: 尝试添加空弹窗");
+        }
+        return NO;
+    }
+    
+    __block BOOL result = NO;
+    
+    dispatch_barrier_sync(self.concurrentQueue, ^{
+        if (self.isQueuePaused) {
+            if (_priorityDebugMode) {
+                NSLog(@"TFYPopupPriorityManager: 队列已暂停，拒绝添加弹窗");
+            }
+            return;
+        }
+        
+        result = [self _addPopupInternal:popup priority:priority strategy:strategy completion:completion];
+    });
+    
+    if (result) {
+        [self postQueueUpdateNotification];
+    }
+    
+    return result;
+}
+
+- (BOOL)_addPopupInternal:(TFYPopupView *)popup
+                 priority:(TFYPopupPriority)priority
+                 strategy:(TFYPopupPriorityStrategy)strategy
+               completion:(nullable void (^)(void))completion {
+    
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 添加弹窗 - 优先级:%@, 策略:%@",
+              [self.class priorityDescription:priority],
+              [self.class strategyDescription:strategy]);
+    }
+    
+    // 检查是否已存在
+    if ([self.displayedPopups containsObject:popup]) {
+        if (_priorityDebugMode) {
+            NSLog(@"TFYPopupPriorityManager: 弹窗已在显示列表中");
+        }
+        return NO;
+    }
+    
+    // 处理不同策略
+    switch (strategy) {
+        case TFYPopupPriorityStrategyQueue:
+            return [self handleQueueStrategy:popup priority:priority completion:completion];
+            
+        case TFYPopupPriorityStrategyReplace:
+            return [self handleReplaceStrategy:popup priority:priority completion:completion];
+            
+        case TFYPopupPriorityStrategyOverlay:
+            return [self handleOverlayStrategy:popup priority:priority completion:completion];
+            
+        case TFYPopupPriorityStrategyReject:
+            return [self handleRejectStrategy:popup priority:priority completion:completion];
+    }
+    
+    return NO;
+}
+
+- (BOOL)handleQueueStrategy:(TFYPopupView *)popup
+                   priority:(TFYPopupPriority)priority
+                 completion:(nullable void (^)(void))completion {
+    
+    // 检查是否可以立即显示
+    if ([self canDisplayImmediately:priority]) {
+        [self displayPopup:popup withPriority:priority completion:completion];
+        return YES;
+    }
+    
+    // 添加到等待队列
+    TFYPopupPriorityItem *item = [[TFYPopupPriorityItem alloc] initWithPopupView:popup
+                                                                        priority:priority
+                                                                        strategy:TFYPopupPriorityStrategyQueue
+                                                                  maxWaitingTime:self.defaultMaxWaitingTime
+                                                                      completion:completion];
+    
+    [self insertItemIntoWaitingQueue:item];
+    
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 弹窗已加入等待队列");
+    }
+    
+    return YES;
+}
+
+- (BOOL)handleReplaceStrategy:(TFYPopupView *)popup
+                     priority:(TFYPopupPriority)priority
+                   completion:(nullable void (^)(void))completion {
+    
+    // 查找并替换低优先级弹窗
+    NSMutableArray<TFYPopupView *> *toReplace = [NSMutableArray array];
+    
+    for (TFYPopupView *displayedPopup in self.displayedPopups) {
+        TFYPopupPriority displayedPriority = [self getPriorityForPopup:displayedPopup];
+        if (TFYPopupPriorityIsHigher(priority, displayedPriority)) {
+            [toReplace addObject:displayedPopup];
+        }
+    }
+    
+    // 执行替换
+    for (TFYPopupView *popupToReplace in toReplace) {
+        [self removeDisplayedPopup:popupToReplace];
+        [popupToReplace dismissAnimated:YES completion:nil];
+        
+        [self postReplaceNotificationWithOld:popupToReplace new:popup];
+    }
+    
+    // 显示新弹窗
+    if ([self canDisplayImmediately:priority]) {
+        [self displayPopup:popup withPriority:priority completion:completion];
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)handleOverlayStrategy:(TFYPopupView *)popup
+                     priority:(TFYPopupPriority)priority
+                   completion:(nullable void (^)(void))completion {
+    
+    // 覆盖策略：直接显示，不管当前状态
+    [self displayPopup:popup withPriority:priority completion:completion];
+    return YES;
+}
+
+- (BOOL)handleRejectStrategy:(TFYPopupView *)popup
+                    priority:(TFYPopupPriority)priority
+                  completion:(nullable void (^)(void))completion {
+    
+    // 拒绝策略：如果不能立即显示就拒绝
+    if ([self canDisplayImmediately:priority]) {
+        [self displayPopup:popup withPriority:priority completion:completion];
+        return YES;
+    }
+    
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 拒绝显示弹窗 - 无法立即显示");
+    }
+    
+    return NO;
+}
+
+- (void)removePopup:(TFYPopupView *)popup {
+    dispatch_barrier_async(self.concurrentQueue, ^{
+        [self _removePopupInternal:popup];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self processNextPopup];
+            [self postQueueUpdateNotification];
+        });
+    });
+}
+
+- (void)_removePopupInternal:(TFYPopupView *)popup {
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 移除弹窗");
+    }
+    
+    // 从显示列表中移除
+    [self removeDisplayedPopup:popup];
+    
+    // 从等待队列中移除
+    [self removeFromWaitingQueue:popup];
+}
+
+- (void)processNextPopup {
+    if (self.isQueuePaused) return;
+    
+    dispatch_barrier_async(self.concurrentQueue, ^{
+        [self _processNextPopupInternal];
+    });
+}
+
+- (void)_processNextPopupInternal {
+    // 清理过期项目
+    [self clearExpiredWaitingPopups];
+    
+    // 按优先级排序等待队列
+    [self sortWaitingQueue];
+    
+    // 处理等待队列中的弹窗
+    while (self.internalWaitingQueue.count > 0 && self.displayedPopups.count < self.maxSimultaneousPopups) {
+        TFYPopupPriorityItem *item = self.internalWaitingQueue.firstObject;
+        [self.internalWaitingQueue removeObjectAtIndex:0];
+        
+        if (item.popupView && !item.isExpired) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self displayPopup:item.popupView withPriority:item.priority completion:item.completionBlock];
+            });
+        }
+    }
+}
+
+#pragma mark - Query Methods
+
+- (TFYPopupPriority)currentHighestPriority {
+    __block TFYPopupPriority highest = TFYPopupPriorityBackground;
+    
+    dispatch_sync(self.concurrentQueue, ^{
+        for (TFYPopupView *popup in self.displayedPopups) {
+            TFYPopupPriority priority = [self getPriorityForPopup:popup];
+            if (TFYPopupPriorityIsHigher(priority, highest)) {
+                highest = priority;
+            }
+        }
+    });
+    
+    return highest;
+}
+
+- (NSArray<TFYPopupView *> *)popupsWithPriority:(TFYPopupPriority)priority {
+    __block NSMutableArray<TFYPopupView *> *result = [NSMutableArray array];
+    
+    dispatch_sync(self.concurrentQueue, ^{
+        for (TFYPopupView *popup in self.displayedPopups) {
+            if ([self getPriorityForPopup:popup] == priority) {
+                [result addObject:popup];
+            }
+        }
+    });
+    
+    return [result copy];
+}
+
+- (NSArray<TFYPopupView *> *)currentDisplayedPopups {
+    __block NSArray<TFYPopupView *> *result = nil;
+    
+    dispatch_sync(self.concurrentQueue, ^{
+        result = [self.displayedPopups copy];
+    });
+    
+    return result;
+}
+
+- (NSArray<TFYPopupPriorityItem *> *)waitingQueue {
+    __block NSArray<TFYPopupPriorityItem *> *result = nil;
+    
+    dispatch_sync(self.concurrentQueue, ^{
+        result = [self.internalWaitingQueue copy];
+    });
+    
+    return result;
+}
+
+- (NSInteger)totalQueueCount {
+    __block NSInteger count = 0;
+    
+    dispatch_sync(self.concurrentQueue, ^{
+        count = self.displayedPopups.count + self.internalWaitingQueue.count;
+    });
+    
+    return count;
+}
+
+#pragma mark - Management Operations
+
+- (void)clearPopupsWithPriorityLowerThan:(TFYPopupPriority)priority {
+    dispatch_barrier_async(self.concurrentQueue, ^{
+        NSMutableArray<TFYPopupView *> *toClear = [NSMutableArray array];
+        
+        for (TFYPopupView *popup in self.displayedPopups) {
+            TFYPopupPriority popupPriority = [self getPriorityForPopup:popup];
+            if (TFYPopupPriorityIsHigher(priority, popupPriority)) {
+                [toClear addObject:popup];
+            }
+        }
+        
+        for (TFYPopupView *popup in toClear) {
+            [self removeDisplayedPopup:popup];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [popup dismissAnimated:YES completion:nil];
+            });
+        }
+        
+        // 清理等待队列
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(TFYPopupPriorityItem *item, NSDictionary *bindings) {
+            return !TFYPopupPriorityIsHigher(priority, item.priority);
+        }];
+        [self.internalWaitingQueue filterUsingPredicate:predicate];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self postQueueUpdateNotification];
+        });
+    });
+}
+
+- (void)clearExpiredWaitingPopups {
+    dispatch_barrier_async(self.concurrentQueue, ^{
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(TFYPopupPriorityItem *item, NSDictionary *bindings) {
+            return !item.isExpired;
+        }];
+        
+        NSUInteger beforeCount = self.internalWaitingQueue.count;
+        [self.internalWaitingQueue filterUsingPredicate:predicate];
+        NSUInteger afterCount = self.internalWaitingQueue.count;
+        
+        if (beforeCount != afterCount && _priorityDebugMode) {
+            NSLog(@"TFYPopupPriorityManager: 清理了 %lu 个过期等待弹窗", (unsigned long)(beforeCount - afterCount));
+        }
+    });
+}
+
+- (void)pauseQueue {
+    dispatch_barrier_async(self.concurrentQueue, ^{
+        self->_isQueuePaused = YES;
+    });
+    
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 队列已暂停");
+    }
+}
+
+- (void)resumeQueue {
+    dispatch_barrier_async(self.concurrentQueue, ^{
+        self->_isQueuePaused = NO;
+    });
+    
+    [self processNextPopup];
+    
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 队列已恢复");
+    }
+}
+
+- (void)clearAllQueues {
+    dispatch_barrier_async(self.concurrentQueue, ^{
+        NSArray<TFYPopupView *> *displayedCopy = [self.displayedPopups copy];
+        [self.displayedPopups removeAllObjects];
+        [self.internalWaitingQueue removeAllObjects];
+        
+        for (TFYPopupView *popup in displayedCopy) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [popup dismissAnimated:YES completion:nil];
+            });
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self postQueueUpdateNotification];
+        });
+    });
+    
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 已清空所有队列");
+    }
+}
+
+#pragma mark - Private Helper Methods
+
+- (BOOL)canDisplayImmediately:(TFYPopupPriority)priority {
+    return self.displayedPopups.count < self.maxSimultaneousPopups;
+}
+
+- (void)displayPopup:(TFYPopupView *)popup withPriority:(TFYPopupPriority)priority completion:(nullable void (^)(void))completion {
+    [self addDisplayedPopup:popup withPriority:priority];
+    
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 显示弹窗 - 优先级:%@", [self.class priorityDescription:priority]);
+    }
+    
+    if (completion) {
+        completion();
+    }
+    
+    [self postPriorityChangeNotification];
+}
+
+- (void)addDisplayedPopup:(TFYPopupView *)popup withPriority:(TFYPopupPriority)priority {
+    [self.displayedPopups addObject:popup];
+    objc_setAssociatedObject(popup, @selector(getPriorityForPopup:), @(priority), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    // 按优先级排序
+    [self.displayedPopups sortUsingComparator:^NSComparisonResult(TFYPopupView *popup1, TFYPopupView *popup2) {
+        TFYPopupPriority priority1 = [self getPriorityForPopup:popup1];
+        TFYPopupPriority priority2 = [self getPriorityForPopup:popup2];
+        
+        if (priority1 > priority2) return NSOrderedAscending;
+        if (priority1 < priority2) return NSOrderedDescending;
+        return NSOrderedSame;
+    }];
+}
+
+- (void)removeDisplayedPopup:(TFYPopupView *)popup {
+    [self.displayedPopups removeObject:popup];
+    objc_setAssociatedObject(popup, @selector(getPriorityForPopup:), nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (TFYPopupPriority)getPriorityForPopup:(TFYPopupView *)popup {
+    NSNumber *priorityNumber = objc_getAssociatedObject(popup, @selector(getPriorityForPopup:));
+    return priorityNumber ? priorityNumber.integerValue : TFYPopupPriorityNormal;
+}
+
+- (void)removeFromWaitingQueue:(TFYPopupView *)popup {
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(TFYPopupPriorityItem *item, NSDictionary *bindings) {
+        return item.popupView != popup;
+    }];
+    [self.internalWaitingQueue filterUsingPredicate:predicate];
+}
+
+- (void)insertItemIntoWaitingQueue:(TFYPopupPriorityItem *)item {
+    [self.internalWaitingQueue addObject:item];
+    [self sortWaitingQueue];
+}
+
+- (void)sortWaitingQueue {
+    [self.internalWaitingQueue sortUsingComparator:^NSComparisonResult(TFYPopupPriorityItem *item1, TFYPopupPriorityItem *item2) {
+        // 优先级高的排前面
+        if (item1.priority > item2.priority) return NSOrderedAscending;
+        if (item1.priority < item2.priority) return NSOrderedDescending;
+        
+        // 优先级相同时，入队时间早的排前面
+        return [item1.enqueuedTime compare:item2.enqueuedTime];
+    }];
+}
+
+#pragma mark - Notification Methods
+
+- (void)postPriorityChangeNotification {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupPriorityDidChangeNotification object:self];
+    });
+}
+
+- (void)postQueueUpdateNotification {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupQueueDidUpdateNotification object:self];
+    });
+}
+
+- (void)postReplaceNotificationWithOld:(TFYPopupView *)oldPopup new:(TFYPopupView *)newPopup {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSDictionary *userInfo = @{
+            @"oldPopup": oldPopup ?: [NSNull null],
+            @"newPopup": newPopup ?: [NSNull null]
+        };
+        [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupDidReplaceNotification
+                                                            object:self
+                                                          userInfo:userInfo];
+    });
+}
+
+#pragma mark - Timer & Notification Handlers
+
+- (void)periodicCleanup {
+    [self clearExpiredWaitingPopups];
+    [self processNextPopup];
+}
+
+- (void)handleApplicationDidEnterBackground:(NSNotification *)notification {
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 应用进入后台，暂停队列处理");
+    }
+    [self pauseQueue];
+}
+
+- (void)handleMemoryWarning:(NSNotification *)notification {
+    if (_priorityDebugMode) {
+        NSLog(@"TFYPopupPriorityManager: 收到内存警告，清理低优先级弹窗");
+    }
+    [self clearPopupsWithPriorityLowerThan:TFYPopupPriorityHigh];
+}
+
+#pragma mark - Debugging
+
++ (void)enablePriorityDebugMode:(BOOL)enabled {
+    _priorityDebugMode = enabled;
+    NSLog(@"TFYPopupPriorityManager: 优先级调试模式 %@", enabled ? @"已启用" : @"已禁用");
+}
+
++ (BOOL)isPriorityDebugModeEnabled {
+    return _priorityDebugMode;
+}
+
+- (void)logPriorityQueue {
+    dispatch_sync(self.concurrentQueue, ^{
+        NSLog(@"=== TFYPopupPriorityManager Debug Info ===");
+        NSLog(@"当前显示弹窗数量: %lu", (unsigned long)self.displayedPopups.count);
+        NSLog(@"等待队列数量: %lu", (unsigned long)self.internalWaitingQueue.count);
+        NSLog(@"队列是否暂停: %@", self.isQueuePaused ? @"是" : @"否");
+        NSLog(@"最大同时显示数量: %ld", (long)self.maxSimultaneousPopups);
+        
+        NSLog(@"--- 当前显示弹窗 ---");
+        for (NSInteger i = 0; i < self.displayedPopups.count; i++) {
+            TFYPopupView *popup = self.displayedPopups[i];
+            TFYPopupPriority priority = [self getPriorityForPopup:popup];
+            NSLog(@"[%ld] %@ - 优先级: %@", (long)i, popup.class, [self.class priorityDescription:priority]);
+        }
+        
+        NSLog(@"--- 等待队列 ---");
+        for (NSInteger i = 0; i < self.internalWaitingQueue.count; i++) {
+            TFYPopupPriorityItem *item = self.internalWaitingQueue[i];
+            NSLog(@"[%ld] %@", (long)i, item);
+        }
+        
+        NSLog(@"==========================================");
+    });
+}
+
++ (NSString *)priorityDescription:(TFYPopupPriority)priority {
+    switch (priority) {
+        case TFYPopupPriorityBackground: return @"背景级";
+        case TFYPopupPriorityLow: return @"低优先级";
+        case TFYPopupPriorityNormal: return @"普通优先级";
+        case TFYPopupPriorityHigh: return @"高优先级";
+        case TFYPopupPriorityCritical: return @"关键优先级";
+        case TFYPopupPriorityUrgent: return @"紧急优先级";
+        default: return @"未知优先级";
+    }
+}
+
++ (NSString *)strategyDescription:(TFYPopupPriorityStrategy)strategy {
+    switch (strategy) {
+        case TFYPopupPriorityStrategyQueue: return @"队列等待";
+        case TFYPopupPriorityStrategyReplace: return @"替换低优先级";
+        case TFYPopupPriorityStrategyOverlay: return @"覆盖显示";
+        case TFYPopupPriorityStrategyReject: return @"拒绝显示";
+        default: return @"未知策略";
+    }
+}
+
+@end

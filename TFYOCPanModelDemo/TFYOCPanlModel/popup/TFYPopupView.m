@@ -8,6 +8,10 @@
 
 #import "TFYPopupView.h"
 #import "TFYPopupBottomSheetAnimator.h"
+#import "TFYPopupBaseAnimator.h"
+#import "TFYPopupAnimators.h"
+#import "TFYPopupPriorityManager.h"
+#import "TFYPopup.h"
 
 @interface TFYPopupView () <UIGestureRecognizerDelegate>
 
@@ -18,6 +22,7 @@
 @property (nonatomic, strong) TFYPopupViewConfiguration *configuration;
 @property (nonatomic, assign) BOOL isAnimating;
 @property (nonatomic, assign) BOOL isBeingCleanedUp;
+@property (nonatomic, assign) TFYPopupPriority currentPriority;
 
 // Layout Constraints
 @property (nonatomic, strong, nullable) NSLayoutConstraint *keyboardAdjustmentConstraint;
@@ -25,6 +30,10 @@
 
 // Gesture
 @property (nonatomic, strong, nullable) UIPanGestureRecognizer *panGesture;
+@property (nonatomic, strong, nullable) UISwipeGestureRecognizer *swipeUpGesture;
+@property (nonatomic, strong, nullable) UISwipeGestureRecognizer *swipeDownGesture;
+@property (nonatomic, strong, nullable) UISwipeGestureRecognizer *swipeLeftGesture;
+@property (nonatomic, strong, nullable) UISwipeGestureRecognizer *swipeRightGesture;
 
 // Static Properties
 @property (nonatomic, class, readonly) NSMutableArray<TFYPopupView *> *currentPopupViews;
@@ -141,17 +150,45 @@ static dispatch_queue_t _popupQueue = nil;
 }
 
 - (void)setupGestures {
-    if (!self.configuration.enableDragToDismiss) return;
-    
     // 如果是底部弹出框动画器，跳过手势设置（由动画器自己处理）
     if ([self.animator isKindOfClass:NSClassFromString(@"TFYPopupBottomSheetAnimator")]) {
         return;
     }
     
-    self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self 
-                                                              action:@selector(handlePanGesture:)];
-    self.panGesture.delegate = self;
-    [self.contentView addGestureRecognizer:self.panGesture];
+    // 设置拖拽手势
+    if (self.configuration.enableDragToDismiss) {
+        self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self 
+                                                                  action:@selector(handlePanGesture:)];
+        self.panGesture.delegate = self;
+        [self.contentView addGestureRecognizer:self.panGesture];
+    }
+    
+    // 设置滑动手势
+    if (self.configuration.enableSwipeToDismiss) {
+        [self setupSwipeGestures];
+    }
+}
+
+- (void)setupSwipeGestures {
+    // 向上滑动
+    self.swipeUpGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    self.swipeUpGesture.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.contentView addGestureRecognizer:self.swipeUpGesture];
+    
+    // 向下滑动
+    self.swipeDownGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    self.swipeDownGesture.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.contentView addGestureRecognizer:self.swipeDownGesture];
+    
+    // 向左滑动
+    self.swipeLeftGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    self.swipeLeftGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.contentView addGestureRecognizer:self.swipeLeftGesture];
+    
+    // 向右滑动
+    self.swipeRightGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    self.swipeRightGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.contentView addGestureRecognizer:self.swipeRightGesture];
 }
 
 - (void)setupAccessibility {
@@ -273,8 +310,7 @@ static dispatch_queue_t _popupQueue = nil;
 }
 
 - (void)applyTheme {
-    if (!self.configuration.enableAccessibility) return;
-    
+    // 应用主题配置
     switch (self.configuration.theme) {
         case TFYPopupThemeLight:
             self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.95];
@@ -289,11 +325,116 @@ static dispatch_queue_t _popupQueue = nil;
                 self.backgroundColor = self.configuration.customThemeBackgroundColor;
                 self.contentView.backgroundColor = self.configuration.customThemeBackgroundColor;
                 self.contentView.layer.cornerRadius = self.configuration.customThemeCornerRadius;
+                self.contentView.layer.masksToBounds = YES;
             }
             break;
         default:
             break;
     }
+    
+    // 应用通用的圆角配置
+    [self applyCornerRadius];
+}
+
+- (void)applyCornerRadius {
+    // 优先使用容器配置的圆角
+    CGFloat cornerRadius = 0;
+    
+    if (self.configuration.containerConfiguration.cornerRadius > 0) {
+        cornerRadius = self.configuration.containerConfiguration.cornerRadius;
+    } else if (self.configuration.cornerRadius > 0) {
+        cornerRadius = self.configuration.cornerRadius;
+    }
+    
+    if (cornerRadius > 0) {
+        self.contentView.layer.cornerRadius = cornerRadius;
+        self.contentView.layer.masksToBounds = YES;
+        
+        // 如果有阴影配置，需要使用容器视图来设置阴影
+        if (self.configuration.containerConfiguration.shadowEnabled) {
+            [self applyShadowWithCornerRadius:cornerRadius];
+        }
+    }
+}
+
+- (void)applyShadowWithCornerRadius:(CGFloat)cornerRadius {
+    // 为了同时显示圆角和阴影，需要使用两层视图
+    // contentView 设置圆角和裁剪
+    // self 设置阴影（不能裁剪）
+    
+    TFYPopupContainerConfiguration *config = self.configuration.containerConfiguration;
+    
+    // 设置阴影
+    self.layer.shadowColor = config.shadowColor.CGColor;
+    self.layer.shadowOpacity = config.shadowOpacity;
+    self.layer.shadowRadius = config.shadowRadius;
+    self.layer.shadowOffset = config.shadowOffset;
+    self.layer.masksToBounds = NO;
+    
+    // 延迟设置阴影路径，确保 contentView 已经有正确的 frame
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateShadowPathWithCornerRadius:cornerRadius];
+    });
+}
+
+- (void)updateShadowPathWithCornerRadius:(CGFloat)cornerRadius {
+    // 使用 contentView 的 frame（相对于 self）来创建阴影路径
+    CGRect shadowRect = self.contentView.frame;
+    if (!CGRectIsEmpty(shadowRect)) {
+        UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRoundedRect:shadowRect 
+                                                              cornerRadius:cornerRadius];
+        self.layer.shadowPath = shadowPath.CGPath;
+    }
+}
+
+- (void)animateShadowDisplay {
+    // 获取动画持续时间，与内容动画保持一致
+    NSTimeInterval duration = 0.25; // 默认动画时长
+    
+    // 尝试从动画器获取更精确的时长
+    if ([self.animator isKindOfClass:[TFYPopupBaseAnimator class]]) {
+        TFYPopupBaseAnimator *baseAnimator = (TFYPopupBaseAnimator *)self.animator;
+        duration = baseAnimator.displayDuration;
+    }
+    
+    // 保存目标透明度值
+    CGFloat targetOpacity = self.configuration.containerConfiguration.shadowOpacity;
+    
+    // 先设置透明度为 0
+    self.layer.shadowOpacity = 0.0;
+    
+    // 动画阴影透明度从 0 到目标值
+    CABasicAnimation *shadowOpacityAnimation = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+    shadowOpacityAnimation.fromValue = @(0.0);
+    shadowOpacityAnimation.toValue = @(targetOpacity);
+    shadowOpacityAnimation.duration = duration;
+    shadowOpacityAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    shadowOpacityAnimation.fillMode = kCAFillModeForwards;
+    shadowOpacityAnimation.removedOnCompletion = NO;
+    
+    [self.layer addAnimation:shadowOpacityAnimation forKey:@"shadowDisplayAnimation"];
+}
+
+- (void)animateShadowDismiss {
+    // 获取动画持续时间，与内容动画保持一致
+    NSTimeInterval duration = 0.25; // 默认动画时长
+    
+    // 尝试从动画器获取更精确的时长
+    if ([self.animator isKindOfClass:[TFYPopupBaseAnimator class]]) {
+        TFYPopupBaseAnimator *baseAnimator = (TFYPopupBaseAnimator *)self.animator;
+        duration = baseAnimator.dismissDuration;
+    }
+    
+    // 动画阴影透明度从当前值到 0
+    CABasicAnimation *shadowOpacityAnimation = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+    shadowOpacityAnimation.fromValue = @(self.layer.shadowOpacity);
+    shadowOpacityAnimation.toValue = @(0.0);
+    shadowOpacityAnimation.duration = duration;
+    shadowOpacityAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    shadowOpacityAnimation.fillMode = kCAFillModeForwards;
+    shadowOpacityAnimation.removedOnCompletion = NO;
+    
+    [self.layer addAnimation:shadowOpacityAnimation forKey:@"shadowDismissAnimation"];
 }
 
 #pragma mark - Layout
@@ -302,6 +443,17 @@ static dispatch_queue_t _popupQueue = nil;
     [super layoutSubviews];
     self.backgroundView.frame = self.bounds;
     [self.animator refreshLayoutPopupView:self contentView:self.contentView];
+    
+    // 更新阴影路径（如果有的话）
+    if (self.configuration.containerConfiguration.shadowEnabled && self.layer.shadowPath) {
+        CGFloat cornerRadius = self.configuration.containerConfiguration.cornerRadius > 0 
+            ? self.configuration.containerConfiguration.cornerRadius 
+            : self.configuration.cornerRadius;
+        
+        if (cornerRadius > 0) {
+            [self updateShadowPathWithCornerRadius:cornerRadius];
+        }
+    }
 }
 
 #pragma mark - Hit Testing
@@ -371,8 +523,24 @@ static dispatch_queue_t _popupQueue = nil;
 }
 
 - (void)dismissAnimated:(BOOL)animated completion:(TFYPopupViewCallback)completion {
+    // 如果启用了优先级管理，通知优先级管理器
+    if (self.configuration.enablePriorityManagement) {
+        [[TFYPopupPriorityManager sharedManager] removePopup:self];
+    }
+    
+    [self performDismissAnimated:animated completion:completion];
+}
+
+- (void)performDismissAnimated:(BOOL)animated completion:(nullable TFYPopupViewCallback)completion {
+    // 检查是否可以消失
+    if (!self.isDismissible || self.isBeingCleanedUp) {
+        if (completion) completion();
+        return;
+    }
+    
     if (self.isAnimating) {
         NSLog(@"TFYPopupView Debug: 弹窗正在动画中，忽略消失请求");
+        if (completion) completion();
         return;
     }
     
@@ -380,24 +548,35 @@ static dispatch_queue_t _popupQueue = nil;
     if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewShouldDismiss:)]) {
         if (![self.delegate popupViewShouldDismiss:self]) {
             NSLog(@"TFYPopupView Warning: 代理不允许消失弹窗");
+            if (completion) completion();
             return;
         }
     }
     
     self.isAnimating = YES;
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewWillDisappear:)]) {
-        [self.delegate popupViewWillDisappear:self];
-    }
+    // 触发即将消失回调和代理
     if (self.willDismissCallback) {
         self.willDismissCallback();
     }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewWillDisappear:)]) {
+        [self.delegate popupViewWillDisappear:self];
+    }
+    
+    // 发送通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupWillDisappearNotification object:self];
     
     // 从当前显示的弹窗数组中移除（仅在非cleanupOldestPopup调用时）
     if (!self.isBeingCleanedUp) {
         dispatch_barrier_async([self.class popupQueue], ^{
             [[self.class currentPopupViews] removeObject:self];
         });
+    }
+    
+    // 如果有阴影且需要动画，同时动画阴影透明度
+    if (animated && self.configuration.containerConfiguration.shadowEnabled && self.layer.shadowOpacity > 0) {
+        [self animateShadowDismiss];
     }
     
     __weak typeof(self) weakSelf = self;
@@ -408,21 +587,25 @@ static dispatch_queue_t _popupQueue = nil;
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (strongSelf) {
             strongSelf->_isPresenting = NO;
+            strongSelf.isAnimating = NO;
+            
+            // 触发已经消失回调和代理
+            if (strongSelf.didDismissCallback) {
+                strongSelf.didDismissCallback();
+            }
             
             if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(popupViewDidDisappear:)]) {
                 [strongSelf.delegate popupViewDidDisappear:strongSelf];
             }
             
+            // 发送通知
+            [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupDidDisappearNotification object:strongSelf];
+            [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupCountDidChangeNotification object:strongSelf];
+            
             [strongSelf cleanup];
             
             if (completion) {
                 completion();
-            }
-            
-            strongSelf.isAnimating = NO;
-            
-            if (strongSelf.didDismissCallback) {
-                strongSelf.didDismissCallback();
             }
         }
     }];
@@ -455,6 +638,11 @@ static dispatch_queue_t _popupQueue = nil;
     }
     if (self.willDisplayCallback) {
         self.willDisplayCallback();
+    }
+    
+    // 如果有阴影且需要动画，同时动画阴影透明度
+    if (animated && self.configuration.containerConfiguration.shadowEnabled) {
+        [self animateShadowDisplay];
     }
     
     // 执行动画
@@ -499,6 +687,10 @@ static dispatch_queue_t _popupQueue = nil;
 }
 
 - (void)cleanup {
+    // 清理阴影动画
+    [self.layer removeAnimationForKey:@"shadowDismissAnimation"];
+    [self.layer removeAnimationForKey:@"shadowDisplayAnimation"];
+    
     [self.contentView removeFromSuperview];
     [self removeFromSuperview];
     
@@ -552,7 +744,7 @@ static dispatch_queue_t _popupQueue = nil;
                   configuration:(TFYPopupViewConfiguration *)configuration
                        animator:(id<TFYPopupViewAnimator>)animator
                        animated:(BOOL)animated
-                     completion:(TFYPopupViewCallback)completion {
+                     completion:(nullable TFYPopupViewCallback)completion {
     
     // 验证配置
     if (![configuration validate]) {
@@ -610,10 +802,10 @@ static dispatch_queue_t _popupQueue = nil;
 
 + (instancetype)showContentView:(UIView *)contentView
                        animated:(BOOL)animated
-                     completion:(TFYPopupViewCallback)completion {
+                     completion:(nullable TFYPopupViewCallback)completion {
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
-    // 这里需要默认动画器，稍后会在动画器类中实现
-    id animator = [[NSClassFromString(@"TFYPopupFadeInOutAnimator") alloc] init];
+    // 创建默认动画器
+    TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
     return [self showContentView:contentView
                    configuration:config
                         animator:animator
@@ -773,6 +965,10 @@ static dispatch_queue_t _popupQueue = nil;
             self.contentView.transform = CGAffineTransformMakeTranslation(0, dragDistance > 0 ? self.bounds.size.height : -self.bounds.size.height);
             self.backgroundView.alpha = 0;
         } completion:^(BOOL finished) {
+            // 调用拖拽消失代理方法
+            if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewDidDragToDismiss:)]) {
+                [self.delegate popupViewDidDragToDismiss:self];
+            }
             [self dismissAnimated:NO completion:nil];
         }];
     } else {
@@ -782,6 +978,47 @@ static dispatch_queue_t _popupQueue = nil;
             self.backgroundView.alpha = 1;
         } completion:nil];
     }
+}
+
+- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)gesture {
+    // 检查代理是否允许消失
+    if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewShouldDismiss:)]) {
+        if (![self.delegate popupViewShouldDismiss:self]) {
+            return;
+        }
+    }
+    
+    // 调用滑动消失代理方法
+    if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewDidSwipeToDismiss:)]) {
+        [self.delegate popupViewDidSwipeToDismiss:self];
+    }
+    
+    // 根据滑动方向执行不同的消失动画
+    CGAffineTransform finalTransform;
+    switch (gesture.direction) {
+        case UISwipeGestureRecognizerDirectionUp:
+            finalTransform = CGAffineTransformMakeTranslation(0, -self.bounds.size.height);
+            break;
+        case UISwipeGestureRecognizerDirectionDown:
+            finalTransform = CGAffineTransformMakeTranslation(0, self.bounds.size.height);
+            break;
+        case UISwipeGestureRecognizerDirectionLeft:
+            finalTransform = CGAffineTransformMakeTranslation(-self.bounds.size.width, 0);
+            break;
+        case UISwipeGestureRecognizerDirectionRight:
+            finalTransform = CGAffineTransformMakeTranslation(self.bounds.size.width, 0);
+            break;
+        default:
+            finalTransform = CGAffineTransformMakeTranslation(0, self.bounds.size.height);
+            break;
+    }
+    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.contentView.transform = finalTransform;
+        self.backgroundView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self dismissAnimated:NO completion:nil];
+    }];
 }
 
 #pragma mark - Event Handlers
@@ -880,6 +1117,118 @@ static dispatch_queue_t _popupQueue = nil;
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Priority Methods Implementation
+
+
+
++ (instancetype)showContentView:(UIView *)contentView
+                       priority:(TFYPopupPriority)priority
+                       strategy:(TFYPopupPriorityStrategy)strategy
+                       animated:(BOOL)animated
+                     completion:(nullable TFYPopupViewCallback)completion {
+    // 使用默认配置和动画器
+    TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
+    TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
+    
+    return [self showContentView:contentView
+                   configuration:config
+                        animator:animator
+                        priority:priority
+                        strategy:strategy
+                        animated:animated
+                      completion:completion];
+}
+
++ (instancetype)showContentView:(UIView *)contentView
+                  configuration:(TFYPopupViewConfiguration *)configuration
+                       animator:(id<TFYPopupViewAnimator>)animator
+                       priority:(TFYPopupPriority)priority
+                       strategy:(TFYPopupPriorityStrategy)strategy
+                       animated:(BOOL)animated
+                     completion:(nullable TFYPopupViewCallback)completion {
+    
+    // 更新配置中的优先级设置
+    TFYPopupViewConfiguration *configCopy = [configuration copy];
+    configCopy.priority = priority;
+    configCopy.priorityStrategy = strategy;
+    
+    // 如果启用了优先级管理，使用优先级管理器
+    if (configCopy.enablePriorityManagement) {
+        return [self showContentViewWithPriorityManager:contentView
+                                          configuration:configCopy
+                                               animator:animator
+                                               animated:animated
+                                             completion:completion];
+    } else {
+        // 不使用优先级管理，直接显示
+        return [self showContentView:contentView
+                       configuration:configCopy
+                            animator:animator
+                            animated:animated
+                          completion:completion];
+    }
+}
+
++ (instancetype)showContentViewWithPriorityManager:(UIView *)contentView
+                                     configuration:(TFYPopupViewConfiguration *)configuration
+                                          animator:(id<TFYPopupViewAnimator>)animator
+                                          animated:(BOOL)animated
+                                        completion:(nullable TFYPopupViewCallback)completion {
+    
+    // 创建弹窗实例但不立即显示
+    UIView *containerView = [self currentWindow];
+    TFYPopupView *popup = [[TFYPopupView alloc] initWithContainerView:containerView
+                                                          contentView:contentView
+                                                             animator:animator
+                                                        configuration:configuration];
+    if (!popup) return nil;
+    
+    // 设置当前优先级
+    popup.currentPriority = configuration.priority;
+    
+    // 通过优先级管理器管理显示
+    BOOL success = [[TFYPopupPriorityManager sharedManager] addPopup:popup
+                                                            priority:configuration.priority
+                                                            strategy:configuration.priorityStrategy
+                                                          completion:^{
+        // 优先级管理器决定显示时的回调
+        [popup displayAnimated:animated completion:completion];
+    }];
+    
+    return success ? popup : nil;
+}
+
+#pragma mark - Priority Query Methods Implementation
+
++ (TFYPopupPriority)currentHighestPriority {
+    return [[TFYPopupPriorityManager sharedManager] currentHighestPriority];
+}
+
++ (NSArray<TFYPopupView *> *)popupsWithPriority:(TFYPopupPriority)priority {
+    return [[TFYPopupPriorityManager sharedManager] popupsWithPriority:priority];
+}
+
++ (void)clearPopupsWithPriorityLowerThan:(TFYPopupPriority)priority {
+    [[TFYPopupPriorityManager sharedManager] clearPopupsWithPriorityLowerThan:priority];
+}
+
++ (void)pausePriorityQueue {
+    [[TFYPopupPriorityManager sharedManager] pauseQueue];
+}
+
++ (void)resumePriorityQueue {
+    [[TFYPopupPriorityManager sharedManager] resumeQueue];
+}
+
++ (NSInteger)waitingQueueCount {
+    NSArray *waitingQueue = [[TFYPopupPriorityManager sharedManager] waitingQueue];
+    return waitingQueue.count;
+}
+
++ (void)logPriorityQueue {
+    [[TFYPopupPriorityManager sharedManager] logPriorityQueue];
 }
 
 @end

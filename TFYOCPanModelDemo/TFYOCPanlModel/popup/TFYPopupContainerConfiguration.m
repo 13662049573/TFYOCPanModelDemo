@@ -86,6 +86,7 @@
 }
 
 - (BOOL)validate {
+    // 尺寸约束验证
     if (self.hasMaxWidth && self.hasMinWidth) {
         if (self.maxWidth < self.minWidth) {
             return NO;
@@ -96,6 +97,31 @@
             return NO;
         }
     }
+    
+    // 基本数值验证
+    if (self.hasMinWidth && self.minWidth < 0) return NO;
+    if (self.hasMinHeight && self.minHeight < 0) return NO;
+    if (self.hasMaxWidth && self.maxWidth <= 0) return NO;
+    if (self.hasMaxHeight && self.maxHeight <= 0) return NO;
+    if (self.cornerRadius < 0) return NO;
+    
+    // 边距验证
+    if (self.contentInsets.top < 0 || self.contentInsets.bottom < 0 || 
+        self.contentInsets.left < 0 || self.contentInsets.right < 0) {
+        return NO;
+    }
+    
+    // 阴影属性验证
+    if (self.shadowEnabled) {
+        if (self.shadowOpacity < 0 || self.shadowOpacity > 1) return NO;
+        if (self.shadowRadius < 0) return NO;
+    }
+    
+    // 合理范围验证
+    if (self.hasMaxWidth && self.maxWidth > 10000) return NO; // 不应超过合理范围
+    if (self.hasMaxHeight && self.maxHeight > 10000) return NO;
+    if (self.cornerRadius > 1000) return NO; // 圆角半径不应过大
+    
     return YES;
 }
 

@@ -57,6 +57,36 @@ BOOL TFYPopupGetDebugMode(void) {
     return _debugMode;
 }
 
+#pragma mark - Priority Functions Implementation
+
+TFYPopupPriority TFYPopupGetCurrentHighestPriority(void) {
+    return [TFYPopupView currentHighestPriority];
+}
+
+NSInteger TFYPopupGetWaitingQueueCount(void) {
+    return [TFYPopupView waitingQueueCount];
+}
+
+void TFYPopupClearLowPriorityPopups(TFYPopupPriority threshold) {
+    [TFYPopupView clearPopupsWithPriorityLowerThan:threshold];
+}
+
+void TFYPopupPausePriorityQueue(void) {
+    [TFYPopupView pausePriorityQueue];
+}
+
+void TFYPopupResumePriorityQueue(void) {
+    [TFYPopupView resumePriorityQueue];
+}
+
+void TFYPopupEnablePriorityDebugMode(BOOL enabled) {
+    [TFYPopupPriorityManager enablePriorityDebugMode:enabled];
+}
+
+void TFYPopupLogPriorityQueue(void) {
+    [TFYPopupView logPriorityQueue];
+}
+
 #pragma mark - Load Method
 @implementation  TFYPopup
 

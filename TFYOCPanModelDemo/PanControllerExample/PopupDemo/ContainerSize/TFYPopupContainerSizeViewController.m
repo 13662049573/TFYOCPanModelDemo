@@ -200,6 +200,11 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
     containerConfig.height = [TFYPopupContainerDimension fixed:height];
     containerConfig.cornerRadius = 12;
     containerConfig.shadowEnabled = YES;
+    // 设置更明显的阴影效果
+    containerConfig.shadowColor = [UIColor blackColor];
+    containerConfig.shadowOpacity = 0.25;
+    containerConfig.shadowRadius = 12;
+    containerConfig.shadowOffset = CGSizeMake(0, 6);
     
     // 创建弹窗配置
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
@@ -224,6 +229,11 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
     containerConfig.maxWidth = 320;  // 设置最大宽度
     containerConfig.hasMaxWidth = YES;
     containerConfig.cornerRadius = 16;
+    containerConfig.shadowEnabled = YES;
+    containerConfig.shadowColor = [UIColor blackColor];
+    containerConfig.shadowOpacity = 0.25;
+    containerConfig.shadowRadius = 12;
+    containerConfig.shadowOffset = CGSizeMake(0, 6);
     containerConfig.contentInsets = UIEdgeInsetsMake(20, 20, 20, 20);
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
@@ -247,8 +257,10 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
     containerConfig.height = [TFYPopupContainerDimension ratio:ratio];
     containerConfig.cornerRadius = 20;
     containerConfig.shadowEnabled = YES;
-    containerConfig.shadowOpacity = 0.2;
-    containerConfig.shadowRadius = 8;
+    containerConfig.shadowColor = [UIColor blackColor];
+    containerConfig.shadowOpacity = 0.25;
+    containerConfig.shadowRadius = 12;
+    containerConfig.shadowOffset = CGSizeMake(0, 6);
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
     config.containerConfiguration = containerConfig;
@@ -283,6 +295,10 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
     
     containerConfig.cornerRadius = 16;
     containerConfig.shadowEnabled = YES;
+    containerConfig.shadowColor = [UIColor blackColor];
+    containerConfig.shadowOpacity = 0.25;
+    containerConfig.shadowRadius = 12;
+    containerConfig.shadowOffset = CGSizeMake(0, 6);
     containerConfig.contentInsets = UIEdgeInsetsMake(20, 20, 20, 20);
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
@@ -317,6 +333,10 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
     
     containerConfig.cornerRadius = 12;
     containerConfig.shadowEnabled = YES;
+    containerConfig.shadowColor = [UIColor blackColor];
+    containerConfig.shadowOpacity = 0.25;
+    containerConfig.shadowRadius = 12;
+    containerConfig.shadowOffset = CGSizeMake(0, 6);
     containerConfig.contentInsets = UIEdgeInsetsMake(15, 15, 15, 15);
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
@@ -434,6 +454,10 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
     containerConfig.hasMaxHeight = YES;
     containerConfig.cornerRadius = 16;
     containerConfig.shadowEnabled = YES;
+    containerConfig.shadowColor = [UIColor blackColor];
+    containerConfig.shadowOpacity = 0.25;
+    containerConfig.shadowRadius = 12;
+    containerConfig.shadowOffset = CGSizeMake(0, 6);
     containerConfig.contentInsets = UIEdgeInsetsMake(20, 20, 20, 20);
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];

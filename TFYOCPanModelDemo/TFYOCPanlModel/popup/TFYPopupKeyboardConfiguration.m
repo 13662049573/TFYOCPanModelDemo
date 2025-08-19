@@ -23,7 +23,21 @@
 }
 
 - (BOOL)validate {
-    return self.additionalOffset >= 0 && self.animationDuration >= 0;
+    // 基本数值验证
+    if (self.additionalOffset < 0) return NO;
+    if (self.animationDuration < 0) return NO;
+    
+    // 合理范围验证
+    if (self.animationDuration > 5.0) return NO; // 动画时间不应超过5秒
+    if (self.additionalOffset > 1000.0) return NO; // 偏移量不应过大
+    
+    // 枚举值验证
+    if (self.avoidingMode < TFYKeyboardAvoidingModeTransform || 
+        self.avoidingMode > TFYKeyboardAvoidingModeResize) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 #pragma mark - NSCopying

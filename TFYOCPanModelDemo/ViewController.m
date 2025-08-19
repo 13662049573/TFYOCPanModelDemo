@@ -22,7 +22,7 @@
     self.view.backgroundColor = [UIColor systemBackgroundColor];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
+        make.top.left.bottom.right.equalTo(self.view);
     }];
 }
 

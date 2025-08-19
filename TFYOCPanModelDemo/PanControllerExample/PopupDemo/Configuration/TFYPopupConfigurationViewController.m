@@ -32,11 +32,11 @@
     [self.scrollView addSubview:self.contentView];
     
     [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
+        make.top.left.bottom.right.equalTo(self.view);
     }];
     
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
+        make.top.left.bottom.right.equalTo(self.scrollView);
         make.width.mas_equalTo(self.scrollView);
         make.height.mas_greaterThanOrEqualTo(600);
     }];
@@ -133,11 +133,11 @@
     UIView *contentView = [self createShadowContentView];
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
-    config.shadowConfiguration.isEnabled = YES;
-    config.shadowConfiguration.color = [UIColor redColor];
-    config.shadowConfiguration.opacity = 0.5;
-    config.shadowConfiguration.radius = 10;
-    config.shadowConfiguration.offset = CGSizeMake(0, 5);
+    config.containerConfiguration.shadowEnabled = YES;
+    config.containerConfiguration.shadowColor = [UIColor redColor];
+    config.containerConfiguration.shadowOpacity = 0.5;
+    config.containerConfiguration.shadowRadius = 10;
+    config.containerConfiguration.shadowOffset = CGSizeMake(0, 5);
     
     [TFYPopupView showContentView:contentView
                     configuration:config
@@ -152,8 +152,6 @@
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
     config.enableDragToDismiss = YES;
     config.dragDismissThreshold = 0.3;
-    config.swipeToDismiss = YES;
-    config.tapOutsideToDismiss = YES;
     
     [TFYPopupView showContentView:contentView
                     configuration:config

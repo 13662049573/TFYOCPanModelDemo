@@ -11,15 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 背景效果类型
-typedef NS_ENUM(NSUInteger, TFYPopupBackgroundEffect) {
-    TFYPopupBackgroundEffectNone = 0,       // 无效果
-    TFYPopupBackgroundEffectBlur,           // 模糊效果
-    TFYPopupBackgroundEffectGradient,       // 渐变效果
-    TFYPopupBackgroundEffectDimmed,         // 变暗效果
-    TFYPopupBackgroundEffectCustom          // 自定义效果
-} NS_SWIFT_NAME(PopupBackgroundEffect);
-
 /// 自定义背景效果处理 block
 typedef void (^TFYPopupBackgroundCustomHandler)(UIControl *backgroundView) NS_SWIFT_NAME(PopupBackgroundCustomHandler);
 

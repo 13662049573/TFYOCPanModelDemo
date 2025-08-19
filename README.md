@@ -847,14 +847,12 @@ config.enableAccessibility = YES;
 
 #### 阴影配置 Shadow Configuration
 ```objc
-TFYPopupShadowConfiguration *shadowConfig = [[TFYPopupShadowConfiguration alloc] init];
-shadowConfig.isEnabled = YES;
-shadowConfig.color = [UIColor blackColor];
-shadowConfig.opacity = 0.3;
-shadowConfig.radius = 10;
-shadowConfig.offset = CGSizeMake(0, 5);
-
-config.shadowConfiguration = shadowConfig;
+// 阴影配置已整合到容器配置中
+config.containerConfiguration.shadowEnabled = YES;
+config.containerConfiguration.shadowColor = [UIColor blackColor];
+config.containerConfiguration.shadowOpacity = 0.3;
+config.containerConfiguration.shadowRadius = 10;
+config.containerConfiguration.shadowOffset = CGSizeMake(0, 5);
 ```
 
 ### 🔧 高级特性 Advanced Features

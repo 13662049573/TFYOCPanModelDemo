@@ -8,35 +8,7 @@
 
 #import "TFYPopupViewConfiguration.h"
 
-#pragma mark - TFYPopupShadowConfiguration
 
-@implementation TFYPopupShadowConfiguration
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _isEnabled = NO;
-        _color = [UIColor blackColor];
-        _opacity = 0.3f;
-        _radius = 5.0;
-        _offset = CGSizeZero;
-    }
-    return self;
-}
-
-#pragma mark - NSCopying
-
-- (id)copyWithZone:(NSZone *)zone {
-    TFYPopupShadowConfiguration *copy = [[TFYPopupShadowConfiguration alloc] init];
-    copy.isEnabled = self.isEnabled;
-    copy.color = self.color;
-    copy.opacity = self.opacity;
-    copy.radius = self.radius;
-    copy.offset = self.offset;
-    return copy;
-}
-
-@end
 
 #pragma mark - TFYPopupViewConfiguration
 
@@ -56,9 +28,8 @@
         _safeAreaInsets = UIEdgeInsetsZero;
         _enableDragToDismiss = NO;
         _dragDismissThreshold = 0.3;
+        _enableSwipeToDismiss = NO;
         _cornerRadius = 0;
-        _tapOutsideToDismiss = YES;
-        _swipeToDismiss = YES;
         _dismissOnBackgroundTap = YES;
         _dismissWhenAppGoesToBackground = YES;
         _maxPopupCount = 10;
@@ -69,19 +40,47 @@
         _customThemeCornerRadius = 0;
         
         _keyboardConfiguration = [[TFYPopupKeyboardConfiguration alloc] init];
-        _shadowConfiguration = [[TFYPopupShadowConfiguration alloc] init];
         _containerConfiguration = [[TFYPopupContainerConfiguration alloc] init];
+        
+        // 优先级配置默认值
+        _priority = TFYPopupPriorityNormal;
+        _priorityStrategy = TFYPopupPriorityStrategyQueue;
+        _canBeReplacedByHigherPriority = YES;
+        _maxWaitingTime = 0; // 使用管理器默认值
+        _enablePriorityManagement = YES;
     }
     return self;
 }
 
 - (BOOL)validate {
+    // 基本属性验证
     if (self.maxPopupCount <= 0) return NO;
     if (self.autoDismissDelay < 0) return NO;
     if (self.dragDismissThreshold < 0 || self.dragDismissThreshold > 1) return NO;
     if (self.animationDuration < 0) return NO;
+    if (self.cornerRadius < 0) return NO;
+    if (self.customThemeCornerRadius < 0) return NO;
     
-    return [self.keyboardConfiguration validate] && [self.containerConfiguration validate];
+    // 边距验证
+    if (self.safeAreaInsets.top < 0 || self.safeAreaInsets.bottom < 0 || 
+        self.safeAreaInsets.left < 0 || self.safeAreaInsets.right < 0) {
+        return NO;
+    }
+    
+    // 优先级和等待时间验证
+    if (self.enablePriorityManagement) {
+        if (self.maxWaitingTime < 0) return NO;
+        // 验证优先级值在有效范围内
+        if (self.priority < TFYPopupPriorityBackground || self.priority > TFYPopupPriorityUrgent) {
+            return NO;
+        }
+    }
+    
+    // 子配置验证
+    if (![self.keyboardConfiguration validate]) return NO;
+    if (![self.containerConfiguration validate]) return NO;
+    
+    return YES;
 }
 
 + (TFYPopupTheme)currentTheme {
@@ -108,9 +107,8 @@
     copy.safeAreaInsets = self.safeAreaInsets;
     copy.enableDragToDismiss = self.enableDragToDismiss;
     copy.dragDismissThreshold = self.dragDismissThreshold;
+    copy.enableSwipeToDismiss = self.enableSwipeToDismiss;
     copy.cornerRadius = self.cornerRadius;
-    copy.tapOutsideToDismiss = self.tapOutsideToDismiss;
-    copy.swipeToDismiss = self.swipeToDismiss;
     copy.dismissOnBackgroundTap = self.dismissOnBackgroundTap;
     copy.dismissWhenAppGoesToBackground = self.dismissWhenAppGoesToBackground;
     copy.maxPopupCount = self.maxPopupCount;
@@ -123,8 +121,14 @@
     copy.customThemeCornerRadius = self.customThemeCornerRadius;
     
     copy.keyboardConfiguration = [self.keyboardConfiguration copyWithZone:zone];
-    copy.shadowConfiguration = [self.shadowConfiguration copyWithZone:zone];
     copy.containerConfiguration = [self.containerConfiguration copyWithZone:zone];
+    
+    // 复制优先级配置
+    copy.priority = self.priority;
+    copy.priorityStrategy = self.priorityStrategy;
+    copy.canBeReplacedByHigherPriority = self.canBeReplacedByHigherPriority;
+    copy.maxWaitingTime = self.maxWaitingTime;
+    copy.enablePriorityManagement = self.enablePriorityManagement;
     
     return copy;
 }

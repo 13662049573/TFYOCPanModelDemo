@@ -32,6 +32,7 @@ FOUNDATION_EXPORT const unsigned char TFYPopupVersionString[];
 
 #import "TFYPopupBackgroundView.h"
 #import "TFYPopupView.h"
+#import "TFYPopupPriorityManager.h"
 
 #pragma mark - Layout System
 
@@ -85,6 +86,30 @@ FOUNDATION_EXPORT NSString * _Nonnull const TFYPopupAuthor NS_SWIFT_NAME(PopupAu
 #define TFYPopupDismissAll(animated, completion) \
     [TFYPopupView dismissAllAnimated:animated completion:completion]
 
+/// 快速显示高优先级弹窗
+#define TFYPopupShowHighPriority(contentView, animated, completion) \
+    [TFYPopupView showContentView:contentView \
+                         priority:TFYPopupPriorityHigh \
+                         strategy:TFYPopupPriorityStrategyReplace \
+                         animated:animated \
+                       completion:completion]
+
+/// 快速显示紧急弹窗
+#define TFYPopupShowUrgent(contentView, animated, completion) \
+    [TFYPopupView showContentView:contentView \
+                         priority:TFYPopupPriorityUrgent \
+                         strategy:TFYPopupPriorityStrategyReplace \
+                         animated:animated \
+                       completion:completion]
+
+/// 快速显示等待队列弹窗
+#define TFYPopupShowQueued(contentView, animated, completion) \
+    [TFYPopupView showContentView:contentView \
+                         priority:TFYPopupPriorityNormal \
+                         strategy:TFYPopupPriorityStrategyQueue \
+                         animated:animated \
+                       completion:completion]
+
 #pragma mark - Notification Names
 
 /// 弹窗即将显示通知
@@ -118,6 +143,29 @@ FOUNDATION_EXPORT void TFYPopupSetDebugMode(BOOL enabled) NS_SWIFT_NAME(Popup.se
 
 /// 获取全局调试模式状态
 FOUNDATION_EXPORT BOOL TFYPopupGetDebugMode(void) NS_SWIFT_NAME(Popup.getDebugMode());
+
+#pragma mark - Priority Functions
+
+/// 获取当前最高优先级
+FOUNDATION_EXPORT TFYPopupPriority TFYPopupGetCurrentHighestPriority(void) NS_SWIFT_NAME(Popup.getCurrentHighestPriority());
+
+/// 获取等待队列数量
+FOUNDATION_EXPORT NSInteger TFYPopupGetWaitingQueueCount(void) NS_SWIFT_NAME(Popup.getWaitingQueueCount());
+
+/// 清理低优先级弹窗
+FOUNDATION_EXPORT void TFYPopupClearLowPriorityPopups(TFYPopupPriority threshold) NS_SWIFT_NAME(Popup.clearLowPriorityPopups(_:));
+
+/// 暂停优先级队列
+FOUNDATION_EXPORT void TFYPopupPausePriorityQueue(void) NS_SWIFT_NAME(Popup.pausePriorityQueue());
+
+/// 恢复优先级队列
+FOUNDATION_EXPORT void TFYPopupResumePriorityQueue(void) NS_SWIFT_NAME(Popup.resumePriorityQueue());
+
+/// 启用优先级调试模式
+FOUNDATION_EXPORT void TFYPopupEnablePriorityDebugMode(BOOL enabled) NS_SWIFT_NAME(Popup.enablePriorityDebugMode(_:));
+
+/// 打印优先级队列信息
+FOUNDATION_EXPORT void TFYPopupLogPriorityQueue(void) NS_SWIFT_NAME(Popup.logPriorityQueue());
 
 #pragma mark - Quick Access Classes
 

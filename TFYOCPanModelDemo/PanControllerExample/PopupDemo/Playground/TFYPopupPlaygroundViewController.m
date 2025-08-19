@@ -39,11 +39,11 @@
     [self.scrollView addSubview:self.contentView];
     
     [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
+        make.top.left.bottom.right.equalTo(self.view);
     }];
     
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
+        make.top.left.bottom.right.equalTo(self.scrollView);
         make.width.mas_equalTo(self.scrollView);
         make.height.mas_greaterThanOrEqualTo(700);
     }];

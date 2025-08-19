@@ -191,6 +191,9 @@ typedef NS_ENUM(NSInteger, TFYBasicAnimatorType) {
 }
 
 - (void)showDemoWithModel:(TFYBasicAnimatorDemoModel *)model {
+    // 【新功能演示】使用 TFYPopupView 的配置系统来设置圆角和阴影
+    // 不再需要手动设置 contentView.layer.cornerRadius 等属性
+    
     // 创建演示内容视图
     UIView *contentView = [self createDemoContentViewWithModel:model];
     
@@ -202,6 +205,14 @@ typedef NS_ENUM(NSInteger, TFYBasicAnimatorType) {
     config.dismissOnBackgroundTap = YES;
     config.enableHapticFeedback = YES;
     config.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    
+    // 配置容器样式 - 使用框架的配置而不是手动设置 layer 属性
+    config.containerConfiguration.cornerRadius = 16;
+    config.containerConfiguration.shadowEnabled = YES;
+    config.containerConfiguration.shadowColor = [UIColor blackColor];
+    config.containerConfiguration.shadowOffset = CGSizeMake(0, 4);
+    config.containerConfiguration.shadowRadius = 12;
+    config.containerConfiguration.shadowOpacity = 0.15;
     
     // 显示弹窗
     [TFYPopupView showContentView:contentView
@@ -216,11 +227,7 @@ typedef NS_ENUM(NSInteger, TFYBasicAnimatorType) {
 - (UIView *)createDemoContentViewWithModel:(TFYBasicAnimatorDemoModel *)model {
     UIView *contentView = [[UIView alloc] init];
     contentView.backgroundColor = [UIColor systemBackgroundColor];
-    contentView.layer.cornerRadius = 16;
-    contentView.layer.shadowColor = [UIColor blackColor].CGColor;
-    contentView.layer.shadowOffset = CGSizeMake(0, 4);
-    contentView.layer.shadowRadius = 12;
-    contentView.layer.shadowOpacity = 0.15;
+    // 移除手动设置的 layer 属性，现在通过 TFYPopupView 的配置统一管理
     contentView.translatesAutoresizingMaskIntoConstraints = NO;
     
     // 颜色指示器
