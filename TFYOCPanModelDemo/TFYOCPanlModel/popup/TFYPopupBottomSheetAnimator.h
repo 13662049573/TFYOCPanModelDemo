@@ -41,6 +41,9 @@ NS_SWIFT_NAME(PopupBottomSheetConfiguration)
 /// 动画持续时间，默认 0.35
 @property (nonatomic, assign) NSTimeInterval animationDuration;
 
+/// 上部左右原价默认10
+@property (nonatomic, assign) CGFloat cornerRadius;
+
 /// 是否启用手势，默认 NO
 @property (nonatomic, assign) BOOL enableGestures;
 

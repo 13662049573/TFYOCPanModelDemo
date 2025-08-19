@@ -26,6 +26,7 @@
         _springVelocity = 0.4;
         _animationDuration = 0.35;
         _enableGestures = NO; // 默认关闭手势功能
+        _cornerRadius = 10;
     }
     return self;
 }
@@ -93,7 +94,7 @@
     self.contentView = contentView;
     self.backgroundView = backgroundView;
     
-    contentView.layer.cornerRadius = 16;
+    contentView.layer.cornerRadius = self.configuration.cornerRadius;
     contentView.layer.maskedCorners = kCALayerMinXMinYCorner | kCALayerMaxXMinYCorner;
     contentView.clipsToBounds = YES;
     contentView.translatesAutoresizingMaskIntoConstraints = NO;
