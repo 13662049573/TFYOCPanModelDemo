@@ -142,7 +142,7 @@
     [statsView addSubview:countLabel];
     
     UILabel *versionLabel = [[UILabel alloc] init];
-    versionLabel.text = [NSString stringWithFormat:@"框架版本：%@", TFYPopupVersion];
+    versionLabel.text = [NSString stringWithFormat:@"框架版本：1.2.5"];
     versionLabel.font = [UIFont systemFontOfSize:14];
     versionLabel.textColor = [UIColor secondaryLabelColor];
     versionLabel.translatesAutoresizingMaskIntoConstraints = NO;

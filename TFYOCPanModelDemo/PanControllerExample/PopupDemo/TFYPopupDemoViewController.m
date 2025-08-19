@@ -174,7 +174,7 @@ typedef NS_ENUM(NSInteger, TFYPopupDemoType) {
     
     // 版本信息
     UILabel *versionLabel = [[UILabel alloc] init];
-    versionLabel.text = [NSString stringWithFormat:@"版本：%@", TFYPopupVersion];
+    versionLabel.text = [NSString stringWithFormat:@"版本：1.2.5"];
     versionLabel.font = [UIFont systemFontOfSize:16];
     versionLabel.textAlignment = NSTextAlignmentCenter;
     versionLabel.textColor = [UIColor secondaryLabelColor];
@@ -183,7 +183,7 @@ typedef NS_ENUM(NSInteger, TFYPopupDemoType) {
     
     // 作者信息
     UILabel *authorLabel = [[UILabel alloc] init];
-    authorLabel.text = [NSString stringWithFormat:@"作者：%@", TFYPopupAuthor];
+    authorLabel.text = [NSString stringWithFormat:@"作者：田风有"];
     authorLabel.font = [UIFont systemFontOfSize:16];
     authorLabel.textAlignment = NSTextAlignmentCenter;
     authorLabel.textColor = [UIColor secondaryLabelColor];
@@ -192,7 +192,7 @@ typedef NS_ENUM(NSInteger, TFYPopupDemoType) {
     
     // 描述
     UILabel *descriptionLabel = [[UILabel alloc] init];
-    descriptionLabel.text = TFYPopupDescription;
+    descriptionLabel.text = @"";
     descriptionLabel.font = [UIFont systemFontOfSize:14];
     descriptionLabel.textAlignment = NSTextAlignmentCenter;
     descriptionLabel.numberOfLines = 0;
