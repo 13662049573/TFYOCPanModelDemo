@@ -258,6 +258,7 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
     config.defaultHeight = 500;
     config.minimumHeight = 300;
     config.maximumHeight = 700;
+    config.enableGestures = YES; // 启用手势
     config.allowsFullScreen = NO; // 不允许全屏
     
     TFYPopupBottomSheetAnimator *animator = [[TFYPopupBottomSheetAnimator alloc] initWithConfiguration:config];

@@ -15,7 +15,7 @@
     if (self) {
         _isEnabled = NO;
         _avoidingMode = TFYKeyboardAvoidingModeTransform;
-        _additionalOffset = 10.0;
+        _additionalOffset = 0.0;
         _animationDuration = 0.25;
         _respectSafeArea = YES;
     }

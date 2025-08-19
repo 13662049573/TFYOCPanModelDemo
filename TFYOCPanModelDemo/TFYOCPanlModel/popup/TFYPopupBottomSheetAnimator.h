@@ -41,9 +41,6 @@ NS_SWIFT_NAME(PopupBottomSheetConfiguration)
 /// 动画持续时间，默认 0.35
 @property (nonatomic, assign) NSTimeInterval animationDuration;
 
-/// 消失阈值，默认 60
-@property (nonatomic, assign) CGFloat dismissThreshold;
-
 /// 是否启用手势，默认 NO
 @property (nonatomic, assign) BOOL enableGestures;
 

@@ -313,11 +313,11 @@ static dispatch_queue_t _popupQueue = nil;
     // 应用主题配置
     switch (self.configuration.theme) {
         case TFYPopupThemeLight:
-            self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.95];
+            self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
             self.contentView.backgroundColor = [UIColor whiteColor];
             break;
         case TFYPopupThemeDark:
-            self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.95];
+            self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
             self.contentView.backgroundColor = [UIColor blackColor];
             break;
         case TFYPopupThemeCustom:

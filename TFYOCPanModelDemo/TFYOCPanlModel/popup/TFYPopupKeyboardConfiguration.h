@@ -28,7 +28,7 @@ NS_SWIFT_NAME(PopupKeyboardConfiguration)
 /// 键盘避让模式，默认 TFYKeyboardAvoidingModeTransform
 @property (nonatomic, assign) TFYKeyboardAvoidingMode avoidingMode;
 
-/// 额外的偏移量，默认 10.0
+/// 额外的偏移量，默认 0.0
 @property (nonatomic, assign) CGFloat additionalOffset;
 
 /// 动画持续时间，默认 0.25

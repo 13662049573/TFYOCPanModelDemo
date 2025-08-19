@@ -25,7 +25,6 @@
         _springDamping = 0.8;
         _springVelocity = 0.4;
         _animationDuration = 0.35;
-        _dismissThreshold = 60;
         _enableGestures = NO; // 默认关闭手势功能
     }
     return self;
@@ -43,7 +42,6 @@
     copy.springDamping = self.springDamping;
     copy.springVelocity = self.springVelocity;
     copy.animationDuration = self.animationDuration;
-    copy.dismissThreshold = self.dismissThreshold;
     copy.enableGestures = self.enableGestures;
     return copy;
 }
@@ -109,9 +107,21 @@
 }
 
 - (void)refreshLayoutPopupView:(TFYPopupView *)popupView contentView:(UIView *)contentView {
-    // 更新约束以适应新的布局
-    if (self.heightConstraint) {
-        self.heightConstraint.constant = MIN(self.configuration.defaultHeight, self.configuration.maximumHeight);
+    // 避免在拖拽过程中重置高度，导致手势效果被覆盖
+    if (!self.heightConstraint) {
+        return;
+    }
+    if (self.isDragging) {
+        return;
+    }
+
+    // 在非拖拽时，确保当前高度在[min, max]范围内；若未设置则使用默认高度的夹值
+    CGFloat clampedDefault = MIN(MAX(self.configuration.defaultHeight, self.configuration.minimumHeight), self.configuration.maximumHeight);
+    CGFloat current = self.heightConstraint.constant;
+    if (current <= 0) {
+        self.heightConstraint.constant = clampedDefault;
+    } else {
+        self.heightConstraint.constant = MIN(MAX(current, self.configuration.minimumHeight), self.configuration.maximumHeight);
     }
 }
 
@@ -290,7 +300,7 @@
             CGFloat currentHeightValue = self.heightConstraint.constant;
             
             // 判断是否应该关闭
-            if (currentOffset > self.configuration.dismissThreshold || velocity.y > 1000) {
+            if (currentOffset > self.configuration.minimumHeight) {
                 // 关闭弹窗
                 [self.popupView dismissAnimated:YES completion:nil];
                 return;
@@ -338,11 +348,6 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    // 如果其他手势是垂直滚动，让底部弹出框手势优先级更高
-    if ([otherGestureRecognizer.view isKindOfClass:[UIScrollView class]]) {
-        UIScrollView *scrollView = (UIScrollView *)otherGestureRecognizer.view;
-        return scrollView.contentOffset.y <= 0;
-    }
     return NO;
 }
 
