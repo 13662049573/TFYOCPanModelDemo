@@ -87,7 +87,6 @@ static dispatch_queue_t _popupQueue = nil;
     
     // 检查弹窗数量限制
     if ([self.class currentPopupViews].count >= configuration.maxPopupCount) {
-        NSLog(@"TFYPopupView Warning: 弹窗数量已达上限，将自动清理最旧的弹窗");
         [self.class cleanupOldestPopup];
     }
     
@@ -140,6 +139,15 @@ static dispatch_queue_t _popupQueue = nil;
     [self.backgroundView addTarget:self
                             action:@selector(backgroundViewClicked)
                   forControlEvents:UIControlEventTouchUpInside];
+    
+    // 确保内容视图使用Auto Layout
+    self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    // 设置内容视图的约束优先级，确保自动尺寸能够正常工作
+    [self.contentView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.contentView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    [self.contentView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.contentView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     
     [self addSubview:self.backgroundView];
     [self addSubview:self.contentView];
@@ -250,9 +258,15 @@ static dispatch_queue_t _popupQueue = nil;
              [self.contentView.widthAnchor constraintEqualToConstant:config.width.value]];
             break;
         case TFYContainerDimensionTypeAutomatic:
+            // 自动宽度：根据内容自动计算
             if (config.hasMaxWidth) {
                 [self.containerConstraints addObject:
                  [self.contentView.widthAnchor constraintLessThanOrEqualToConstant:config.maxWidth]];
+            }
+            // 添加最小宽度约束，确保弹窗不会过小
+            if (config.hasMinWidth) {
+                [self.containerConstraints addObject:
+                 [self.contentView.widthAnchor constraintGreaterThanOrEqualToConstant:config.minWidth]];
             }
             break;
         case TFYContainerDimensionTypeRatio:
@@ -276,9 +290,15 @@ static dispatch_queue_t _popupQueue = nil;
              [self.contentView.heightAnchor constraintEqualToConstant:config.height.value]];
             break;
         case TFYContainerDimensionTypeAutomatic:
+            // 自动高度：根据内容自动计算
             if (config.hasMaxHeight) {
                 [self.containerConstraints addObject:
                  [self.contentView.heightAnchor constraintLessThanOrEqualToConstant:config.maxHeight]];
+            }
+            // 添加最小高度约束，确保弹窗不会过小
+            if (config.hasMinHeight) {
+                [self.containerConstraints addObject:
+                 [self.contentView.heightAnchor constraintGreaterThanOrEqualToConstant:config.minHeight]];
             }
             break;
         case TFYContainerDimensionTypeRatio:
@@ -304,7 +324,6 @@ static dispatch_queue_t _popupQueue = nil;
         [self.containerConstraints addObject:
          [self.contentView.heightAnchor constraintGreaterThanOrEqualToConstant:config.minHeight]];
     }
-    
     // 激活所有约束
     [NSLayoutConstraint activateConstraints:self.containerConstraints];
 }
@@ -514,7 +533,6 @@ static dispatch_queue_t _popupQueue = nil;
     // 检查代理是否允许显示
     if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewShouldDismiss:)]) {
         if (![self.delegate popupViewShouldDismiss:self]) {
-            NSLog(@"TFYPopupView Warning: 代理不允许显示弹窗");
             return;
         }
     }
@@ -539,7 +557,6 @@ static dispatch_queue_t _popupQueue = nil;
     }
     
     if (self.isAnimating) {
-        NSLog(@"TFYPopupView Debug: 弹窗正在动画中，忽略消失请求");
         if (completion) completion();
         return;
     }
@@ -547,7 +564,6 @@ static dispatch_queue_t _popupQueue = nil;
     // 检查代理是否允许消失
     if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewShouldDismiss:)]) {
         if (![self.delegate popupViewShouldDismiss:self]) {
-            NSLog(@"TFYPopupView Warning: 代理不允许消失弹窗");
             if (completion) completion();
             return;
         }
@@ -677,13 +693,108 @@ static dispatch_queue_t _popupQueue = nil;
         return; // 这些动画器使用自己的约束系统
     }
     
-    // 设置内容视图的中心约束（仅用于简单动画器）
+    // 设置内容视图的布局属性
     self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [NSLayoutConstraint activateConstraints:@[
-        [self.contentView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
-        [self.contentView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor]
-    ]];
+    // 对于自动尺寸，我们需要设置内容视图能够根据内容自动调整大小
+    TFYPopupContainerConfiguration *config = self.configuration.containerConfiguration;
+    
+    if (config.width.type == TFYContainerDimensionTypeAutomatic || 
+        config.height.type == TFYContainerDimensionTypeAutomatic) {
+        
+        // 自动尺寸：设置内容视图能够根据内容自动调整大小
+        [NSLayoutConstraint activateConstraints:@[
+            [self.contentView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
+            [self.contentView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor]
+        ]];
+        // 强制布局更新
+        [self.contentView setNeedsLayout];
+        [self.contentView layoutIfNeeded];
+    
+    } else {
+        // 固定尺寸：使用简单的中心约束
+        [NSLayoutConstraint activateConstraints:@[
+            [self.contentView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor],
+            [self.contentView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor]
+        ]];
+    }
+}
+
+- (CGSize)calculateAutomaticSizeForContentView:(UIView *)contentView 
+                                   withConfig:(TFYPopupContainerConfiguration *)config {
+    CGSize automaticSize = CGSizeZero;
+    
+    // 获取屏幕尺寸
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    
+    // 计算可用空间（减去安全区域和配置的边距）
+    UIEdgeInsets safeInsets = UIEdgeInsetsZero;
+    if (@available(iOS 11.0, *)) {
+        safeInsets = self.safeAreaInsets;
+    }
+    
+    // 使用配置中的屏幕边距，如果没有设置则使用默认值
+    UIEdgeInsets screenInsets = config.screenInsets;
+    if (UIEdgeInsetsEqualToEdgeInsets(screenInsets, UIEdgeInsetsZero)) {
+        screenInsets = UIEdgeInsetsMake(20, 20, 20, 20); // 默认屏幕边距
+    }
+    
+    // 使用配置中的内容边距，如果没有设置则使用默认值
+    UIEdgeInsets contentInsets = config.contentInsets;
+    if (UIEdgeInsetsEqualToEdgeInsets(contentInsets, UIEdgeInsetsZero)) {
+        contentInsets = UIEdgeInsetsMake(20, 20, 20, 20); // 默认内容边距
+    }
+    
+    // 计算可用空间：屏幕尺寸 - 安全区域 - 屏幕边距
+    CGFloat availableWidth = screenSize.width - safeInsets.left - safeInsets.right - screenInsets.left - screenInsets.right;
+    CGFloat availableHeight = screenSize.height - safeInsets.top - safeInsets.bottom - screenInsets.top - screenInsets.bottom;
+    
+    // 尝试获取内容视图的固有尺寸
+    CGSize intrinsicSize = contentView.intrinsicContentSize;
+    
+    if (!CGSizeEqualToSize(intrinsicSize, CGSizeMake(UIViewNoIntrinsicMetric, UIViewNoIntrinsicMetric))) {
+        // 有固有尺寸，使用它作为基础
+        automaticSize = intrinsicSize;
+    } else {
+        // 没有固有尺寸，尝试使用sizeThatFits
+        CGSize fitsSize = [contentView sizeThatFits:CGSizeMake(availableWidth, availableHeight)];
+        if (!CGSizeEqualToSize(fitsSize, CGSizeZero)) {
+            automaticSize = fitsSize;
+        } else {
+            // 都没有，使用默认尺寸（基于配置的边距计算）
+            CGFloat defaultWidth = MIN(280, availableWidth);
+            CGFloat defaultHeight = MIN(200, availableHeight);
+            automaticSize = CGSizeMake(defaultWidth, defaultHeight);
+        }
+    }
+    
+    // 应用最大最小尺寸限制
+    if (config.hasMaxWidth && automaticSize.width > config.maxWidth) {
+        automaticSize.width = config.maxWidth;
+    }
+    if (config.hasMaxHeight && automaticSize.height > config.maxHeight) {
+        automaticSize.height = config.maxHeight;
+    }
+    if (config.hasMinWidth && automaticSize.width < config.minWidth) {
+        automaticSize.width = config.minWidth;
+    }
+    if (config.hasMinHeight && automaticSize.height < config.minHeight) {
+        automaticSize.height = config.minHeight;
+    }
+    
+    // 确保不超过可用空间
+    if (automaticSize.width > availableWidth) {
+        automaticSize.width = availableWidth;
+    }
+    if (automaticSize.height > availableHeight) {
+        automaticSize.height = availableHeight;
+    }
+    
+    // 最终尺寸：内容尺寸 + 内容内边距
+    automaticSize.width += contentInsets.left + contentInsets.right;
+    automaticSize.height += contentInsets.top + contentInsets.bottom;
+    
+    return automaticSize;
 }
 
 - (void)cleanup {

@@ -75,6 +75,7 @@
         _hasMinWidth = NO;
         _hasMinHeight = NO;
         _contentInsets = UIEdgeInsetsMake(20, 20, 20, 20);
+        _screenInsets = UIEdgeInsetsMake(20, 20, 20, 20);
         _cornerRadius = 0;
         _shadowEnabled = NO;
         _shadowColor = [UIColor blackColor];
@@ -140,6 +141,7 @@
     copy.minHeight = self.minHeight;
     copy.hasMinHeight = self.hasMinHeight;
     copy.contentInsets = self.contentInsets;
+    copy.screenInsets = self.screenInsets;
     copy.cornerRadius = self.cornerRadius;
     copy.shadowEnabled = self.shadowEnabled;
     copy.shadowColor = self.shadowColor;

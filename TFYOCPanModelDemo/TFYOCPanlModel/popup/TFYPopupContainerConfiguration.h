@@ -68,6 +68,9 @@ NS_SWIFT_NAME(PopupContainerConfiguration)
 /// 内容边距，默认 (20, 20, 20, 20)
 @property (nonatomic, assign) UIEdgeInsets contentInsets;
 
+/// 屏幕边距，控制弹窗与屏幕边缘的最小距离，默认 (20, 20, 20, 20)
+@property (nonatomic, assign) UIEdgeInsets screenInsets;
+
 /// 圆角半径，默认 0
 @property (nonatomic, assign) CGFloat cornerRadius;
 
