@@ -530,13 +530,6 @@ static dispatch_queue_t _popupQueue = nil;
 #pragma mark - Display & Dismiss Methods
 
 - (void)displayAnimated:(BOOL)animated completion:(TFYPopupViewCallback)completion {
-    // 检查代理是否允许显示
-    if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewShouldDismiss:)]) {
-        if (![self.delegate popupViewShouldDismiss:self]) {
-            return;
-        }
-    }
-    
     [self performDisplayAnimated:animated completion:completion];
 }
 
@@ -1158,6 +1151,7 @@ static dispatch_queue_t _popupQueue = nil;
     CGRect keyboardFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSTimeInterval duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationCurve curve = [userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    UIViewAnimationOptions options = (UIViewAnimationOptions)(curve << 16);
     
     CGFloat keyboardHeight = keyboardFrame.size.height;
     CGRect contentFrame = [self.contentView convertRect:self.contentView.bounds toView:nil];
@@ -1172,7 +1166,7 @@ static dispatch_queue_t _popupQueue = nil;
             [impactFeedback impactOccurred];
         }
         
-        [UIView animateWithDuration:duration delay:0 options:(UIViewAnimationOptions)curve animations:^{
+        [UIView animateWithDuration:duration delay:0 options:options animations:^{
             switch (self.configuration.keyboardConfiguration.avoidingMode) {
                 case TFYKeyboardAvoidingModeTransform:
                     self.contentView.transform = CGAffineTransformMakeTranslation(0, -offset);
@@ -1194,8 +1188,9 @@ static dispatch_queue_t _popupQueue = nil;
     NSDictionary *userInfo = notification.userInfo;
     NSTimeInterval duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationCurve curve = [userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    UIViewAnimationOptions options = (UIViewAnimationOptions)(curve << 16);
     
-    [UIView animateWithDuration:duration delay:0 options:(UIViewAnimationOptions)curve animations:^{
+    [UIView animateWithDuration:duration delay:0 options:options animations:^{
         switch (self.configuration.keyboardConfiguration.avoidingMode) {
             case TFYKeyboardAvoidingModeTransform:
                 self.contentView.transform = CGAffineTransformIdentity;
