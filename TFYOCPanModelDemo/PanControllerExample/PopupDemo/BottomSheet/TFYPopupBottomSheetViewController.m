@@ -138,7 +138,7 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
     config.dismissOnBackgroundTap = YES;
     config.enableHapticFeedback = YES;
     
-    [TFYPopupView showContentView:helpView
+    [TFYPopupView showContentViewWithContainerSelection:helpView
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
@@ -241,7 +241,7 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
     TFYPopupViewConfiguration *popupConfig = [[TFYPopupViewConfiguration alloc] init];
     popupConfig.dismissOnBackgroundTap = YES;
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:popupConfig
                          animator:animator
                          animated:YES
@@ -263,7 +263,7 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
     
     TFYPopupBottomSheetAnimator *animator = [[TFYPopupBottomSheetAnimator alloc] initWithConfiguration:config];
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:[[TFYPopupViewConfiguration alloc] init]
                          animator:animator
                          animated:YES
@@ -279,7 +279,7 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
     
     TFYPopupBottomSheetAnimator *animator = [[TFYPopupBottomSheetAnimator alloc] initWithConfiguration:config];
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:[[TFYPopupViewConfiguration alloc] init]
                          animator:animator
                          animated:YES
@@ -300,7 +300,7 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
     
     TFYPopupBottomSheetAnimator *animator = [[TFYPopupBottomSheetAnimator alloc] initWithConfiguration:config];
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:popupConfig
                          animator:animator
                          animated:YES
@@ -317,7 +317,7 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
     
     TFYPopupBottomSheetAnimator *animator = [[TFYPopupBottomSheetAnimator alloc] initWithConfiguration:config];
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:[[TFYPopupViewConfiguration alloc] init]
                          animator:animator
                          animated:YES

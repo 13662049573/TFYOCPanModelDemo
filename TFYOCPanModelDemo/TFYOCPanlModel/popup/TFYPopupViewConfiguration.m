@@ -48,6 +48,15 @@
         _canBeReplacedByHigherPriority = YES;
         _maxWaitingTime = 0; // 使用管理器默认值
         _enablePriorityManagement = YES;
+        
+        // 容器选择配置默认值
+        _containerSelectionStrategy = TFYPopupContainerSelectionStrategyAuto;
+        _preferredContainerType = TFYPopupContainerTypeWindow;
+        _customContainerSelector = nil;
+        _enableContainerAutoDiscovery = YES;
+        _allowContainerFallback = YES;
+        _containerSelectionTimeout = 5.0;
+        _enableContainerDebugMode = NO;
     }
     return self;
 }
@@ -75,6 +84,11 @@
             return NO;
         }
     }
+    
+    // 容器选择配置验证
+    if (self.containerSelectionTimeout < 0) return NO;
+    if (self.preferredContainerType > TFYPopupContainerTypeCustom) return NO;
+    if (self.containerSelectionStrategy > TFYPopupContainerSelectionStrategyCustom) return NO;
     
     // 子配置验证
     if (![self.keyboardConfiguration validate]) return NO;
@@ -129,6 +143,15 @@
     copy.canBeReplacedByHigherPriority = self.canBeReplacedByHigherPriority;
     copy.maxWaitingTime = self.maxWaitingTime;
     copy.enablePriorityManagement = self.enablePriorityManagement;
+    
+    // 复制容器选择配置
+    copy.containerSelectionStrategy = self.containerSelectionStrategy;
+    copy.preferredContainerType = self.preferredContainerType;
+    copy.customContainerSelector = self.customContainerSelector;
+    copy.enableContainerAutoDiscovery = self.enableContainerAutoDiscovery;
+    copy.allowContainerFallback = self.allowContainerFallback;
+    copy.containerSelectionTimeout = self.containerSelectionTimeout;
+    copy.enableContainerDebugMode = self.enableContainerDebugMode;
     
     return copy;
 }

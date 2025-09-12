@@ -92,7 +92,7 @@
     config.keyboardConfiguration.avoidingMode = TFYKeyboardAvoidingModeTransform;
     config.dismissOnBackgroundTap = YES;
     
-    [TFYPopupView showContentView:formView
+    [TFYPopupView showContentViewWithContainerSelection:formView
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
@@ -108,7 +108,7 @@
     config.customThemeTextColor = [UIColor whiteColor];
     config.customThemeCornerRadius = 20;
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:config
                          animator:[[TFYPopupFadeInOutAnimator alloc] init]
                          animated:YES
@@ -122,7 +122,7 @@
     config.backgroundStyle = TFYPopupBackgroundStyleBlur;
     config.blurStyle = UIBlurEffectStyleDark;
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:config
                          animator:[[TFYPopupZoomInOutAnimator alloc] init]
                          animated:YES
@@ -139,7 +139,7 @@
     config.containerConfiguration.shadowRadius = 10;
     config.containerConfiguration.shadowOffset = CGSizeMake(0, 5);
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:config
                          animator:[[TFYPopupBounceAnimator alloc] init]
                          animated:YES
@@ -153,7 +153,7 @@
     config.enableDragToDismiss = YES;
     config.dragDismissThreshold = 0.3;
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:config
                          animator:[[TFYPopupSlideAnimator alloc] initWithDirection:TFYPopupSlideDirectionFromBottom]
                          animated:YES

@@ -33,6 +33,7 @@ FOUNDATION_EXPORT const unsigned char TFYPopupVersionString[];
 #import "TFYPopupBackgroundView.h"
 #import "TFYPopupView.h"
 #import "TFYPopupPriorityManager.h"
+#import "TFYPopupContainerManager.h"
 
 #pragma mark - Layout System
 
@@ -44,23 +45,27 @@ FOUNDATION_EXPORT const unsigned char TFYPopupVersionString[];
 #import "TFYPopupAnimators.h"
 #import "TFYPopupBottomSheetAnimator.h"
 
+#pragma mark - Container Selection
+
+#import "TFYPopupContainerType.h"
+
 #pragma mark - Convenience Macros
 
-/// 快速创建并显示淡入淡出弹窗
+/// 快速创建并显示淡入淡出弹窗（使用容器选择）
 #define TFYPopupShowFadeInOut(contentView, animated, completion) \
-    [TFYPopupView showContentView:contentView \
-                    configuration:[[TFYPopupViewConfiguration alloc] init] \
-                         animator:[[TFYPopupFadeInOutAnimator alloc] init] \
-                         animated:animated \
-                       completion:completion]
+    [TFYPopupView showContentViewWithContainerSelection:contentView \
+                                          configuration:[[TFYPopupViewConfiguration alloc] init] \
+                                               animator:[[TFYPopupFadeInOutAnimator alloc] init] \
+                                               animated:animated \
+                                             completion:completion]
 
-/// 快速创建并显示缩放弹窗
+/// 快速创建并显示缩放弹窗（使用容器选择）
 #define TFYPopupShowZoomInOut(contentView, animated, completion) \
-    [TFYPopupView showContentView:contentView \
-                    configuration:[[TFYPopupViewConfiguration alloc] init] \
-                         animator:[[TFYPopupZoomInOutAnimator alloc] init] \
-                         animated:animated \
-                       completion:completion]
+    [TFYPopupView showContentViewWithContainerSelection:contentView \
+                                          configuration:[[TFYPopupViewConfiguration alloc] init] \
+                                               animator:[[TFYPopupZoomInOutAnimator alloc] init] \
+                                               animated:animated \
+                                             completion:completion]
 
 /// 快速创建并显示底部弹出框
 #define TFYPopupShowBottomSheet(contentView, animated, completion) \
@@ -93,6 +98,43 @@ FOUNDATION_EXPORT const unsigned char TFYPopupVersionString[];
     [TFYPopupView showContentView:contentView \
                          priority:TFYPopupPriorityNormal \
                          strategy:TFYPopupPriorityStrategyQueue \
+                         animated:animated \
+                       completion:completion]
+
+#pragma mark - Container Selection Macros
+
+/// 快速显示弹窗（使用容器选择）
+#define TFYPopupShowWithContainerSelection(contentView, animated, completion) \
+    [TFYPopupView showContentViewWithContainerSelection:contentView \
+                                          configuration:[[TFYPopupViewConfiguration alloc] init] \
+                                               animator:[[TFYPopupFadeInOutAnimator alloc] init] \
+                                               animated:animated \
+                                             completion:completion]
+
+/// 快速显示弹窗（使用指定容器视图）
+#define TFYPopupShowWithContainerView(contentView, containerView, animated, completion) \
+    [TFYPopupView showContentView:contentView \
+                    containerView:containerView \
+                    configuration:[[TFYPopupViewConfiguration alloc] init] \
+                         animator:[[TFYPopupFadeInOutAnimator alloc] init] \
+                         animated:animated \
+                       completion:completion]
+
+/// 快速显示弹窗（使用当前窗口）
+#define TFYPopupShowWithCurrentWindow(contentView, animated, completion) \
+    [TFYPopupView showContentView:contentView \
+                    containerView:TFYPopupGetCurrentWindowContainer().containerView \
+                    configuration:[[TFYPopupViewConfiguration alloc] init] \
+                         animator:[[TFYPopupFadeInOutAnimator alloc] init] \
+                         animated:animated \
+                       completion:completion]
+
+/// 快速显示弹窗（使用当前视图控制器）
+#define TFYPopupShowWithCurrentViewController(contentView, animated, completion) \
+    [TFYPopupView showContentView:contentView \
+                    containerView:TFYPopupGetCurrentViewControllerContainer().containerView \
+                    configuration:[[TFYPopupViewConfiguration alloc] init] \
+                         animator:[[TFYPopupFadeInOutAnimator alloc] init] \
                          animated:animated \
                        completion:completion]
 

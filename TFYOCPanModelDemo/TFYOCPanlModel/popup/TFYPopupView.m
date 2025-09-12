@@ -11,6 +11,7 @@
 #import "TFYPopupBaseAnimator.h"
 #import "TFYPopupAnimators.h"
 #import "TFYPopupPriorityManager.h"
+#import "TFYPopupContainerManager.h"
 #import "TFYPopup.h"
 
 @interface TFYPopupView () <UIGestureRecognizerDelegate>
@@ -42,6 +43,55 @@
 @end
 
 @implementation TFYPopupView
+#pragma mark - Property Setters
+
+- (void)setIsDismissible:(BOOL)isDismissible {
+    _isDismissible = isDismissible;
+    if (self.backgroundView) {
+        self.backgroundView.userInteractionEnabled = (self.configuration.dismissOnBackgroundTap && _isDismissible);
+    }
+}
+
+#pragma mark - Internal Helpers
+
++ (BOOL)tfy_handlePriorityShowWithSelectedContainer:(TFYPopupContainerInfo *)selectedContainer
+                                        contentView:(UIView *)contentView
+                                      configuration:(TFYPopupViewConfiguration *)configuration
+                                           animator:(id<TFYPopupViewAnimator>)animator
+                                           animated:(BOOL)animated
+                                         completion:(nullable TFYPopupViewCallback)completion {
+    if (!selectedContainer || !selectedContainer.containerView) {
+        if (completion) completion();
+        return NO;
+    }
+    __block BOOL result = NO;
+    void (^work)(void) = ^{
+        TFYPopupView *popup = [[TFYPopupView alloc] initWithContainerView:selectedContainer.containerView
+                                                              contentView:contentView
+                                                                 animator:animator
+                                                            configuration:configuration];
+        if (!popup) {
+            if (completion) completion();
+            result = NO;
+            return;
+        }
+        popup.currentPriority = configuration.priority;
+        BOOL success = [[TFYPopupPriorityManager sharedManager] addPopup:popup
+                                                                priority:configuration.priority
+                                                                strategy:configuration.priorityStrategy
+                                                              completion:^{
+            [popup displayAnimated:animated completion:completion];
+        }];
+        if (!success && completion) completion();
+        result = success;
+    };
+    if ([NSThread isMainThread]) {
+        work();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), work);
+    }
+    return result;
+}
 
 #pragma mark - Static Properties
 
@@ -112,11 +162,14 @@ static dispatch_queue_t _popupQueue = nil;
         [self setupContainerConstraints];
         [self setupMemoryWarningHandling];
         [self applyTheme];
-        
+
         // 应用背景配置
         [self configureBackgroundWithStyle:configuration.backgroundStyle
                                       color:configuration.backgroundColor
                                   blurStyle:configuration.blurStyle];
+
+        // 应用状态处理（后台自动消失等）
+        [self setupApplicationStateHandling];
     }
     return self;
 }
@@ -135,7 +188,7 @@ static dispatch_queue_t _popupQueue = nil;
 
 - (void)setupView {
     // 背景视图的用户交互应该基于dismissOnBackgroundTap配置，而不是isDismissible
-    self.backgroundView.userInteractionEnabled = self.configuration.dismissOnBackgroundTap;
+    self.backgroundView.userInteractionEnabled = (self.configuration.dismissOnBackgroundTap && self.isDismissible);
     [self.backgroundView addTarget:self
                             action:@selector(backgroundViewClicked)
                   forControlEvents:UIControlEventTouchUpInside];
@@ -233,6 +286,13 @@ static dispatch_queue_t _popupQueue = nil;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveMemoryWarning:)
                                                  name:UIApplicationDidReceiveMemoryWarningNotification
+                                               object:nil];
+}
+
+- (void)setupApplicationStateHandling {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationDidEnterBackground:)
+                                                 name:UIApplicationDidEnterBackgroundNotification
                                                object:nil];
 }
 
@@ -432,6 +492,8 @@ static dispatch_queue_t _popupQueue = nil;
     shadowOpacityAnimation.removedOnCompletion = NO;
     
     [self.layer addAnimation:shadowOpacityAnimation forKey:@"shadowDisplayAnimation"];
+    // 同步模型值，确保后续动画从正确状态开始
+    self.layer.shadowOpacity = targetOpacity;
 }
 
 - (void)animateShadowDismiss {
@@ -454,6 +516,8 @@ static dispatch_queue_t _popupQueue = nil;
     shadowOpacityAnimation.removedOnCompletion = NO;
     
     [self.layer addAnimation:shadowOpacityAnimation forKey:@"shadowDismissAnimation"];
+    // 同步模型值
+    self.layer.shadowOpacity = 0.0f;
 }
 
 #pragma mark - Layout
@@ -508,7 +572,7 @@ static dispatch_queue_t _popupQueue = nil;
     
     // 更新背景视图的交互状态
     if (self.backgroundView) {
-        self.backgroundView.userInteractionEnabled = configuration.dismissOnBackgroundTap;
+        self.backgroundView.userInteractionEnabled = (configuration.dismissOnBackgroundTap && self.isDismissible);
     }
     
     [self configureBackgroundWithStyle:configuration.backgroundStyle
@@ -635,6 +699,13 @@ static dispatch_queue_t _popupQueue = nil;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
     
+    // 确保加入全局数组（优先级路径可能绕过了 showContentView:containerInfo: 中的添加）
+    dispatch_barrier_async([self.class popupQueue], ^{
+        if (![[self.class currentPopupViews] containsObject:self]) {
+            [[self.class currentPopupViews] addObject:self];
+        }
+    });
+    
     // 设置约束（仅在首次显示时）
     if (self.containerConstraints.count == 0) {
         [self setupInitialLayout];
@@ -648,6 +719,8 @@ static dispatch_queue_t _popupQueue = nil;
     if (self.willDisplayCallback) {
         self.willDisplayCallback();
     }
+    // 发送即将显示通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupWillAppearNotification object:self];
     
     // 如果有阴影且需要动画，同时动画阴影透明度
     if (animated && self.configuration.containerConfiguration.shadowEnabled) {
@@ -675,6 +748,9 @@ static dispatch_queue_t _popupQueue = nil;
             if (strongSelf.didDisplayCallback) {
                 strongSelf.didDisplayCallback();
             }
+            // 发送已显示与数量变化通知
+            [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupDidAppearNotification object:strongSelf];
+            [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupCountDidChangeNotification object:strongSelf];
         }
     }];
 }
@@ -850,64 +926,97 @@ static dispatch_queue_t _popupQueue = nil;
                        animated:(BOOL)animated
                      completion:(nullable TFYPopupViewCallback)completion {
     
+    // 如果配置启用了容器自动发现，使用新的容器选择模式
+    if (configuration.enableContainerAutoDiscovery) {
+        [self showContentViewWithContainerSelection:contentView
+                                      configuration:configuration
+                                           animator:animator
+                                           animated:animated
+                                         completion:completion];
+        return nil; // 异步操作，返回nil
+    }
+    
+    // 否则使用传统模式（向后兼容）
     // 验证配置
     if (![configuration validate]) {
         NSAssert(NO, @"TFYPopupView: 配置验证失败，请检查配置参数");
         return nil;
     }
     
-    // 获取当前窗口
-    UIWindow *window = [self currentWindow];
-    if (!window) {
-        NSAssert(NO, @"TFYPopupView: 无法获取当前窗口");
-        return nil;
-    }
-    
-    // 检查弹窗数量限制
-    if ([self currentPopupViews].count >= configuration.maxPopupCount) {
-        [self cleanupOldestPopup];
-    }
-    
-    // 创建弹窗
-    TFYPopupView *popupView = [[TFYPopupView alloc] initWithContainerView:window
-                                                              contentView:contentView
-                                                                 animator:animator
-                                                            configuration:configuration];
-    
-    // 确保背景配置被正确应用
-    [popupView configureBackgroundWithStyle:configuration.backgroundStyle
-                                       color:configuration.backgroundColor
-                                   blurStyle:configuration.blurStyle];
-    
-    // 设置frame和autoresizing
-    popupView.frame = window.bounds;
-    popupView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    // 添加到窗口
-    [window addSubview:popupView];
-    
-    // 添加到当前显示的弹窗数组
-    dispatch_barrier_async([self popupQueue], ^{
-        [[self currentPopupViews] addObject:popupView];
-    });
-    
-    // 显示弹窗
-    [popupView displayAnimated:animated completion:completion];
-    
-    // 设置自动消失
-    if (configuration.autoDismissDelay > 0) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(configuration.autoDismissDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [popupView dismissAnimated:YES completion:nil];
+    // 使用容器管理器选择最佳容器
+    [[TFYPopupContainerManager sharedManager] selectBestContainerWithCompletion:^(TFYPopupContainerInfo * _Nullable selectedContainer, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                NSLog(@"TFYPopupView: 容器选择失败 - %@", error.localizedDescription);
+                if (completion) completion();
+                return;
+            }
+            
+            if (!selectedContainer || !selectedContainer.containerView) {
+                NSLog(@"TFYPopupView: 没有可用的容器");
+                if (completion) completion();
+                return;
+            }
+            
+            // 检查弹窗数量限制
+            if ([self currentPopupViews].count >= configuration.maxPopupCount) {
+                [self cleanupOldestPopup];
+            }
+            
+            // 创建弹窗
+            TFYPopupView *popupView = [[TFYPopupView alloc] initWithContainerView:selectedContainer.containerView
+                                                                      contentView:contentView
+                                                                         animator:animator
+                                                                    configuration:configuration];
+            
+            if (!popupView) {
+                NSLog(@"TFYPopupView: 弹窗创建失败");
+                if (completion) completion();
+                return;
+            }
+            
+            // 确保背景配置被正确应用
+            [popupView configureBackgroundWithStyle:configuration.backgroundStyle
+                                               color:configuration.backgroundColor
+                                           blurStyle:configuration.blurStyle];
+            
+            // 设置frame和autoresizing
+            popupView.frame = selectedContainer.containerView.bounds;
+            popupView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            
+            // 添加到容器
+            [selectedContainer.containerView addSubview:popupView];
+            
+            // 添加到当前显示的弹窗数组
+            dispatch_barrier_async([self popupQueue], ^{
+                [[self currentPopupViews] addObject:popupView];
+            });
+            
+            // 显示弹窗
+            [popupView displayAnimated:animated completion:completion];
+            
+            // 设置自动消失
+            if (configuration.autoDismissDelay > 0) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(configuration.autoDismissDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [popupView dismissAnimated:YES completion:nil];
+                });
+            }
+            
+            if (configuration.enableContainerDebugMode) {
+                NSLog(@"TFYPopupView: 使用容器 - %@ (%@)", selectedContainer.name, selectedContainer.containerDescription);
+            }
         });
-    }
+    }];
     
-    return popupView;
+    return nil; // 异步操作，返回nil
 }
 
 + (instancetype)showContentView:(UIView *)contentView
                        animated:(BOOL)animated
                      completion:(nullable TFYPopupViewCallback)completion {
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
+    // 确保启用容器自动发现（默认已启用）
+    config.enableContainerAutoDiscovery = YES;
     // 创建默认动画器
     TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
     return [self showContentView:contentView
@@ -970,26 +1079,13 @@ static dispatch_queue_t _popupQueue = nil;
     // 这里需要底部弹出框动画器，稍后会在动画器类中实现
     id animator = [[NSClassFromString(@"TFYPopupBottomSheetAnimator") alloc] init];
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
+    // 确保启用容器自动发现
+    config.enableContainerAutoDiscovery = YES;
     return [self showContentView:contentView
                    configuration:config
                         animator:animator
                         animated:animated
                       completion:completion];
-}
-
-+ (UIWindow *)currentWindow {
-    if (@available(iOS 15.0, *)) {
-        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
-            if (scene.activationState == UISceneActivationStateForegroundActive) {
-                for (UIWindow *window in scene.windows) {
-                    if (window.isKeyWindow) {
-                        return window;
-                    }
-                }
-            }
-        }
-    }
-    return nil;
 }
 
 #pragma mark - Bottom Sheet Methods
@@ -1129,6 +1225,7 @@ static dispatch_queue_t _popupQueue = nil;
 
 - (void)backgroundViewClicked {
     if (!self.configuration.dismissOnBackgroundTap) return;
+    if (!self.isDismissible) return;
     
     // 检查代理是否允许消失
     if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewShouldDismiss:)]) {
@@ -1212,6 +1309,12 @@ static dispatch_queue_t _popupQueue = nil;
     }
 }
 
+- (void)applicationDidEnterBackground:(NSNotification *)notification {
+    if (self.configuration.dismissWhenAppGoesToBackground && self.isDismissible) {
+        [self dismissAnimated:NO completion:nil];
+    }
+}
+
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -1239,6 +1342,8 @@ static dispatch_queue_t _popupQueue = nil;
     config.priority = priority;
     config.priorityStrategy = strategy;
     config.backgroundColor = UIColor.clearColor;
+    // 确保启用容器自动发现
+    config.enableContainerAutoDiscovery = YES;
     
     TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
     
@@ -1265,6 +1370,8 @@ static dispatch_queue_t _popupQueue = nil;
     config.priority = priority;
     config.priorityStrategy = strategy;
     config.backgroundColor = UIColor.clearColor;
+    // 确保启用容器自动发现
+    config.enableContainerAutoDiscovery = YES;
     
     // 使用默认动画器（这个方法是便捷方法，为完全自定义请使用带animator参数的方法）
     TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
@@ -1293,6 +1400,8 @@ static dispatch_queue_t _popupQueue = nil;
     config.priority = priority;
     config.priorityStrategy = strategy;
     config.backgroundColor = UIColor.clearColor;
+    // 确保启用容器自动发现
+    config.enableContainerAutoDiscovery = YES;
     
     // 使用用户提供的动画器，如果为nil则使用默认动画器
     id<TFYPopupViewAnimator> finalAnimator = animator ?: [[TFYPopupFadeInOutAnimator alloc] init];
@@ -1342,27 +1451,54 @@ static dispatch_queue_t _popupQueue = nil;
                                           animated:(BOOL)animated
                                         completion:(nullable TFYPopupViewCallback)completion {
     
-    // 创建弹窗实例但不立即显示
-    UIView *containerView = [self currentWindow];
-    TFYPopupView *popup = [[TFYPopupView alloc] initWithContainerView:containerView
-                                                          contentView:contentView
-                                                             animator:animator
-                                                        configuration:configuration];
-    if (!popup) return nil;
+    // 如果启用了容器自动发现，使用容器选择模式
+    if (configuration.enableContainerAutoDiscovery) {
+        // 使用容器管理器选择最佳容器
+        [[TFYPopupContainerManager sharedManager] selectBestContainerWithCompletion:^(TFYPopupContainerInfo * _Nullable selectedContainer, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"TFYPopupView: 容器选择失败 - %@", error.localizedDescription);
+                if (completion) completion();
+                return;
+            }
+            [self tfy_handlePriorityShowWithSelectedContainer:selectedContainer
+                                                  contentView:contentView
+                                                configuration:configuration
+                                                     animator:animator
+                                                     animated:animated
+                                                   completion:completion];
+        }];
+        return nil; // 异步操作，返回nil
+    }
     
-    // 设置当前优先级
-    popup.currentPriority = configuration.priority;
-    
-    // 通过优先级管理器管理显示
-    BOOL success = [[TFYPopupPriorityManager sharedManager] addPopup:popup
-                                                            priority:configuration.priority
-                                                            strategy:configuration.priorityStrategy
-                                                          completion:^{
-        // 优先级管理器决定显示时的回调
-        [popup displayAnimated:animated completion:completion];
+    // 否则使用传统模式（向后兼容）
+    // 使用容器管理器选择最佳容器
+    [[TFYPopupContainerManager sharedManager] selectBestContainerWithCompletion:^(TFYPopupContainerInfo * _Nullable selectedContainer, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                NSLog(@"TFYPopupView: 容器选择失败 - %@", error.localizedDescription);
+                if (completion) completion();
+                return;
+            }
+            
+            if (!selectedContainer || !selectedContainer.containerView) {
+                NSLog(@"TFYPopupView: 没有可用的容器");
+                if (completion) completion();
+                return;
+            }
+            
+            BOOL success = [self tfy_handlePriorityShowWithSelectedContainer:selectedContainer
+                                                                  contentView:contentView
+                                                                configuration:configuration
+                                                                     animator:animator
+                                                                     animated:animated
+                                                                   completion:completion];
+            if (!success) {
+                NSLog(@"TFYPopupView: 优先级管理器添加弹窗失败");
+            }
+        });
     }];
     
-    return success ? popup : nil;
+    return nil; // 异步操作，返回nil
 }
 
 #pragma mark - Priority Query Methods Implementation
@@ -1394,6 +1530,138 @@ static dispatch_queue_t _popupQueue = nil;
 
 + (void)logPriorityQueue {
     [[TFYPopupPriorityManager sharedManager] logPriorityQueue];
+}
+
+#pragma mark - Container Selection Methods Implementation
+
++ (instancetype)showContentViewWithContainerSelection:(UIView *)contentView
+                                        configuration:(TFYPopupViewConfiguration *)configuration
+                                             animator:(id<TFYPopupViewAnimator>)animator
+                                             animated:(BOOL)animated
+                                           completion:(nullable TFYPopupViewCallback)completion {
+    // 改为统一通过异步 API 路径实现，避免重复
+    [self showContentViewWithContainerSelection:contentView
+                                  configuration:configuration
+                                       animator:animator
+                                       animated:animated
+                                     popupBlock:nil];
+    return nil;
+}
+
++ (instancetype)showContentViewWithContainerSelection:(UIView *)contentView
+                                        configuration:(TFYPopupViewConfiguration *)configuration
+                                             animator:(id<TFYPopupViewAnimator>)animator
+                                             animated:(BOOL)animated
+                                           popupBlock:(void (^)(TFYPopupView * _Nullable))completion {
+    // 验证配置
+    if (![configuration validate]) {
+        NSAssert(NO, @"TFYPopupView: 配置验证失败，请检查配置参数");
+        if (completion) completion(nil);
+        return nil;
+    }
+    [[TFYPopupContainerManager sharedManager] selectBestContainerWithCompletion:^(TFYPopupContainerInfo * _Nullable selectedContainer, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error || !selectedContainer || !selectedContainer.containerView) {
+                if (completion) completion(nil);
+                return;
+            }
+            TFYPopupView *popupView = [self showContentView:contentView
+                                              containerInfo:selectedContainer
+                                              configuration:configuration
+                                                   animator:animator
+                                                   animated:animated
+                                                 completion:completion ? ^{ } : nil];
+            if (completion) completion(popupView);
+        });
+    }];
+    return nil;
+}
+
++ (instancetype)showContentView:(UIView *)contentView
+                  containerInfo:(TFYPopupContainerInfo *)containerInfo
+                  configuration:(TFYPopupViewConfiguration *)configuration
+                       animator:(id<TFYPopupViewAnimator>)animator
+                       animated:(BOOL)animated
+                     completion:(nullable TFYPopupViewCallback)completion {
+    
+    if (!containerInfo || !containerInfo.containerView) {
+        NSAssert(NO, @"TFYPopupView: 容器信息无效");
+        return nil;
+    }
+    
+    // 验证配置
+    if (![configuration validate]) {
+        NSAssert(NO, @"TFYPopupView: 配置验证失败，请检查配置参数");
+        return nil;
+    }
+    
+    // 检查弹窗数量限制
+    if ([self currentPopupViews].count >= configuration.maxPopupCount) {
+        [self cleanupOldestPopup];
+    }
+    
+    // 创建弹窗
+    TFYPopupView *popupView = [[TFYPopupView alloc] initWithContainerView:containerInfo.containerView
+                                                              contentView:contentView
+                                                                 animator:animator
+                                                            configuration:configuration];
+    
+    if (!popupView) {
+        return nil;
+    }
+    
+    // 确保背景配置被正确应用
+    [popupView configureBackgroundWithStyle:configuration.backgroundStyle
+                                       color:configuration.backgroundColor
+                                   blurStyle:configuration.blurStyle];
+    
+    // 设置frame和autoresizing
+    popupView.frame = containerInfo.containerView.bounds;
+    popupView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    // 添加到容器
+    [containerInfo.containerView addSubview:popupView];
+    
+    // 添加到当前显示的弹窗数组
+    dispatch_barrier_async([self popupQueue], ^{
+        [[self currentPopupViews] addObject:popupView];
+    });
+    
+    // 显示弹窗
+    [popupView displayAnimated:animated completion:completion];
+    
+    // 设置自动消失
+    if (configuration.autoDismissDelay > 0) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(configuration.autoDismissDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [popupView dismissAnimated:YES completion:nil];
+        });
+    }
+    
+    return popupView;
+}
+
++ (instancetype)showContentView:(UIView *)contentView
+                  containerView:(UIView *)containerView
+                  configuration:(TFYPopupViewConfiguration *)configuration
+                       animator:(id<TFYPopupViewAnimator>)animator
+                       animated:(BOOL)animated
+                     completion:(nullable TFYPopupViewCallback)completion {
+    
+    if (!containerView) {
+        NSAssert(NO, @"TFYPopupView: 容器视图不能为空");
+        return nil;
+    }
+    
+    // 创建容器信息
+    NSString *name = [NSString stringWithFormat:@"View_%p_%@", containerView, NSStringFromClass([containerView class])];
+    TFYPopupContainerInfo *containerInfo = [TFYPopupContainerInfo viewContainer:containerView name:name];
+    
+    return [self showContentView:contentView
+                    containerInfo:containerInfo
+                    configuration:configuration
+                         animator:animator
+                         animated:animated
+                       completion:completion];
 }
 
 @end

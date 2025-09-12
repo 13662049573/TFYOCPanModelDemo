@@ -176,7 +176,7 @@ typedef NS_ENUM(NSInteger, TFYBasicAnimatorType) {
     
     // 显示弹窗
     __block TFYPopupView *popup;
-    popup = [TFYPopupView showContentView:tipView
+    popup = [TFYPopupView showContentViewWithContainerSelection:tipView
                             configuration:[[TFYPopupViewConfiguration alloc] init]
                                  animator:animator
                                  animated:YES
@@ -215,7 +215,7 @@ typedef NS_ENUM(NSInteger, TFYBasicAnimatorType) {
     config.containerConfiguration.shadowOpacity = 0.15;
     
     // 显示弹窗
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:config
                          animator:animator
                          animated:YES

@@ -248,11 +248,11 @@ typedef NS_ENUM(NSInteger, TFYPopupDemoType) {
     config.dismissOnBackgroundTap = YES;
     config.enableHapticFeedback = YES;
     
-    [TFYPopupView showContentView:aboutView
-                    configuration:config
-                         animator:[[TFYPopupSpringAnimator alloc] init]
-                         animated:YES
-                       completion:nil];
+    [TFYPopupView showContentViewWithContainerSelection:aboutView
+                                          configuration:config
+                                               animator:[[TFYPopupSpringAnimator alloc] init]
+                                               animated:YES
+                                             completion:nil];
 }
 
 #pragma mark - UITableViewDataSource

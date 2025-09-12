@@ -11,6 +11,7 @@
 #import "TFYPopupViewAnimator.h"
 #import "TFYPopupViewDelegate.h"
 #import "TFYPopupBackgroundView.h"
+#import "TFYPopupContainerType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -116,6 +117,64 @@ NS_SWIFT_NAME(PopupView)
                        animator:(id<TFYPopupViewAnimator>)animator
                        animated:(BOOL)animated
                      completion:(nullable TFYPopupViewCallback)completion NS_SWIFT_NAME(show(contentView:configuration:animator:animated:completion:));
+
+#pragma mark - Container Selection Methods
+
+/// 显示弹窗（使用容器选择）
+/// @param contentView 内容视图
+/// @param configuration 配置对象
+/// @param animator 动画器
+/// @param animated 是否动画
+/// @param completion 完成回调
+/// @return 弹窗实例
++ (instancetype)showContentViewWithContainerSelection:(UIView *)contentView
+                                        configuration:(TFYPopupViewConfiguration *)configuration
+                                             animator:(id<TFYPopupViewAnimator>)animator
+                                             animated:(BOOL)animated
+                                           completion:(nullable TFYPopupViewCallback)completion NS_SWIFT_NAME(showWithContainerSelection(contentView:configuration:animator:animated:completion:));
+
+/// 显示弹窗（使用容器选择，异步返回实例）
+/// @param contentView 内容视图
+/// @param configuration 配置对象
+/// @param animator 动画器
+/// @param animated 是否动画
+/// @param completion 完成回调（返回弹窗实例或 nil）
+/// @return 始终返回 nil（异步回调中返回实例）
++ (nullable instancetype)showContentViewWithContainerSelection:(UIView *)contentView
+                                              configuration:(TFYPopupViewConfiguration *)configuration
+                                                   animator:(id<TFYPopupViewAnimator>)animator
+                                                   animated:(BOOL)animated
+                                                 popupBlock:(void (^ _Nullable)(TFYPopupView * _Nullable popup))completion NS_SWIFT_NAME(showWithContainerSelectionAsync(contentView:configuration:animator:animated:completion:));
+
+/// 显示弹窗（使用指定容器）
+/// @param contentView 内容视图
+/// @param containerInfo 容器信息
+/// @param configuration 配置对象
+/// @param animator 动画器
+/// @param animated 是否动画
+/// @param completion 完成回调
+/// @return 弹窗实例
++ (instancetype)showContentView:(UIView *)contentView
+                  containerInfo:(TFYPopupContainerInfo *)containerInfo
+                  configuration:(TFYPopupViewConfiguration *)configuration
+                       animator:(id<TFYPopupViewAnimator>)animator
+                       animated:(BOOL)animated
+                     completion:(nullable TFYPopupViewCallback)completion NS_SWIFT_NAME(show(contentView:containerInfo:configuration:animator:animated:completion:));
+
+/// 显示弹窗（使用指定容器视图）
+/// @param contentView 内容视图
+/// @param containerView 容器视图
+/// @param configuration 配置对象
+/// @param animator 动画器
+/// @param animated 是否动画
+/// @param completion 完成回调
+/// @return 弹窗实例
++ (instancetype)showContentView:(UIView *)contentView
+                  containerView:(UIView *)containerView
+                  configuration:(TFYPopupViewConfiguration *)configuration
+                       animator:(id<TFYPopupViewAnimator>)animator
+                       animated:(BOOL)animated
+                     completion:(nullable TFYPopupViewCallback)completion NS_SWIFT_NAME(show(contentView:containerView:configuration:animator:animated:completion:));
 
 #pragma mark - Priority Methods
 

@@ -168,7 +168,7 @@ typedef NS_ENUM(NSInteger, TFYDirectionalAnimatorType) {
     config.enableHapticFeedback = YES;
     config.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
     
-    [TFYPopupView showContentView:compassView
+    [TFYPopupView showContentViewWithContainerSelection:compassView
                     configuration:config
                          animator:[[TFYPopupZoomInOutAnimator alloc] init]
                          animated:YES
@@ -344,7 +344,7 @@ typedef NS_ENUM(NSInteger, TFYDirectionalAnimatorType) {
     config.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     
     // 显示弹窗
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:config
                          animator:animator
                          animated:YES

@@ -11,6 +11,7 @@
 #import "TFYPopupKeyboardConfiguration.h"
 #import "TFYPopupContainerConfiguration.h"
 #import "TFYPopupPriorityManager.h"
+#import "TFYPopupContainerType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -136,6 +137,29 @@ NS_SWIFT_NAME(PopupViewConfiguration)
 
 /// 是否启用优先级管理，默认 YES
 @property (nonatomic, assign) BOOL enablePriorityManagement;
+
+#pragma mark - Container Selection Configuration
+
+/// 容器选择策略，默认 TFYPopupContainerSelectionStrategyAuto
+@property (nonatomic, assign) TFYPopupContainerSelectionStrategy containerSelectionStrategy;
+
+/// 首选容器类型，默认 TFYPopupContainerTypeWindow
+@property (nonatomic, assign) TFYPopupContainerType preferredContainerType;
+
+/// 自定义容器选择器（可选）
+@property (nonatomic, strong, nullable) id<TFYPopupContainerSelector> customContainerSelector;
+
+/// 是否启用容器自动发现，默认 YES
+@property (nonatomic, assign) BOOL enableContainerAutoDiscovery;
+
+/// 是否允许容器降级（如果首选容器不可用，是否允许使用其他容器），默认 YES
+@property (nonatomic, assign) BOOL allowContainerFallback;
+
+/// 容器选择超时时间（秒），默认 5.0
+@property (nonatomic, assign) NSTimeInterval containerSelectionTimeout;
+
+/// 是否启用容器调试模式，默认 NO
+@property (nonatomic, assign) BOOL enableContainerDebugMode;
 
 /// 默认初始化
 - (instancetype)init;

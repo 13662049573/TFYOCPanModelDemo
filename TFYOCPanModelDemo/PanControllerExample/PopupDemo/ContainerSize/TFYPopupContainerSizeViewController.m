@@ -283,7 +283,7 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
     config.containerConfiguration = containerConfig;
     config.dismissOnBackgroundTap = YES;
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:config
                          animator:[[TFYPopupZoomInOutAnimator alloc] init]
                          animated:YES
@@ -316,7 +316,7 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
     config.containerConfiguration = containerConfig;
     config.dismissOnBackgroundTap = YES;
     
-    [TFYPopupView showContentView:contentView
+    [TFYPopupView showContentViewWithContainerSelection:contentView
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES

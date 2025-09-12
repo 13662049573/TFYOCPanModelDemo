@@ -197,11 +197,11 @@
     // 创建动画器
     id<TFYPopupViewAnimator> animator = [self createSelectedAnimator];
     
-    [TFYPopupView showContentView:contentView
-                    configuration:config
-                         animator:animator
-                         animated:YES
-                       completion:^{
+    [TFYPopupView showContentViewWithContainerSelection:contentView
+                                          configuration:config
+                                               animator:animator
+                                               animated:YES
+                                             completion:^{
         NSLog(@"实验场弹窗显示完成");
     }];
 }
