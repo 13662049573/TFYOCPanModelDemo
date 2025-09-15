@@ -155,7 +155,26 @@
 #pragma mark - Private Methods
 
 - (TFYPopupContainerInfo *)selectContainerAutomatically:(NSArray<TFYPopupContainerInfo *> *)containers {
-    // 自动选择：优先选择UIWindow，其次UIViewController，最后UIView
+    // 自动选择：根据用户偏好选择容器
+    if (self.preferWindowContainer) {
+        // 优先选择UIWindow（默认行为）
+        for (TFYPopupContainerInfo *container in containers) {
+            if (container.type == TFYPopupContainerTypeWindow) {
+                return container;
+            }
+        }
+    }
+    
+    if (self.preferCurrentViewController) {
+        // 其次选择UIViewController（用户明确偏好时）
+        for (TFYPopupContainerInfo *container in containers) {
+            if (container.type == TFYPopupContainerTypeViewController) {
+                return container;
+            }
+        }
+    }
+    
+    // 如果偏好设置都没有找到，按默认优先级选择
     for (TFYPopupContainerInfo *container in containers) {
         if (container.type == TFYPopupContainerTypeWindow) {
             return container;
@@ -208,20 +227,27 @@
 - (NSInteger)calculateSmartScore:(TFYPopupContainerInfo *)container {
     NSInteger score = container.priority;
     
-    // 根据容器类型加分
-    switch (container.type) {
-        case TFYPopupContainerTypeWindow:
-            score += 100; // UIWindow优先级最高
-            break;
-        case TFYPopupContainerTypeViewController:
-            score += 75;  // UIViewController次之
-            break;
-        case TFYPopupContainerTypeView:
-            score += 50;  // UIView最低
-            break;
-        case TFYPopupContainerTypeCustom:
-            score += 25;  // 自定义容器
-            break;
+    // 根据用户偏好调整基础分数
+    if (self.preferWindowContainer && container.type == TFYPopupContainerTypeWindow) {
+        score += 150; // 用户偏好UIWindow，大幅加分（默认行为）
+    } else if (self.preferCurrentViewController && container.type == TFYPopupContainerTypeViewController) {
+        score += 120; // 用户偏好UIViewController，加分
+    } else {
+        // 根据容器类型加分（默认优先级）
+        switch (container.type) {
+            case TFYPopupContainerTypeWindow:
+                score += 100; // UIWindow优先级最高
+                break;
+            case TFYPopupContainerTypeViewController:
+                score += 75;  // UIViewController次之
+                break;
+            case TFYPopupContainerTypeView:
+                score += 50;  // UIView最低
+                break;
+            case TFYPopupContainerTypeCustom:
+                score += 25;  // 自定义容器
+                break;
+        }
     }
     
     // 根据容器状态加分

@@ -51,7 +51,7 @@
         
         // 容器选择配置默认值
         _containerSelectionStrategy = TFYPopupContainerSelectionStrategyAuto;
-        _preferredContainerType = TFYPopupContainerTypeWindow;
+        _preferredContainerType = TFYPopupContainerTypeWindow; // 默认优先选择UIWindow
         _customContainerSelector = nil;
         _enableContainerAutoDiscovery = YES;
         _allowContainerFallback = YES;

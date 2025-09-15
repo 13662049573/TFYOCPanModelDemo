@@ -608,21 +608,28 @@ static dispatch_queue_t _popupQueue = nil;
 
 - (void)performDismissAnimated:(BOOL)animated completion:(nullable TFYPopupViewCallback)completion {
     // 检查是否可以消失
-    if (!self.isDismissible || self.isBeingCleanedUp) {
+    if (!self.isDismissible) {
         if (completion) completion();
         return;
     }
     
-    if (self.isAnimating) {
-        if (completion) completion();
-        return;
-    }
-    
-    // 检查代理是否允许消失
-    if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewShouldDismiss:)]) {
-        if (![self.delegate popupViewShouldDismiss:self]) {
+    // 如果是清理模式，强制关闭（不检查isBeingCleanedUp）
+    if (self.isBeingCleanedUp) {
+        NSLog(@"TFYPopupView: 强制关闭弹窗（清理模式）");
+        // 直接执行关闭，不检查其他条件
+    } else {
+        // 正常模式，检查其他条件
+        if (self.isAnimating) {
             if (completion) completion();
             return;
+        }
+        
+        // 检查代理是否允许消失
+        if (self.delegate && [self.delegate respondsToSelector:@selector(popupViewShouldDismiss:)]) {
+            if (![self.delegate popupViewShouldDismiss:self]) {
+                if (completion) completion();
+                return;
+            }
         }
     }
     
@@ -653,12 +660,14 @@ static dispatch_queue_t _popupQueue = nil;
     }
     
     __weak typeof(self) weakSelf = self;
+    NSLog(@"TFYPopupView: 开始执行关闭动画，animated: %@", animated ? @"YES" : @"NO");
     [self.animator dismissContentView:self.contentView
                        backgroundView:self.backgroundView
                              animated:animated
                            completion:^{
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (strongSelf) {
+            NSLog(@"TFYPopupView: 关闭动画完成，开始清理");
             strongSelf->_isPresenting = NO;
             strongSelf.isAnimating = NO;
             
@@ -675,11 +684,15 @@ static dispatch_queue_t _popupQueue = nil;
             [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupDidDisappearNotification object:strongSelf];
             [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupCountDidChangeNotification object:strongSelf];
             
+            NSLog(@"TFYPopupView: 调用cleanup方法");
             [strongSelf cleanup];
+            NSLog(@"TFYPopupView: cleanup方法完成");
             
             if (completion) {
                 completion();
             }
+        } else {
+            NSLog(@"TFYPopupView: 弹窗已被释放，无法完成清理");
         }
     }];
 }
@@ -867,16 +880,23 @@ static dispatch_queue_t _popupQueue = nil;
 }
 
 - (void)cleanup {
+    NSLog(@"TFYPopupView: cleanup开始 - 父视图: %@", self.superview);
+    
     // 清理阴影动画
     [self.layer removeAnimationForKey:@"shadowDismissAnimation"];
     [self.layer removeAnimationForKey:@"shadowDisplayAnimation"];
     
+    NSLog(@"TFYPopupView: 移除contentView从父视图");
     [self.contentView removeFromSuperview];
+    
+    NSLog(@"TFYPopupView: 移除self从父视图");
     [self removeFromSuperview];
     
+    NSLog(@"TFYPopupView: 清理通知观察者");
     // 清理通知观察者
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
+    NSLog(@"TFYPopupView: 清理手势识别器");
     // 清理手势识别器
     for (UIGestureRecognizer *gesture in self.contentView.gestureRecognizers) {
         [self.contentView removeGestureRecognizer:gesture];
@@ -884,6 +904,8 @@ static dispatch_queue_t _popupQueue = nil;
     for (UIGestureRecognizer *gesture in self.backgroundView.gestureRecognizers) {
         [self.backgroundView removeGestureRecognizer:gesture];
     }
+    
+    NSLog(@"TFYPopupView: cleanup完成");
 }
 
 #pragma mark - Static Methods
@@ -1031,12 +1053,19 @@ static dispatch_queue_t _popupQueue = nil;
         NSArray<TFYPopupView *> *popups = [[self currentPopupViews] copy];
         [[self currentPopupViews] removeAllObjects];
         
+        NSLog(@"TFYPopupView: dismissAllAnimated - 发现 %lu 个弹窗需要关闭", (unsigned long)popups.count);
+        
         if (popups.count == 0) {
+            NSLog(@"TFYPopupView: dismissAllAnimated - 没有弹窗需要关闭");
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (completion) completion();
             });
             return;
         }
+        
+        // 同时清理优先级管理器
+        NSLog(@"TFYPopupView: dismissAllAnimated - 清理优先级管理器");
+        [[TFYPopupPriorityManager sharedManager] clearAllQueues];
         
         dispatch_group_t group = dispatch_group_create();
         
@@ -1044,14 +1073,17 @@ static dispatch_queue_t _popupQueue = nil;
             dispatch_group_enter(group);
             // 设置清理标志，避免重复移除
             popup.isBeingCleanedUp = YES;
+            NSLog(@"TFYPopupView: dismissAllAnimated - 开始关闭弹窗: %@", popup.class);
             dispatch_async(dispatch_get_main_queue(), ^{
                 [popup dismissAnimated:animated completion:^{
+                    NSLog(@"TFYPopupView: dismissAllAnimated - 弹窗关闭完成: %@", popup.class);
                     dispatch_group_leave(group);
                 }];
             });
         }
         
         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+            NSLog(@"TFYPopupView: dismissAllAnimated - 所有弹窗关闭完成");
             if (completion) completion();
         });
     });

@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, TFYPopupDemoType) {
     TFYPopupDemoTypeBottomSheet,           // 底部弹出框
     TFYPopupDemoTypeConfiguration,         // 配置选项
     TFYPopupDemoTypeContainerSize,         // 容器大小演示
+    TFYPopupDemoTypeContainerSelection,    // 容器选择演示
     TFYPopupDemoTypePriority,              // 优先级演示
     TFYPopupDemoTypeComprehensive,         // 综合演示
     TFYPopupDemoTypePlayground             // 实验场
@@ -126,6 +127,14 @@ typedef NS_ENUM(NSInteger, TFYPopupDemoType) {
                                                    type:TFYPopupDemoTypeContainerSize
                                             actionBlock:^(UIViewController *controller) {
         [controller.navigationController pushViewController:[[NSClassFromString(@"TFYPopupContainerSizeViewController") alloc] init] animated:YES];
+    }]];
+    
+    // 容器选择演示
+    [models addObject:[TFYPopupDemoModel modelWithTitle:@"容器选择演示" 
+                                               subtitle:@"自动、智能、手动选择策略，指定容器类型和视图"
+                                                   type:TFYPopupDemoTypeContainerSelection
+                                            actionBlock:^(UIViewController *controller) {
+        [controller.navigationController pushViewController:[[NSClassFromString(@"TFYPopupContainerSelectionViewController") alloc] init] animated:YES];
     }]];
     
     // 优先级演示
@@ -289,6 +298,9 @@ typedef NS_ENUM(NSInteger, TFYPopupDemoType) {
             break;
         case TFYPopupDemoTypeContainerSize:
             cell.textLabel.textColor = [UIColor systemIndigoColor];
+            break;
+        case TFYPopupDemoTypeContainerSelection:
+            cell.textLabel.textColor = [UIColor systemPinkColor];
             break;
         case TFYPopupDemoTypePriority:
             cell.textLabel.textColor = [UIColor systemTealColor];

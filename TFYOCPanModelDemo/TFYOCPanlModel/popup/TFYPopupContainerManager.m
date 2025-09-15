@@ -51,7 +51,10 @@ NSNotificationName const TFYPopupContainerDidBecomeUnavailableNotification = @"T
         _managerQueue = dispatch_queue_create("com.tfy.popup.container.manager", DISPATCH_QUEUE_CONCURRENT);
         
         // 设置默认选择器
-        _defaultSelector = [[TFYPopupDefaultContainerSelector alloc] initWithStrategy:TFYPopupContainerSelectionStrategySmart];
+        _defaultSelector = [[TFYPopupDefaultContainerSelector alloc] initWithStrategy:TFYPopupContainerSelectionStrategyAuto];
+        // 配置默认偏好：优先选择UIWindow（最安全和通用的选择）
+        ((TFYPopupDefaultContainerSelector *)_defaultSelector).preferCurrentViewController = NO;
+        ((TFYPopupDefaultContainerSelector *)_defaultSelector).preferWindowContainer = YES;
         
         // 开始自动发现
         [self startAutoDiscovery];
