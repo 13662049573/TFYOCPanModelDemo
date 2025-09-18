@@ -103,14 +103,13 @@
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
     config.containerSelectionStrategy = TFYPopupContainerSelectionStrategyAuto;
-    config.enableContainerDebugMode = YES;
     
     [TFYPopupView showContentViewWithContainerSelection:contentView
                                           configuration:config
                                                animator:[[TFYPopupFadeInOutAnimator alloc] init]
                                                animated:YES
-                                             completion:^{
-        NSLog(@"自动选择策略测试完成");
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 
@@ -123,14 +122,13 @@
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
     config.containerSelectionStrategy = TFYPopupContainerSelectionStrategySmart;
     config.preferredContainerType = TFYPopupContainerTypeViewController; // 用户明确指定偏好
-    config.enableContainerDebugMode = YES;
     
     [TFYPopupView showContentViewWithContainerSelection:contentView
                                           configuration:config
                                                animator:[[TFYPopupZoomInOutAnimator alloc] init]
                                                animated:YES
-                                             completion:^{
-        NSLog(@"智能选择策略测试完成");
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 
@@ -141,15 +139,14 @@
                                                       message:@"这个弹窗应该显示在黄色的测试容器视图中"];
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
-    config.enableContainerDebugMode = YES;
     
     [TFYPopupView showContentView:contentView
                     containerView:self.testContainerView
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:^{
-        NSLog(@"指定容器视图测试完成");
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 
@@ -230,7 +227,7 @@
     NSLog(@"重新运行容器选择测试");
     
     // 先关闭所有现有弹窗
-    [TFYPopupView dismissAllAnimated:YES completion:^{
+    [TFYPopupView dismissAllAnimated:YES completion:^ {
         // 重置状态
         self.resultLabel.text = @"准备重新开始容器选择功能测试...";
         

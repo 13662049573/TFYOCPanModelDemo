@@ -352,15 +352,13 @@
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             // 尝试显示拒绝策略弹窗
-            TFYPopupView *rejectedPopup = [self createDemoPopupWithTitle:@"被拒绝的弹窗"
+           [self createDemoPopupWithTitle:@"被拒绝的弹窗"
                                                                  message:@"如果无法立即显示，我将被拒绝"
                                                                    color:[UIColor systemPurpleColor]
                                                                 priority:TFYPopupPriorityLow
                                                                 strategy:TFYPopupPriorityStrategyReject];
             
-            if (!rejectedPopup) {
-                [self showToast:@"弹窗被拒绝了！拒绝策略生效"];
-            }
+
         });
     });
 }
@@ -380,12 +378,8 @@
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             // 显示紧急弹窗
-            [TFYPopupView showContentView:[self createUrgentContentView]
-                                 priority:TFYPopupPriorityUrgent
-                                 strategy:TFYPopupPriorityStrategyReplace
-                                 animated:YES
-                               completion:^{
-                NSLog(@"紧急弹窗显示完成");
+            [TFYPopupView showContentViewWithPriority:[self createUrgentContentView] priority:TFYPopupPriorityUrgent strategy:TFYPopupPriorityStrategyReplace animated:YES completion:^(TFYPopupView * _Nullable pop) {
+                
             }];
         });
     });
@@ -447,14 +441,14 @@
 }
 
 - (void)clearAllPopups {
-    [TFYPopupView dismissAllAnimated:YES completion:^{
+    [TFYPopupView dismissAllAnimated:YES completion:^ {
         [self showToast:@"已清空所有弹窗"];
     }];
 }
 
 #pragma mark - Helper Methods
 
-- (TFYPopupView *)createDemoPopupWithTitle:(NSString *)title
+- (void)createDemoPopupWithTitle:(NSString *)title
                                    message:(NSString *)message
                                      color:(UIColor *)color
                                   priority:(TFYPopupPriority)priority
@@ -462,12 +456,8 @@
     
     UIView *contentView = [self createContentViewWithTitle:title message:message color:color];
     
-    return [TFYPopupView showContentView:contentView
-                                priority:priority
-                                strategy:strategy
-                                animated:YES
-                              completion:^{
-        NSLog(@"弹窗显示完成: %@, 优先级: %@", title, [TFYPopupPriorityManager priorityDescription:priority]);
+    [TFYPopupView showContentViewWithPriority:contentView priority:priority strategy:strategy animated:YES completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 
@@ -719,15 +709,12 @@
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             // 4. 拒绝策略 - 低优先级（应该被拒绝）
-            TFYPopupView *rejectedPopup = [self createDemoPopupWithTitle:@"拒绝策略-低优先级"
+            [self createDemoPopupWithTitle:@"拒绝策略-低优先级"
                                                                  message:@"我使用拒绝策略，会被拒绝显示"
                                                                    color:[UIColor systemGrayColor]
                                                                 priority:TFYPopupPriorityLow
                                                                 strategy:TFYPopupPriorityStrategyReject];
             
-            if (!rejectedPopup) {
-                [self showToast:@"拒绝策略生效！低优先级弹窗被拒绝"];
-            }
         });
     });
 }
@@ -1163,22 +1150,17 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 使用默认配置的优先级方法
         UILabel *lowPriorityLabel = [self createDemoLabel:@"低优先级弹窗\n(默认配置)" color:[UIColor systemBlueColor]];
-        [TFYPopupView showContentView:lowPriorityLabel
-                             priority:TFYPopupPriorityLow
-                             strategy:TFYPopupPriorityStrategyQueue
-                             animated:YES
-                           completion:^{
-            NSLog(@"默认配置 - 低优先级弹窗显示完成");
+        
+        [TFYPopupView showContentViewWithPriority:lowPriorityLabel priority:TFYPopupPriorityLow strategy:TFYPopupPriorityStrategyQueue animated:YES completion:^(TFYPopupView * _Nullable pop) {
+            
         }];
+        
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             UILabel *highPriorityLabel = [self createDemoLabel:@"高优先级弹窗\n(默认配置)" color:[UIColor systemRedColor]];
-            [TFYPopupView showContentView:highPriorityLabel
-                                 priority:TFYPopupPriorityHigh
-                                 strategy:TFYPopupPriorityStrategyQueue
-                                 animated:YES
-                               completion:^{
-                NSLog(@"默认配置 - 高优先级弹窗显示完成");
+            
+            [TFYPopupView showContentViewWithPriority:highPriorityLabel priority:TFYPopupPriorityHigh strategy:TFYPopupPriorityStrategyQueue animated:YES completion:^(TFYPopupView * _Nullable pop) {
+                
             }];
         });
     });
@@ -1204,14 +1186,14 @@
         customAnimator1.displayDuration = 0.8; // 与配置的动画时间匹配
         customAnimator1.dismissDuration = 0.8;
         
-        [TFYPopupView showContentView:lowLabel
+        [TFYPopupView showContentViewWithPriority:lowLabel
                     baseConfiguration:customConfig
                              animator:customAnimator1
                              priority:TFYPopupPriorityLow
                              strategy:TFYPopupPriorityStrategyQueue
                              animated:YES
-                           completion:^{
-            NSLog(@"自定义配置 - 低优先级弹窗显示完成");
+                                       completion:^(TFYPopupView * _Nullable pop) {
+            
         }];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -1230,14 +1212,14 @@
             customAnimator2.displayDuration = 0.3; // 与配置的动画时间匹配
             customAnimator2.dismissDuration = 0.3;
             
-            [TFYPopupView showContentView:highLabel
+            [TFYPopupView showContentViewWithPriority:highLabel
                         baseConfiguration:anotherConfig
                                  animator:customAnimator2
                                  priority:TFYPopupPriorityHigh
                                  strategy:TFYPopupPriorityStrategyQueue
                                  animated:YES
-                               completion:^{
-                NSLog(@"自定义配置 - 高优先级弹窗显示完成");
+                                           completion:^(TFYPopupView * _Nullable pop) {
+                
             }];
         });
     });
@@ -1271,14 +1253,14 @@
         smallAnimator.displayDuration = 0.4;
         smallAnimator.dismissDuration = 0.4;
         
-        [TFYPopupView showContentView:smallLabel
+        [TFYPopupView showContentViewWithPriority:smallLabel
                     baseConfiguration:smallConfig
                              animator:smallAnimator
                              priority:TFYPopupPriorityLow
                              strategy:TFYPopupPriorityStrategyQueue
                              animated:YES
-                           completion:^{
-            NSLog(@"小容器 - 低优先级弹窗显示完成");
+                                       completion:^(TFYPopupView * _Nullable pop) {
+            
         }];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -1306,14 +1288,14 @@
             largeAnimator.displayDuration = 0.6;
             largeAnimator.dismissDuration = 0.6;
             
-            [TFYPopupView showContentView:largeLabel
+            [TFYPopupView showContentViewWithPriority:largeLabel
                         baseConfiguration:largeConfig
                                  animator:largeAnimator
                                  priority:TFYPopupPriorityHigh
                                  strategy:TFYPopupPriorityStrategyQueue
                                  animated:YES
-                               completion:^{
-                NSLog(@"大容器 - 高优先级弹窗显示完成");
+                                           completion:^(TFYPopupView * _Nullable pop) {
+                
             }];
         });
     });
@@ -1334,14 +1316,14 @@
         darkLabel.backgroundColor = [UIColor darkGrayColor];
         
         // 使用默认动画器（传nil让系统选择）
-        [TFYPopupView showContentView:darkLabel
+        [TFYPopupView showContentViewWithPriority:darkLabel
                     baseConfiguration:darkConfig
                              animator:nil  // nil = 使用默认动画器
                              priority:TFYPopupPriorityNormal
                              strategy:TFYPopupPriorityStrategyQueue
                              animated:YES
-                           completion:^{
-            NSLog(@"深色主题 - 普通优先级弹窗显示完成");
+                                       completion:^(TFYPopupView * _Nullable pop) {
+            
         }];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -1359,14 +1341,14 @@
             lightAnimator.displayDuration = 0.25;
             lightAnimator.dismissDuration = 0.25;
             
-            [TFYPopupView showContentView:lightLabel
+            [TFYPopupView showContentViewWithPriority:lightLabel
                         baseConfiguration:lightConfig
                                  animator:lightAnimator
                                  priority:TFYPopupPriorityHigh
                                  strategy:TFYPopupPriorityStrategyQueue
                                  animated:YES
-                               completion:^{
-                NSLog(@"浅色主题 - 高优先级弹窗显示完成");
+                                           completion:^(TFYPopupView * _Nullable pop) {
+                
             }];
         });
         
@@ -1387,14 +1369,14 @@
             customAnimator.displayDuration = 0.7;
             customAnimator.dismissDuration = 0.7;
             
-            [TFYPopupView showContentView:customLabel
+            [TFYPopupView showContentViewWithPriority:customLabel
                         baseConfiguration:customConfig
                                  animator:customAnimator
                                  priority:TFYPopupPriorityCritical
                                  strategy:TFYPopupPriorityStrategyQueue
                                  animated:YES
-                               completion:^{
-                NSLog(@"自定义主题 - 紧急优先级弹窗显示完成");
+                                           completion:^(TFYPopupView * _Nullable pop) {
+                
             }];
         });
     });
@@ -1410,12 +1392,12 @@
         UILabel *method1Label = [self createDemoLabel:@"方法1\n默认配置API\n低优先级\n(配置+动画器都默认)" color:[UIColor whiteColor]];
         method1Label.backgroundColor = [UIColor systemBlueColor];
         
-        [TFYPopupView showContentView:method1Label
+        [TFYPopupView showContentViewWithPriority:method1Label
                              priority:TFYPopupPriorityLow
                              strategy:TFYPopupPriorityStrategyQueue
                              animated:YES
-                           completion:^{
-            NSLog(@"方法1 - 默认配置API显示完成");
+                                       completion:^(TFYPopupView * _Nullable pop) {
+            
         }];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -1434,14 +1416,14 @@
             method2Animator.displayDuration = 0.5; // 与配置的动画时间匹配
             method2Animator.dismissDuration = 0.5;
             
-            [TFYPopupView showContentView:method2Label
+            [TFYPopupView showContentViewWithPriority:method2Label
                         baseConfiguration:baseConfig
                                  animator:method2Animator
                                  priority:TFYPopupPriorityNormal
                                  strategy:TFYPopupPriorityStrategyQueue
                                  animated:YES
-                               completion:^{
-                NSLog(@"方法2 - 基础配置API显示完成");
+                                           completion:^(TFYPopupView * _Nullable pop) {
+                
             }];
         });
         
@@ -1469,8 +1451,8 @@
                                  priority:TFYPopupPriorityHigh
                                  strategy:TFYPopupPriorityStrategyQueue
                                  animated:YES
-                               completion:^{
-                NSLog(@"方法3 - 完整配置API显示完成");
+                                       completion:^(TFYPopupView * _Nullable pop) {
+                
             }];
         });
         
@@ -1481,12 +1463,12 @@
             method4Label.backgroundColor = [UIColor systemPurpleColor];
             method4Label.numberOfLines = 0;
             
-            [TFYPopupView showContentView:method4Label
+            [TFYPopupView showContentViewWithPriority:method4Label
                                  priority:TFYPopupPriorityUrgent
                                  strategy:TFYPopupPriorityStrategyQueue
                                  animated:YES
-                               completion:^{
-                NSLog(@"方法4 - 紧急优先级API显示完成");
+                                           completion:^(TFYPopupView * _Nullable pop) {
+                
             }];
         });
     });

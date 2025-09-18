@@ -201,13 +201,13 @@
                                           configuration:config
                                                animator:animator
                                                animated:YES
-                                             completion:^{
-        NSLog(@"实验场弹窗显示完成");
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 
 - (void)clearAllPopups {
-    [TFYPopupView dismissAllAnimated:YES completion:^{
+    [TFYPopupView dismissAllAnimated:YES completion:^ {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"清空完成"
                                                                        message:@"所有弹窗已清空"
                                                                 preferredStyle:UIAlertControllerStyleAlert];

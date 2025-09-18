@@ -261,7 +261,9 @@ typedef NS_ENUM(NSInteger, TFYPopupDemoType) {
                                           configuration:config
                                                animator:[[TFYPopupSpringAnimator alloc] init]
                                                animated:YES
-                                             completion:nil];
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 #pragma mark - UITableViewDataSource

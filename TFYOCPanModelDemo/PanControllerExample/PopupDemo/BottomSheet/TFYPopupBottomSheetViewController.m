@@ -142,7 +142,20 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                        completion:^(TFYPopupView * _Nullable pop) {
+        pop.willDisplayCallback = ^{
+            NSLog(@"即将显示回调");
+        };
+        pop.didDisplayCallback = ^{
+            NSLog(@"已经显示回调");
+        };
+        pop.willDismissCallback = ^{
+            NSLog(@"即将消失回调");
+        };
+        pop.didDismissCallback = ^{
+            NSLog(@"已经消失回调");
+        };
+    }];
 }
 
 - (UIView *)createHelpView {
@@ -217,11 +230,22 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
 - (void)showBasicBottomSheet {
     UIView *contentView = [self createBasicContentView];
     
-    [TFYPopupView showBottomSheetWithContentView:contentView
+  [TFYPopupView showBottomSheetWithContentView:contentView
                                         animated:YES
-                                      completion:^{
-        NSLog(@"基础底部弹出框显示完成");
-    }];
+                                        completion:^(TFYPopupView * _Nullable pop) {
+      pop.willDisplayCallback = ^{
+          NSLog(@"即将显示回调");
+      };
+      pop.didDisplayCallback = ^{
+          NSLog(@"已经显示回调");
+      };
+      pop.willDismissCallback = ^{
+          NSLog(@"即将消失回调");
+      };
+      pop.didDismissCallback = ^{
+          NSLog(@"已经消失回调");
+      };
+  }];
 }
 
 - (void)showGestureEnabledBottomSheet {
@@ -241,12 +265,19 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
     TFYPopupViewConfiguration *popupConfig = [[TFYPopupViewConfiguration alloc] init];
     popupConfig.dismissOnBackgroundTap = YES;
     
-    [TFYPopupView showContentViewWithContainerSelection:contentView
-                    configuration:popupConfig
-                         animator:animator
-                         animated:YES
-                       completion:^{
-        NSLog(@"手势底部弹出框显示完成");
+    [TFYPopupView showContentViewWithContainerSelection:contentView configuration:popupConfig animator:animator animated:YES completion:^(TFYPopupView * _Nullable pop) {
+        pop.willDisplayCallback = ^{
+            NSLog(@"即将显示回调");
+        };
+        pop.didDisplayCallback = ^{
+            NSLog(@"已经显示回调");
+        };
+        pop.willDismissCallback = ^{
+            NSLog(@"即将消失回调");
+        };
+        pop.didDismissCallback = ^{
+            NSLog(@"已经消失回调");
+        };
     }];
 }
 
@@ -263,11 +294,20 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
     
     TFYPopupBottomSheetAnimator *animator = [[TFYPopupBottomSheetAnimator alloc] initWithConfiguration:config];
     
-    [TFYPopupView showContentViewWithContainerSelection:contentView
-                    configuration:[[TFYPopupViewConfiguration alloc] init]
-                         animator:animator
-                         animated:YES
-                       completion:nil];
+    [TFYPopupView showContentViewWithContainerSelection:contentView configuration:[[TFYPopupViewConfiguration alloc] init] animator:animator animated:YES completion:^(TFYPopupView * _Nullable pop) {
+        pop.willDisplayCallback = ^{
+            NSLog(@"即将显示回调");
+        };
+        pop.didDisplayCallback = ^{
+            NSLog(@"已经显示回调");
+        };
+        pop.willDismissCallback = ^{
+            NSLog(@"即将消失回调");
+        };
+        pop.didDismissCallback = ^{
+            NSLog(@"已经消失回调");
+        };
+    }];
 }
 
 - (void)showScrollViewBottomSheet {
@@ -279,11 +319,20 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
     
     TFYPopupBottomSheetAnimator *animator = [[TFYPopupBottomSheetAnimator alloc] initWithConfiguration:config];
     
-    [TFYPopupView showContentViewWithContainerSelection:contentView
-                    configuration:[[TFYPopupViewConfiguration alloc] init]
-                         animator:animator
-                         animated:YES
-                       completion:nil];
+    [TFYPopupView showContentViewWithContainerSelection:contentView configuration:[[TFYPopupViewConfiguration alloc] init] animator:animator animated:YES completion:^(TFYPopupView * _Nullable pop) {
+        pop.willDisplayCallback = ^{
+            NSLog(@"即将显示回调");
+        };
+        pop.didDisplayCallback = ^{
+            NSLog(@"已经显示回调");
+        };
+        pop.willDismissCallback = ^{
+            NSLog(@"即将消失回调");
+        };
+        pop.didDismissCallback = ^{
+            NSLog(@"已经消失回调");
+        };
+    }];
 }
 
 - (void)showFormBottomSheet {
@@ -304,7 +353,20 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
                     configuration:popupConfig
                          animator:animator
                          animated:YES
-                       completion:nil];
+                         completion:^(TFYPopupView * _Nullable pop) {
+        pop.willDisplayCallback = ^{
+            NSLog(@"即将显示回调");
+        };
+        pop.didDisplayCallback = ^{
+            NSLog(@"已经显示回调");
+        };
+        pop.willDismissCallback = ^{
+            NSLog(@"即将消失回调");
+        };
+        pop.didDismissCallback = ^{
+            NSLog(@"已经消失回调");
+        };
+    }];
 }
 
 - (void)showNavigationBottomSheet {
@@ -321,7 +383,20 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
                     configuration:[[TFYPopupViewConfiguration alloc] init]
                          animator:animator
                          animated:YES
-                       completion:nil];
+                         completion:^(TFYPopupView * _Nullable pop) {
+        pop.willDisplayCallback = ^{
+            NSLog(@"即将显示回调");
+        };
+        pop.didDisplayCallback = ^{
+            NSLog(@"已经显示回调");
+        };
+        pop.willDismissCallback = ^{
+            NSLog(@"即将消失回调");
+        };
+        pop.didDismissCallback = ^{
+            NSLog(@"已经消失回调");
+        };
+    }];
 }
 
 #pragma mark - Content View Creation Methods
@@ -864,12 +939,19 @@ typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {
 
 - (void)closeCurrentPopup:(UIButton *)sender {
     UIView *contentView = sender.superview;
+    NSLog(@"开始查找弹窗，sender.superview: %@", contentView);
+    
     while (contentView && ![contentView isKindOfClass:[TFYPopupView class]]) {
+        NSLog(@"查找中，当前视图: %@, 父视图: %@", contentView, contentView.superview);
         contentView = contentView.superview;
     }
     
     if ([contentView isKindOfClass:[TFYPopupView class]]) {
-        [(TFYPopupView *)contentView dismissAnimated:YES completion:nil];
+        TFYPopupView *popup = (TFYPopupView *)contentView;
+        NSLog(@"找到弹窗: %@, didDismissCallback: %@", popup, popup.didDismissCallback);
+        [popup dismissAnimated:YES completion:nil];
+    } else {
+        NSLog(@"未找到弹窗，contentView: %@", contentView);
     }
 }
 

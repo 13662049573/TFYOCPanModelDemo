@@ -56,7 +56,6 @@
         _enableContainerAutoDiscovery = YES;
         _allowContainerFallback = YES;
         _containerSelectionTimeout = 5.0;
-        _enableContainerDebugMode = NO;
     }
     return self;
 }
@@ -151,7 +150,6 @@
     copy.enableContainerAutoDiscovery = self.enableContainerAutoDiscovery;
     copy.allowContainerFallback = self.allowContainerFallback;
     copy.containerSelectionTimeout = self.containerSelectionTimeout;
-    copy.enableContainerDebugMode = self.enableContainerDebugMode;
     
     return copy;
 }

@@ -40,9 +40,7 @@
 }
 
 - (void)dismissAllPopups {
-    [TFYPopupView dismissAllAnimated:YES completion:^{
-        NSLog(@"已清空所有弹窗");
-    }];
+    [TFYPopupView dismissAllAnimated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource
@@ -92,7 +90,7 @@
                     configuration:[[TFYPopupViewConfiguration alloc] init]
                          animator:[[TFYPopupFadeInOutAnimator alloc] init]
                          animated:YES
-                       completion:^{
+                       completion:^(TFYPopupView * _Nullable pop) {
         // 第二层弹窗
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             UIView *secondLayer = [self createLayerViewWithTitle:@"第二层弹窗" color:[UIColor systemGreenColor]];
@@ -100,7 +98,9 @@
                             configuration:[[TFYPopupViewConfiguration alloc] init]
                                  animator:[[TFYPopupZoomInOutAnimator alloc] init]
                                  animated:YES
-                               completion:nil];
+                               completion:^(TFYPopupView * _Nullable pop) {
+                
+            }];
         });
     }];
 }
@@ -111,7 +111,9 @@
                     configuration:[[TFYPopupViewConfiguration alloc] init]
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showCompoundAnimationDemo {
@@ -121,7 +123,9 @@
                     configuration:[[TFYPopupViewConfiguration alloc] init]
                          animator:[[TFYPopupBounceAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showRealTimeConfigDemo {
@@ -130,7 +134,9 @@
                     configuration:[[TFYPopupViewConfiguration alloc] init]
                          animator:[[TFYPopupRotateAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showPerformanceTest {
@@ -142,7 +148,7 @@
                             configuration:[[TFYPopupViewConfiguration alloc] init]
                                  animator:[[TFYPopupSlideAnimator alloc] initWithDirection:i%4]
                                  animated:YES
-                               completion:^{
+                               completion:^(TFYPopupView * _Nullable pop) {
                 // 2秒后自动关闭
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     NSArray *popups = TFYPopupGetAllCurrentPopups();
@@ -161,7 +167,9 @@
                     configuration:[[TFYPopupViewConfiguration alloc] init]
                          animator:[[TFYPopup3DFlipAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 #pragma mark - Content View Creation
@@ -328,13 +336,15 @@
     // 关闭当前弹窗并显示下一个
     NSArray *popups = TFYPopupGetAllCurrentPopups();
     if (popups.count > 0) {
-        [popups.lastObject dismissAnimated:YES completion:^{
+        [popups.lastObject dismissAnimated:YES completion:^ {
             UIView *nextView = [self createLayerViewWithTitle:@"链式下一个" color:[UIColor systemRedColor]];
             [TFYPopupView showContentView:nextView
                             configuration:[[TFYPopupViewConfiguration alloc] init]
                                  animator:[[TFYPopupSlideAnimator alloc] initWithDirection:TFYPopupSlideDirectionFromLeft]
                                  animated:YES
-                               completion:nil];
+                               completion:^(TFYPopupView * _Nullable pop) {
+                
+            }];
         }];
     }
 }

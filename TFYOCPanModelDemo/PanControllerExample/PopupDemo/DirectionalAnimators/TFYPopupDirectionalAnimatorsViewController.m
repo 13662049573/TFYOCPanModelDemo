@@ -172,7 +172,9 @@ typedef NS_ENUM(NSInteger, TFYDirectionalAnimatorType) {
                     configuration:config
                          animator:[[TFYPopupZoomInOutAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (UIView *)createCompassView {
@@ -321,7 +323,7 @@ typedef NS_ENUM(NSInteger, TFYDirectionalAnimatorType) {
         // 先关闭当前弹窗，然后显示选中的演示
         NSArray *currentPopups = TFYPopupGetAllCurrentPopups();
         if (currentPopups.count > 0) {
-            [currentPopups.firstObject dismissAnimated:YES completion:^{
+            [currentPopups.firstObject dismissAnimated:YES completion:^ {
                 [self showDemoWithModel:model];
             }];
         } else {
@@ -348,8 +350,8 @@ typedef NS_ENUM(NSInteger, TFYDirectionalAnimatorType) {
                     configuration:config
                          animator:animator
                          animated:YES
-                       completion:^{
-        NSLog(@"显示了 %@ 方向动画效果", model.title);
+                         completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 

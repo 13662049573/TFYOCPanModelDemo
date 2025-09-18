@@ -158,8 +158,6 @@ NS_SWIFT_NAME(PopupViewConfiguration)
 /// 容器选择超时时间（秒），默认 5.0
 @property (nonatomic, assign) NSTimeInterval containerSelectionTimeout;
 
-/// 是否启用容器调试模式，默认 NO
-@property (nonatomic, assign) BOOL enableContainerDebugMode;
 
 /// 默认初始化
 - (instancetype)init;

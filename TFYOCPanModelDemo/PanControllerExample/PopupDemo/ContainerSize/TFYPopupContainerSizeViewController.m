@@ -287,7 +287,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupZoomInOutAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showAutomaticSizePopup {
@@ -320,7 +322,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showComplexAutomaticSizePopup {
@@ -379,8 +383,8 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupFadeInOutAnimator alloc] init]
                          animated:YES
-                       completion:^{
-        NSLog(@"复杂自动尺寸 Debug: 弹窗显示完成");
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 
@@ -423,7 +427,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showRatioSizePopupWithRatio:(CGFloat)ratio {
@@ -449,7 +455,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupBounceAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showCustomContentSizePopup {
@@ -508,8 +516,8 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupFadeInOutAnimator alloc] init]
                          animated:YES
-                       completion:^{
-        NSLog(@"自定义内容适配 Debug: 弹窗显示完成");
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 
@@ -548,7 +556,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSlideAnimator alloc] initWithDirection:TFYPopupSlideDirectionFromTop]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showCustomPaddingPopup {
@@ -577,7 +587,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopup3DFlipAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showResponsiveSizePopup {
@@ -620,7 +632,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupRotateAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showFullScreenPopup {
@@ -642,7 +656,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSlideAnimator alloc] initWithDirection:TFYPopupSlideDirectionFromBottom]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showDynamicContentPopup {
@@ -668,7 +684,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showFormPopup {
@@ -694,7 +712,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showImagePopup {
@@ -720,7 +740,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showListPopup {
@@ -746,7 +768,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showCardStylePopup {
@@ -772,7 +796,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showAdaptiveLayoutPopup {
@@ -798,7 +824,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showInfoPopup {
@@ -825,7 +853,9 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 #pragma mark - Content View Creation
@@ -1532,7 +1562,7 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
         NSLog(@"动态内容弹窗: 开始更新内容");
         
         // 关闭当前弹窗
-        [lastPopup dismissAnimated:YES completion:^{
+        [lastPopup dismissAnimated:YES completion:^ {
             // 在弹窗关闭后，创建新的弹窗显示更新后的内容
             [self showUpdatedDynamicContentPopup];
         }];
@@ -1566,8 +1596,8 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:^{
-        NSLog(@"动态内容弹窗: 更新后的弹窗显示完成");
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 
@@ -1629,7 +1659,7 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
         NSLog(@"动态内容弹窗: 再次更新内容");
         
         // 关闭当前弹窗
-        [lastPopup dismissAnimated:YES completion:^{
+        [lastPopup dismissAnimated:YES completion:^ {
             // 在弹窗关闭后，创建新的弹窗显示再次更新后的内容
             [self showFinalDynamicContentPopup];
         }];
@@ -1710,8 +1740,8 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:^{
-        NSLog(@"动态内容弹窗: 最终弹窗显示完成");
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 

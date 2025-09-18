@@ -96,7 +96,9 @@
                     configuration:config
                          animator:[[TFYPopupSpringAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showThemeDemo {
@@ -112,7 +114,9 @@
                     configuration:config
                          animator:[[TFYPopupFadeInOutAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showBackgroundDemo {
@@ -126,7 +130,9 @@
                     configuration:config
                          animator:[[TFYPopupZoomInOutAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showShadowDemo {
@@ -143,7 +149,9 @@
                     configuration:config
                          animator:[[TFYPopupBounceAnimator alloc] init]
                          animated:YES
-                       completion:nil];
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 - (void)showGestureDemo {
@@ -157,7 +165,9 @@
                     configuration:config
                          animator:[[TFYPopupSlideAnimator alloc] initWithDirection:TFYPopupSlideDirectionFromBottom]
                          animated:YES
-                       completion:nil];
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
+    }];
 }
 
 #pragma mark - Content View Creation

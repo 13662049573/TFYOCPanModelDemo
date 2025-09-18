@@ -176,14 +176,14 @@ typedef NS_ENUM(NSInteger, TFYBasicAnimatorType) {
     
     // 显示弹窗
     __block TFYPopupView *popup;
-    popup = [TFYPopupView showContentViewWithContainerSelection:tipView
+    [TFYPopupView showContentViewWithContainerSelection:tipView
                             configuration:[[TFYPopupViewConfiguration alloc] init]
                                  animator:animator
                                  animated:YES
-                               completion:^{
+                                 completion:^(TFYPopupView * _Nullable pop) {
         // 2秒后自动关闭并显示下一个
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [popup dismissAnimated:YES completion:^{
+            [popup dismissAnimated:YES completion:^ {
                 [self showAnimatorSequentially:index + 1 tipView:tipView];
             }];
         });
@@ -219,8 +219,8 @@ typedef NS_ENUM(NSInteger, TFYBasicAnimatorType) {
                     configuration:config
                          animator:animator
                          animated:YES
-                       completion:^{
-        NSLog(@"显示了 %@ 动画效果", model.title);
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 

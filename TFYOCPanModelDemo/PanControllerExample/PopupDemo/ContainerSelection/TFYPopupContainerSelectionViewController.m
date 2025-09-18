@@ -188,8 +188,6 @@
     [self showPopupWithConfiguration:^{
         TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
         config.containerSelectionStrategy = TFYPopupContainerSelectionStrategyAuto;
-        config.enableContainerDebugMode = YES;
-        // 默认会选择UIWindow，这是最安全的选择
         return config;
     } title:@"自动选择策略\n(默认选择UIWindow)"];
 }
@@ -199,7 +197,6 @@
         TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
         config.containerSelectionStrategy = TFYPopupContainerSelectionStrategySmart;
         config.preferredContainerType = TFYPopupContainerTypeViewController; // 用户明确指定偏好
-        config.enableContainerDebugMode = YES;
         return config;
     } title:@"智能选择策略\n(用户指定偏好当前控制器)"];
 }
@@ -208,7 +205,6 @@
     [self showPopupWithConfiguration:^{
         TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
         config.containerSelectionStrategy = TFYPopupContainerSelectionStrategyManual;
-        config.enableContainerDebugMode = YES;
         return config;
     } title:@"手动选择策略"];
 }
@@ -219,7 +215,6 @@
         config.containerSelectionStrategy = TFYPopupContainerSelectionStrategySmart;
         config.preferredContainerType = TFYPopupContainerTypeViewController;
         config.allowContainerFallback = NO; // 不允许降级
-        config.enableContainerDebugMode = YES;
         return config;
     } title:@"指定容器类型"];
 }
@@ -229,15 +224,14 @@
     UIView *contentView = [self createTestContentViewWithTitle:@"指定容器视图测试"];
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
-    config.enableContainerDebugMode = YES;
     
     [TFYPopupView showContentView:contentView
                     containerView:self.view
                     configuration:config
                          animator:[[TFYPopupFadeInOutAnimator alloc] init]
                          animated:YES
-                       completion:^{
-        NSLog(@"弹窗在指定容器视图中显示完成");
+                       completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 
@@ -271,7 +265,6 @@
         TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
         config.containerSelectionStrategy = TFYPopupContainerSelectionStrategyCustom;
         config.customContainerSelector = customSelector;
-        config.enableContainerDebugMode = YES;
         return config;
     } title:@"自定义选择器"];
 }
@@ -304,8 +297,8 @@
                                           configuration:config
                                                animator:[[TFYPopupFadeInOutAnimator alloc] init]
                                                animated:YES
-                                             completion:^{
-        NSLog(@"弹窗显示完成 - %@", title);
+                                             completion:^(TFYPopupView * _Nullable pop) {
+        
     }];
 }
 
@@ -369,20 +362,7 @@
 }
 
 - (void)closeCurrentPopup {
-    NSLog(@"TFYPopupContainerSelectionViewController: 开始关闭所有弹窗");
-    
-    // 先检查当前弹窗数量
-    NSInteger currentCount = [TFYPopupView currentPopupCount];
-    NSLog(@"TFYPopupContainerSelectionViewController: 当前弹窗数量: %ld", (long)currentCount);
-    
-    // 获取当前弹窗列表
-    NSArray<TFYPopupView *> *currentPopups = [TFYPopupView allCurrentPopups];
-    NSLog(@"TFYPopupContainerSelectionViewController: 当前弹窗列表: %@", currentPopups);
-    
-    [TFYPopupView dismissAllAnimated:YES completion:^{
-        NSLog(@"TFYPopupContainerSelectionViewController: 弹窗关闭完成");
-        
-        // 再次检查弹窗数量
+    [TFYPopupView dismissAllAnimated:YES completion:^ {
         NSInteger afterCount = [TFYPopupView currentPopupCount];
         NSLog(@"TFYPopupContainerSelectionViewController: 关闭后弹窗数量: %ld", (long)afterCount);
     }];
@@ -432,15 +412,12 @@
     UIView *testContentView = [self createTestContentViewWithTitle:@"测试关闭功能"];
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
-    config.enableContainerDebugMode = YES;
     
     [TFYPopupView showContentViewWithContainerSelection:testContentView
                                           configuration:config
                                                animator:[[TFYPopupFadeInOutAnimator alloc] init]
                                                animated:YES
-                                             completion:^{
-        NSLog(@"测试弹窗显示完成");
-        
+                                             completion:^(TFYPopupView * _Nullable pop) {
         // 延迟2秒后测试关闭
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             NSLog(@"开始测试关闭功能");
