@@ -53,7 +53,7 @@
         _containerSelectionStrategy = TFYPopupContainerSelectionStrategyAuto;
         _preferredContainerType = TFYPopupContainerTypeWindow; // 默认优先选择UIWindow
         _customContainerSelector = nil;
-        _enableContainerAutoDiscovery = YES;
+        _enableContainerAutoDiscovery = NO;
         _allowContainerFallback = YES;
         _containerSelectionTimeout = 5.0;
     }

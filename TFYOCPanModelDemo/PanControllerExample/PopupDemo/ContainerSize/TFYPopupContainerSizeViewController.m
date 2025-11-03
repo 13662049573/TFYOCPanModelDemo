@@ -293,26 +293,26 @@ typedef NS_ENUM(NSInteger, TFYContainerSizeDemoType) {
 }
 
 - (void)showAutomaticSizePopup {
-    UIView *contentView = [self createDemoContentViewWithText:@"自动尺寸\n\n这个弹窗会根据内容自动调整大小。\n无论内容多少，都能完美适配。\n\n很方便对吧？\n\n现在添加更多内容来测试自动尺寸功能：\n• 支持多行文本\n• 支持动态内容\n• 支持不同字体大小\n• 支持富文本内容\n\n这样就能看到真正的自动适配效果了！"
+    UIView *contentView = [self createDemoContentViewWithText:@"Failed to enable. Please allow calendar access in Settings"
                                                         color:[UIColor systemBlueColor]];
     
     // 创建容器配置 - 使用自动尺寸
     TFYPopupContainerConfiguration *containerConfig = [[TFYPopupContainerConfiguration alloc] init];
     containerConfig.width = [TFYPopupContainerDimension automatic];
     containerConfig.height = [TFYPopupContainerDimension automatic];
-    containerConfig.maxWidth = 320;  // 设置最大宽度
+    containerConfig.maxWidth = 288;  // 设置最大宽度
     containerConfig.hasMaxWidth = YES;
-    containerConfig.minWidth = 200;  // 设置最小宽度
+    containerConfig.minWidth = 120;  // 设置最小宽度
     containerConfig.hasMinWidth = YES;
-    containerConfig.minHeight = 150; // 设置最小高度
+    containerConfig.minHeight = 60; // 设置最小高度
     containerConfig.hasMinHeight = YES;
-    containerConfig.cornerRadius = 16;
+    containerConfig.cornerRadius = 8;
     containerConfig.shadowEnabled = YES;
     containerConfig.shadowColor = [UIColor blackColor];
     containerConfig.shadowOpacity = 0.25;
-    containerConfig.shadowRadius = 12;
+    containerConfig.shadowRadius = 4;
     containerConfig.shadowOffset = CGSizeMake(0, 6);
-    containerConfig.contentInsets = UIEdgeInsetsMake(20, 20, 20, 20);
+    containerConfig.contentInsets = UIEdgeInsetsMake(10, 10, 10, 10);
     
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
     config.containerConfiguration = containerConfig;

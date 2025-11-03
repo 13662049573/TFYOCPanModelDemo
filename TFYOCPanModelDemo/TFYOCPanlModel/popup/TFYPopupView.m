@@ -713,30 +713,31 @@ static dispatch_queue_t _popupQueue = nil;
                              animated:animated
                            completion:^{
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        if (strongSelf) {
-            strongSelf->_isPresenting = NO;
-            strongSelf.isAnimating = NO;
-            
-            // 触发已经消失回调和代理
-            if (strongSelf.didDismissCallback) {
-                strongSelf.didDismissCallback();
-            }
-            
-            if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(popupViewDidDisappear:)]) {
-                [strongSelf.delegate popupViewDidDisappear:strongSelf];
-            }
-            
-            // 发送通知
-            [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupDidDisappearNotification object:strongSelf];
-            [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupCountDidChangeNotification object:strongSelf];
-            
-            [strongSelf cleanup];
-            
-            if (completion) {
-                completion();
-            }
-        } else {
+        if (!strongSelf) {
             NSLog(@"TFYPopupView: 弹窗已被释放，无法完成清理");
+            return;
+        }
+        
+        strongSelf->_isPresenting = NO;
+        strongSelf.isAnimating = NO;
+        
+        // 触发已经消失回调和代理
+        if (strongSelf.didDismissCallback) {
+            strongSelf.didDismissCallback();
+        }
+        
+        if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(popupViewDidDisappear:)]) {
+            [strongSelf.delegate popupViewDidDisappear:strongSelf];
+        }
+        
+        // 发送通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupDidDisappearNotification object:strongSelf];
+        [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupCountDidChangeNotification object:strongSelf];
+        
+        [strongSelf cleanup];
+        
+        if (completion) {
+            completion();
         }
     }];
 }
@@ -791,24 +792,24 @@ static dispatch_queue_t _popupQueue = nil;
                              animated:animated
                            completion:^{
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        if (strongSelf) {
-            if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(popupViewDidAppear:)]) {
-                [strongSelf.delegate popupViewDidAppear:strongSelf];
-            }
-            
-            if (completion) {
-                completion(self);
-            }
-            
-            strongSelf.isAnimating = NO;
-            
-            if (strongSelf.didDisplayCallback) {
-                strongSelf.didDisplayCallback();
-            }
-            // 发送已显示与数量变化通知
-            [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupDidAppearNotification object:strongSelf];
-            [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupCountDidChangeNotification object:strongSelf];
+        if (!strongSelf) return;
+        
+        if (strongSelf.delegate && [strongSelf.delegate respondsToSelector:@selector(popupViewDidAppear:)]) {
+            [strongSelf.delegate popupViewDidAppear:strongSelf];
         }
+        
+        if (completion) {
+            completion(strongSelf);
+        }
+        
+        strongSelf.isAnimating = NO;
+        
+        if (strongSelf.didDisplayCallback) {
+            strongSelf.didDisplayCallback();
+        }
+        // 发送已显示与数量变化通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupDidAppearNotification object:strongSelf];
+        [[NSNotificationCenter defaultCenter] postNotificationName:TFYPopupCountDidChangeNotification object:strongSelf];
     }];
 }
 
@@ -1126,7 +1127,7 @@ static dispatch_queue_t _popupQueue = nil;
                                       completion:(void (^)(TFYPopupView * _Nullable pop))completion {
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
     // 确保启用容器自动发现（默认已启用）
-    config.enableContainerAutoDiscovery = YES;
+    config.enableContainerAutoDiscovery = NO;
     // 创建默认动画器
     TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
     
@@ -1196,7 +1197,7 @@ static dispatch_queue_t _popupQueue = nil;
     id animator = [[NSClassFromString(@"TFYPopupBottomSheetAnimator") alloc] init];
     TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
     // 禁用容器自动发现，使用同步模式确保能返回弹窗实例
-    config.enableContainerAutoDiscovery = YES;
+    config.enableContainerAutoDiscovery = NO;
     [self showContentView:contentView
                    configuration:config
                         animator:animator
@@ -1459,7 +1460,7 @@ static dispatch_queue_t _popupQueue = nil;
     config.priorityStrategy = strategy;
     config.backgroundColor = UIColor.clearColor;
     // 确保启用容器自动发现
-    config.enableContainerAutoDiscovery = YES;
+    config.enableContainerAutoDiscovery = NO;
     
     TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
     
@@ -1487,7 +1488,7 @@ static dispatch_queue_t _popupQueue = nil;
     config.priorityStrategy = strategy;
     config.backgroundColor = UIColor.clearColor;
     // 确保启用容器自动发现
-    config.enableContainerAutoDiscovery = YES;
+    config.enableContainerAutoDiscovery = NO;
     
     // 使用默认动画器（这个方法是便捷方法，为完全自定义请使用带animator参数的方法）
     TFYPopupFadeInOutAnimator *animator = [[TFYPopupFadeInOutAnimator alloc] init];
@@ -1517,7 +1518,7 @@ static dispatch_queue_t _popupQueue = nil;
     config.priorityStrategy = strategy;
     config.backgroundColor = UIColor.clearColor;
     // 确保启用容器自动发现
-    config.enableContainerAutoDiscovery = YES;
+    config.enableContainerAutoDiscovery = NO;
     
     // 使用用户提供的动画器，如果为nil则使用默认动画器
     id<TFYPopupViewAnimator> finalAnimator = animator ?: [[TFYPopupFadeInOutAnimator alloc] init];

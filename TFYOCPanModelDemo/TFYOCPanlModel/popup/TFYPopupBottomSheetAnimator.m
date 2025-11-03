@@ -254,7 +254,17 @@
 #pragma mark - Gesture Handling
 
 - (void)handlePan:(UIPanGestureRecognizer *)gesture {
-    if (!self.popupView || !self.heightConstraint || !self.bottomConstraint) return;
+    if (!self.popupView || !self.heightConstraint || !self.bottomConstraint) {
+        return;
+    }
+    
+    // 确保在主线程执行UI操作
+    if (![NSThread isMainThread]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self handlePan:gesture];
+        });
+        return;
+    }
     
     CGPoint translation = [gesture translationInView:self.popupView];
     CGPoint velocity = [gesture velocityInView:self.popupView];

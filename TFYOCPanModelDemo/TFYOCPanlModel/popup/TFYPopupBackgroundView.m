@@ -196,26 +196,50 @@
 }
 
 - (void)applyBlurEffect:(UIBlurEffectStyle)style {
+    // 移除现有效果视图
+    if (self.effectView) {
+        [self.effectView removeFromSuperview];
+        self.effectView = nil;
+    }
+    
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:style];
     UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     blurView.frame = self.bounds;
-    [self addSubview:blurView];
+    blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self insertSubview:blurView atIndex:0];
     self.effectView = blurView;
 }
 
 - (void)applyGradientEffectWithColors:(NSArray<UIColor *> *)colors 
                             locations:(NSArray<NSNumber *> *)locations {
+    // 移除现有渐变层
+    if (self.gradientLayer) {
+        [self.gradientLayer removeFromSuperlayer];
+        self.gradientLayer = nil;
+    }
+    
+    if (!colors || colors.count == 0) {
+        return;
+    }
+    
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     gradientLayer.frame = self.bounds;
     
     NSMutableArray *cgColors = [NSMutableArray array];
     for (UIColor *color in colors) {
-        [cgColors addObject:(__bridge id)color.CGColor];
+        if (color) {
+            [cgColors addObject:(__bridge id)color.CGColor];
+        }
     }
+    
+    if (cgColors.count == 0) {
+        return;
+    }
+    
     gradientLayer.colors = cgColors;
     gradientLayer.locations = locations;
     
-    [self.layer addSublayer:gradientLayer];
+    [self.layer insertSublayer:gradientLayer atIndex:0];
     self.gradientLayer = gradientLayer;
 }
 

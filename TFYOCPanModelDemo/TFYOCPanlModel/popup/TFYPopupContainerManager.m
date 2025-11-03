@@ -291,17 +291,57 @@ NSNotificationName const TFYPopupContainerDidBecomeUnavailableNotification = @"T
 
 #pragma mark - Private Methods
 
+/// 获取当前key窗口（统一实现，避免重复代码）
+- (UIWindow *)getCurrentKeyWindow {
+    UIWindow *keyWindow = nil;
+    if (@available(iOS 15.0, *)) {
+        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
+            if (scene.activationState == UISceneActivationStateForegroundActive) {
+                for (UIWindow *window in scene.windows) {
+                    if (window.isKeyWindow) {
+                        keyWindow = window;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    // 若未找到keyWindow，放宽条件：遍历所有场景选择第一个可见窗口
+    if (!keyWindow) {
+        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
+            for (UIWindow *window in scene.windows) {
+                if (!window.hidden && window.windowLevel >= UIWindowLevelNormal) {
+                    keyWindow = window;
+                    break;
+                }
+            }
+            if (keyWindow) break;
+        }
+    }
+    // 兜底：任意第一个窗口
+    if (!keyWindow) {
+        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
+            if (scene.windows.firstObject) {
+                keyWindow = scene.windows.firstObject;
+                break;
+            }
+        }
+    }
+    return keyWindow;
+}
+
 - (NSArray<TFYPopupContainerInfo *> *)discoverWindowContainers {
-    NSMutableArray<TFYPopupContainerInfo *> *containers = [NSMutableArray array];
-    
-    // 确保在主线程执行UI相关操作：若不在主线程，则切到主线程执行并同步返回结果
+    // 确保在主线程执行UI相关操作
     if (![NSThread isMainThread]) {
         __block NSArray<TFYPopupContainerInfo *> *result = nil;
+        // 使用dispatch_sync是安全的，因为当前不在主线程
         dispatch_sync(dispatch_get_main_queue(), ^{
             result = [self discoverWindowContainers];
         });
         return result ?: @[];
     }
+    
+    NSMutableArray<TFYPopupContainerInfo *> *containers = [NSMutableArray array];
     
     if (@available(iOS 15.0, *)) {
         // iOS 15+ 使用新的场景API
@@ -341,49 +381,20 @@ NSNotificationName const TFYPopupContainerDidBecomeUnavailableNotification = @"T
 }
 
 - (NSArray<TFYPopupContainerInfo *> *)discoverViewControllerContainers {
-    NSMutableArray<TFYPopupContainerInfo *> *containers = [NSMutableArray array];
-    
-    // 确保在主线程执行UI相关操作：若不在主线程，则切到主线程执行并同步返回结果
+    // 确保在主线程执行UI相关操作
     if (![NSThread isMainThread]) {
         __block NSArray<TFYPopupContainerInfo *> *result = nil;
+        // 使用dispatch_sync是安全的，因为当前不在主线程
         dispatch_sync(dispatch_get_main_queue(), ^{
             result = [self discoverViewControllerContainers];
         });
         return result ?: @[];
     }
     
-    // 获取当前窗口
-    UIWindow *keyWindow = nil;
-    if (@available(iOS 15.0, *)) {
-        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
-            if (scene.activationState == UISceneActivationStateForegroundActive) {
-                for (UIWindow *window in scene.windows) {
-                    if (window.isKeyWindow) {
-                        keyWindow = window;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    // 若未找到keyWindow，放宽条件：遍历所有场景选择第一个可见窗口
-    if (!keyWindow) {
-        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
-            for (UIWindow *window in scene.windows) {
-                if (!window.hidden && window.windowLevel >= UIWindowLevelNormal) {
-                    keyWindow = window;
-                    break;
-                }
-            }
-            if (keyWindow) break;
-        }
-    }
-    // 兜底：任意第一个窗口
-    if (!keyWindow) {
-        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
-            if (scene.windows.firstObject) { keyWindow = scene.windows.firstObject; break; }
-        }
-    }
+    NSMutableArray<TFYPopupContainerInfo *> *containers = [NSMutableArray array];
+    
+    // 获取当前窗口（使用统一方法）
+    UIWindow *keyWindow = [self getCurrentKeyWindow];
     if (keyWindow) {
         UIViewController *rootViewController = keyWindow.rootViewController;
         [self addViewControllerContainers:rootViewController toArray:containers];
@@ -393,16 +404,29 @@ NSNotificationName const TFYPopupContainerDidBecomeUnavailableNotification = @"T
 }
 
 - (void)addViewControllerContainers:(UIViewController *)viewController toArray:(NSMutableArray<TFYPopupContainerInfo *> *)containers {
-    if (!viewController || !viewController.view) return;
+    if (!viewController) return;
     
-    // 确保在主线程执行UI相关操作：若不在主线程，则切到主线程同步执行
+    // 确保在主线程执行UI相关操作
     if (![NSThread isMainThread]) {
+        // 注意：这里使用dispatch_sync是因为方法返回void，且需要立即执行
+        // 但如果已经在主线程，这会死锁，所以需要检查
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self addViewControllerContainers:viewController toArray:containers];
         });
         return;
     }
     
+    // 只处理已加载view的视图控制器，避免触发未加载view controller的viewDidLoad
+    // 使用isViewLoaded检查，而不是访问view属性（访问view会触发懒加载）
+    if (!viewController.isViewLoaded) {
+        return;
+    }
+    
+    // 检查view是否存在且有效
+    if (!viewController.view) {
+        return;
+    }
+        
     // 添加当前视图控制器
     TFYPopupContainerInfo *containerInfo = [TFYPopupContainerInfo viewControllerContainer:viewController];
     [containers addObject:containerInfo];
@@ -419,49 +443,20 @@ NSNotificationName const TFYPopupContainerDidBecomeUnavailableNotification = @"T
 }
 
 - (NSArray<TFYPopupContainerInfo *> *)discoverViewContainers {
-    NSMutableArray<TFYPopupContainerInfo *> *containers = [NSMutableArray array];
-    
-    // 确保在主线程执行UI相关操作：若不在主线程，则切到主线程执行并同步返回结果
+    // 确保在主线程执行UI相关操作
     if (![NSThread isMainThread]) {
         __block NSArray<TFYPopupContainerInfo *> *result = nil;
+        // 使用dispatch_sync是安全的，因为当前不在主线程
         dispatch_sync(dispatch_get_main_queue(), ^{
             result = [self discoverViewContainers];
         });
         return result ?: @[];
     }
     
-    // 获取当前窗口
-    UIWindow *keyWindow = nil;
-    if (@available(iOS 15.0, *)) {
-        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
-            if (scene.activationState == UISceneActivationStateForegroundActive) {
-                for (UIWindow *window in scene.windows) {
-                    if (window.isKeyWindow) {
-                        keyWindow = window;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    // 若未找到keyWindow，放宽条件：遍历所有场景选择第一个可见窗口
-    if (!keyWindow) {
-        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
-            for (UIWindow *window in scene.windows) {
-                if (!window.hidden && window.windowLevel >= UIWindowLevelNormal) {
-                    keyWindow = window;
-                    break;
-                }
-            }
-            if (keyWindow) break;
-        }
-    }
-    // 兜底：任意第一个窗口
-    if (!keyWindow) {
-        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
-            if (scene.windows.firstObject) { keyWindow = scene.windows.firstObject; break; }
-        }
-    }
+    NSMutableArray<TFYPopupContainerInfo *> *containers = [NSMutableArray array];
+    
+    // 获取当前窗口（使用统一方法）
+    UIWindow *keyWindow = [self getCurrentKeyWindow];
     if (keyWindow) {
         [self addViewContainers:keyWindow toArray:containers];
     }
@@ -472,8 +467,10 @@ NSNotificationName const TFYPopupContainerDidBecomeUnavailableNotification = @"T
 - (void)addViewContainers:(UIView *)view toArray:(NSMutableArray<TFYPopupContainerInfo *> *)containers {
     if (!view) return;
     
-    // 确保在主线程执行UI相关操作：若不在主线程，则切到主线程同步执行
+    // 确保在主线程执行UI相关操作
     if (![NSThread isMainThread]) {
+        // 注意：这里使用dispatch_sync是因为方法返回void，且需要立即执行
+        // 但如果已经在主线程，这会死锁，所以需要检查
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self addViewContainers:view toArray:containers];
         });
@@ -590,36 +587,74 @@ NSNotificationName const TFYPopupContainerDidBecomeUnavailableNotification = @"T
 #pragma mark - Convenience Functions
 
 TFYPopupContainerInfo * TFYPopupGetCurrentWindowContainer(void) {
-    UIWindow *window = nil;
-    if (@available(iOS 15.0, *)) {
-        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
-            if (scene.activationState == UISceneActivationStateForegroundActive) {
-                for (UIWindow *w in scene.windows) {
-                    if (w.isKeyWindow) {
-                        window = w;
-                        break;
+    // 便利函数：获取当前窗口容器
+    __block UIWindow *window = nil;
+    void (^findWindow)(void) = ^{
+        if (@available(iOS 15.0, *)) {
+            for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
+                if (scene.activationState == UISceneActivationStateForegroundActive) {
+                    for (UIWindow *w in scene.windows) {
+                        if (w.isKeyWindow) {
+                            window = w;
+                            return;
+                        }
                     }
                 }
             }
         }
+        // 兜底：任意第一个窗口
+        if (!window) {
+            for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
+                if (scene.windows.firstObject) {
+                    window = scene.windows.firstObject;
+                    break;
+                }
+            }
+        }
+    };
+    
+    if ([NSThread isMainThread]) {
+        findWindow();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), findWindow);
     }
+    
     return window ? [TFYPopupContainerInfo windowContainer:window] : nil;
 }
 
 TFYPopupContainerInfo * TFYPopupGetCurrentViewControllerContainer(void) {
-    UIWindow *window = nil;
-    if (@available(iOS 15.0, *)) {
-        for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
-            if (scene.activationState == UISceneActivationStateForegroundActive) {
-                for (UIWindow *w in scene.windows) {
-                    if (w.isKeyWindow) {
-                        window = w;
-                        break;
+    // 便利函数：获取当前视图控制器容器
+    __block UIWindow *window = nil;
+    void (^findWindow)(void) = ^{
+        if (@available(iOS 15.0, *)) {
+            for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
+                if (scene.activationState == UISceneActivationStateForegroundActive) {
+                    for (UIWindow *w in scene.windows) {
+                        if (w.isKeyWindow) {
+                            window = w;
+                            return;
+                        }
                     }
                 }
             }
         }
+        // 兜底：任意第一个窗口
+        if (!window) {
+            for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
+                if (scene.windows.firstObject) {
+                    window = scene.windows.firstObject;
+                    break;
+                }
+            }
+        }
+    };
+    
+    if ([NSThread isMainThread]) {
+        findWindow();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), findWindow);
     }
+    
     if (window && window.rootViewController) {
         return [TFYPopupContainerInfo viewControllerContainer:window.rootViewController];
     }

@@ -149,7 +149,7 @@ NS_SWIFT_NAME(PopupViewConfiguration)
 /// 自定义容器选择器（可选）
 @property (nonatomic, strong, nullable) id<TFYPopupContainerSelector> customContainerSelector;
 
-/// 是否启用容器自动发现，默认 YES
+/// 是否启用容器自动发现，默认 NO
 @property (nonatomic, assign) BOOL enableContainerAutoDiscovery;
 
 /// 是否允许容器降级（如果首选容器不可用，是否允许使用其他容器），默认 YES
