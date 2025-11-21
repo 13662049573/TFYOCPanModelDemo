@@ -23,7 +23,7 @@ let package = Package(
             dependencies: [],
             path: "TFYOCPanModelDemo/TFYOCPanlModel",
             exclude: [
-                "module.modulemap",
+                "module.modulemap.cocoapods",
                 "include"
             ],
             publicHeadersPath: ".",

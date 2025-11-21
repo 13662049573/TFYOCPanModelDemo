@@ -1358,15 +1358,19 @@ rm -rf ~/Library/Caches/org.swift.swiftpm/
 - ❌ **错误**：在终端使用 `swift build` 构建 iOS 库
 - ✅ **解决**：必须在 **Xcode 中构建**，因为这是 iOS 库，需要 iOS SDK
 
-**2. 模块映射问题（umbrella header not found）**
-- ❌ **错误**：SPM 读取了 `module.modulemap` 但找不到 umbrella header
-- ✅ **解决**：SPM 会自动生成模块映射，`module.modulemap` 已在 `exclude` 中排除
+**2. 模块映射问题（umbrella header not found）** ✅ 已修复
+- ❌ **错误原因**：SPM 的 Clang 依赖扫描器会读取 `module.modulemap` 文件，即使它在 `exclude` 中
+- ✅ **解决方案**：已将 `module.modulemap` 重命名为 `module.modulemap.cocoapods`
+- ✅ **结果**：SPM 会自动生成模块映射，不再读取手动创建的 `module.modulemap`
 - 如果仍然出现此错误，清理缓存并重新解析包：
   ```bash
   rm -rf ~/Library/Developer/Xcode/DerivedData/
   rm -rf ~/Library/Caches/org.swift.swiftpm/
   ```
-  然后在 Xcode 中：**File** → **Packages** → **Reset Package Caches**
+  然后在 Xcode 中：
+  - **File** → **Packages** → **Reset Package Caches**
+  - **File** → **Packages** → **Resolve Package Versions**
+  - **Product** → **Clean Build Folder** (Shift + Cmd + K)
 
 **3. 头文件导入问题**
 - 确保所有头文件的路径正确
