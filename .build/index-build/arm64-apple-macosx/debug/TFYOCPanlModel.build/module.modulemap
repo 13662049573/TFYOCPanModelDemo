@@ -1,0 +1,4 @@
+module TFYOCPanlModel {
+    umbrella "/Users/admin/Desktop/my/TFYOCPanModelDemo/TFYOCPanModelDemo/TFYOCPanlModel/include"
+    export *
+}
