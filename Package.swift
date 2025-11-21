@@ -24,9 +24,9 @@ let package = Package(
             path: "TFYOCPanModelDemo/TFYOCPanlModel",
             exclude: [
                 "module.modulemap.cocoapods",
-                "include"
+                "TFYOCPanlModel.h"
             ],
-            publicHeadersPath: ".",
+            publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("."),
                 .headerSearchPath("Animator"),

@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.3.8-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.3.9-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.3.8")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.3.9")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.3.8'
+pod 'TFYOCPanlModel', '~> 1.3.9'
 ```
 
 然后运行：
@@ -105,6 +105,11 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.3.9 新功能 (New in v1.3.9)
+- **🔧 修复 SPM 安装问题** - 修复了 "invalid header layout" 错误
+- **✅ 标准目录结构** - 使用标准的 include 目录结构，符合 SPM 规范
+- **📦 完整 SPM 支持** - 现在可以正常通过 Swift Package Manager 安装和使用
 
 ### 🆕 版本 1.3.8 新功能 (New in v1.3.8)
 - **🔧 修复 SPM 模块映射问题** - 修复了 "umbrella header not found" 错误
