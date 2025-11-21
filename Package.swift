@@ -23,7 +23,8 @@ let package = Package(
             dependencies: [],
             path: "TFYOCPanModelDemo/TFYOCPanlModel",
             exclude: [
-                "module.modulemap"
+                "module.modulemap",
+                "include"
             ],
             publicHeadersPath: ".",
             cSettings: [
