@@ -1,5 +1,5 @@
 framework module TFYOCPanlModel {
-    umbrella header "TFYOCPanlModel/TFYOCPanlModel.h"
+    umbrella header "include/TFYOCPanlModel.h"
     export *
     module * { export * }
 }
