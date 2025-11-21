@@ -1343,6 +1343,49 @@ config.keyboardConfiguration = keyboardConfig;
 
 按照上面的安装步骤重新添加即可。
 
+#### Q: 如何更新到新版本（如从 1.3.9 更新到 1.4.0）？
+
+**方法 1：通过 Xcode 更新（推荐）**
+
+1. 在 Xcode 中，选择项目文件（最顶部的蓝色图标）
+2. 切换到 **Package Dependencies** 标签页
+3. 找到 `TFYOCPanModelDemo` 包
+4. 右键点击包，选择 **Update to Latest Package Versions**
+5. 或者点击包右侧的版本号，选择新版本（如 1.4.0）
+
+**如果更新按钮不可用或无法更新：**
+
+**方法 2：强制更新（清理缓存后重新解析）**
+
+1. 在 Xcode 中：
+   - **File** → **Packages** → **Reset Package Caches**
+   - **File** → **Packages** → **Resolve Package Versions**
+   - **Product** → **Clean Build Folder** (Shift + Cmd + K)
+
+2. 如果还是不行，关闭 Xcode，在终端执行：
+   ```bash
+   rm -rf ~/Library/Developer/Xcode/DerivedData/
+   rm -rf ~/Library/Caches/org.swift.swiftpm/
+   ```
+
+3. 重新打开 Xcode，重复方法 1 的步骤
+
+**方法 3：删除后重新添加（最彻底）**
+
+1. 按照上面的删除步骤完全移除旧版本
+2. 清理缓存（见方法 2）
+3. 重新添加包，选择新版本（如 1.4.0）
+
+**方法 4：手动指定版本（在 Package.swift 中）**
+
+如果你的项目使用 `Package.swift`，直接修改版本号：
+```swift
+dependencies: [
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.4.0")
+]
+```
+然后在 Xcode 中：**File** → **Packages** → **Update to Latest Package Versions**
+
 #### Q: Swift Package Manager 和 CocoaPods 有什么区别？
 - **Swift Package Manager**：Apple 官方依赖管理工具，集成在 Xcode 中，无需额外安装
 - **CocoaPods**：第三方依赖管理工具，需要单独安装，功能更丰富

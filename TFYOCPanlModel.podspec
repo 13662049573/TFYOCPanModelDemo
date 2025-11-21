@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFYOCPanlModel"
 
-  spec.version      = "1.4.0"
+  spec.version      = "1.5.0"
 
   spec.summary      = "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。"
 
@@ -23,13 +23,13 @@ Pod::Spec.new do |spec|
   
   spec.source       = { :git => "https://github.com/13662049573/TFYOCPanModelDemo.git", :tag => spec.version }
 
-  # 源码文件递归所有.h/.m
+  # 源码文件递归所有.h/.m（包括 include 目录）
   spec.source_files  = "TFYOCPanModelDemo/TFYOCPanlModel/**/*.{h,m}"
 
   # 公共头文件（按文件夹结构组织）
   spec.public_header_files = [
-    # 主头文件
-    "TFYOCPanModelDemo/TFYOCPanlModel/TFYOCPanlModel.h",
+    # 主头文件（已移至 include 目录）
+    "TFYOCPanModelDemo/TFYOCPanlModel/include/TFYOCPanlModel.h",
     
     # Presentable 文件夹
     "TFYOCPanModelDemo/TFYOCPanlModel/Presentable/*.h",
