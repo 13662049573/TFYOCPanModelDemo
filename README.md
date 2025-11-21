@@ -1260,6 +1260,39 @@ config.keyboardConfiguration = keyboardConfig;
 3. 选择版本或分支
 4. 点击 **Add Package** 完成添加
 
+#### Q: 如何删除并重新导入 Swift Package Manager 依赖？
+
+**删除 SPM 依赖：**
+
+1. 在 Xcode 项目导航器中，选择项目文件（最顶部的蓝色图标）
+2. 选择你的 Target
+3. 切换到 **Package Dependencies** 标签页
+4. 找到 `TFYOCPanlModel` 包
+5. 点击包名称左侧的 **减号 (-)** 按钮，或者右键点击选择 **Remove Package**
+6. 在弹出的确认对话框中点击 **Remove Package**
+
+**或者通过项目设置删除：**
+
+1. 选择项目文件 → 选择 Target
+2. 切换到 **General** 标签页
+3. 在 **Frameworks, Libraries, and Embedded Content** 部分
+4. 找到 `TFYOCPanlModel`，点击 **减号 (-)** 删除
+
+**清理缓存（可选）：**
+
+如果遇到问题，可以清理 SPM 缓存：
+1. 关闭 Xcode
+2. 删除以下目录：
+   ```bash
+   ~/Library/Developer/Xcode/DerivedData/
+   ~/Library/Caches/org.swift.swiftpm/
+   ```
+3. 重新打开 Xcode
+
+**重新导入：**
+
+按照上面的安装步骤重新添加即可。
+
 #### Q: Swift Package Manager 和 CocoaPods 有什么区别？
 - **Swift Package Manager**：Apple 官方依赖管理工具，集成在 Xcode 中，无需额外安装
 - **CocoaPods**：第三方依赖管理工具，需要单独安装，功能更丰富
