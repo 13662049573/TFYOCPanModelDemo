@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.1.0-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.3.2-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -64,15 +64,52 @@
 
 ## 🚀 安装 Installation
 
-### CocoaPods (推荐)
+### Swift Package Manager (推荐) ⭐️
+
+在 Xcode 中添加 Swift Package 依赖：
+
+1. 打开 Xcode 项目
+2. 选择 **File** → **Add Package Dependencies...**
+3. 输入仓库 URL：
+   ```
+   https://github.com/13662049573/TFYOCPanModelDemo.git
+   ```
+4. 选择版本或分支（建议使用最新版本）
+5. 点击 **Add Package** 完成添加
+
+#### 使用 Package.swift
+在 `Package.swift` 文件中添加依赖：
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.3.2")
+]
+```
+
+### CocoaPods
+
+在 `Podfile` 中添加：
+
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.1.0'
+pod 'TFYOCPanlModel', '~> 1.3.2'
+```
+
+然后运行：
+
+```bash
+pod install
 ```
 
 ### 系统要求
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.3.2 新功能 (New in v1.3.2)
+- **📦 Swift Package Manager 支持** - 现已支持 Swift Package Manager，更方便集成和管理依赖
+- **🔧 完善的 Package.swift 配置** - 完整的 SPM 配置，支持自动依赖解析和版本管理
+- **⚡ 更快的构建速度** - SPM 提供更快的依赖解析和构建速度
+- **🎯 更好的 Xcode 集成** - 原生支持 Xcode 的 Package Dependencies 功能
 
 ### 🆕 版本 1.1.0 新功能 (New in v1.1.0)
 - **🎭 TFYPopup 弹窗框架** - 全新的弹窗框架，支持更丰富的动画和配置
@@ -550,6 +587,8 @@ config.keyboardConfiguration = keyboardConfig;
 
 ```
 TFYOCPanlModel/
+├── Package.swift                    # Swift Package Manager 配置文件
+├── TFYOCPanlModel.podspec          # CocoaPods 配置文件
 ├── Presentable/                    # 协议与分类
 │   ├── TFYPanModalPresentable.h   # 核心协议
 │   ├── TFYPanModalHeight.h        # 高度配置
@@ -1214,6 +1253,26 @@ TFYPopupViewConfiguration *config = [[TFYPopupViewConfiguration alloc] init];
 config.keyboardConfiguration = keyboardConfig;
 ```
 
+#### Q: 如何使用 Swift Package Manager 安装？
+1. 在 Xcode 中，选择 **File** → **Add Package Dependencies...**
+2. 输入仓库 URL：`https://github.com/13662049573/TFYOCPanModelDemo.git`
+3. 选择版本或分支
+4. 点击 **Add Package** 完成添加
+
+#### Q: Swift Package Manager 和 CocoaPods 有什么区别？
+- **Swift Package Manager**：Apple 官方依赖管理工具，集成在 Xcode 中，无需额外安装
+- **CocoaPods**：第三方依赖管理工具，需要单独安装，功能更丰富
+- 两者功能相同，选择任意一种即可
+
+#### Q: 如何在 Swift Package Manager 项目中导入？
+```swift
+import TFYOCPanlModel
+```
+
+```objc
+#import <TFYOCPanlModel/TFYOCPanlModel.h>
+```
+
 ---
 
 ## 🤝 贡献指南 Contributing
@@ -1231,9 +1290,9 @@ config.keyboardConfiguration = keyboardConfig;
 - 确保所有测试通过
 
 ### 开发环境
-- Xcode 14.0+
+- Xcode 12.0+
 - iOS 15.0+
-- CocoaPods
+- CocoaPods 或 Swift Package Manager
 
 ---
 
