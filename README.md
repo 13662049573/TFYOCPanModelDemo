@@ -1272,32 +1272,66 @@ config.keyboardConfiguration = keyboardConfig;
 
 #### Q: 如何删除并重新导入 Swift Package Manager 依赖？
 
-**删除 SPM 依赖：**
+**删除 SPM 依赖（按顺序执行）：**
+
+**步骤 1：先从所有 Target 中移除包**
 
 1. 在 Xcode 项目导航器中，选择项目文件（最顶部的蓝色图标）
-2. 选择你的 Target
-3. 切换到 **Package Dependencies** 标签页
-4. 找到 `TFYOCPanlModel` 包
-5. 点击包名称左侧的 **减号 (-)** 按钮，或者右键点击选择 **Remove Package**
-6. 在弹出的确认对话框中点击 **Remove Package**
+2. 选择你的 **每个 Target**（如果有多个）
+3. 切换到 **General** 标签页
+4. 在 **Frameworks, Libraries, and Embedded Content** 部分
+5. 找到 `TFYOCPanlModel`，点击 **减号 (-)** 删除
+6. 重复此步骤，确保从**所有 Target** 中移除
 
-**或者通过项目设置删除：**
+**步骤 2：从 Package Dependencies 中移除**
 
-1. 选择项目文件 → 选择 Target
-2. 切换到 **General** 标签页
-3. 在 **Frameworks, Libraries, and Embedded Content** 部分
-4. 找到 `TFYOCPanlModel`，点击 **减号 (-)** 删除
+1. 选择项目文件（最顶部的蓝色图标）
+2. 切换到 **Package Dependencies** 标签页
+3. 找到 `TFYOCPanModelDemo` 或 `TFYOCPanlModel` 包
+4. 点击包名称左侧的 **减号 (-)** 按钮，或者右键点击选择 **Remove Package**
+5. 在弹出的确认对话框中点击 **Remove Package**
 
-**清理缓存（可选）：**
+**如果删除按钮不可用或删除失败：**
 
-如果遇到问题，可以清理 SPM 缓存：
+**方法 1：清理缓存后重试**
 1. 关闭 Xcode
-2. 删除以下目录：
+2. 在终端执行：
    ```bash
-   ~/Library/Developer/Xcode/DerivedData/
-   ~/Library/Caches/org.swift.swiftpm/
+   rm -rf ~/Library/Developer/Xcode/DerivedData/
+   rm -rf ~/Library/Caches/org.swift.swiftpm/
    ```
 3. 重新打开 Xcode
+4. 重复步骤 1 和 2
+
+**方法 2：手动删除 Package.resolved**
+1. 关闭 Xcode
+2. 在项目根目录找到 `Package.resolved` 文件
+3. 删除该文件
+4. 重新打开 Xcode
+5. 重复步骤 1 和 2
+
+**方法 3：手动编辑项目文件（最后手段）**
+1. 关闭 Xcode
+2. 在项目根目录找到 `.xcodeproj` 文件
+3. 右键点击 → **显示包内容**
+4. 打开 `project.pbxproj` 文件（建议先备份）
+5. 搜索 `TFYOCPanModelDemo` 或 `TFYOCPanlModel`
+6. 删除所有包含该包的行（包括 `packageProductDependency`、`packageReferences` 等）
+7. 保存文件
+8. 重新打开 Xcode
+
+**清理缓存（推荐在删除前执行）：**
+
+1. 在 Xcode 中：
+   - **Product** → **Clean Build Folder** (Shift + Cmd + K)
+   - **File** → **Packages** → **Reset Package Caches**
+2. 关闭 Xcode
+3. 删除以下目录：
+   ```bash
+   rm -rf ~/Library/Developer/Xcode/DerivedData/
+   rm -rf ~/Library/Caches/org.swift.swiftpm/
+   ```
+4. 重新打开 Xcode
 
 **重新导入：**
 
