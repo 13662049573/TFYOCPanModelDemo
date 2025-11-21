@@ -1307,6 +1307,49 @@ import TFYOCPanlModel
 #import <TFYOCPanlModel/TFYOCPanlModel.h>
 ```
 
+#### Q: 出现 "No such module 'TFYOCPanlModel'" 错误怎么办？
+
+这是常见的 SPM 导入问题，按以下步骤排查：
+
+**1. 检查包是否正确添加**
+- 在 Xcode 项目导航器中，确认能看到 `Package Dependencies` 下的 `TFYOCPanlModel`
+- 如果看不到，重新添加包依赖
+
+**2. 检查 Target 链接**
+- 选择项目文件 → 选择你的 Target
+- 切换到 **General** 标签页
+- 在 **Frameworks, Libraries, and Embedded Content** 中确认有 `TFYOCPanlModel`
+- 如果没有，点击 **+** 添加
+
+**3. 清理并重新构建**
+```bash
+# 在终端中执行
+cd 你的项目目录
+rm -rf ~/Library/Developer/Xcode/DerivedData/
+rm -rf ~/Library/Caches/org.swift.swiftpm/
+```
+然后在 Xcode 中：
+- **Product** → **Clean Build Folder** (Shift + Cmd + K)
+- **File** → **Packages** → **Reset Package Caches**
+- **File** → **Packages** → **Update to Latest Package Versions**
+
+**4. 检查导入语句**
+- **Swift 项目**：使用 `import TFYOCPanlModel`
+- **Objective-C 项目**：使用 `#import <TFYOCPanlModel/TFYOCPanlModel.h>`
+
+**5. 检查平台版本**
+- 确保项目的最低部署目标 ≥ iOS 15.0
+- 在 Target 的 **General** → **Deployment Info** 中检查
+
+**6. 重新解析包**
+- **File** → **Packages** → **Resolve Package Versions**
+- 等待解析完成后再构建
+
+**7. 如果仍然不行，删除并重新添加**
+- 按照上面的删除步骤移除包
+- 清理缓存
+- 重新添加包依赖
+
 #### Q: 为什么在 Xcode 中看到 Demo 项目和其他文件？
 这是 **Swift Package Manager 的正常行为**。Xcode 会显示整个 Git 仓库的文件树，但**实际编译和使用的只有 Package.swift 中定义的库文件**。
 
