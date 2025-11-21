@@ -77,6 +77,7 @@
 4. 选择版本或分支（建议使用最新版本）
 5. 点击 **Add Package** 完成添加
 
+
 #### 使用 Package.swift
 在 `Package.swift` 文件中添加依赖：
 
@@ -1274,20 +1275,18 @@ import TFYOCPanlModel
 ```
 
 #### Q: 为什么在 Xcode 中看到 Demo 项目和其他文件？
-这是 Swift Package Manager 的正常行为。Xcode 会显示整个 Git 仓库的文件树，但**实际编译和使用的只有 Package.swift 中定义的库文件**。
+这是 **Swift Package Manager 的正常行为**。Xcode 会显示整个 Git 仓库的文件树，但**实际编译和使用的只有 Package.swift 中定义的库文件**。
 
-- ✅ **会被使用**：`TFYOCPanModelDemo/TFYOCPanlModel/` 目录下的所有库文件
-- ❌ **不会被使用**：Demo 项目、测试项目、Podfile 等其他文件
+**重要说明**：
+- ✅ **会被编译和使用**：`TFYOCPanModelDemo/TFYOCPanlModel/` 目录下的所有库文件
+- ❌ **不会被编译和使用**：Demo 项目、测试项目、Podfile、Pods 等其他文件
 
-Package.swift 中的 `path` 配置确保了只有库文件被包含：
-```swift
-path: "TFYOCPanModelDemo/TFYOCPanlModel"
-```
-
-这意味着：
+Package.swift 中的 `path: "TFYOCPanModelDemo/TFYOCPanlModel"` 配置确保了：
 - 只有库的源代码会被编译和链接到你的项目中
-- Demo 项目、测试项目等不会影响你的项目
+- Demo 项目、测试项目等**完全不会影响**你的项目
 - 你可以安全地忽略 Xcode 中显示的其他文件
+
+**这是 SPM 的设计特性**：它会显示整个仓库结构，但只使用 Package.swift 中指定的文件。虽然看起来有很多文件，但实际上只有库文件会被使用。
 
 ---
 
