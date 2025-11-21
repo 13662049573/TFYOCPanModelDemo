@@ -1273,6 +1273,22 @@ import TFYOCPanlModel
 #import <TFYOCPanlModel/TFYOCPanlModel.h>
 ```
 
+#### Q: 为什么在 Xcode 中看到 Demo 项目和其他文件？
+这是 Swift Package Manager 的正常行为。Xcode 会显示整个 Git 仓库的文件树，但**实际编译和使用的只有 Package.swift 中定义的库文件**。
+
+- ✅ **会被使用**：`TFYOCPanModelDemo/TFYOCPanlModel/` 目录下的所有库文件
+- ❌ **不会被使用**：Demo 项目、测试项目、Podfile 等其他文件
+
+Package.swift 中的 `path` 配置确保了只有库文件被包含：
+```swift
+path: "TFYOCPanModelDemo/TFYOCPanlModel"
+```
+
+这意味着：
+- 只有库的源代码会被编译和链接到你的项目中
+- Demo 项目、测试项目等不会影响你的项目
+- 你可以安全地忽略 Xcode 中显示的其他文件
+
 ---
 
 ## 🤝 贡献指南 Contributing
