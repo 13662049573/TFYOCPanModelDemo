@@ -1350,6 +1350,41 @@ rm -rf ~/Library/Caches/org.swift.swiftpm/
 - 清理缓存
 - 重新添加包依赖
 
+#### Q: 出现 "Could not build Objective-C module 'TFYOCPanlModel'" 错误怎么办？
+
+这个错误通常出现在以下情况：
+
+**1. 在 macOS 上使用命令行构建**
+- ❌ **错误**：在终端使用 `swift build` 构建 iOS 库
+- ✅ **解决**：必须在 **Xcode 中构建**，因为这是 iOS 库，需要 iOS SDK
+
+**2. 模块映射问题**
+- 检查 `module.modulemap` 文件是否存在且正确
+- 确保 `TFYOCPanlModel.h` 文件存在且可访问
+
+**3. 头文件导入问题**
+- 确保所有头文件的路径正确
+- 检查是否有循环依赖
+
+**4. 平台配置问题**
+- 确保 Package.swift 中设置了正确的平台：`platforms: [.iOS(.v15)]`
+- 确保项目的部署目标 ≥ iOS 15.0
+
+**5. 清理并重新构建**
+```bash
+# 清理 SPM 缓存
+rm -rf ~/Library/Developer/Xcode/DerivedData/
+rm -rf ~/Library/Caches/org.swift.swiftpm/
+
+# 在 Xcode 中
+# Product → Clean Build Folder (Shift + Cmd + K)
+# File → Packages → Reset Package Caches
+```
+
+**重要提示**：
+- ✅ **正确**：在 Xcode 中打开项目并构建
+- ❌ **错误**：在终端使用 `swift build`（iOS 库必须在 Xcode 中构建）
+
 #### Q: 为什么在 Xcode 中看到 Demo 项目和其他文件？
 这是 **Swift Package Manager 的正常行为**。Xcode 会显示整个 Git 仓库的文件树，但**实际编译和使用的只有 Package.swift 中定义的库文件**。
 
