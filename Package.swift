@@ -22,12 +22,11 @@ let package = Package(
             name: "TFYOCPanlModel",
             dependencies: [],
             path: "TFYOCPanModelDemo/TFYOCPanlModel",
-            exclude: [
-                "TFYOCPanlModel.h"
-            ],
+            exclude: [],
             publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("."),
+                .headerSearchPath("include"),
                 .headerSearchPath("Animator"),
                 .headerSearchPath("Animator/PresentingVCAnimation"),
                 .headerSearchPath("Category"),
