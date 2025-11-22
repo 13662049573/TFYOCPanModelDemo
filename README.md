@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.7.4-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.7.5-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.7.4")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.7.5")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.7.4'
+pod 'TFYOCPanlModel', '~> 1.7.5'
 ```
 
 然后运行：
@@ -107,6 +107,11 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.7.5 新功能 (New in v1.7.5)
+- **🔧 module.modulemap 完善** - 添加 explicit module 定义，明确指定各个子模块的头文件，彻底解决 SPM 框架导入问题
+- **✅ SPM 兼容性修复** - 完善 module.modulemap 配置，确保所有子目录的头文件都能被正确识别和导入
+- **🚀 版本号更新** - 更新至 1.7.5
 
 ### 🆕 版本 1.7.4 新功能 (New in v1.7.4)
 - **🔧 Package.swift 配置优化** - 进一步优化 Swift Package Manager 配置，添加框架链接设置，改善模块构建兼容性
