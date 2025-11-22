@@ -1,0 +1,24 @@
+# 排除 Demo 项目文件
+TFYOCPanModelDemo/AppDelegate.*
+TFYOCPanModelDemo/ViewController.*
+TFYOCPanModelDemo/SceneDelegate.*
+TFYOCPanModelDemo/main.m
+TFYOCPanModelDemo/Info.plist
+TFYOCPanModelDemo/Assets.xcassets
+TFYOCPanModelDemo/Base.lproj
+TFYOCPanModelDemo/PanControllerExample
+TFYOCPanModelDemo/Model
+TFYOCPanModelDemo/Utils
+TFYOCPanModelDemo/TFYOCPanModelDemoTests
+TFYOCPanModelDemo/TFYOCPanModelDemoUITests
+
+# 排除其他不需要的文件
+Podfile
+Podfile.lock
+Pods/
+TFYOCPanModelDemo.xcodeproj
+TFYOCPanModelDemo.xcworkspace
+TFYOCPanModelDemoTests
+TFYOCPanModelDemoUITests
+.build/
+
