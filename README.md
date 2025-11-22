@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.7.5-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.7.6-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.7.5")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.7.6")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.7.5'
+pod 'TFYOCPanlModel', '~> 1.7.6'
 ```
 
 然后运行：
@@ -107,6 +107,12 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.7.6 新功能 (New in v1.7.6)
+- **🎨 文件显示优化** - 优化 `.swiftpm/ignore` 配置，SPM安装后只显示库源代码，隐藏Demo、Tests、Pods等所有不需要的文件
+- **🔧 模块映射修复** - 将 `module.modulemap` 重命名为 `module.modulemap.cocoapods`，让SPM自动生成模块映射，彻底解决"Could not build Objective-C module"错误
+- **✅ SPM体验优化** - 优化Swift Package Manager安装体验，安装后界面更简洁，只显示必要的库文件
+- **🚀 版本号更新** - 更新至 1.7.6
 
 ### 🆕 版本 1.7.5 新功能 (New in v1.7.5)
 - **🔧 module.modulemap 完善** - 添加 explicit module 定义，明确指定各个子模块的头文件，彻底解决 SPM 框架导入问题

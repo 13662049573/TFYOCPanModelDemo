@@ -1,33 +1,54 @@
-# 排除所有不需要的文件和目录，只保留库源代码
-# 相对于仓库根目录
+# Swift Package Manager 忽略文件配置
+# 此文件用于控制 SPM 包在 Xcode 中显示的文件
+# 只显示库源代码，隐藏所有其他文件
 
-# 排除 Demo 项目文件
+# ========== 排除 Demo 和示例文件 ==========
 TFYOCPanModelDemo/Example/**
 TFYOCPanModelDemo/Base.lproj/**
+TFYOCPanModelDemo/Resources/**
 
-# 排除测试项目
+# ========== 排除测试项目 ==========
 TFYOCPanModelDemoTests/**
 TFYOCPanModelDemoUITests/**
+**/*Tests/**
+**/*Test/**
+**/*UITests/**
 
-# 排除 CocoaPods 相关文件
+# ========== 排除 CocoaPods 相关文件 ==========
 Podfile
 Podfile.lock
 Pods/**
+*.podspec
+**/Local Podspecs/**
 
-# 排除 Xcode 项目文件
-TFYOCPanModelDemo.xcodeproj/**
-TFYOCPanModelDemo.xcworkspace/**
+# ========== 排除 Xcode 项目文件 ==========
+*.xcodeproj/**
+*.xcworkspace/**
 *.xcworkspace
 *.xcodeproj
+**/xcuserdata/**
 
-# 排除构建文件
+# ========== 排除构建和缓存文件 ==========
 .build/**
+DerivedData/**
+*.xcuserstate
+*.xcuserdatad/**
 
-# 排除文档和配置文件（可选，如果想隐藏的话）
+# ========== 排除文档和配置文件 ==========
 README.md
 LICENSE
-TFYOCPanlModel.podspec
+.git/**
+.gitignore
+.gitattributes
 
-# 注意：只保留以下内容在 Xcode 中显示：
-# - Package.swift（必须）
-# - TFYOCPanModelDemo/Sources/TFYOCPanlModel/**（库源代码）
+# ========== 排除其他不需要的文件 ==========
+*.md
+*.txt
+*.json
+!**/Sources/**/*.json
+*.plist
+!**/Sources/**/*.plist
+
+# ========== 只保留以下内容在 Xcode 中显示 ==========
+# ✅ Package.swift（必须，SPM 配置文件）
+# ✅ TFYOCPanModelDemo/Sources/TFYOCPanlModel/**（库源代码）
