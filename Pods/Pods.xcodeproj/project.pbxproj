@@ -8,185 +8,185 @@
 
 /* Begin PBXBuildFile section */
 		01A29BCFB0A739FCFC956606BEA8EC19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		01FF466C7BB12C4626B633685F2256B1 /* TFYPopupView.h in Headers */ = {isa = PBXBuildFile; fileRef = 622A18EC5E6995558C162D72B95FF396 /* TFYPopupView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		043B3293127443391A99AC3FA57F13E6 /* KeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B3591FF447BE4E73964223CB7681C7 /* KeyValueObserver.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		05B144906DF7F928D1D44EEFB3218664 /* TFYPopupContainerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 63EB028468357F52A0D7CB950FBB1AEF /* TFYPopupContainerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05E2B7C1DB7528A0BBEA1521BE0DBAF1 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3FECEFDC6154D4B94300A48051C83C /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0756026D833649E4011CDF6A602DE459 /* TFYPopupViewConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 31D539ED2232DF1177914B4DE8AB00E3 /* TFYPopupViewConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0811797C4AC7F95065718394568E2D6B /* TFYPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E7667AF9B2FA23BBFACEC7A5C847B5 /* TFYPopupBackgroundView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		08719ABCE689ED74FE7486B1E49DAA6C /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 26E30E233C8B6D9846D521F0006290A1 /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08D4F37046B05382A7823C78F89B0ACC /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = D0024EDFC10E39A0FFA5C0988C6FB382 /* MASConstraintMaker.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		09BD6B61B8E28F5EAAF686915235A05E /* Pods-TFYOCPanModelDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FAF09B9FA6ED85B98FE09F5660338BF /* Pods-TFYOCPanModelDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		09EF3FFD190D83B6E9BB8A3FD38406B0 /* TFYPanModalPresentationAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = F56009ADEBB0B606C340283B458E4A9C /* TFYPanModalPresentationAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0D8D92E839C9C3EF986B8F2DF962DB94 /* TFYPanContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = E0B0CB0D5C2B201722BA083C2BC378DD /* TFYPanContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0E153191497BE56CD8C66DF946A9360D /* UIViewController+LayoutHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E4B43284C7A89244C55608F7E60674F /* UIViewController+LayoutHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		121E458055CB02757DAF611E793DC541 /* TFYPanModalInteractiveAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B91C6AB58054791443088E5376572E7 /* TFYPanModalInteractiveAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CA0AF37180595137E41E9AE0E4AF59B /* TFYPanModalPresentationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 77AC71385592CBD978C75D0303CDAAAB /* TFYPanModalPresentationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D656646CD09C12F2F4BADCEEB6C891E /* TFYPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F2D4CFFA70BB1BF7EEC344091C1A9C /* TFYPopupView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0FB78DD0F7F490312AE02F392FF86F16 /* UIViewController+PanModalPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF39D1323276C3D21780E89A138E09F /* UIViewController+PanModalPresenter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		125C88474A190605BBD3FAE7E42E627A /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 460F69C44B364EF8339CC187645387B3 /* Masonry-dummy.m */; };
-		1A2C533E0DEE45387DB7596CADBFE4D8 /* TFYPanModalHeight.h in Headers */ = {isa = PBXBuildFile; fileRef = D0E24817E9739B656249C4B4C1A66ADF /* TFYPanModalHeight.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1AE0E3F7E5BD7E25F2894B7B49267F22 /* TFYPanContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76213393019AD033E29C1D0412E9FE48 /* TFYPanContainerView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1BB144078490C86795E0558B63D7AA7E /* TFYPopupContainerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 034E53BAA4816693DDD2DB43AD833905 /* TFYPopupContainerConfiguration.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1C749B8AD89E1ECC61BB52A5428C4D1E /* TFYPanModalPresentationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5015F6394655AC7238752EF8263A7D2A /* TFYPanModalPresentationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E5B62F09FF5F555B7BEBA216CF97E34 /* UIViewController+Presentation.h in Headers */ = {isa = PBXBuildFile; fileRef = D7AC3B3822950209A482354B19D3D63F /* UIViewController+Presentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1783958E3AF364329A5559FB35E917C7 /* TFYBackgroundConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 86EAF837559F6EC1F17BA612C354BB85 /* TFYBackgroundConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19B4E8079F20F790D8B33DEFC2535DD9 /* TFYPageSheetPresentingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9317BD3928C45AB3CC8F26078F839C10 /* TFYPageSheetPresentingAnimation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1A7DDCB9A6F1AB24578875E75C4B1381 /* TFYDimmedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4942CE0CBDFAABDEE0CCE74527D6895 /* TFYDimmedView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1E62C835642C5BF2CB7EB196D52037A0 /* UIViewController+PanModalDefault.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5B83FC0BDB623E2E796606B254981A /* UIViewController+PanModalDefault.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22516EA77E7120000632C30BD9A03927 /* UIScrollView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B60DB9A1EF64E585A5432B970421E47 /* UIScrollView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23509B9006A07C93CB51CFD5E3FF674E /* TFYPopupContainerType.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B1BFBD966F6330DF772301170E56C23 /* TFYPopupContainerType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26D327629C93A4B4E42EB468C288D13B /* UIViewController+PanModalPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D11BB65D9070FCFCC75D2E3FB3E46DCD /* UIViewController+PanModalPresenter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		24616FCE899742220D8D7E88D5937E56 /* TFYPanModalShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D0060666200EE271BF7BDBE73BE0A117 /* TFYPanModalShadow.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		257A22BABDD5A7B86F28E5CB5346BF03 /* TFYPopupContainerType.m in Sources */ = {isa = PBXBuildFile; fileRef = F0D6BFA9284E4F080C1D647C315C8979 /* TFYPopupContainerType.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		28BA9702905AA2B4C1E9E4878032D4E4 /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E96862080E122FE7279EAD7BEE6D3E4 /* MJRefreshConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AB9198E6FF0EA4BEC8ACC593EF43179 /* TFYVisualEffectView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E8E1CFD72E86E0033F84B1DE61C1AF3 /* TFYVisualEffectView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AF772FC9A2744BC34B5A8892FF2B945 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF47E7DA06A155EE77F6555896B51A2 /* MJRefreshBackNormalFooter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2BFF315CD3350B7F5C5D2B2461DE591C /* Pods-TFYOCPanModelDemoTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 751FF257C0F5F5FA053E6DA1DAE50352 /* Pods-TFYOCPanModelDemoTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CFE326DB8DC47212ACB433A276154DD /* UIViewController+Presentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DF597759DF860ED0AE36A2D6B63E21 /* UIViewController+Presentation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2C167C9ADCCA0B7AC55252C2E8C5A634 /* TFYPresentingVCAnimatedTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B2EE06C5C2AC046410092E255FF699 /* TFYPresentingVCAnimatedTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E51AE4EDE4EFB2D140D8CD646C0AF4A /* TFYPopupAnimatorLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D68B6DB2C87BCABF07421F936479F1 /* TFYPopupAnimatorLayout.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2E7E536C058FC819506AD59138374644 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
 		325CA20B9271F3E008234E1518B79061 /* MJRefresh-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DDA383418EC2624A2CED7AF8A96CF21A /* MJRefresh-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		327BA3DDA513422E632D3DA4A8FC60EC /* MJRefresh-MJRefresh.Privacy in Resources */ = {isa = PBXBuildFile; fileRef = 7E3097CFEFDA621E9FB0E62009FF87FC /* MJRefresh-MJRefresh.Privacy */; };
-		33CF9CEAD84F80E27688A385B6AEE75A /* TFYPopupBaseAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = B44857B1979651AABF6CCCA19F1A2FB0 /* TFYPopupBaseAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		338D99D2D233051BE50C5FCE13885BB4 /* TFYDimmedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D12FB09C457E40210E4DA90285471 /* TFYDimmedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34BA423491607EBBD666F70032FCE826 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB49F6A55AC9C97CBB9AF193E0CA97F /* MJRefreshComponent.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		372F3B0B47C368C5F7B9D49F38C3B751 /* TFYPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = B419CB29627C70B420F560EC6FC4CB3C /* TFYPopup.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		37B890ABDC7DD441E6AA662325D412E6 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E28440A927DBC8B887761DD93E1D53B /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		396532FA6C9DE4A9D595C3AF43AF42DE /* TFYOCPanlModel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 36304C72D4C20E2167C1C87CD0FB30D3 /* TFYOCPanlModel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39E80E580F5EDA3BA57B6DB957D62F1E /* TFYPanModalPresentableHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = ACFEB68AF68BCDB5420E64E6EB487C10 /* TFYPanModalPresentableHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A2FCB914F6EADED828FF05F7E9132AE /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 11F551131B7023EB36C8FE481CEF935E /* UIView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3E010CB1943286B6289F3FA435A2684D /* TFYDimmedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4297CFEEBEFB0E9F750C26A540BF44 /* TFYDimmedView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3CFA60D984B92150B529C6D22FC0957B /* TFYPanModalContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 100FA0B36A3E99EE08E0C2667E866392 /* TFYPanModalContainerView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		3EB9FFA38676CB17C4149A603286FEFD /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C4302227ED91FF186747152F16023CC1 /* MJRefreshConfig.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3FDCE287359D369AB07478BCE9171460 /* TFYPanModalAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 90A0DDC2A394C0F9EDD513F664D96260 /* TFYPanModalAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40F70E3641D6F1EE5D2C8FE0640FE9B7 /* UIView+TFY_Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A14B50BF495FD917B65CB306AABBD5A /* UIView+TFY_Frame.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		408E633AC53FC7C5CA5C16C3928B0EF6 /* UIView+TFY_Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = D91CDB67A2395214BC3CC15E6B295D2D /* UIView+TFY_Frame.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40B6277BC41FBC3FA36234CFF24FC882 /* TFYPanModalIndicatorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 002C750C96DE82CBCDAA5D9EC62BB866 /* TFYPanModalIndicatorProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		417E2AF6A0FB87B249A656AC9C0D34B7 /* TFYPanModalShadow.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B4D346F2C7E252B98214B32BDCF9085 /* TFYPanModalShadow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		442F468E261A1106C291BF52BDBF9DB7 /* MJRefreshHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 976FDAFAC7B7483FF5FD9C5E2321ED08 /* MJRefreshHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4503B7416DD49C0DF0B2D275C0EA29DA /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = EE4EC9ADFD591DFA36BAC071920F1E58 /* PrivacyInfo.xcprivacy */; };
 		4553BE91BB7D8A1C9079F3CA30E47E36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		456FDDD9F8CA633EC681E7BBE7465245 /* TFYPanModalShadow.h in Headers */ = {isa = PBXBuildFile; fileRef = D32E40EC5D698F4ED1E83E8F3106F248 /* TFYPanModalShadow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4571A0EA37DC84F39E3830D38A1531AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
 		45E1583D7EF53489B82C4CA2AD1AD0CF /* MJRefreshBackFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 85C336B737D6BABF2F6ADC717BCAC57C /* MJRefreshBackFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		475B4F3E71C293065AAFDB1888696CF6 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C7846A3CDADDF0D464CA054810C4B68 /* MJRefreshBackGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		497648BDB68FC1A19BC5C8359FC91D98 /* TFYPopupBottomSheetAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 92118AC8F0E29AEA8D42EA9B1302B48D /* TFYPopupBottomSheetAnimator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4C8DDE011B01FCB4F68DA6427244BC04 /* TFYPopupBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 190E3CC0DDB0404C890853308F311571 /* TFYPopupBackgroundView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4CDC6473AEF547A235C6B7EBA27258F0 /* TFYPanIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = C16A77B789C213087C5E841267114A5D /* TFYPanIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48BEAE255A151B2BDC729D221A0A065D /* TFYPopupBaseAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 908C67D4A88F3F5320531C18888285EC /* TFYPopupBaseAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49C2F3B7E4FCB1439B2A1A322E963CDD /* TFYPopupAnimators.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD5948D4E92F22F8BE69CCAA5F3F7AB /* TFYPopupAnimators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AB8E3D99E8CFE2D9810CC0D65E8EBCB /* KeyValueObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ABC5AD25906408EE05A91F6EF8D50C6 /* KeyValueObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D459564B62CBFD801DB06B13C9EC93A /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C30E525FED9D857E6DFEFAF5C05DE /* MJRefreshStateHeader.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		4DCA75BFE1558CE59DFC56607E49B3D2 /* MJRefreshConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E49B44E34B933CEC129101D5DEF2A94 /* MJRefreshConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E01EC96AEC8B92FF3443CCAA2584DA6 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C044AFB144D0EDDB152DD4FC6B91C /* MASConstraint.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		4EB3DC7AEE9D13133289100EA39D9670 /* Pods-TFYOCPanModelDemoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA7809E757BB1485A98D69972959ABD /* Pods-TFYOCPanModelDemoTests-dummy.m */; };
-		4F810650FD8B340A06333D4AD27822AC /* TFYPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = F174EEDFFB9F060E5454ADB95D653FEA /* TFYPopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		502E3EB4666D6BBC292360E58D44182C /* TFYOCPanlModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C28D72ED7839A015D614619349624EE /* TFYOCPanlModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5163FC6D715F6881B1FA1AB13DCEF870 /* UICollectionViewLayout+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = DF37145DF26DACDBC660D3B246FCAC2C /* UICollectionViewLayout+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		51C52EB8F68305B2DA6EBA3853E64611 /* TFYPanModalPresentationUpdateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 17A46AE4914EA57934891569CC733AF0 /* TFYPanModalPresentationUpdateProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		523235228A1C021C67F2E3776A922DC5 /* MJRefreshTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = BA09FBB5C381C4DFC5D23726827CF24E /* MJRefreshTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		52D6071D05941410628F5639D663D005 /* TFYPanIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = A39C8D36F6B84DB5CB28D4CB02FECDA5 /* TFYPanIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54A7D3D251FC888FA93ADDCE7865AE2F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 20EE768A3EADCEDF4EA4A87038DBEF92 /* UIScrollView+MJExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		55897F39139536A6A657122AB565518D /* TFYPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FF7778EC197F158FBE4218CE0FA2BE /* TFYPopupBackgroundView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		561420A20DC0A84258A902E9EB69A15A /* MJRefreshAutoFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 92A92C114EF75F8B86D12C5F903E13C7 /* MJRefreshAutoFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		564D02061AE23EF6021261CB5C141E70 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B03E525246B6FD9600BFEAF5A70063 /* MJRefreshAutoNormalFooter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		56D56E1C625263FF9E8A48F8D08A28C0 /* UIViewController+PanModalDefault.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E4602689716E86814068ED8D814F611 /* UIViewController+PanModalDefault.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		573B039F8868FFFCEF8CDCC4FB9819C8 /* UICollectionViewLayout+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BB2915BD287AD93B749226FC82F1D /* UICollectionViewLayout+MJRefresh.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5A4536F6098070F5774024DF7A0FD96D /* TFYPanModalPresentationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB97795C4B78D22C78E939C7C42B6308 /* TFYPanModalPresentationDelegate.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5752954B8E5A6A4F9693A5BA76CB423B /* TFYPanModalFrequentTapPrevention.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C0C48EAA3E9299EBCEFCEC36DC443F /* TFYPanModalFrequentTapPrevention.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		57C30307315622068C493B3A2983FB3C /* TFYPanModalInteractiveAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AD411A1F28FB77C4063E01250F2F3F /* TFYPanModalInteractiveAnimator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5A9A6AB0EFF625867AE1EDBBAD55CEF9 /* TFYPageSheetPresentingAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C7F360A72CEA0E688566DD1E700FBAC /* TFYPageSheetPresentingAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5AFED9AAE731F2BE1314E956D59C65A1 /* TFYPanModalFrequentTapPrevention.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD7B607A8F2ACE475F2E9318C189D75 /* TFYPanModalFrequentTapPrevention.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		5BB6B99986FD7111B3AEBE931C7F507B /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = D8495228AFE580CB81AEA1964C3494DC /* MJRefreshAutoStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CDD4C746A3580335B6004AF7631A7CF /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 446F0310D327B0AE1BECD0615D224ED9 /* MJRefreshBackFooter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5D20303EEB96B2E18A960BCEE37CA4E2 /* TFYPanModalPresenterProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E5FD876467FD4351F06F91E7716E6283 /* TFYPanModalPresenterProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DFCBADAC7D0FAC82C84A6C8E7BF1DA6 /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BA715659CD26C2FE28C59D4626495F9 /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E01DE8DD929768591CFA26F8659FFF0 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CAA10F1F9C782EB9267DDD28FFF8263 /* UIScrollView+MJRefresh.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5ED59009BF3E98E70BECEC0B55DCD352 /* TFYPopupViewAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = F5C8F1CD1D5A786EC7C62F87510D26FA /* TFYPopupViewAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F45735DF355530CC955066D3C007E19 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 54E6A9EBF8732D84BA6CDBD45C2534BD /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5FFE1FBF29D6D16B2A5E9E3DE3608E34 /* TFYPanModalContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = AE6AF425D5D2F013FCDD637C91CF690C /* TFYPanModalContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		60137737C11E7F8D8C3691CBBD67DDCF /* TFYPageSheetPresentingAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 915D2AAA9EC26A218E71535EA03C7D87 /* TFYPageSheetPresentingAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6028D3142929AABA195D3FC2BA6E3BED /* TFYPopupContainerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F695DB1BB5743758BA47394270F6C0BB /* TFYPopupContainerConfiguration.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		61461B0D9D7B81C3F8D24066D9A19DCE /* MJRefreshGifHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = E46F1E57529B20616290DB08892137EC /* MJRefreshGifHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61507E402F1F7C58BF119995A0479A22 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BE26C0AB52A7187151E2CD6A9FC2A237 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62037B92A611F82FF2296DD5D10B213A /* TFYPanModalPresentationAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3BA470393B57B41416B485F8F8A2B6 /* TFYPanModalPresentationAnimator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		62F364122E3E4F6F548A0057C6C8E57A /* TFYPopupAnimators.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F7678CDD00608E424EB271E537637F /* TFYPopupAnimators.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		63F5D07ECB027DD94682B062734DA722 /* TFYPopupBaseAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 86ABB0D3F8A49667B06C371C935D56EC /* TFYPopupBaseAnimator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		64E581C1D18401A62E268BEBA5D4B530 /* TFYPopupPriorityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DE13098689CFCDFA84CBF23492816A /* TFYPopupPriorityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6618702B5F5F68CEF6D917D17C29E84D /* TFYPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E0F595E2E2D619CA43133464FEF24D /* TFYPopup.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		68A869CFEC788445460F05FFDA81161C /* TFYPanModalInteractiveAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = C29AE52A0EC13C8F5B7E5943C9D93A7C /* TFYPanModalInteractiveAnimator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		616B504DE09ADDDC4E5B8A5E62CEFA82 /* TFYPanModalPresentationAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 247EEABFCCEF45A0734CF4D5CCF33858 /* TFYPanModalPresentationAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		626FB3135883C24C53F2CB9A4B56CD6A /* TFYShoppingCartPresentingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E2A855569AD125BB05CA6CD76CE805 /* TFYShoppingCartPresentingAnimation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		63132E9462637B0743A2AAA695B4A175 /* TFYPopupContainerConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C2A5A1157AECAA41AA13A166A4A6847 /* TFYPopupContainerConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64E0E7C7D1F8C884B2C8E4DFFACC15BB /* TFYPanContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C3C328E3051FF6091FC5CC1C80BA02 /* TFYPanContainerView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		69345CBCB31076EBF8A2C5885AF973AB /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 2720FACE6706EA7FD21C738E6A5191F4 /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		69581D854D3FC6F6B42E27C6EADEB4B9 /* UIScrollView+Helper.h in Headers */ = {isa = PBXBuildFile; fileRef = 658B7E40A571399C2C1E86367B730EE0 /* UIScrollView+Helper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E353C99C6EEA3C93CCF2E526460B9D /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = C485F193B96AAE8189A12BE7ED1C8D62 /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6A995DF1BB8A501A5994277080858818 /* TFYPanIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4181EE2DCCF30479986967372E245A /* TFYPanIndicatorView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6B0AD1E4E94DC13EBF91EDC060981B0C /* TFYPopupPriorityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A372F8C516C467960030BE33041DD63 /* TFYPopupPriorityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F4848A4A2336FAD34BEDCBA91BEEF49 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = FD17EBCABFE5470017C897013E1B0A50 /* NSBundle+MJRefresh.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		733E5AFB746D6710D4F88BD97A28C874 /* TFYPopupBottomSheetAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C0A07FB6F912DC6735D883CFBC9F76E /* TFYPopupBottomSheetAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F9C290414F59D2785CC036AFCB023F6 /* UIViewController+LayoutHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 391B0985370CA962B0AEBD9C8C4B30E6 /* UIViewController+LayoutHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		72DC4C15D5AA120540954A36FF75EAFF /* TFYPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = 82E59ACD658C2C2D8C77BAF471F88BA4 /* TFYPopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73A82F328FA7386A4D227872619BB283 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2389D2CECCFF00C6FF5D72A65690BDD7 /* MASCompositeConstraint.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		74D47FC62441B23EF3CB9A4B9D0CA334 /* TFYBackgroundConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1B35EDD7FBAFE95526FAF91FCB5024 /* TFYBackgroundConfig.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		75316202D5F0099A98F68D1E014DB60D /* TFYPanModalContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEEAE0E22BBF1EE3C7EF3762243E45A /* TFYPanModalContentView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		755AF6B467A7F15540C1D4E8B14BB203 /* TFYPresentingVCAnimatedTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 3570E629845A2B703B2FA7DB52AA0CB8 /* TFYPresentingVCAnimatedTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75F9F444B745AA9FBA2ABBFC95F2EEDB /* TFYPopupViewConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C4E2905A46FF7F40995D119B349299 /* TFYPopupViewConfiguration.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		76E7308986FD31C25E217252CF49056E /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8CF37815B3CF5A56396E8E5CE80682 /* MASViewAttribute.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		772CF8E9CD02ECA4275B6173E2110E80 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2537375484A456EE7F53428468FF53ED /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77DB9064C9DDDA04A2EA0DB38F0D5C9A /* UIScrollView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EE73392CC7BB70BF135DB7600CF9F0 /* UIScrollView+Helper.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7848D67A8D61735109996C53F94EED6E /* TFYPopupViewConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F152E7475E94BC1136377EB4864008C /* TFYPopupViewConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		786A94A677B3D65FF397A4CCE3034387 /* MJRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7D8E73B18433DEDA33A155A32023479 /* MJRefresh-dummy.m */; };
 		7902D28FC9EF5AFEB452F508C7F266B1 /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CB19EFE889B147712DBDAFF92DABFEE /* MJRefreshAutoNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7989A6E79BFA78440C39F568D972305C /* MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 359070D1E9E68BC4370FD9D816169143 /* MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C5505A2D3F2A697A5F324787061F4B7 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A0335855F8CBB6543236C580CD375780 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7E90F4C7475950FEE354B2DB16A0671D /* TFYPanModalPresenterProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AC04124847C11F7ECB145DB29A7A3D38 /* TFYPanModalPresenterProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		813BE4C96A6D39C13EC50C6CD164F0AF /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 25E41F53F33C22088BA5DAC7409DE2DB /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81A5635CEA2AD9623E30CAE9AFC3BF65 /* NSBundle+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5A95DCA9AC9D9C51F459691F771923 /* NSBundle+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81BF79E65F13B32B6E471E0284079140 /* TFYPanModalPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EA06023EDC9957F6C197A36DF1DB6 /* TFYPanModalPresentationController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		83A4F2816C1B3F072E1A26A34C3BC4AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		854605D0955FE7C8FB29FCCD7215B02D /* TFYPanModalFrequentTapPrevention.h in Headers */ = {isa = PBXBuildFile; fileRef = 879BCCE878486E7C0239E63E476378D7 /* TFYPanModalFrequentTapPrevention.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		864C1DC664D3DD2BF5692CC0BE50CCAA /* TFYPanModalPresentationUpdateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 224DD959CFD666F16CF844F94007BEC8 /* TFYPanModalPresentationUpdateProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86D37E584211EEA3BFAF1AFD0C0C602D /* TFYPanIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EDB3D353BAF74586033B1C1B2C5FE7 /* TFYPanIndicatorView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		87697EDFD230BDF5B6DAA611AC08626D /* MJRefreshStateTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EEF5B52BB548FC98054F5FDFC62D8F /* MJRefreshStateTrailer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8780D7B780FC1D4E06232C4EDA6BAC87 /* TFYOCPanlModel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2362FFB65314652017014AE146EF81F /* TFYOCPanlModel-dummy.m */; };
+		88C147E51E29DC68BF7F3722D178FC51 /* UIViewController+PanModalDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C2A8C52C24E242A91D88406148115 /* UIViewController+PanModalDefault.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8C6C7E25C5A24C936F81823978190E96 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 503005155111CE92ACACFB87FD88E807 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E61CCBC5AAF5BC1BD337B8F25F43E74 /* TFYPanModalPresentableHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F63763D7CE39FC5FCA33B672735B9A06 /* TFYPanModalPresentableHandler.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8FE38B1FCEA155D1B4407B8158D779A0 /* TFYPopupContainerConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 9979BE92CD7649CA8DCA323D3DD9D41C /* TFYPopupContainerConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		907F61FB3E118832B55DFB8A859E66F2 /* TFYOCPanlModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BE3F58B6ED9A3A3F8D4B2ED820F2FD0D /* TFYOCPanlModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D8F3C1AE72403CD874F78F205B1F6C6 /* TFYPanModalContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 10A72C4300DDFAF364BA6ACECD321B29 /* TFYPanModalContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9093DBDD61648ACEE3C1BAA39974FCC5 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C99D4DB676757AB52D4AA5EA6087DBC /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92213E59C653C52367B079C66AF5F3F1 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B15383FD7913A59B3C5A1A02011AC41 /* MJRefreshAutoFooter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		92A160DAF21136974B0DC35D5FA1F318 /* TFYPanModalInteractiveAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = CBC7F3FFD9CAA48A66E419DD96F33712 /* TFYPanModalInteractiveAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		933B1C5909851CEBFE69E48514849EDC /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 12127D7B3AC05A509F24DC0FC0F8CB1E /* MJRefreshFooter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		94AE71C97E848EC54F670499C90B4BCC /* TFYPanModalContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = CE81069AC5E85FF78DFEABE2E5915C3C /* TFYPanModalContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		953317692D74CA348290107B914D3D7A /* TFYPanModalPresentationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBB988DD12A9B9951A79BD9800B0FAF /* TFYPanModalPresentationDelegate.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		98E355D20C492D59F65A767CCBAF32A1 /* TFYPopupAnimatorLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 82308071966AC9D616E13686F164ABCF /* TFYPopupAnimatorLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A7FB1E975A5955C896E6B195C521804 /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8139F074801FA35B14BFB48E26B06B /* MJRefreshBackNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9AB6E6994C97DE072664AB9447DE7AA9 /* TFYPanModalPanGestureDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D1FDBA4E24F3B782E9B9A24D44F173A8 /* TFYPanModalPanGestureDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9BE18F8CF5243F25ED93170E262BCE5A /* UIScrollView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1274BD5455474EDF3C6EE7C77C084997 /* UIScrollView+Helper.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9D7A7F9B4F855BE0EBCDC8F9651C74E0 /* UIViewController+PanModalDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = B6377D25FBD708C62C4189E1625854FE /* UIViewController+PanModalDefault.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9DED6231ED5CE67E62F9D1A672F21262 /* TFYPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC3C5F1635BC7E85CD78462C65F37C /* TFYPopupView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9E6DC527BF9E3666E9364846318B7033 /* TFYPopupKeyboardConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6899A06E8521E7B3F0044A0629CB8985 /* TFYPopupKeyboardConfiguration.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9DD3910692F248B8A691D936896701EA /* TFYPanModalPresentationAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 510F644F8AD1729212C73BAE76BE96BA /* TFYPanModalPresentationAnimator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9EF1778C7984142F92599962B2C47297 /* TFYPanModalPresentable.h in Headers */ = {isa = PBXBuildFile; fileRef = 6563D499A45D64E9C81AAB18DD3F0F67 /* TFYPanModalPresentable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A051BD6F6F47E70B5712D45907CF57E2 /* UIScrollView+Helper.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9D943E7AF55FA6AC8DEB202C094753 /* UIScrollView+Helper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160E2FF8CC42AF58486C0A4AE34AA35 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C172E3F53CCC68AA428E8D396D2779E4 /* UIView+MJExtension.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A69454A4CF9A2A1A586129ACBDAB4E27 /* TFYPopupViewConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B51A50DB7A869C6D0E976F9B05428AD0 /* TFYPopupViewConfiguration.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A674DB6A357131D8FF93323D2DCD297D /* TFYPanContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77CD657B22EF34C5F9E71D0750A9B339 /* TFYPanContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A861F677DC3D972226F683C0C553FCF5 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3C410C5BB86EB4674FB79764109BA /* ViewController+MASAdditions.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		AAD28370746E3B3E77BB69D27DEEB5A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		AB5FB1CC341AEC37711C6D75BA1A9484 /* UIViewController+Presentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 69456D30CD3710D97BB7C2034846DF5B /* UIViewController+Presentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ADF5DB7F70E521AFCC03D804E674A411 /* TFYBackgroundConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F766EF32D028551C7F0DC03427D91485 /* TFYBackgroundConfig.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AE369BE3533180BD3588164DEC77E626 /* UIViewController+PanModalPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CE2527E865861B1FFC97D5E8CF2ECF6 /* UIViewController+PanModalPresenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE7B02645B8F769CA5F215EE8F7CC5B0 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5068594904BFF131B0F8D335440E71B1 /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B05FC7043196C1403CB80AF660036F8B /* TFYPopupKeyboardConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BD735ACB4501EA339B172BFE9F10012 /* TFYPopupKeyboardConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B0D29A884A4937434F585FDE2DCB8010 /* TFYPanModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A11FADD0B9F399FBF6B0B2052BD84CE /* TFYPanModalAnimator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B532906AA3BE072B28958DB65DAA7249 /* TFYPanModalFrequentTapPrevention.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DFCF15602D2CF4EECB8C36491151D8 /* TFYPanModalFrequentTapPrevention.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B03F4EF7E4F0BAD7BF69CC54BD05F646 /* TFYPopupAnimators.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0728570DD08275F50C79EB12D39DCD /* TFYPopupAnimators.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B33DA31DD94ED12F1D8A3E8701A0FA86 /* UIViewController+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 85D2F4010AD287059D96FE8B47F495DF /* UIViewController+LayoutHelper.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B4675631005CDB81EAF1BB3338A77D76 /* TFYPopupView.h in Headers */ = {isa = PBXBuildFile; fileRef = 46F80ADA3F99BD7F3E6A09FF025A66F5 /* TFYPopupView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B59E60FBC9665FC1061B88B8E6FD9FAF /* Masonry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E8EE5FE0293B691913FEEB8F1288C5 /* Masonry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B65CE8CFD2DB0E1D48A07C1FD2A3EA95 /* TFYPopupKeyboardConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD2087F020A1D09D1E591BAB91DDC5E /* TFYPopupKeyboardConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B680C2604BD8BC9644AE7C67BC46B9BB /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = F8B049EB251E2555D8FE9FE145DD7F17 /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B74DFC6E210B43A5A74FE6956C4186B8 /* TFYBackgroundConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 9955612FFE1F52B93F37A23FF474784A /* TFYBackgroundConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B7AE3054B7362DB2A0D78FDB4581EA5D /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D9E86E696EB9C6435FE4E61666088 /* MJRefreshConst.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B96F776190268C967182668FEEB8EA48 /* TFYPanModalPresentableHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF7289AF02FF7A3FCA577E9120B71A2 /* TFYPanModalPresentableHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B99968D8B775692CFC83F2DD9D0D2FEE /* UIViewController+PanModalPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 507132A37F47A331B2BC9E3B94C14494 /* UIViewController+PanModalPresenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B9A69C90CCB9BCF725EBE0B7F9CAFE83 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D55E458A3C01F243B63F89C122A561 /* MJRefreshGifHeader.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BA904ABA8ED36CC4E5EB2B2004CA1F18 /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F9E3323086A7F9897BC66B2F6DBA094 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB35718BBFECAA6CBF280A882A4CFB82 /* TFYPopupAnimatorLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 83F3869FD7948035C38E70568F661C9C /* TFYPopupAnimatorLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BAF9B12DA5D630687E999CFDB264BE56 /* TFYPanModalHeight.h in Headers */ = {isa = PBXBuildFile; fileRef = BC0437757828431938BD4911C7046C3E /* TFYPanModalHeight.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC2F9B1D6986FEB23B4FB1288B512538 /* MJRefreshNormalTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = A2966B4F8DA9955E79FEE942E067722D /* MJRefreshNormalTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD144751C3F13099EC9FC35B0E2B0CE0 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C5DFE917182A26B55C1B693A91267D /* MJRefreshAutoGifFooter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BD7168A8CA842FF34FEE8BD0CF8DAE8D /* TFYPopupBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = C614CCAEAB74991DB4943407F4905100 /* TFYPopupBackgroundView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE1204ECF5A96C8DD71AFE5EFB224BA1 /* TFYPopupBaseAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2897B13AEDA342290DDE26995169B4 /* TFYPopupBaseAnimator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BEC49E10894BC91F4D58268F4B9D45F1 /* UIViewController+Presentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E38922E0EDB113037882E5D7D1882E3 /* UIViewController+Presentation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BF22D137EF6324675FA50080C5D93C00 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = F8A57281D9B389D10E00D414C08EC1AB /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFB4A46AD6AAFF5E567F6BF0A317908E /* TFYPanModalContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D02BD35D0BCB02808713D21359DC3507 /* TFYPanModalContainerView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C1A423870C061EE696FF33C8ED61D778 /* TFYPopupContainerType.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EDCB32728D799AFF3333214BF84E5 /* TFYPopupContainerType.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C0D15301DA9E828392B4163F8F07A82A /* TFYPopupViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A837922CE2356A663ACF415A99CDB2D /* TFYPopupViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2068AEACC2D9C7F1FFE41AA25B12A68 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = F66AED535AB582CD6A5A225B7D689292 /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2890D2DB2257C2BBD846E0B6B291D24 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1953054C8DCC68C0CC82A6E239731A /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-dummy.m */; };
-		C3C06471549FEE9CE6651C030B0E2BDC /* KeyValueObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D009125FBFC53F9FD08CA9B03981A88 /* KeyValueObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C526C8230E289DF16CCE69DB2FAF9374 /* TFYPopupAnimatorLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C4AF3B56699EEDFF49C3157218D6A1 /* TFYPopupAnimatorLayout.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C5CEE342B4ED1EBB6AE3D00FA7D1889D /* TFYPanModalPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 94F7A4897AA9EA55C77C1BEC06E6B8C0 /* TFYPanModalPresentationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C34CB3F6F090A2A61B34F62BAA66BD99 /* TFYPopupKeyboardConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 28127BE54DE498AF8F060C42BB0AC7B0 /* TFYPopupKeyboardConfiguration.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C36B1CA71BCC5661A192D7242B85FFE5 /* TFYShoppingCartPresentingAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3826137D38E01A291D20C1B952D53C5F /* TFYShoppingCartPresentingAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6C25434FA32BED77FB193984A8F0210 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C5B243991E83CC8EA4397D35CD66449 /* View+MASAdditions.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C72B5E21C4D4E46EA055C541DB37A410 /* TFYPanModalIndicatorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B2E894C40652586063A08B9C20EAB53 /* TFYPanModalIndicatorProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CA5B8652D39BA4995D11572E7E8AD9DA /* UIViewController+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD148B5D78FEA4540D73B53434AC8B77 /* UIViewController+LayoutHelper.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		CD4C1D09CD0EAB6AA2A5C6981ECE3550 /* Pods-TFYOCPanModelDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB50E5CD4AD0207E9ACBF37227EE9C7 /* Pods-TFYOCPanModelDemo-dummy.m */; };
 		CDDDA24076474BFEE9EC40F1E1A0B17F /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29664601B1F277F50743705EDBB583B4 /* MJRefreshBackGifFooter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CF7686F313B2173B04D69FEFB7158D85 /* TFYVisualEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C903D27FED67C49B5AFBDD3302ABB60 /* TFYVisualEffectView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CEC6EA175D5D7C445302D01CE2A2000E /* TFYPanModalContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 838A977CFBBAD80303AD99D821B3B903 /* TFYPanModalContentView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		D663837F4347AF58660EE6F7FD426ECE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		D814E619A11B250DEED7F5337AA81F89 /* TFYVisualEffectView.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B4B53BF5E2E64C4625AC9310567EB6 /* TFYVisualEffectView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D8CDFA4EAAA96B4FA5F63902BB31BABD /* TFYPopupAnimators.h in Headers */ = {isa = PBXBuildFile; fileRef = DF1F39DB76BEFDCD21B408D4BFE8C948 /* TFYPopupAnimators.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6BA57D894C996D58C62CD5C03E436AA /* TFYPopupViewAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 513517F49C4CF62E9258DDF0A535FE15 /* TFYPopupViewAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8784B3F12FF6CADF357B5334F618008 /* TFYVisualEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4C03BD6E5C115A0C9C5641F6D726C1 /* TFYVisualEffectView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		D90DED0F5638B1C44F4B6C62D600D240 /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 90D8D87D6F56D630E27593DDB1FC0E1B /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D90DF1376DF5E2EA644313BCD2E03058 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D4277D8F0C9818FAC82121CBA51F37E8 /* MJRefresh.bundle */; };
-		DB7E08B9FECD55326F5EDF156CF135C9 /* TFYPopupPriorityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAE6B0B7978629134DE23B848D50A2 /* TFYPopupPriorityManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		DBA9500CBBA5FF6FCBBA115AE4D12152 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B7BE4974588DC8010247B51AA2F1BF19 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCEAB1779829AA96ECBE7F2CD3E56EB0 /* TFYPanModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A86AE691EA0E6BBEB8D3A9B0BB75CA /* TFYPanModalAnimator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E0F5E8A9B217698E8EEEDE3586567084 /* TFYPanModalContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = B08CCF9D1A22AF7B4AA936EFCADB3E77 /* TFYPanModalContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1BA4F623ABACB4BF2C5308666DC16C7 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 67556FB2181A06393416AF3179EC93B4 /* NSLayoutConstraint+MASDebugAdditions.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E22E41C2FFFDC3CF4A97D20721F914AA /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 499674A749CB399E1042F105381CDBD7 /* MASLayoutConstraint.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E4868238DB85E000367C6691D56C22D5 /* TFYDimmedView.h in Headers */ = {isa = PBXBuildFile; fileRef = D528096F84D2B605A8655732D73B91B6 /* TFYDimmedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E569BA62A593FF97F7CCA537421E5D14 /* TFYPageSheetPresentingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CB39963ABD349F47E34AFE6273821B /* TFYPageSheetPresentingAnimation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E5AC7071722F86017AB015D46B08B946 /* KeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A416EC69166CB985E6F112D7D165D1A2 /* KeyValueObserver.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E63F1BC0601BA84CB6A57C6C5AD6FF0A /* MJRefreshTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E3DE27DF364C7663EFF267C2930EB9 /* MJRefreshTrailer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E68EDCC1E131C5B12BF504025E63DF66 /* TFYPopupContainerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 580674F387B16A5DBB2F5477E0FF83B7 /* TFYPopupContainerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7E64AC431428337CA92B67A1685BA61 /* UIView+TFY_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B16508F6DE8B798CA73B7325C59DB52 /* UIView+TFY_Frame.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E8936949F84C1139BB78DF3D69CAF541 /* TFYPopupContainerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A30157DB096460BD939E20DA106342D /* TFYPopupContainerManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E8E8CD20E137F2CCDF6B8CDD363DAEB9 /* TFYShoppingCartPresentingAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E55FA4A37C4A40DC0C884CD72DA43B7 /* TFYShoppingCartPresentingAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EA5D502CABF6934ED8A4474B3E1D6EDC /* TFYShoppingCartPresentingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 461BD3FD569DFBA814FDFEA82004CE99 /* TFYShoppingCartPresentingAnimation.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		EA76878D50CB36571C175CDFCD94FE3E /* TFYPanModalPresentable.h in Headers */ = {isa = PBXBuildFile; fileRef = F26FAA184D39C17E6FB9CC4B40189DE8 /* TFYPanModalPresentable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E99040066A7062A60AAA0006CA94B966 /* TFYPopupContainerType.h in Headers */ = {isa = PBXBuildFile; fileRef = 62C5B7602A95DBB53171DC8A6FFA97C8 /* TFYPopupContainerType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EBE59A023EAF95106CD49A94C35D5E5B /* TFYPanModalPanGestureDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C69BA5DD1E0E35730B920DCF49FA9C8 /* TFYPanModalPanGestureDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC05722480F481EBDB15289072A138EA /* TFYPopupContainerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9170905FDC387437A91924E1CAC7CCE5 /* TFYPopupContainerManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		EC3E287CFC2FAF33318835692104B5A3 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A199D8F4C0194FB14906162B3F71E7 /* MJRefreshHeader.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		EC59237C04B60B608648BAD0F57A211A /* TFYPanModalPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2940EF26E36DB1748C7E423930C127E5 /* TFYPanModalPresentationController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		EC8E84A8FFADDCA562A8608D141D9027 /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC871B43A535CC20E60994CB484DFA /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC9B34262AED632D7EFB49804337648E /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 767D533524A51B83DA17AFF0B863AD5A /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECDE2FDD93299F0ADC34AF2396E2851E /* TFYPanModalShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A7AB63F60DFA318CC7FE4ECC447537 /* TFYPanModalShadow.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		ED07DAD1185C00EAC0E36D4ACD4C25AD /* TFYPopupViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 19EECEDA109478C0C8B413A73C1E5215 /* TFYPopupViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9BC29E53206A117403CD3D069F30A6 /* UIView+TFY_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA9554767E68D3A9D3EB496E50F3255 /* UIView+TFY_Frame.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		EE6E8FE636D2C02E3D2FC1E8555B4612 /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F64306FBA75A69475886AA7B761C70 /* MJRefreshNormalHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EEAF8007F9311797284A7E74B481777A /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5011FDC96F072770C037AD1837F32579 /* NSArray+MASAdditions.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EF0A84887073A0EBB15D91F195483AD8 /* TFYPanModalAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = A2F921192F49481EA1C2B988F9AAD946 /* TFYPanModalAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EF9F754349CB7CE18D611FE17C8E8304 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D5FED30A2BDDEAE2C5FD71C729FA6 /* MJRefreshNormalHeader.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F15127FD82E2B68E54D141FE5FE1EE62 /* TFYPopupBottomSheetAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3873B4171E740086FBA2C6B97928A6EE /* TFYPopupBottomSheetAnimator.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F4D2E29D3C73F3C67754A0E4C35102CB /* TFYPanModalPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 288C7157A2D7DA946F28CA6B98267CE0 /* TFYPanModalPresentationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F50AF7B92D56D038FF1DAEC6A338062E /* TFYPanModalPresentableHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E63C1EA6A51CCBF36B160F71D63CFC7 /* TFYPanModalPresentableHandler.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F60F90EAF35CFF40DF1C33557965787D /* MJRefreshStateTrailer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DEFD91668BBDE3452C1F8359234F6DA /* MJRefreshStateTrailer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F90D1B7A3985536ABBC7F5C4CFF91C6B /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1565ED2A08F7D928CF8438AA81694128 /* MJRefreshBackStateFooter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F926674D7D29E89BDFB085520CC4CDFC /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1871241A5A35FC404F0B85A5EB9F26 /* MASViewConstraint.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FB37810E39F7E1225CF3BC6122498B5A /* TFYPopupBottomSheetAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FCAB7685A7A9E75DF7D178F391E9D19 /* TFYPopupBottomSheetAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE05C5A4B556B0BDD376B2CC0C8A2054 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C98051BA8BDAE6A6366D9B8AFFB3FE7 /* MJRefreshAutoStateFooter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		FE112C1E57DAF79DD883E3E9B8006E7B /* MJRefreshNormalTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9C110FD0ED39A0E3D73E29102ED25 /* MJRefreshNormalTrailer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FF378FD04AB8613932619A709E39A501 /* TFYPopupPriorityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 275A8B6F7FC4E04EF39233717F2B23BB /* TFYPopupPriorityManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,226 +249,226 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		034E53BAA4816693DDD2DB43AD833905 /* TFYPopupContainerConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupContainerConfiguration.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupContainerConfiguration.m; sourceTree = "<group>"; };
+		002C750C96DE82CBCDAA5D9EC62BB866 /* TFYPanModalIndicatorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalIndicatorProtocol.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalIndicatorProtocol.h; sourceTree = "<group>"; };
 		04B31059BE247CCD4836070C1A5E1D2F /* Pods-TFYOCPanModelDemoTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-TFYOCPanModelDemoTests"; path = Pods_TFYOCPanModelDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06007B4F5C3C0F0793C6F3CB05F83F58 /* TFYOCPanlModel */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TFYOCPanlModel; path = TFYOCPanlModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06A3A0432AD6C7BD5C021F239F1152F1 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		07B4B53BF5E2E64C4625AC9310567EB6 /* TFYVisualEffectView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYVisualEffectView.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYVisualEffectView.h; sourceTree = "<group>"; };
+		06C4E2905A46FF7F40995D119B349299 /* TFYPopupViewConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupViewConfiguration.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupViewConfiguration.m; sourceTree = "<group>"; };
 		0A3FECEFDC6154D4B94300A48051C83C /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 		0BA715659CD26C2FE28C59D4626495F9 /* MJRefreshStateHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateHeader.h; path = MJRefresh/Custom/Header/MJRefreshStateHeader.h; sourceTree = "<group>"; };
+		0BD7B607A8F2ACE475F2E9318C189D75 /* TFYPanModalFrequentTapPrevention.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalFrequentTapPrevention.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalFrequentTapPrevention.m; sourceTree = "<group>"; };
 		0C98051BA8BDAE6A6366D9B8AFFB3FE7 /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
-		0D3BA470393B57B41416B485F8F8A2B6 /* TFYPanModalPresentationAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalPresentationAnimator.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresentationAnimator.m; sourceTree = "<group>"; };
 		0E8CF37815B3CF5A56396E8E5CE80682 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		0ED7D2E89A1F4AF438526660458377CA /* TFYOCPanlModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TFYOCPanlModel.release.xcconfig; sourceTree = "<group>"; };
 		0F9BB2915BD287AD93B749226FC82F1D /* UICollectionViewLayout+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UICollectionViewLayout+MJRefresh.m"; path = "MJRefresh/UICollectionViewLayout+MJRefresh.m"; sourceTree = "<group>"; };
-		11EAE6B0B7978629134DE23B848D50A2 /* TFYPopupPriorityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupPriorityManager.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupPriorityManager.m; sourceTree = "<group>"; };
+		100FA0B36A3E99EE08E0C2667E866392 /* TFYPanModalContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalContainerView.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalContainerView.m; sourceTree = "<group>"; };
+		10A72C4300DDFAF364BA6ACECD321B29 /* TFYPanModalContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalContentView.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalContentView.h; sourceTree = "<group>"; };
+		10EE73392CC7BB70BF135DB7600CF9F0 /* UIScrollView+Helper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+Helper.m"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/Tools/UIScrollView+Helper.m"; sourceTree = "<group>"; };
 		11F551131B7023EB36C8FE481CEF935E /* UIView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
 		12127D7B3AC05A509F24DC0FC0F8CB1E /* MJRefreshFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooter.m; path = MJRefresh/Base/MJRefreshFooter.m; sourceTree = "<group>"; };
-		1274BD5455474EDF3C6EE7C77C084997 /* UIScrollView+Helper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+Helper.m"; path = "TFYOCPanModelDemo/TFYOCPanlModel/Tools/UIScrollView+Helper.m"; sourceTree = "<group>"; };
 		129884FD43E176AD67DC2CFB05BD0AE7 /* Pods-TFYOCPanModelDemoTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TFYOCPanModelDemoTests-Info.plist"; sourceTree = "<group>"; };
 		1565ED2A08F7D928CF8438AA81694128 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
 		17796EDF4ECD73F31A6FC9DBA914F5D7 /* Pods-TFYOCPanModelDemo */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-TFYOCPanModelDemo"; path = Pods_TFYOCPanModelDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		17A46AE4914EA57934891569CC733AF0 /* TFYPanModalPresentationUpdateProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentationUpdateProtocol.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresentationUpdateProtocol.h; sourceTree = "<group>"; };
 		17E98F8EE8C0C3DEB919AFD6F7CD3151 /* Pods-TFYOCPanModelDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TFYOCPanModelDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		190E3CC0DDB0404C890853308F311571 /* TFYPopupBackgroundView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupBackgroundView.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupBackgroundView.h; sourceTree = "<group>"; };
-		19EECEDA109478C0C8B413A73C1E5215 /* TFYPopupViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupViewDelegate.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupViewDelegate.h; sourceTree = "<group>"; };
-		1A11FADD0B9F399FBF6B0B2052BD84CE /* TFYPanModalAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalAnimator.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalAnimator.m; sourceTree = "<group>"; };
-		1A14B50BF495FD917B65CB306AABBD5A /* UIView+TFY_Frame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+TFY_Frame.h"; path = "TFYOCPanModelDemo/TFYOCPanlModel/Tools/UIView+TFY_Frame.h"; sourceTree = "<group>"; };
-		1B1BFBD966F6330DF772301170E56C23 /* TFYPopupContainerType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupContainerType.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupContainerType.h; sourceTree = "<group>"; };
 		1B60DB9A1EF64E585A5432B970421E47 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJExtension.h"; path = "MJRefresh/UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
-		1C903D27FED67C49B5AFBDD3302ABB60 /* TFYVisualEffectView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYVisualEffectView.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYVisualEffectView.m; sourceTree = "<group>"; };
 		1CAA10F1F9C782EB9267DDD28FFF8263 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		1E49B44E34B933CEC129101D5DEF2A94 /* MJRefreshConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConfig.h; path = MJRefresh/MJRefreshConfig.h; sourceTree = "<group>"; };
 		1F8139F074801FA35B14BFB48E26B06B /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
 		1FFED36A657123030ABB700256D73F15 /* Masonry */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20EE768A3EADCEDF4EA4A87038DBEF92 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJExtension.m"; path = "MJRefresh/UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		224DD959CFD666F16CF844F94007BEC8 /* TFYPanModalPresentationUpdateProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentationUpdateProtocol.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresentationUpdateProtocol.h; sourceTree = "<group>"; };
 		229F6E884327C8AB6FE49F88A3C92799 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2389D2CECCFF00C6FF5D72A65690BDD7 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
+		247EEABFCCEF45A0734CF4D5CCF33858 /* TFYPanModalPresentationAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentationAnimator.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresentationAnimator.h; sourceTree = "<group>"; };
 		2537375484A456EE7F53428468FF53ED /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		25E41F53F33C22088BA5DAC7409DE2DB /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
 		26E30E233C8B6D9846D521F0006290A1 /* MJRefreshBackStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackStateFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.h; sourceTree = "<group>"; };
 		2720FACE6706EA7FD21C738E6A5191F4 /* MJRefreshComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = MJRefresh/Base/MJRefreshComponent.h; sourceTree = "<group>"; };
+		275A8B6F7FC4E04EF39233717F2B23BB /* TFYPopupPriorityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupPriorityManager.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupPriorityManager.m; sourceTree = "<group>"; };
+		28127BE54DE498AF8F060C42BB0AC7B0 /* TFYPopupKeyboardConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupKeyboardConfiguration.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupKeyboardConfiguration.m; sourceTree = "<group>"; };
+		288C7157A2D7DA946F28CA6B98267CE0 /* TFYPanModalPresentationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentationController.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresentationController.h; sourceTree = "<group>"; };
+		28EDB3D353BAF74586033B1C1B2C5FE7 /* TFYPanIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanIndicatorView.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanIndicatorView.m; sourceTree = "<group>"; };
 		28FC9D0C6575827D8DE87478010FCBB1 /* Pods-TFYOCPanModelDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TFYOCPanModelDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2940EF26E36DB1748C7E423930C127E5 /* TFYPanModalPresentationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalPresentationController.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresentationController.m; sourceTree = "<group>"; };
 		29664601B1F277F50743705EDBB583B4 /* MJRefreshBackGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackGifFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.m; sourceTree = "<group>"; };
+		2A837922CE2356A663ACF415A99CDB2D /* TFYPopupViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupViewDelegate.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupViewDelegate.h; sourceTree = "<group>"; };
+		2ABC5AD25906408EE05A91F6EF8D50C6 /* KeyValueObserver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KeyValueObserver.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/Tools/KeyValueObserver.h; sourceTree = "<group>"; };
 		2BA7809E757BB1485A98D69972959ABD /* Pods-TFYOCPanModelDemoTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TFYOCPanModelDemoTests-dummy.m"; sourceTree = "<group>"; };
-		2BD735ACB4501EA339B172BFE9F10012 /* TFYPopupKeyboardConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupKeyboardConfiguration.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupKeyboardConfiguration.h; sourceTree = "<group>"; };
-		2DEEAE0E22BBF1EE3C7EF3762243E45A /* TFYPanModalContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalContentView.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalContentView.m; sourceTree = "<group>"; };
-		31D539ED2232DF1177914B4DE8AB00E3 /* TFYPopupViewConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupViewConfiguration.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupViewConfiguration.h; sourceTree = "<group>"; };
-		3570E629845A2B703B2FA7DB52AA0CB8 /* TFYPresentingVCAnimatedTransitioning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPresentingVCAnimatedTransitioning.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPresentingVCAnimatedTransitioning.h; sourceTree = "<group>"; };
 		359070D1E9E68BC4370FD9D816169143 /* MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
 		36304C72D4C20E2167C1C87CD0FB30D3 /* TFYOCPanlModel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TFYOCPanlModel-umbrella.h"; sourceTree = "<group>"; };
+		3826137D38E01A291D20C1B952D53C5F /* TFYShoppingCartPresentingAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYShoppingCartPresentingAnimation.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYShoppingCartPresentingAnimation.h; sourceTree = "<group>"; };
+		3873B4171E740086FBA2C6B97928A6EE /* TFYPopupBottomSheetAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupBottomSheetAnimator.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupBottomSheetAnimator.m; sourceTree = "<group>"; };
+		38F2D4CFFA70BB1BF7EEC344091C1A9C /* TFYPopupView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupView.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupView.m; sourceTree = "<group>"; };
+		391B0985370CA962B0AEBD9C8C4B30E6 /* UIViewController+LayoutHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+LayoutHelper.h"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/UIViewController+LayoutHelper.h"; sourceTree = "<group>"; };
 		39D55E458A3C01F243B63F89C122A561 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
-		3B2E894C40652586063A08B9C20EAB53 /* TFYPanModalIndicatorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalIndicatorProtocol.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalIndicatorProtocol.h; sourceTree = "<group>"; };
+		3BA9554767E68D3A9D3EB496E50F3255 /* UIView+TFY_Frame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+TFY_Frame.m"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/Tools/UIView+TFY_Frame.m"; sourceTree = "<group>"; };
 		3D5A95DCA9AC9D9C51F459691F771923 /* NSBundle+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+MJRefresh.h"; path = "MJRefresh/NSBundle+MJRefresh.h"; sourceTree = "<group>"; };
 		3DEFD91668BBDE3452C1F8359234F6DA /* MJRefreshStateTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateTrailer.h; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.h; sourceTree = "<group>"; };
-		3E4B43284C7A89244C55608F7E60674F /* UIViewController+LayoutHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+LayoutHelper.h"; path = "TFYOCPanModelDemo/TFYOCPanlModel/popController/UIViewController+LayoutHelper.h"; sourceTree = "<group>"; };
-		3F4297CFEEBEFB0E9F750C26A540BF44 /* TFYDimmedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYDimmedView.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYDimmedView.m; sourceTree = "<group>"; };
+		3F7D12FB09C457E40210E4DA90285471 /* TFYDimmedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYDimmedView.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYDimmedView.h; sourceTree = "<group>"; };
 		3F9E3323086A7F9897BC66B2F6DBA094 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
 		40A199D8F4C0194FB14906162B3F71E7 /* MJRefreshHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeader.m; path = MJRefresh/Base/MJRefreshHeader.m; sourceTree = "<group>"; };
 		417C81A93780ED8EB4DD1F7A4D3A87CD /* Pods-TFYOCPanModelDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TFYOCPanModelDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4452A8B93214E5769563A6E370D2A9CE /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.modulemap"; sourceTree = "<group>"; };
 		446F0310D327B0AE1BECD0615D224ED9 /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackFooter.m; path = MJRefresh/Base/MJRefreshBackFooter.m; sourceTree = "<group>"; };
+		44AD411A1F28FB77C4063E01250F2F3F /* TFYPanModalInteractiveAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalInteractiveAnimator.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalInteractiveAnimator.m; sourceTree = "<group>"; };
 		460F69C44B364EF8339CC187645387B3 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
-		461BD3FD569DFBA814FDFEA82004CE99 /* TFYShoppingCartPresentingAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYShoppingCartPresentingAnimation.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYShoppingCartPresentingAnimation.m; sourceTree = "<group>"; };
 		46E8EE5FE0293B691913FEEB8F1288C5 /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
-		47C4AF3B56699EEDFF49C3157218D6A1 /* TFYPopupAnimatorLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupAnimatorLayout.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupAnimatorLayout.m; sourceTree = "<group>"; };
+		46F80ADA3F99BD7F3E6A09FF025A66F5 /* TFYPopupView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupView.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupView.h; sourceTree = "<group>"; };
 		499674A749CB399E1042F105381CDBD7 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
+		49D68B6DB2C87BCABF07421F936479F1 /* TFYPopupAnimatorLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupAnimatorLayout.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupAnimatorLayout.m; sourceTree = "<group>"; };
 		4ABC871B43A535CC20E60994CB484DFA /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoGifFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
 		4B5B3C05E409F6838E873E0D34BB3E79 /* TFYOCPanlModel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TFYOCPanlModel-Info.plist"; sourceTree = "<group>"; };
-		4BAC3C5F1635BC7E85CD78462C65F37C /* TFYPopupView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupView.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupView.m; sourceTree = "<group>"; };
 		4BDEB1C833B422C36B8200B55984409F /* MJRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-prefix.pch"; sourceTree = "<group>"; };
+		4C28D72ED7839A015D614619349624EE /* TFYOCPanlModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYOCPanlModel.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/include/TFYOCPanlModel.h; sourceTree = "<group>"; };
 		4C7846A3CDADDF0D464CA054810C4B68 /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackGifFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
+		4CE2527E865861B1FFC97D5E8CF2ECF6 /* UIViewController+PanModalPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PanModalPresenter.h"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/UIViewController+PanModalPresenter.h"; sourceTree = "<group>"; };
 		4D7D5FED30A2BDDEAE2C5FD71C729FA6 /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalHeader.m; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.m; sourceTree = "<group>"; };
+		4E8E1CFD72E86E0033F84B1DE61C1AF3 /* TFYVisualEffectView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYVisualEffectView.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYVisualEffectView.h; sourceTree = "<group>"; };
 		4E96862080E122FE7279EAD7BEE6D3E4 /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		4ED4AAFEA37D4FE73716C6D62DDB910B /* TFYOCPanlModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TFYOCPanlModel.debug.xcconfig; sourceTree = "<group>"; };
-		4F6EDCB32728D799AFF3333214BF84E5 /* TFYPopupContainerType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupContainerType.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupContainerType.m; sourceTree = "<group>"; };
+		4F6EA06023EDC9957F6C197A36DF1DB6 /* TFYPanModalPresentationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalPresentationController.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresentationController.m; sourceTree = "<group>"; };
 		5011FDC96F072770C037AD1837F32579 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		5015F6394655AC7238752EF8263A7D2A /* TFYPanModalPresentationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentationDelegate.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresentationDelegate.h; sourceTree = "<group>"; };
 		503005155111CE92ACACFB87FD88E807 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		5068594904BFF131B0F8D335440E71B1 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
-		507132A37F47A331B2BC9E3B94C14494 /* UIViewController+PanModalPresenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PanModalPresenter.h"; path = "TFYOCPanModelDemo/TFYOCPanlModel/popController/UIViewController+PanModalPresenter.h"; sourceTree = "<group>"; };
 		510D836BD292C24C662FB8E79632BDCC /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
+		510F644F8AD1729212C73BAE76BE96BA /* TFYPanModalPresentationAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalPresentationAnimator.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresentationAnimator.m; sourceTree = "<group>"; };
+		513517F49C4CF62E9258DDF0A535FE15 /* TFYPopupViewAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupViewAnimator.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupViewAnimator.h; sourceTree = "<group>"; };
 		54E6A9EBF8732D84BA6CDBD45C2534BD /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
-		580674F387B16A5DBB2F5477E0FF83B7 /* TFYPopupContainerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupContainerManager.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupContainerManager.h; sourceTree = "<group>"; };
-		5B16508F6DE8B798CA73B7325C59DB52 /* UIView+TFY_Frame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+TFY_Frame.m"; path = "TFYOCPanModelDemo/TFYOCPanlModel/Tools/UIView+TFY_Frame.m"; sourceTree = "<group>"; };
+		58B3591FF447BE4E73964223CB7681C7 /* KeyValueObserver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KeyValueObserver.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/Tools/KeyValueObserver.m; sourceTree = "<group>"; };
 		5C1953054C8DCC68C0CC82A6E239731A /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-dummy.m"; sourceTree = "<group>"; };
 		5C5B243991E83CC8EA4397D35CD66449 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		5C69BA5DD1E0E35730B920DCF49FA9C8 /* TFYPanModalPanGestureDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPanGestureDelegate.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPanGestureDelegate.h; sourceTree = "<group>"; };
 		5CC796AF92D29C62227CC3F59CEED9D8 /* Pods-TFYOCPanModelDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TFYOCPanModelDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		622A18EC5E6995558C162D72B95FF396 /* TFYPopupView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupView.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupView.h; sourceTree = "<group>"; };
-		658B7E40A571399C2C1E86367B730EE0 /* UIScrollView+Helper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+Helper.h"; path = "TFYOCPanModelDemo/TFYOCPanlModel/Tools/UIScrollView+Helper.h"; sourceTree = "<group>"; };
+		5F152E7475E94BC1136377EB4864008C /* TFYPopupViewConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupViewConfiguration.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupViewConfiguration.h; sourceTree = "<group>"; };
+		617C2A8C52C24E242A91D88406148115 /* UIViewController+PanModalDefault.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+PanModalDefault.m"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/UIViewController+PanModalDefault.m"; sourceTree = "<group>"; };
+		62C5B7602A95DBB53171DC8A6FFA97C8 /* TFYPopupContainerType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupContainerType.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupContainerType.h; sourceTree = "<group>"; };
+		63EB028468357F52A0D7CB950FBB1AEF /* TFYPopupContainerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupContainerManager.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupContainerManager.h; sourceTree = "<group>"; };
+		6563D499A45D64E9C81AAB18DD3F0F67 /* TFYPanModalPresentable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentable.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresentable.h; sourceTree = "<group>"; };
 		67556FB2181A06393416AF3179EC93B4 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		6899A06E8521E7B3F0044A0629CB8985 /* TFYPopupKeyboardConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupKeyboardConfiguration.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupKeyboardConfiguration.m; sourceTree = "<group>"; };
+		69456D30CD3710D97BB7C2034846DF5B /* UIViewController+Presentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Presentation.h"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/UIViewController+Presentation.h"; sourceTree = "<group>"; };
 		699E087568312F2BDAF8ECC1022D4E34 /* Pods-TFYOCPanModelDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TFYOCPanModelDemo.modulemap"; sourceTree = "<group>"; };
 		69E3DE27DF364C7663EFF267C2930EB9 /* MJRefreshTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshTrailer.m; path = MJRefresh/Base/MJRefreshTrailer.m; sourceTree = "<group>"; };
 		69E464C30995E5DD9928E40500A122B8 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests"; path = Pods_TFYOCPanModelDemo_TFYOCPanModelDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B91C6AB58054791443088E5376572E7 /* TFYPanModalInteractiveAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalInteractiveAnimator.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalInteractiveAnimator.h; sourceTree = "<group>"; };
-		6C0A07FB6F912DC6735D883CFBC9F76E /* TFYPopupBottomSheetAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupBottomSheetAnimator.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupBottomSheetAnimator.h; sourceTree = "<group>"; };
-		6C4181EE2DCCF30479986967372E245A /* TFYPanIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanIndicatorView.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanIndicatorView.m; sourceTree = "<group>"; };
+		6B4D346F2C7E252B98214B32BDCF9085 /* TFYPanModalShadow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalShadow.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalShadow.h; sourceTree = "<group>"; };
+		6F5B83FC0BDB623E2E796606B254981A /* UIViewController+PanModalDefault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PanModalDefault.h"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/UIViewController+PanModalDefault.h"; sourceTree = "<group>"; };
 		7257AC009B9C74E5DDCCE6E49FA1A82C /* Pods-TFYOCPanModelDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TFYOCPanModelDemo-frameworks.sh"; sourceTree = "<group>"; };
 		74119AC2F9A1BE1CC18DBD711BA7F57F /* TFYOCPanlModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TFYOCPanlModel-prefix.pch"; sourceTree = "<group>"; };
 		751FF257C0F5F5FA053E6DA1DAE50352 /* Pods-TFYOCPanModelDemoTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TFYOCPanModelDemoTests-umbrella.h"; sourceTree = "<group>"; };
 		75F548254A3D849972FE377F74BA6B1C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		76213393019AD033E29C1D0412E9FE48 /* TFYPanContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanContainerView.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanContainerView.m; sourceTree = "<group>"; };
 		767D533524A51B83DA17AFF0B863AD5A /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
-		79FF7778EC197F158FBE4218CE0FA2BE /* TFYPopupBackgroundView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupBackgroundView.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupBackgroundView.m; sourceTree = "<group>"; };
+		77AC71385592CBD978C75D0303CDAAAB /* TFYPanModalPresentationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentationDelegate.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresentationDelegate.h; sourceTree = "<group>"; };
+		77CD657B22EF34C5F9E71D0750A9B339 /* TFYPanContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanContainerView.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanContainerView.h; sourceTree = "<group>"; };
+		79E2A855569AD125BB05CA6CD76CE805 /* TFYShoppingCartPresentingAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYShoppingCartPresentingAnimation.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYShoppingCartPresentingAnimation.m; sourceTree = "<group>"; };
+		7A372F8C516C467960030BE33041DD63 /* TFYPopupPriorityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupPriorityManager.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupPriorityManager.h; sourceTree = "<group>"; };
 		7E3097CFEFDA621E9FB0E62009FF87FC /* MJRefresh-MJRefresh.Privacy */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "MJRefresh-MJRefresh.Privacy"; path = MJRefresh.Privacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E38922E0EDB113037882E5D7D1882E3 /* UIViewController+Presentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Presentation.m"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/UIViewController+Presentation.m"; sourceTree = "<group>"; };
+		7FCAB7685A7A9E75DF7D178F391E9D19 /* TFYPopupBottomSheetAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupBottomSheetAnimator.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupBottomSheetAnimator.h; sourceTree = "<group>"; };
+		80E7667AF9B2FA23BBFACEC7A5C847B5 /* TFYPopupBackgroundView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupBackgroundView.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupBackgroundView.m; sourceTree = "<group>"; };
 		80F64306FBA75A69475886AA7B761C70 /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalHeader.h; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.h; sourceTree = "<group>"; };
 		8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		83F3869FD7948035C38E70568F661C9C /* TFYPopupAnimatorLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupAnimatorLayout.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupAnimatorLayout.h; sourceTree = "<group>"; };
+		82308071966AC9D616E13686F164ABCF /* TFYPopupAnimatorLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupAnimatorLayout.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupAnimatorLayout.h; sourceTree = "<group>"; };
+		82E59ACD658C2C2D8C77BAF471F88BA4 /* TFYPopup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopup.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopup.h; sourceTree = "<group>"; };
+		838A977CFBBAD80303AD99D821B3B903 /* TFYPanModalContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalContentView.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalContentView.m; sourceTree = "<group>"; };
 		85C336B737D6BABF2F6ADC717BCAC57C /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
-		86ABB0D3F8A49667B06C371C935D56EC /* TFYPopupBaseAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupBaseAnimator.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupBaseAnimator.m; sourceTree = "<group>"; };
-		879BCCE878486E7C0239E63E476378D7 /* TFYPanModalFrequentTapPrevention.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalFrequentTapPrevention.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalFrequentTapPrevention.h; sourceTree = "<group>"; };
+		85D2F4010AD287059D96FE8B47F495DF /* UIViewController+LayoutHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+LayoutHelper.m"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/UIViewController+LayoutHelper.m"; sourceTree = "<group>"; };
+		86EAF837559F6EC1F17BA612C354BB85 /* TFYBackgroundConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYBackgroundConfig.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYBackgroundConfig.h; sourceTree = "<group>"; };
 		8AC20C84C734D6FE6BEF8DFDB9032E19 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-Info.plist"; sourceTree = "<group>"; };
 		8BBE0AD3A9515072B21E496A05E4A60E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		8C2A5A1157AECAA41AA13A166A4A6847 /* TFYPopupContainerConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupContainerConfiguration.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupContainerConfiguration.h; sourceTree = "<group>"; };
+		8C7F360A72CEA0E688566DD1E700FBAC /* TFYPageSheetPresentingAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPageSheetPresentingAnimation.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPageSheetPresentingAnimation.h; sourceTree = "<group>"; };
 		8E28440A927DBC8B887761DD93E1D53B /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
-		8E4602689716E86814068ED8D814F611 /* UIViewController+PanModalDefault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PanModalDefault.h"; path = "TFYOCPanModelDemo/TFYOCPanlModel/popController/UIViewController+PanModalDefault.h"; sourceTree = "<group>"; };
 		8FAF09B9FA6ED85B98FE09F5660338BF /* Pods-TFYOCPanModelDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TFYOCPanModelDemo-umbrella.h"; sourceTree = "<group>"; };
 		8FB50E5CD4AD0207E9ACBF37227EE9C7 /* Pods-TFYOCPanModelDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TFYOCPanModelDemo-dummy.m"; sourceTree = "<group>"; };
-		90A0DDC2A394C0F9EDD513F664D96260 /* TFYPanModalAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalAnimator.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalAnimator.h; sourceTree = "<group>"; };
+		908C67D4A88F3F5320531C18888285EC /* TFYPopupBaseAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupBaseAnimator.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupBaseAnimator.h; sourceTree = "<group>"; };
 		90D8D87D6F56D630E27593DDB1FC0E1B /* MJRefreshFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = MJRefresh/Base/MJRefreshFooter.h; sourceTree = "<group>"; };
-		915D2AAA9EC26A218E71535EA03C7D87 /* TFYPageSheetPresentingAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPageSheetPresentingAnimation.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPageSheetPresentingAnimation.h; sourceTree = "<group>"; };
-		92118AC8F0E29AEA8D42EA9B1302B48D /* TFYPopupBottomSheetAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupBottomSheetAnimator.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupBottomSheetAnimator.m; sourceTree = "<group>"; };
+		9170905FDC387437A91924E1CAC7CCE5 /* TFYPopupContainerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupContainerManager.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupContainerManager.m; sourceTree = "<group>"; };
 		92A92C114EF75F8B86D12C5F903E13C7 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoFooter.h; path = MJRefresh/Base/MJRefreshAutoFooter.h; sourceTree = "<group>"; };
-		94F7A4897AA9EA55C77C1BEC06E6B8C0 /* TFYPanModalPresentationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentationController.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresentationController.h; sourceTree = "<group>"; };
-		95DE13098689CFCDFA84CBF23492816A /* TFYPopupPriorityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupPriorityManager.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupPriorityManager.h; sourceTree = "<group>"; };
-		95DF597759DF860ED0AE36A2D6B63E21 /* UIViewController+Presentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Presentation.m"; path = "TFYOCPanModelDemo/TFYOCPanlModel/popController/UIViewController+Presentation.m"; sourceTree = "<group>"; };
+		9317BD3928C45AB3CC8F26078F839C10 /* TFYPageSheetPresentingAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPageSheetPresentingAnimation.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPageSheetPresentingAnimation.m; sourceTree = "<group>"; };
 		976FDAFAC7B7483FF5FD9C5E2321ED08 /* MJRefreshHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
-		97CB39963ABD349F47E34AFE6273821B /* TFYPageSheetPresentingAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPageSheetPresentingAnimation.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPageSheetPresentingAnimation.m; sourceTree = "<group>"; };
-		9955612FFE1F52B93F37A23FF474784A /* TFYBackgroundConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYBackgroundConfig.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYBackgroundConfig.h; sourceTree = "<group>"; };
-		9979BE92CD7649CA8DCA323D3DD9D41C /* TFYPopupContainerConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupContainerConfiguration.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupContainerConfiguration.h; sourceTree = "<group>"; };
-		9A30157DB096460BD939E20DA106342D /* TFYPopupContainerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupContainerManager.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupContainerManager.m; sourceTree = "<group>"; };
 		9B15383FD7913A59B3C5A1A02011AC41 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoFooter.m; path = MJRefresh/Base/MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		9C99D4DB676757AB52D4AA5EA6087DBC /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-umbrella.h"; sourceTree = "<group>"; };
 		9CB19EFE889B147712DBDAFF92DABFEE /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
 		9CD3C410C5BB86EB4674FB79764109BA /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		9D009125FBFC53F9FD08CA9B03981A88 /* KeyValueObserver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KeyValueObserver.h; path = TFYOCPanModelDemo/TFYOCPanlModel/Tools/KeyValueObserver.h; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9D9D9E86E696EB9C6435FE4E61666088 /* MJRefreshConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConst.m; path = MJRefresh/MJRefreshConst.m; sourceTree = "<group>"; };
 		9DBA5C17890750BE8DFB9A67362EF275 /* Pods-TFYOCPanModelDemoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TFYOCPanModelDemoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9E55FA4A37C4A40DC0C884CD72DA43B7 /* TFYShoppingCartPresentingAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYShoppingCartPresentingAnimation.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYShoppingCartPresentingAnimation.h; sourceTree = "<group>"; };
+		9E63C1EA6A51CCBF36B160F71D63CFC7 /* TFYPanModalPresentableHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalPresentableHandler.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresentableHandler.m; sourceTree = "<group>"; };
 		A0335855F8CBB6543236C580CD375780 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
 		A175352849C436A5A5D6B73D414B4135 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A2648D47B2D6A8464D0FED17E0E89535 /* MJRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.debug.xcconfig; sourceTree = "<group>"; };
 		A2966B4F8DA9955E79FEE942E067722D /* MJRefreshNormalTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalTrailer.h; path = MJRefresh/Custom/Trailer/MJRefreshNormalTrailer.h; sourceTree = "<group>"; };
-		A416EC69166CB985E6F112D7D165D1A2 /* KeyValueObserver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KeyValueObserver.m; path = TFYOCPanModelDemo/TFYOCPanlModel/Tools/KeyValueObserver.m; sourceTree = "<group>"; };
+		A2F921192F49481EA1C2B988F9AAD946 /* TFYPanModalAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalAnimator.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalAnimator.h; sourceTree = "<group>"; };
+		A39C8D36F6B84DB5CB28D4CB02FECDA5 /* TFYPanIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanIndicatorView.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanIndicatorView.h; sourceTree = "<group>"; };
+		A5A86AE691EA0E6BBEB8D3A9B0BB75CA /* TFYPanModalAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalAnimator.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalAnimator.m; sourceTree = "<group>"; };
+		A6C0C48EAA3E9299EBCEFCEC36DC443F /* TFYPanModalFrequentTapPrevention.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalFrequentTapPrevention.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalFrequentTapPrevention.h; sourceTree = "<group>"; };
 		A9EEF5B52BB548FC98054F5FDFC62D8F /* MJRefreshStateTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.m; sourceTree = "<group>"; };
 		ABCBC4C63D99E435EA9AB3450CFCBC23 /* Masonry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.debug.xcconfig; sourceTree = "<group>"; };
-		AC04124847C11F7ECB145DB29A7A3D38 /* TFYPanModalPresenterProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresenterProtocol.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresenterProtocol.h; sourceTree = "<group>"; };
 		AC76DF5C83CC6962CD2CEA26588359E4 /* ResourceBundle-MJRefresh.Privacy-MJRefresh-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-MJRefresh.Privacy-MJRefresh-Info.plist"; sourceTree = "<group>"; };
-		AE6AF425D5D2F013FCDD637C91CF690C /* TFYPanModalContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalContentView.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalContentView.h; sourceTree = "<group>"; };
+		ACFEB68AF68BCDB5420E64E6EB487C10 /* TFYPanModalPresentableHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentableHandler.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresentableHandler.h; sourceTree = "<group>"; };
 		AF7D5D42531D495047C952107F4E1244 /* MJRefresh-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "MJRefresh-Info.plist"; sourceTree = "<group>"; };
-		AFF7289AF02FF7A3FCA577E9120B71A2 /* TFYPanModalPresentableHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentableHandler.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresentableHandler.h; sourceTree = "<group>"; };
-		B3F7678CDD00608E424EB271E537637F /* TFYPopupAnimators.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupAnimators.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupAnimators.m; sourceTree = "<group>"; };
-		B44857B1979651AABF6CCCA19F1A2FB0 /* TFYPopupBaseAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupBaseAnimator.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupBaseAnimator.h; sourceTree = "<group>"; };
-		B51A50DB7A869C6D0E976F9B05428AD0 /* TFYPopupViewConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupViewConfiguration.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupViewConfiguration.m; sourceTree = "<group>"; };
-		B6377D25FBD708C62C4189E1625854FE /* UIViewController+PanModalDefault.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+PanModalDefault.m"; path = "TFYOCPanModelDemo/TFYOCPanlModel/popController/UIViewController+PanModalDefault.m"; sourceTree = "<group>"; };
+		B08CCF9D1A22AF7B4AA936EFCADB3E77 /* TFYPanModalContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalContainerView.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalContainerView.h; sourceTree = "<group>"; };
+		B419CB29627C70B420F560EC6FC4CB3C /* TFYPopup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopup.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopup.m; sourceTree = "<group>"; };
 		B75B201A5F389C8F7EAD54A98D0A3B5A /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		B7BE4974588DC8010247B51AA2F1BF19 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
 		B7D8E73B18433DEDA33A155A32023479 /* MJRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJRefresh-dummy.m"; sourceTree = "<group>"; };
-		B9E0F595E2E2D619CA43133464FEF24D /* TFYPopup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopup.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopup.m; sourceTree = "<group>"; };
 		BA09FBB5C381C4DFC5D23726827CF24E /* MJRefreshTrailer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshTrailer.h; path = MJRefresh/Base/MJRefreshTrailer.h; sourceTree = "<group>"; };
-		BB97795C4B78D22C78E939C7C42B6308 /* TFYPanModalPresentationDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalPresentationDelegate.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresentationDelegate.m; sourceTree = "<group>"; };
+		BC0437757828431938BD4911C7046C3E /* TFYPanModalHeight.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalHeight.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalHeight.h; sourceTree = "<group>"; };
 		BE26C0AB52A7187151E2CD6A9FC2A237 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		BE3F58B6ED9A3A3F8D4B2ED820F2FD0D /* TFYOCPanlModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYOCPanlModel.h; path = TFYOCPanModelDemo/TFYOCPanlModel/include/TFYOCPanlModel.h; sourceTree = "<group>"; };
+		C0B2EE06C5C2AC046410092E255FF699 /* TFYPresentingVCAnimatedTransitioning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPresentingVCAnimatedTransitioning.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPresentingVCAnimatedTransitioning.h; sourceTree = "<group>"; };
 		C0E14072990A06C28B095619CDFECCE7 /* Masonry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Masonry-Info.plist"; sourceTree = "<group>"; };
-		C16A77B789C213087C5E841267114A5D /* TFYPanIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanIndicatorView.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanIndicatorView.h; sourceTree = "<group>"; };
 		C172E3F53CCC68AA428E8D396D2779E4 /* UIView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MJExtension.m"; path = "MJRefresh/UIView+MJExtension.m"; sourceTree = "<group>"; };
 		C2362FFB65314652017014AE146EF81F /* TFYOCPanlModel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TFYOCPanlModel-dummy.m"; sourceTree = "<group>"; };
 		C23C30E525FED9D857E6DFEFAF5C05DE /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateHeader.m; path = MJRefresh/Custom/Header/MJRefreshStateHeader.m; sourceTree = "<group>"; };
 		C2981A6D6A8194CD79BF0D727A5C0557 /* TFYOCPanlModel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = TFYOCPanlModel.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C29AE52A0EC13C8F5B7E5943C9D93A7C /* TFYPanModalInteractiveAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalInteractiveAnimator.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalInteractiveAnimator.m; sourceTree = "<group>"; };
 		C2D17A44242025347D0FF04313C71EC5 /* Pods-TFYOCPanModelDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TFYOCPanModelDemo-Info.plist"; sourceTree = "<group>"; };
 		C3C149F6B08A1F76D76F627357285B1C /* MJRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.release.xcconfig; sourceTree = "<group>"; };
 		C4302227ED91FF186747152F16023CC1 /* MJRefreshConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConfig.m; path = MJRefresh/MJRefreshConfig.m; sourceTree = "<group>"; };
 		C485F193B96AAE8189A12BE7ED1C8D62 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJRefresh.h"; path = "MJRefresh/UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		C614CCAEAB74991DB4943407F4905100 /* TFYPopupBackgroundView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupBackgroundView.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupBackgroundView.h; sourceTree = "<group>"; };
 		C8C5DFE917182A26B55C1B693A91267D /* MJRefreshAutoGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoGifFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.m; sourceTree = "<group>"; };
 		CBA73E992A2A90CF8D5469D1C2612643 /* MJRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MJRefresh.modulemap; sourceTree = "<group>"; };
+		CBC7F3FFD9CAA48A66E419DD96F33712 /* TFYPanModalInteractiveAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalInteractiveAnimator.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalInteractiveAnimator.h; sourceTree = "<group>"; };
+		CC2897B13AEDA342290DDE26995169B4 /* TFYPopupBaseAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupBaseAnimator.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupBaseAnimator.m; sourceTree = "<group>"; };
 		CD11BF13A20F558FF9B6877568AAB75C /* Pods-TFYOCPanModelDemoTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TFYOCPanModelDemoTests.modulemap"; sourceTree = "<group>"; };
-		CD148B5D78FEA4540D73B53434AC8B77 /* UIViewController+LayoutHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+LayoutHelper.m"; path = "TFYOCPanModelDemo/TFYOCPanlModel/popController/UIViewController+LayoutHelper.m"; sourceTree = "<group>"; };
 		CD38EDBA7477BD6AE66ACBE9A06E942C /* TFYOCPanlModel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TFYOCPanlModel.modulemap; sourceTree = "<group>"; };
-		CE81069AC5E85FF78DFEABE2E5915C3C /* TFYPanModalContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalContainerView.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalContainerView.h; sourceTree = "<group>"; };
 		CFB49F6A55AC9C97CBB9AF193E0CA97F /* MJRefreshComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshComponent.m; path = MJRefresh/Base/MJRefreshComponent.m; sourceTree = "<group>"; };
 		D0024EDFC10E39A0FFA5C0988C6FB382 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
-		D02BD35D0BCB02808713D21359DC3507 /* TFYPanModalContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalContainerView.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalContainerView.m; sourceTree = "<group>"; };
-		D0E24817E9739B656249C4B4C1A66ADF /* TFYPanModalHeight.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalHeight.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalHeight.h; sourceTree = "<group>"; };
-		D11BB65D9070FCFCC75D2E3FB3E46DCD /* UIViewController+PanModalPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+PanModalPresenter.m"; path = "TFYOCPanModelDemo/TFYOCPanlModel/popController/UIViewController+PanModalPresenter.m"; sourceTree = "<group>"; };
+		D0060666200EE271BF7BDBE73BE0A117 /* TFYPanModalShadow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalShadow.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalShadow.m; sourceTree = "<group>"; };
 		D14DF3247357C4C208F00CDD44B91B51 /* Pods-TFYOCPanModelDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TFYOCPanModelDemo.release.xcconfig"; sourceTree = "<group>"; };
-		D1DFCF15602D2CF4EECB8C36491151D8 /* TFYPanModalFrequentTapPrevention.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalFrequentTapPrevention.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalFrequentTapPrevention.m; sourceTree = "<group>"; };
-		D1FDBA4E24F3B782E9B9A24D44F173A8 /* TFYPanModalPanGestureDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPanGestureDelegate.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPanGestureDelegate.h; sourceTree = "<group>"; };
-		D32E40EC5D698F4ED1E83E8F3106F248 /* TFYPanModalShadow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalShadow.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalShadow.h; sourceTree = "<group>"; };
 		D4277D8F0C9818FAC82121CBA51F37E8 /* MJRefresh.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = MJRefresh.bundle; path = MJRefresh/MJRefresh.bundle; sourceTree = "<group>"; };
 		D4658E43B1B12F5448D42D380C0C3A51 /* Masonry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.release.xcconfig; sourceTree = "<group>"; };
-		D528096F84D2B605A8655732D73B91B6 /* TFYDimmedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYDimmedView.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYDimmedView.h; sourceTree = "<group>"; };
 		D64C044AFB144D0EDDB152DD4FC6B91C /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
-		D7AC3B3822950209A482354B19D3D63F /* UIViewController+Presentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Presentation.h"; path = "TFYOCPanModelDemo/TFYOCPanlModel/popController/UIViewController+Presentation.h"; sourceTree = "<group>"; };
 		D8495228AFE580CB81AEA1964C3494DC /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
 		D8F0F92EC3A60EB33FBD53879D5C75E8 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-frameworks.sh"; sourceTree = "<group>"; };
+		D91CDB67A2395214BC3CC15E6B295D2D /* UIView+TFY_Frame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+TFY_Frame.h"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/Tools/UIView+TFY_Frame.h"; sourceTree = "<group>"; };
 		D95E077CA83C76FD15511B95EE277F00 /* Pods-TFYOCPanModelDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TFYOCPanModelDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		DAD5948D4E92F22F8BE69CCAA5F3F7AB /* TFYPopupAnimators.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupAnimators.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupAnimators.h; sourceTree = "<group>"; };
+		DAF39D1323276C3D21780E89A138E09F /* UIViewController+PanModalPresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+PanModalPresenter.m"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/UIViewController+PanModalPresenter.m"; sourceTree = "<group>"; };
+		DB0728570DD08275F50C79EB12D39DCD /* TFYPopupAnimators.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupAnimators.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupAnimators.m; sourceTree = "<group>"; };
+		DC9D943E7AF55FA6AC8DEB202C094753 /* UIScrollView+Helper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+Helper.h"; path = "TFYOCPanModelDemo/Sources/TFYOCPanlModel/Tools/UIScrollView+Helper.h"; sourceTree = "<group>"; };
 		DDA383418EC2624A2CED7AF8A96CF21A /* MJRefresh-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-umbrella.h"; sourceTree = "<group>"; };
-		DF1F39DB76BEFDCD21B408D4BFE8C948 /* TFYPopupAnimators.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupAnimators.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupAnimators.h; sourceTree = "<group>"; };
+		DE4C03BD6E5C115A0C9C5641F6D726C1 /* TFYVisualEffectView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYVisualEffectView.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYVisualEffectView.m; sourceTree = "<group>"; };
+		DEBB988DD12A9B9951A79BD9800B0FAF /* TFYPanModalPresentationDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalPresentationDelegate.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresentationDelegate.m; sourceTree = "<group>"; };
 		DF37145DF26DACDBC660D3B246FCAC2C /* UICollectionViewLayout+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UICollectionViewLayout+MJRefresh.h"; path = "MJRefresh/UICollectionViewLayout+MJRefresh.h"; sourceTree = "<group>"; };
 		DF6619D5A46EDDE9CF836625DB090F0F /* Pods-TFYOCPanModelDemoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TFYOCPanModelDemoTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		DFF47E7DA06A155EE77F6555896B51A2 /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackNormalFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
-		E0B0CB0D5C2B201722BA083C2BC378DD /* TFYPanContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanContainerView.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanContainerView.h; sourceTree = "<group>"; };
+		E3C3C328E3051FF6091FC5CC1C80BA02 /* TFYPanContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanContainerView.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanContainerView.m; sourceTree = "<group>"; };
 		E46F1E57529B20616290DB08892137EC /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifHeader.h; path = MJRefresh/Custom/Header/MJRefreshGifHeader.h; sourceTree = "<group>"; };
+		E4942CE0CBDFAABDEE0CCE74527D6895 /* TFYDimmedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYDimmedView.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYDimmedView.m; sourceTree = "<group>"; };
 		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJRefresh; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5FD876467FD4351F06F91E7716E6283 /* TFYPanModalPresenterProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresenterProtocol.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYPanModalPresenterProtocol.h; sourceTree = "<group>"; };
 		E8B03E525246B6FD9600BFEAF5A70063 /* MJRefreshAutoNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoNormalFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.m; sourceTree = "<group>"; };
 		E9D9C110FD0ED39A0E3D73E29102ED25 /* MJRefreshNormalTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshNormalTrailer.m; sourceTree = "<group>"; };
 		EA1871241A5A35FC404F0B85A5EB9F26 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
-		EA1B35EDD7FBAFE95526FAF91FCB5024 /* TFYBackgroundConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYBackgroundConfig.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYBackgroundConfig.m; sourceTree = "<group>"; };
 		ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		EE4EC9ADFD591DFA36BAC071920F1E58 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = MJRefresh/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		F174EEDFFB9F060E5454ADB95D653FEA /* TFYPopup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopup.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopup.h; sourceTree = "<group>"; };
-		F26FAA184D39C17E6FB9CC4B40189DE8 /* TFYPanModalPresentable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentable.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresentable.h; sourceTree = "<group>"; };
+		F0D6BFA9284E4F080C1D647C315C8979 /* TFYPopupContainerType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupContainerType.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupContainerType.m; sourceTree = "<group>"; };
 		F43911D8EC8CDBB34077AE9CEF82ADFF /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Masonry.modulemap; sourceTree = "<group>"; };
-		F56009ADEBB0B606C340283B458E4A9C /* TFYPanModalPresentationAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPanModalPresentationAnimator.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresentationAnimator.h; sourceTree = "<group>"; };
-		F5C8F1CD1D5A786EC7C62F87510D26FA /* TFYPopupViewAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupViewAnimator.h; path = TFYOCPanModelDemo/TFYOCPanlModel/popView/TFYPopupViewAnimator.h; sourceTree = "<group>"; };
-		F63763D7CE39FC5FCA33B672735B9A06 /* TFYPanModalPresentableHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalPresentableHandler.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalPresentableHandler.m; sourceTree = "<group>"; };
 		F66AED535AB582CD6A5A225B7D689292 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
+		F695DB1BB5743758BA47394270F6C0BB /* TFYPopupContainerConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPopupContainerConfiguration.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupContainerConfiguration.m; sourceTree = "<group>"; };
+		F766EF32D028551C7F0DC03427D91485 /* TFYBackgroundConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYBackgroundConfig.m; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popController/TFYBackgroundConfig.m; sourceTree = "<group>"; };
 		F8A57281D9B389D10E00D414C08EC1AB /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		F8A7AB63F60DFA318CC7FE4ECC447537 /* TFYPanModalShadow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TFYPanModalShadow.m; path = TFYOCPanModelDemo/TFYOCPanlModel/popController/TFYPanModalShadow.m; sourceTree = "<group>"; };
 		F8B049EB251E2555D8FE9FE145DD7F17 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		FAD2087F020A1D09D1E591BAB91DDC5E /* TFYPopupKeyboardConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TFYPopupKeyboardConfiguration.h; path = TFYOCPanModelDemo/Sources/TFYOCPanlModel/popView/TFYPopupKeyboardConfiguration.h; sourceTree = "<group>"; };
 		FD17EBCABFE5470017C897013E1B0A50 /* NSBundle+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+MJRefresh.m"; path = "MJRefresh/NSBundle+MJRefresh.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -532,6 +532,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09EFD31CE1DC02DAB3D75A6955BC696B /* popView */ = {
+			isa = PBXGroup;
+			children = (
+				82E59ACD658C2C2D8C77BAF471F88BA4 /* TFYPopup.h */,
+				B419CB29627C70B420F560EC6FC4CB3C /* TFYPopup.m */,
+				82308071966AC9D616E13686F164ABCF /* TFYPopupAnimatorLayout.h */,
+				49D68B6DB2C87BCABF07421F936479F1 /* TFYPopupAnimatorLayout.m */,
+				DAD5948D4E92F22F8BE69CCAA5F3F7AB /* TFYPopupAnimators.h */,
+				DB0728570DD08275F50C79EB12D39DCD /* TFYPopupAnimators.m */,
+				C614CCAEAB74991DB4943407F4905100 /* TFYPopupBackgroundView.h */,
+				80E7667AF9B2FA23BBFACEC7A5C847B5 /* TFYPopupBackgroundView.m */,
+				908C67D4A88F3F5320531C18888285EC /* TFYPopupBaseAnimator.h */,
+				CC2897B13AEDA342290DDE26995169B4 /* TFYPopupBaseAnimator.m */,
+				7FCAB7685A7A9E75DF7D178F391E9D19 /* TFYPopupBottomSheetAnimator.h */,
+				3873B4171E740086FBA2C6B97928A6EE /* TFYPopupBottomSheetAnimator.m */,
+				8C2A5A1157AECAA41AA13A166A4A6847 /* TFYPopupContainerConfiguration.h */,
+				F695DB1BB5743758BA47394270F6C0BB /* TFYPopupContainerConfiguration.m */,
+				63EB028468357F52A0D7CB950FBB1AEF /* TFYPopupContainerManager.h */,
+				9170905FDC387437A91924E1CAC7CCE5 /* TFYPopupContainerManager.m */,
+				62C5B7602A95DBB53171DC8A6FFA97C8 /* TFYPopupContainerType.h */,
+				F0D6BFA9284E4F080C1D647C315C8979 /* TFYPopupContainerType.m */,
+				FAD2087F020A1D09D1E591BAB91DDC5E /* TFYPopupKeyboardConfiguration.h */,
+				28127BE54DE498AF8F060C42BB0AC7B0 /* TFYPopupKeyboardConfiguration.m */,
+				7A372F8C516C467960030BE33041DD63 /* TFYPopupPriorityManager.h */,
+				275A8B6F7FC4E04EF39233717F2B23BB /* TFYPopupPriorityManager.m */,
+				46F80ADA3F99BD7F3E6A09FF025A66F5 /* TFYPopupView.h */,
+				38F2D4CFFA70BB1BF7EEC344091C1A9C /* TFYPopupView.m */,
+				513517F49C4CF62E9258DDF0A535FE15 /* TFYPopupViewAnimator.h */,
+				5F152E7475E94BC1136377EB4864008C /* TFYPopupViewConfiguration.h */,
+				06C4E2905A46FF7F40995D119B349299 /* TFYPopupViewConfiguration.m */,
+				2A837922CE2356A663ACF415A99CDB2D /* TFYPopupViewDelegate.h */,
+			);
+			name = popView;
+			sourceTree = "<group>";
+		};
 		106950F7A81571224921C59D527C0E16 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,6 +580,19 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Masonry";
+			sourceTree = "<group>";
+		};
+		1258FFFE473CE533D49A9403EDD0BCA2 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2ABC5AD25906408EE05A91F6EF8D50C6 /* KeyValueObserver.h */,
+				58B3591FF447BE4E73964223CB7681C7 /* KeyValueObserver.m */,
+				DC9D943E7AF55FA6AC8DEB202C094753 /* UIScrollView+Helper.h */,
+				10EE73392CC7BB70BF135DB7600CF9F0 /* UIScrollView+Helper.m */,
+				D91CDB67A2395214BC3CC15E6B295D2D /* UIView+TFY_Frame.h */,
+				3BA9554767E68D3A9D3EB496E50F3255 /* UIView+TFY_Frame.m */,
+			);
+			name = Tools;
 			sourceTree = "<group>";
 		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
@@ -579,41 +627,6 @@
 			);
 			name = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests";
 			path = "Target Support Files/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests";
-			sourceTree = "<group>";
-		};
-		37CE61B7C73C2F8FBFFDED71420CEB30 /* popView */ = {
-			isa = PBXGroup;
-			children = (
-				F174EEDFFB9F060E5454ADB95D653FEA /* TFYPopup.h */,
-				B9E0F595E2E2D619CA43133464FEF24D /* TFYPopup.m */,
-				83F3869FD7948035C38E70568F661C9C /* TFYPopupAnimatorLayout.h */,
-				47C4AF3B56699EEDFF49C3157218D6A1 /* TFYPopupAnimatorLayout.m */,
-				DF1F39DB76BEFDCD21B408D4BFE8C948 /* TFYPopupAnimators.h */,
-				B3F7678CDD00608E424EB271E537637F /* TFYPopupAnimators.m */,
-				190E3CC0DDB0404C890853308F311571 /* TFYPopupBackgroundView.h */,
-				79FF7778EC197F158FBE4218CE0FA2BE /* TFYPopupBackgroundView.m */,
-				B44857B1979651AABF6CCCA19F1A2FB0 /* TFYPopupBaseAnimator.h */,
-				86ABB0D3F8A49667B06C371C935D56EC /* TFYPopupBaseAnimator.m */,
-				6C0A07FB6F912DC6735D883CFBC9F76E /* TFYPopupBottomSheetAnimator.h */,
-				92118AC8F0E29AEA8D42EA9B1302B48D /* TFYPopupBottomSheetAnimator.m */,
-				9979BE92CD7649CA8DCA323D3DD9D41C /* TFYPopupContainerConfiguration.h */,
-				034E53BAA4816693DDD2DB43AD833905 /* TFYPopupContainerConfiguration.m */,
-				580674F387B16A5DBB2F5477E0FF83B7 /* TFYPopupContainerManager.h */,
-				9A30157DB096460BD939E20DA106342D /* TFYPopupContainerManager.m */,
-				1B1BFBD966F6330DF772301170E56C23 /* TFYPopupContainerType.h */,
-				4F6EDCB32728D799AFF3333214BF84E5 /* TFYPopupContainerType.m */,
-				2BD735ACB4501EA339B172BFE9F10012 /* TFYPopupKeyboardConfiguration.h */,
-				6899A06E8521E7B3F0044A0629CB8985 /* TFYPopupKeyboardConfiguration.m */,
-				95DE13098689CFCDFA84CBF23492816A /* TFYPopupPriorityManager.h */,
-				11EAE6B0B7978629134DE23B848D50A2 /* TFYPopupPriorityManager.m */,
-				622A18EC5E6995558C162D72B95FF396 /* TFYPopupView.h */,
-				4BAC3C5F1635BC7E85CD78462C65F37C /* TFYPopupView.m */,
-				F5C8F1CD1D5A786EC7C62F87510D26FA /* TFYPopupViewAnimator.h */,
-				31D539ED2232DF1177914B4DE8AB00E3 /* TFYPopupViewConfiguration.h */,
-				B51A50DB7A869C6D0E976F9B05428AD0 /* TFYPopupViewConfiguration.m */,
-				19EECEDA109478C0C8B413A73C1E5215 /* TFYPopupViewDelegate.h */,
-			);
-			name = popView;
 			sourceTree = "<group>";
 		};
 		40CBA504C681BB3DA15BB1287CF827CB /* Targets Support Files */ = {
@@ -657,6 +670,14 @@
 			);
 			name = "Pods-TFYOCPanModelDemo";
 			path = "Target Support Files/Pods-TFYOCPanModelDemo";
+			sourceTree = "<group>";
+		};
+		602B5218C8594B4187151DA5FF7CCAA6 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4C28D72ED7839A015D614619349624EE /* TFYOCPanlModel.h */,
+			);
+			name = include;
 			sourceTree = "<group>";
 		};
 		6126231334DCE433620AAD81EC929D1E /* Development Pods */ = {
@@ -710,19 +731,6 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
-		7CA7641FAB987C8761C9A4228DABC7F6 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				9D009125FBFC53F9FD08CA9B03981A88 /* KeyValueObserver.h */,
-				A416EC69166CB985E6F112D7D165D1A2 /* KeyValueObserver.m */,
-				658B7E40A571399C2C1E86367B730EE0 /* UIScrollView+Helper.h */,
-				1274BD5455474EDF3C6EE7C77C084997 /* UIScrollView+Helper.m */,
-				1A14B50BF495FD917B65CB306AABBD5A /* UIView+TFY_Frame.h */,
-				5B16508F6DE8B798CA73B7325C59DB52 /* UIView+TFY_Frame.m */,
-			);
-			name = Tools;
-			sourceTree = "<group>";
-		};
 		9E215FC45FBC7C2D77220135285CABC8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -736,14 +744,6 @@
 			);
 			name = "Support Files";
 			path = "Pods/Target Support Files/TFYOCPanlModel";
-			sourceTree = "<group>";
-		};
-		AEA32BB8278A54352E778D3CB9E8DFBE /* include */ = {
-			isa = PBXGroup;
-			children = (
-				BE3F58B6ED9A3A3F8D4B2ED820F2FD0D /* TFYOCPanlModel.h */,
-			);
-			name = include;
 			sourceTree = "<group>";
 		};
 		BCA223DCA148ED07DA95A0CF7FFCE80E /* Pods-TFYOCPanModelDemoTests */ = {
@@ -859,12 +859,12 @@
 		E2DEACE0D2D5F5123C9D06AE5BBB16BE /* TFYOCPanlModel */ = {
 			isa = PBXGroup;
 			children = (
-				AEA32BB8278A54352E778D3CB9E8DFBE /* include */,
+				602B5218C8594B4187151DA5FF7CCAA6 /* include */,
 				E8273DA8049326B559BF8CA75D6ACF51 /* Pod */,
-				EB206122AE5CFF73272A9DEF01AF979A /* popController */,
-				37CE61B7C73C2F8FBFFDED71420CEB30 /* popView */,
+				EC7CB8D637A41D8DC8A66BA2BF14D757 /* popController */,
+				09EFD31CE1DC02DAB3D75A6955BC696B /* popView */,
 				9E215FC45FBC7C2D77220135285CABC8 /* Support Files */,
-				7CA7641FAB987C8761C9A4228DABC7F6 /* Tools */,
+				1258FFFE473CE533D49A9403EDD0BCA2 /* Tools */,
 			);
 			name = TFYOCPanlModel;
 			path = ..;
@@ -880,58 +880,58 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		EB206122AE5CFF73272A9DEF01AF979A /* popController */ = {
+		EC7CB8D637A41D8DC8A66BA2BF14D757 /* popController */ = {
 			isa = PBXGroup;
 			children = (
-				9955612FFE1F52B93F37A23FF474784A /* TFYBackgroundConfig.h */,
-				EA1B35EDD7FBAFE95526FAF91FCB5024 /* TFYBackgroundConfig.m */,
-				D528096F84D2B605A8655732D73B91B6 /* TFYDimmedView.h */,
-				3F4297CFEEBEFB0E9F750C26A540BF44 /* TFYDimmedView.m */,
-				915D2AAA9EC26A218E71535EA03C7D87 /* TFYPageSheetPresentingAnimation.h */,
-				97CB39963ABD349F47E34AFE6273821B /* TFYPageSheetPresentingAnimation.m */,
-				E0B0CB0D5C2B201722BA083C2BC378DD /* TFYPanContainerView.h */,
-				76213393019AD033E29C1D0412E9FE48 /* TFYPanContainerView.m */,
-				C16A77B789C213087C5E841267114A5D /* TFYPanIndicatorView.h */,
-				6C4181EE2DCCF30479986967372E245A /* TFYPanIndicatorView.m */,
-				90A0DDC2A394C0F9EDD513F664D96260 /* TFYPanModalAnimator.h */,
-				1A11FADD0B9F399FBF6B0B2052BD84CE /* TFYPanModalAnimator.m */,
-				CE81069AC5E85FF78DFEABE2E5915C3C /* TFYPanModalContainerView.h */,
-				D02BD35D0BCB02808713D21359DC3507 /* TFYPanModalContainerView.m */,
-				AE6AF425D5D2F013FCDD637C91CF690C /* TFYPanModalContentView.h */,
-				2DEEAE0E22BBF1EE3C7EF3762243E45A /* TFYPanModalContentView.m */,
-				879BCCE878486E7C0239E63E476378D7 /* TFYPanModalFrequentTapPrevention.h */,
-				D1DFCF15602D2CF4EECB8C36491151D8 /* TFYPanModalFrequentTapPrevention.m */,
-				D0E24817E9739B656249C4B4C1A66ADF /* TFYPanModalHeight.h */,
-				3B2E894C40652586063A08B9C20EAB53 /* TFYPanModalIndicatorProtocol.h */,
-				6B91C6AB58054791443088E5376572E7 /* TFYPanModalInteractiveAnimator.h */,
-				C29AE52A0EC13C8F5B7E5943C9D93A7C /* TFYPanModalInteractiveAnimator.m */,
-				D1FDBA4E24F3B782E9B9A24D44F173A8 /* TFYPanModalPanGestureDelegate.h */,
-				F26FAA184D39C17E6FB9CC4B40189DE8 /* TFYPanModalPresentable.h */,
-				AFF7289AF02FF7A3FCA577E9120B71A2 /* TFYPanModalPresentableHandler.h */,
-				F63763D7CE39FC5FCA33B672735B9A06 /* TFYPanModalPresentableHandler.m */,
-				F56009ADEBB0B606C340283B458E4A9C /* TFYPanModalPresentationAnimator.h */,
-				0D3BA470393B57B41416B485F8F8A2B6 /* TFYPanModalPresentationAnimator.m */,
-				94F7A4897AA9EA55C77C1BEC06E6B8C0 /* TFYPanModalPresentationController.h */,
-				2940EF26E36DB1748C7E423930C127E5 /* TFYPanModalPresentationController.m */,
-				5015F6394655AC7238752EF8263A7D2A /* TFYPanModalPresentationDelegate.h */,
-				BB97795C4B78D22C78E939C7C42B6308 /* TFYPanModalPresentationDelegate.m */,
-				17A46AE4914EA57934891569CC733AF0 /* TFYPanModalPresentationUpdateProtocol.h */,
-				AC04124847C11F7ECB145DB29A7A3D38 /* TFYPanModalPresenterProtocol.h */,
-				D32E40EC5D698F4ED1E83E8F3106F248 /* TFYPanModalShadow.h */,
-				F8A7AB63F60DFA318CC7FE4ECC447537 /* TFYPanModalShadow.m */,
-				3570E629845A2B703B2FA7DB52AA0CB8 /* TFYPresentingVCAnimatedTransitioning.h */,
-				9E55FA4A37C4A40DC0C884CD72DA43B7 /* TFYShoppingCartPresentingAnimation.h */,
-				461BD3FD569DFBA814FDFEA82004CE99 /* TFYShoppingCartPresentingAnimation.m */,
-				07B4B53BF5E2E64C4625AC9310567EB6 /* TFYVisualEffectView.h */,
-				1C903D27FED67C49B5AFBDD3302ABB60 /* TFYVisualEffectView.m */,
-				3E4B43284C7A89244C55608F7E60674F /* UIViewController+LayoutHelper.h */,
-				CD148B5D78FEA4540D73B53434AC8B77 /* UIViewController+LayoutHelper.m */,
-				8E4602689716E86814068ED8D814F611 /* UIViewController+PanModalDefault.h */,
-				B6377D25FBD708C62C4189E1625854FE /* UIViewController+PanModalDefault.m */,
-				507132A37F47A331B2BC9E3B94C14494 /* UIViewController+PanModalPresenter.h */,
-				D11BB65D9070FCFCC75D2E3FB3E46DCD /* UIViewController+PanModalPresenter.m */,
-				D7AC3B3822950209A482354B19D3D63F /* UIViewController+Presentation.h */,
-				95DF597759DF860ED0AE36A2D6B63E21 /* UIViewController+Presentation.m */,
+				86EAF837559F6EC1F17BA612C354BB85 /* TFYBackgroundConfig.h */,
+				F766EF32D028551C7F0DC03427D91485 /* TFYBackgroundConfig.m */,
+				3F7D12FB09C457E40210E4DA90285471 /* TFYDimmedView.h */,
+				E4942CE0CBDFAABDEE0CCE74527D6895 /* TFYDimmedView.m */,
+				8C7F360A72CEA0E688566DD1E700FBAC /* TFYPageSheetPresentingAnimation.h */,
+				9317BD3928C45AB3CC8F26078F839C10 /* TFYPageSheetPresentingAnimation.m */,
+				77CD657B22EF34C5F9E71D0750A9B339 /* TFYPanContainerView.h */,
+				E3C3C328E3051FF6091FC5CC1C80BA02 /* TFYPanContainerView.m */,
+				A39C8D36F6B84DB5CB28D4CB02FECDA5 /* TFYPanIndicatorView.h */,
+				28EDB3D353BAF74586033B1C1B2C5FE7 /* TFYPanIndicatorView.m */,
+				A2F921192F49481EA1C2B988F9AAD946 /* TFYPanModalAnimator.h */,
+				A5A86AE691EA0E6BBEB8D3A9B0BB75CA /* TFYPanModalAnimator.m */,
+				B08CCF9D1A22AF7B4AA936EFCADB3E77 /* TFYPanModalContainerView.h */,
+				100FA0B36A3E99EE08E0C2667E866392 /* TFYPanModalContainerView.m */,
+				10A72C4300DDFAF364BA6ACECD321B29 /* TFYPanModalContentView.h */,
+				838A977CFBBAD80303AD99D821B3B903 /* TFYPanModalContentView.m */,
+				A6C0C48EAA3E9299EBCEFCEC36DC443F /* TFYPanModalFrequentTapPrevention.h */,
+				0BD7B607A8F2ACE475F2E9318C189D75 /* TFYPanModalFrequentTapPrevention.m */,
+				BC0437757828431938BD4911C7046C3E /* TFYPanModalHeight.h */,
+				002C750C96DE82CBCDAA5D9EC62BB866 /* TFYPanModalIndicatorProtocol.h */,
+				CBC7F3FFD9CAA48A66E419DD96F33712 /* TFYPanModalInteractiveAnimator.h */,
+				44AD411A1F28FB77C4063E01250F2F3F /* TFYPanModalInteractiveAnimator.m */,
+				5C69BA5DD1E0E35730B920DCF49FA9C8 /* TFYPanModalPanGestureDelegate.h */,
+				6563D499A45D64E9C81AAB18DD3F0F67 /* TFYPanModalPresentable.h */,
+				ACFEB68AF68BCDB5420E64E6EB487C10 /* TFYPanModalPresentableHandler.h */,
+				9E63C1EA6A51CCBF36B160F71D63CFC7 /* TFYPanModalPresentableHandler.m */,
+				247EEABFCCEF45A0734CF4D5CCF33858 /* TFYPanModalPresentationAnimator.h */,
+				510F644F8AD1729212C73BAE76BE96BA /* TFYPanModalPresentationAnimator.m */,
+				288C7157A2D7DA946F28CA6B98267CE0 /* TFYPanModalPresentationController.h */,
+				4F6EA06023EDC9957F6C197A36DF1DB6 /* TFYPanModalPresentationController.m */,
+				77AC71385592CBD978C75D0303CDAAAB /* TFYPanModalPresentationDelegate.h */,
+				DEBB988DD12A9B9951A79BD9800B0FAF /* TFYPanModalPresentationDelegate.m */,
+				224DD959CFD666F16CF844F94007BEC8 /* TFYPanModalPresentationUpdateProtocol.h */,
+				E5FD876467FD4351F06F91E7716E6283 /* TFYPanModalPresenterProtocol.h */,
+				6B4D346F2C7E252B98214B32BDCF9085 /* TFYPanModalShadow.h */,
+				D0060666200EE271BF7BDBE73BE0A117 /* TFYPanModalShadow.m */,
+				C0B2EE06C5C2AC046410092E255FF699 /* TFYPresentingVCAnimatedTransitioning.h */,
+				3826137D38E01A291D20C1B952D53C5F /* TFYShoppingCartPresentingAnimation.h */,
+				79E2A855569AD125BB05CA6CD76CE805 /* TFYShoppingCartPresentingAnimation.m */,
+				4E8E1CFD72E86E0033F84B1DE61C1AF3 /* TFYVisualEffectView.h */,
+				DE4C03BD6E5C115A0C9C5641F6D726C1 /* TFYVisualEffectView.m */,
+				391B0985370CA962B0AEBD9C8C4B30E6 /* UIViewController+LayoutHelper.h */,
+				85D2F4010AD287059D96FE8B47F495DF /* UIViewController+LayoutHelper.m */,
+				6F5B83FC0BDB623E2E796606B254981A /* UIViewController+PanModalDefault.h */,
+				617C2A8C52C24E242A91D88406148115 /* UIViewController+PanModalDefault.m */,
+				4CE2527E865861B1FFC97D5E8CF2ECF6 /* UIViewController+PanModalPresenter.h */,
+				DAF39D1323276C3D21780E89A138E09F /* UIViewController+PanModalPresenter.m */,
+				69456D30CD3710D97BB7C2034846DF5B /* UIViewController+Presentation.h */,
+				7E38922E0EDB113037882E5D7D1882E3 /* UIViewController+Presentation.m */,
 			);
 			name = popController;
 			sourceTree = "<group>";
@@ -943,54 +943,54 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3C06471549FEE9CE6651C030B0E2BDC /* KeyValueObserver.h in Headers */,
-				B74DFC6E210B43A5A74FE6956C4186B8 /* TFYBackgroundConfig.h in Headers */,
-				E4868238DB85E000367C6691D56C22D5 /* TFYDimmedView.h in Headers */,
-				907F61FB3E118832B55DFB8A859E66F2 /* TFYOCPanlModel.h in Headers */,
+				4AB8E3D99E8CFE2D9810CC0D65E8EBCB /* KeyValueObserver.h in Headers */,
+				1783958E3AF364329A5559FB35E917C7 /* TFYBackgroundConfig.h in Headers */,
+				338D99D2D233051BE50C5FCE13885BB4 /* TFYDimmedView.h in Headers */,
+				502E3EB4666D6BBC292360E58D44182C /* TFYOCPanlModel.h in Headers */,
 				396532FA6C9DE4A9D595C3AF43AF42DE /* TFYOCPanlModel-umbrella.h in Headers */,
-				60137737C11E7F8D8C3691CBBD67DDCF /* TFYPageSheetPresentingAnimation.h in Headers */,
-				0D8D92E839C9C3EF986B8F2DF962DB94 /* TFYPanContainerView.h in Headers */,
-				4CDC6473AEF547A235C6B7EBA27258F0 /* TFYPanIndicatorView.h in Headers */,
-				3FDCE287359D369AB07478BCE9171460 /* TFYPanModalAnimator.h in Headers */,
-				94AE71C97E848EC54F670499C90B4BCC /* TFYPanModalContainerView.h in Headers */,
-				5FFE1FBF29D6D16B2A5E9E3DE3608E34 /* TFYPanModalContentView.h in Headers */,
-				854605D0955FE7C8FB29FCCD7215B02D /* TFYPanModalFrequentTapPrevention.h in Headers */,
-				1A2C533E0DEE45387DB7596CADBFE4D8 /* TFYPanModalHeight.h in Headers */,
-				C72B5E21C4D4E46EA055C541DB37A410 /* TFYPanModalIndicatorProtocol.h in Headers */,
-				121E458055CB02757DAF611E793DC541 /* TFYPanModalInteractiveAnimator.h in Headers */,
-				9AB6E6994C97DE072664AB9447DE7AA9 /* TFYPanModalPanGestureDelegate.h in Headers */,
-				EA76878D50CB36571C175CDFCD94FE3E /* TFYPanModalPresentable.h in Headers */,
-				B96F776190268C967182668FEEB8EA48 /* TFYPanModalPresentableHandler.h in Headers */,
-				09EF3FFD190D83B6E9BB8A3FD38406B0 /* TFYPanModalPresentationAnimator.h in Headers */,
-				C5CEE342B4ED1EBB6AE3D00FA7D1889D /* TFYPanModalPresentationController.h in Headers */,
-				1C749B8AD89E1ECC61BB52A5428C4D1E /* TFYPanModalPresentationDelegate.h in Headers */,
-				51C52EB8F68305B2DA6EBA3853E64611 /* TFYPanModalPresentationUpdateProtocol.h in Headers */,
-				7E90F4C7475950FEE354B2DB16A0671D /* TFYPanModalPresenterProtocol.h in Headers */,
-				456FDDD9F8CA633EC681E7BBE7465245 /* TFYPanModalShadow.h in Headers */,
-				4F810650FD8B340A06333D4AD27822AC /* TFYPopup.h in Headers */,
-				BB35718BBFECAA6CBF280A882A4CFB82 /* TFYPopupAnimatorLayout.h in Headers */,
-				D8CDFA4EAAA96B4FA5F63902BB31BABD /* TFYPopupAnimators.h in Headers */,
-				4C8DDE011B01FCB4F68DA6427244BC04 /* TFYPopupBackgroundView.h in Headers */,
-				33CF9CEAD84F80E27688A385B6AEE75A /* TFYPopupBaseAnimator.h in Headers */,
-				733E5AFB746D6710D4F88BD97A28C874 /* TFYPopupBottomSheetAnimator.h in Headers */,
-				8FE38B1FCEA155D1B4407B8158D779A0 /* TFYPopupContainerConfiguration.h in Headers */,
-				E68EDCC1E131C5B12BF504025E63DF66 /* TFYPopupContainerManager.h in Headers */,
-				23509B9006A07C93CB51CFD5E3FF674E /* TFYPopupContainerType.h in Headers */,
-				B05FC7043196C1403CB80AF660036F8B /* TFYPopupKeyboardConfiguration.h in Headers */,
-				64E581C1D18401A62E268BEBA5D4B530 /* TFYPopupPriorityManager.h in Headers */,
-				01FF466C7BB12C4626B633685F2256B1 /* TFYPopupView.h in Headers */,
-				5ED59009BF3E98E70BECEC0B55DCD352 /* TFYPopupViewAnimator.h in Headers */,
-				0756026D833649E4011CDF6A602DE459 /* TFYPopupViewConfiguration.h in Headers */,
-				ED07DAD1185C00EAC0E36D4ACD4C25AD /* TFYPopupViewDelegate.h in Headers */,
-				755AF6B467A7F15540C1D4E8B14BB203 /* TFYPresentingVCAnimatedTransitioning.h in Headers */,
-				E8E8CD20E137F2CCDF6B8CDD363DAEB9 /* TFYShoppingCartPresentingAnimation.h in Headers */,
-				D814E619A11B250DEED7F5337AA81F89 /* TFYVisualEffectView.h in Headers */,
-				69581D854D3FC6F6B42E27C6EADEB4B9 /* UIScrollView+Helper.h in Headers */,
-				40F70E3641D6F1EE5D2C8FE0640FE9B7 /* UIView+TFY_Frame.h in Headers */,
-				0E153191497BE56CD8C66DF946A9360D /* UIViewController+LayoutHelper.h in Headers */,
-				56D56E1C625263FF9E8A48F8D08A28C0 /* UIViewController+PanModalDefault.h in Headers */,
-				B99968D8B775692CFC83F2DD9D0D2FEE /* UIViewController+PanModalPresenter.h in Headers */,
-				1E5B62F09FF5F555B7BEBA216CF97E34 /* UIViewController+Presentation.h in Headers */,
+				5A9A6AB0EFF625867AE1EDBBAD55CEF9 /* TFYPageSheetPresentingAnimation.h in Headers */,
+				A674DB6A357131D8FF93323D2DCD297D /* TFYPanContainerView.h in Headers */,
+				52D6071D05941410628F5639D663D005 /* TFYPanIndicatorView.h in Headers */,
+				EF0A84887073A0EBB15D91F195483AD8 /* TFYPanModalAnimator.h in Headers */,
+				E0F5E8A9B217698E8EEEDE3586567084 /* TFYPanModalContainerView.h in Headers */,
+				8D8F3C1AE72403CD874F78F205B1F6C6 /* TFYPanModalContentView.h in Headers */,
+				5752954B8E5A6A4F9693A5BA76CB423B /* TFYPanModalFrequentTapPrevention.h in Headers */,
+				BAF9B12DA5D630687E999CFDB264BE56 /* TFYPanModalHeight.h in Headers */,
+				40B6277BC41FBC3FA36234CFF24FC882 /* TFYPanModalIndicatorProtocol.h in Headers */,
+				92A160DAF21136974B0DC35D5FA1F318 /* TFYPanModalInteractiveAnimator.h in Headers */,
+				EBE59A023EAF95106CD49A94C35D5E5B /* TFYPanModalPanGestureDelegate.h in Headers */,
+				9EF1778C7984142F92599962B2C47297 /* TFYPanModalPresentable.h in Headers */,
+				39E80E580F5EDA3BA57B6DB957D62F1E /* TFYPanModalPresentableHandler.h in Headers */,
+				616B504DE09ADDDC4E5B8A5E62CEFA82 /* TFYPanModalPresentationAnimator.h in Headers */,
+				F4D2E29D3C73F3C67754A0E4C35102CB /* TFYPanModalPresentationController.h in Headers */,
+				0CA0AF37180595137E41E9AE0E4AF59B /* TFYPanModalPresentationDelegate.h in Headers */,
+				864C1DC664D3DD2BF5692CC0BE50CCAA /* TFYPanModalPresentationUpdateProtocol.h in Headers */,
+				5D20303EEB96B2E18A960BCEE37CA4E2 /* TFYPanModalPresenterProtocol.h in Headers */,
+				417E2AF6A0FB87B249A656AC9C0D34B7 /* TFYPanModalShadow.h in Headers */,
+				72DC4C15D5AA120540954A36FF75EAFF /* TFYPopup.h in Headers */,
+				98E355D20C492D59F65A767CCBAF32A1 /* TFYPopupAnimatorLayout.h in Headers */,
+				49C2F3B7E4FCB1439B2A1A322E963CDD /* TFYPopupAnimators.h in Headers */,
+				BD7168A8CA842FF34FEE8BD0CF8DAE8D /* TFYPopupBackgroundView.h in Headers */,
+				48BEAE255A151B2BDC729D221A0A065D /* TFYPopupBaseAnimator.h in Headers */,
+				FB37810E39F7E1225CF3BC6122498B5A /* TFYPopupBottomSheetAnimator.h in Headers */,
+				63132E9462637B0743A2AAA695B4A175 /* TFYPopupContainerConfiguration.h in Headers */,
+				05B144906DF7F928D1D44EEFB3218664 /* TFYPopupContainerManager.h in Headers */,
+				E99040066A7062A60AAA0006CA94B966 /* TFYPopupContainerType.h in Headers */,
+				B65CE8CFD2DB0E1D48A07C1FD2A3EA95 /* TFYPopupKeyboardConfiguration.h in Headers */,
+				6B0AD1E4E94DC13EBF91EDC060981B0C /* TFYPopupPriorityManager.h in Headers */,
+				B4675631005CDB81EAF1BB3338A77D76 /* TFYPopupView.h in Headers */,
+				D6BA57D894C996D58C62CD5C03E436AA /* TFYPopupViewAnimator.h in Headers */,
+				7848D67A8D61735109996C53F94EED6E /* TFYPopupViewConfiguration.h in Headers */,
+				C0D15301DA9E828392B4163F8F07A82A /* TFYPopupViewDelegate.h in Headers */,
+				2C167C9ADCCA0B7AC55252C2E8C5A634 /* TFYPresentingVCAnimatedTransitioning.h in Headers */,
+				C36B1CA71BCC5661A192D7242B85FFE5 /* TFYShoppingCartPresentingAnimation.h in Headers */,
+				2AB9198E6FF0EA4BEC8ACC593EF43179 /* TFYVisualEffectView.h in Headers */,
+				A051BD6F6F47E70B5712D45907CF57E2 /* UIScrollView+Helper.h in Headers */,
+				408E633AC53FC7C5CA5C16C3928B0EF6 /* UIView+TFY_Frame.h in Headers */,
+				6F9C290414F59D2785CC036AFCB023F6 /* UIViewController+LayoutHelper.h in Headers */,
+				1E62C835642C5BF2CB7EB196D52037A0 /* UIViewController+PanModalDefault.h in Headers */,
+				AE369BE3533180BD3588164DEC77E626 /* UIViewController+PanModalPresenter.h in Headers */,
+				AB5FB1CC341AEC37711C6D75BA1A9484 /* UIViewController+Presentation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1305,44 +1305,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5AC7071722F86017AB015D46B08B946 /* KeyValueObserver.m in Sources */,
-				74D47FC62441B23EF3CB9A4B9D0CA334 /* TFYBackgroundConfig.m in Sources */,
-				3E010CB1943286B6289F3FA435A2684D /* TFYDimmedView.m in Sources */,
+				043B3293127443391A99AC3FA57F13E6 /* KeyValueObserver.m in Sources */,
+				ADF5DB7F70E521AFCC03D804E674A411 /* TFYBackgroundConfig.m in Sources */,
+				1A7DDCB9A6F1AB24578875E75C4B1381 /* TFYDimmedView.m in Sources */,
 				8780D7B780FC1D4E06232C4EDA6BAC87 /* TFYOCPanlModel-dummy.m in Sources */,
-				E569BA62A593FF97F7CCA537421E5D14 /* TFYPageSheetPresentingAnimation.m in Sources */,
-				1AE0E3F7E5BD7E25F2894B7B49267F22 /* TFYPanContainerView.m in Sources */,
-				6A995DF1BB8A501A5994277080858818 /* TFYPanIndicatorView.m in Sources */,
-				B0D29A884A4937434F585FDE2DCB8010 /* TFYPanModalAnimator.m in Sources */,
-				BFB4A46AD6AAFF5E567F6BF0A317908E /* TFYPanModalContainerView.m in Sources */,
-				75316202D5F0099A98F68D1E014DB60D /* TFYPanModalContentView.m in Sources */,
-				B532906AA3BE072B28958DB65DAA7249 /* TFYPanModalFrequentTapPrevention.m in Sources */,
-				68A869CFEC788445460F05FFDA81161C /* TFYPanModalInteractiveAnimator.m in Sources */,
-				8E61CCBC5AAF5BC1BD337B8F25F43E74 /* TFYPanModalPresentableHandler.m in Sources */,
-				62037B92A611F82FF2296DD5D10B213A /* TFYPanModalPresentationAnimator.m in Sources */,
-				EC59237C04B60B608648BAD0F57A211A /* TFYPanModalPresentationController.m in Sources */,
-				5A4536F6098070F5774024DF7A0FD96D /* TFYPanModalPresentationDelegate.m in Sources */,
-				ECDE2FDD93299F0ADC34AF2396E2851E /* TFYPanModalShadow.m in Sources */,
-				6618702B5F5F68CEF6D917D17C29E84D /* TFYPopup.m in Sources */,
-				C526C8230E289DF16CCE69DB2FAF9374 /* TFYPopupAnimatorLayout.m in Sources */,
-				62F364122E3E4F6F548A0057C6C8E57A /* TFYPopupAnimators.m in Sources */,
-				55897F39139536A6A657122AB565518D /* TFYPopupBackgroundView.m in Sources */,
-				63F5D07ECB027DD94682B062734DA722 /* TFYPopupBaseAnimator.m in Sources */,
-				497648BDB68FC1A19BC5C8359FC91D98 /* TFYPopupBottomSheetAnimator.m in Sources */,
-				1BB144078490C86795E0558B63D7AA7E /* TFYPopupContainerConfiguration.m in Sources */,
-				E8936949F84C1139BB78DF3D69CAF541 /* TFYPopupContainerManager.m in Sources */,
-				C1A423870C061EE696FF33C8ED61D778 /* TFYPopupContainerType.m in Sources */,
-				9E6DC527BF9E3666E9364846318B7033 /* TFYPopupKeyboardConfiguration.m in Sources */,
-				DB7E08B9FECD55326F5EDF156CF135C9 /* TFYPopupPriorityManager.m in Sources */,
-				9DED6231ED5CE67E62F9D1A672F21262 /* TFYPopupView.m in Sources */,
-				A69454A4CF9A2A1A586129ACBDAB4E27 /* TFYPopupViewConfiguration.m in Sources */,
-				EA5D502CABF6934ED8A4474B3E1D6EDC /* TFYShoppingCartPresentingAnimation.m in Sources */,
-				CF7686F313B2173B04D69FEFB7158D85 /* TFYVisualEffectView.m in Sources */,
-				9BE18F8CF5243F25ED93170E262BCE5A /* UIScrollView+Helper.m in Sources */,
-				E7E64AC431428337CA92B67A1685BA61 /* UIView+TFY_Frame.m in Sources */,
-				CA5B8652D39BA4995D11572E7E8AD9DA /* UIViewController+LayoutHelper.m in Sources */,
-				9D7A7F9B4F855BE0EBCDC8F9651C74E0 /* UIViewController+PanModalDefault.m in Sources */,
-				26D327629C93A4B4E42EB468C288D13B /* UIViewController+PanModalPresenter.m in Sources */,
-				2CFE326DB8DC47212ACB433A276154DD /* UIViewController+Presentation.m in Sources */,
+				19B4E8079F20F790D8B33DEFC2535DD9 /* TFYPageSheetPresentingAnimation.m in Sources */,
+				64E0E7C7D1F8C884B2C8E4DFFACC15BB /* TFYPanContainerView.m in Sources */,
+				86D37E584211EEA3BFAF1AFD0C0C602D /* TFYPanIndicatorView.m in Sources */,
+				DCEAB1779829AA96ECBE7F2CD3E56EB0 /* TFYPanModalAnimator.m in Sources */,
+				3CFA60D984B92150B529C6D22FC0957B /* TFYPanModalContainerView.m in Sources */,
+				CEC6EA175D5D7C445302D01CE2A2000E /* TFYPanModalContentView.m in Sources */,
+				5AFED9AAE731F2BE1314E956D59C65A1 /* TFYPanModalFrequentTapPrevention.m in Sources */,
+				57C30307315622068C493B3A2983FB3C /* TFYPanModalInteractiveAnimator.m in Sources */,
+				F50AF7B92D56D038FF1DAEC6A338062E /* TFYPanModalPresentableHandler.m in Sources */,
+				9DD3910692F248B8A691D936896701EA /* TFYPanModalPresentationAnimator.m in Sources */,
+				81BF79E65F13B32B6E471E0284079140 /* TFYPanModalPresentationController.m in Sources */,
+				953317692D74CA348290107B914D3D7A /* TFYPanModalPresentationDelegate.m in Sources */,
+				24616FCE899742220D8D7E88D5937E56 /* TFYPanModalShadow.m in Sources */,
+				372F3B0B47C368C5F7B9D49F38C3B751 /* TFYPopup.m in Sources */,
+				2E51AE4EDE4EFB2D140D8CD646C0AF4A /* TFYPopupAnimatorLayout.m in Sources */,
+				B03F4EF7E4F0BAD7BF69CC54BD05F646 /* TFYPopupAnimators.m in Sources */,
+				0811797C4AC7F95065718394568E2D6B /* TFYPopupBackgroundView.m in Sources */,
+				BE1204ECF5A96C8DD71AFE5EFB224BA1 /* TFYPopupBaseAnimator.m in Sources */,
+				F15127FD82E2B68E54D141FE5FE1EE62 /* TFYPopupBottomSheetAnimator.m in Sources */,
+				6028D3142929AABA195D3FC2BA6E3BED /* TFYPopupContainerConfiguration.m in Sources */,
+				EC05722480F481EBDB15289072A138EA /* TFYPopupContainerManager.m in Sources */,
+				257A22BABDD5A7B86F28E5CB5346BF03 /* TFYPopupContainerType.m in Sources */,
+				C34CB3F6F090A2A61B34F62BAA66BD99 /* TFYPopupKeyboardConfiguration.m in Sources */,
+				FF378FD04AB8613932619A709E39A501 /* TFYPopupPriorityManager.m in Sources */,
+				0D656646CD09C12F2F4BADCEEB6C891E /* TFYPopupView.m in Sources */,
+				75F9F444B745AA9FBA2ABBFC95F2EEDB /* TFYPopupViewConfiguration.m in Sources */,
+				626FB3135883C24C53F2CB9A4B56CD6A /* TFYShoppingCartPresentingAnimation.m in Sources */,
+				D8784B3F12FF6CADF357B5334F618008 /* TFYVisualEffectView.m in Sources */,
+				77DB9064C9DDDA04A2EA0DB38F0D5C9A /* UIScrollView+Helper.m in Sources */,
+				ED9BC29E53206A117403CD3D069F30A6 /* UIView+TFY_Frame.m in Sources */,
+				B33DA31DD94ED12F1D8A3E8701A0FA86 /* UIViewController+LayoutHelper.m in Sources */,
+				88C147E51E29DC68BF7F3722D178FC51 /* UIViewController+PanModalDefault.m in Sources */,
+				0FB78DD0F7F490312AE02F392FF86F16 /* UIViewController+PanModalPresenter.m in Sources */,
+				BEC49E10894BC91F4D58268F4B9D45F1 /* UIViewController+Presentation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

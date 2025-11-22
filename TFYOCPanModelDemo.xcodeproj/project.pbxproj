@@ -445,9 +445,9 @@
 				DEVELOPMENT_TEAM = QH95759TSS;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Example/Resources/PanModelPrefixHeader.pch;
+				GCC_PREFIX_HEADER = TFYOCPanModelDemo/Example/Resources/PanModelPrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Example/Resources/Info.plist;
+				INFOPLIST_FILE = TFYOCPanModelDemo/Example/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -478,9 +478,9 @@
 				DEVELOPMENT_TEAM = QH95759TSS;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Example/Resources/PanModelPrefixHeader.pch;
+				GCC_PREFIX_HEADER = TFYOCPanModelDemo/Example/Resources/PanModelPrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Example/Resources/Info.plist;
+				INFOPLIST_FILE = TFYOCPanModelDemo/Example/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

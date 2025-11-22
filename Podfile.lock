@@ -1,18 +1,18 @@
 PODS:
   - Masonry (1.1.0)
   - MJRefresh (3.7.9)
-  - TFYOCPanlModel (1.6.3):
-    - TFYOCPanlModel/include (= 1.6.3)
-    - TFYOCPanlModel/popController (= 1.6.3)
-    - TFYOCPanlModel/popView (= 1.6.3)
-    - TFYOCPanlModel/Tools (= 1.6.3)
-  - TFYOCPanlModel/include (1.6.3):
+  - TFYOCPanlModel (1.6.5):
+    - TFYOCPanlModel/include (= 1.6.5)
+    - TFYOCPanlModel/popController (= 1.6.5)
+    - TFYOCPanlModel/popView (= 1.6.5)
+    - TFYOCPanlModel/Tools (= 1.6.5)
+  - TFYOCPanlModel/include (1.6.5):
     - TFYOCPanlModel/popController
     - TFYOCPanlModel/popView
-  - TFYOCPanlModel/popController (1.6.3):
+  - TFYOCPanlModel/popController (1.6.5):
     - TFYOCPanlModel/Tools
-  - TFYOCPanlModel/popView (1.6.3)
-  - TFYOCPanlModel/Tools (1.6.3)
+  - TFYOCPanlModel/popView (1.6.5)
+  - TFYOCPanlModel/Tools (1.6.5)
 
 DEPENDENCIES:
   - Masonry
@@ -31,7 +31,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
-  TFYOCPanlModel: 309553cf9a21d3b02aed955b3a7c2b89c2f4ad87
+  TFYOCPanlModel: 65e3edce8b427619ae24c52dbc45ce9bc78bbfed
 
 PODFILE CHECKSUM: 74803c4ca600faa9f17daf5fdb939e46d40331ca
 

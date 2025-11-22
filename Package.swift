@@ -10,8 +10,8 @@ let package = Package(
     targets: [
         .target(
             name: "TFYOCPanlModel",
-            path: "Sources/TFYOCPanlModel",     // 改成这行！！！
-            publicHeadersPath: "Sources/TFYOCPanlModel/include"
+            path: "Sources/TFYOCPanlModel",
+            publicHeadersPath: "include"   
         )
     ]
 )
