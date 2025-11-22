@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.4.0-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.5.3-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.4.0")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.5.3")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.4.0'
+pod 'TFYOCPanlModel', '~> 1.5.3'
 ```
 
 然后运行：
@@ -105,6 +105,12 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.5.3 新功能 (New in v1.5.3)
+- **🔧 修复 Swift Package 头文件路径问题** - 修复了 Package.swift 中错误的 exclude 配置，移除了对主头文件的错误排除
+- **✅ 完善头文件搜索路径** - 添加了 include 目录到 headerSearchPath，确保所有头文件可以正确找到
+- **📦 优化 SPM 配置** - 确保 Swift Package Manager 只显示库文件，不显示 Demo 等其他目录
+- **🚀 版本号更新** - 更新至 1.5.3
 
 ### 🆕 版本 1.4.0 新功能 (New in v1.4.0)
 - **🔧 修复头文件路径问题** - 修复了 "file not found" 错误，所有头文件现在可以正确找到
@@ -1343,7 +1349,7 @@ config.keyboardConfiguration = keyboardConfig;
 
 按照上面的安装步骤重新添加即可。
 
-#### Q: 如何更新到新版本（如从 1.3.9 更新到 1.4.0）？
+#### Q: 如何更新到新版本（如从 1.4.0 更新到 1.5.3）？
 
 **方法 1：通过 Xcode 更新（推荐）**
 
@@ -1351,7 +1357,7 @@ config.keyboardConfiguration = keyboardConfig;
 2. 切换到 **Package Dependencies** 标签页
 3. 找到 `TFYOCPanModelDemo` 包
 4. 右键点击包，选择 **Update to Latest Package Versions**
-5. 或者点击包右侧的版本号，选择新版本（如 1.4.0）
+5. 或者点击包右侧的版本号，选择新版本（如 1.5.3）
 
 **如果更新按钮不可用或无法更新：**
 
@@ -1374,14 +1380,14 @@ config.keyboardConfiguration = keyboardConfig;
 
 1. 按照上面的删除步骤完全移除旧版本
 2. 清理缓存（见方法 2）
-3. 重新添加包，选择新版本（如 1.4.0）
+3. 重新添加包，选择新版本（如 1.5.3）
 
 **方法 4：手动指定版本（在 Package.swift 中）**
 
 如果你的项目使用 `Package.swift`，直接修改版本号：
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.4.0")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.5.3")
 ]
 ```
 然后在 Xcode 中：**File** → **Packages** → **Update to Latest Package Versions**
