@@ -1,4 +1,8 @@
 //
+
+#ifndef TFYPOPUPVIEWANIMATOR_H
+#define TFYPOPUPVIEWANIMATOR_H
+
 //  TFYPopupViewAnimator.h
 //  TFYOCPanModelDemo
 //
@@ -57,3 +61,5 @@ NS_SWIFT_NAME(PopupViewAnimator)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPOPUPVIEWANIMATOR_H */

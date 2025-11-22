@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYPANMODALPRESENTERPROTOCOL_H
+#define TFYPANMODALPRESENTERPROTOCOL_H
+
 //
 //  TFYPanModalPresenterProtocol.h
 //  TFYPanModal
@@ -70,3 +74,5 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
+
+#endif /* TFYPANMODALPRESENTERPROTOCOL_H */

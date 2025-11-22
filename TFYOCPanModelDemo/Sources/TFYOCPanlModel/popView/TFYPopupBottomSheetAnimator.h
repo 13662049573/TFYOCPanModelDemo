@@ -1,4 +1,8 @@
 //
+
+#ifndef TFYPOPUPBOTTOMSHEETANIMATOR_H
+#define TFYPOPUPBOTTOMSHEETANIMATOR_H
+
 //  TFYPopupBottomSheetAnimator.h
 //  TFYOCPanModelDemo
 //
@@ -77,3 +81,5 @@ NS_SWIFT_NAME(PopupBottomSheetAnimator)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPOPUPBOTTOMSHEETANIMATOR_H */

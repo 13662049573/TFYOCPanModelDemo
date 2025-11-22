@@ -8,8 +8,6 @@
 
 #import <TFYOCPanlModel/TFYPopupViewConfiguration.h>
 
-
-
 #pragma mark - TFYPopupViewConfiguration
 
 @implementation TFYPopupViewConfiguration

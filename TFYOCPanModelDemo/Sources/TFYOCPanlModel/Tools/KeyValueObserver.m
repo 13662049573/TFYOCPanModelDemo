@@ -9,12 +9,6 @@
 
 #import <TFYOCPanlModel/KeyValueObserver.h>
 
-//
-// Created by chris on 7/24/13.
-//
-
-#import <TFYOCPanlModel/KeyValueObserver.h>
-
 @interface KeyValueObserver ()
 @property (nonatomic, weak) id observedObject;
 @property (nonatomic, copy) NSString* keyPath;

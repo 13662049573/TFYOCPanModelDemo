@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYPANMODALCONTENTVIEW_H
+#define TFYPANMODALCONTENTVIEW_H
+
 //
 //  TFYPanModalContentView.h
 //  TFYPanModal
@@ -40,3 +44,5 @@ NS_SWIFT_NAME(PanModalContentView)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPANMODALCONTENTVIEW_H */

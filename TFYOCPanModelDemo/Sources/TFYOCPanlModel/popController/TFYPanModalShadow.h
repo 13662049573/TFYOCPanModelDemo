@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYPANMODALSHADOW_H
+#define TFYPANMODALSHADOW_H
+
 //
 //  TFYPanModalShadow.h
 //  TFYPanModal
@@ -52,3 +56,5 @@ NS_SWIFT_NAME(PanModalShadow)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPANMODALSHADOW_H */

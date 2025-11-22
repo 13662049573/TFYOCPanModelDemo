@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYPANMODALPRESENTATIONUPDATEPROTOCOL_H
+#define TFYPANMODALPRESENTATIONUPDATEPROTOCOL_H
+
 //
 //  TFYPanModalPresentationUpdateProtocol.h
 //  TFYPanModal
@@ -68,3 +72,5 @@
 - (void)pan_dismissAnimated:(BOOL)animated completion:(void (^ _Nullable)(void))completion NS_SWIFT_NAME(panModalDismissAnimated(animated:completion:));
 
 @end
+
+#endif /* TFYPANMODALPRESENTATIONUPDATEPROTOCOL_H */

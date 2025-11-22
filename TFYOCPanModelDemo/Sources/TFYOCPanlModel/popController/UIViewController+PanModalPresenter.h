@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef UIVIEWCONTROLLER_PANMODALPRESENTER_H
+#define UIVIEWCONTROLLER_PANMODALPRESENTER_H
+
 //
 //  UIViewController+PanModalPresenter.h
 //  TFYPanModal
@@ -23,3 +27,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* UIVIEWCONTROLLER_PANMODALPRESENTER_H */

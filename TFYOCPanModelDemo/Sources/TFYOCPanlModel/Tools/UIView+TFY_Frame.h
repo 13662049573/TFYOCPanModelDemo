@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef UIVIEW_TFY_FRAME_H
+#define UIVIEW_TFY_FRAME_H
+
 //
 //  UIView+TFY_Frame.h
 //  TFYPanModal
@@ -41,3 +45,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* UIVIEW_TFY_FRAME_H */

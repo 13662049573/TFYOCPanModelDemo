@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef KEYVALUEOBSERVER_H
+#define KEYVALUEOBSERVER_H
+
 //
 //  KeyValueObserver.h
 //  Lab Color Space Explorer
@@ -54,3 +58,5 @@ NS_SWIFT_NAME(KeyValueObserver)
 - (void)unObserver NS_SWIFT_NAME(unobserve());
 
 @end
+
+#endif /* KEYVALUEOBSERVER_H */

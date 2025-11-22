@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYPANMODALANIMATOR_H
+#define TFYPANMODALANIMATOR_H
+
 //
 //  TFYPanModalAnimator.h
 //  TFYPanModal
@@ -60,3 +64,5 @@ NS_SWIFT_NAME(PanModalAnimator)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPANMODALANIMATOR_H */

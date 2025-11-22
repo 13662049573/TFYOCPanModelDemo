@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYSHOPPINGCARTPRESENTINGANIMATION_H
+#define TFYSHOPPINGCARTPRESENTINGANIMATION_H
+
 //
 //  TFYShoppingCartPresentingAnimation.h
 //  TFYPanModal
@@ -22,3 +26,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYSHOPPINGCARTPRESENTINGANIMATION_H */

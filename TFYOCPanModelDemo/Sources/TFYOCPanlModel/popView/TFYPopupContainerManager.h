@@ -1,4 +1,8 @@
 //
+
+#ifndef TFYPOPUPCONTAINERMANAGER_H
+#define TFYPOPUPCONTAINERMANAGER_H
+
 //  TFYPopupContainerManager.h
 //  TFYOCPanModelDemo
 //
@@ -133,3 +137,5 @@ FOUNDATION_EXPORT TFYPopupContainerInfo * _Nullable TFYPopupGetContainerForView(
 FOUNDATION_EXPORT TFYPopupContainerInfo * _Nullable TFYPopupGetContainerForViewController(UIViewController *viewController) NS_SWIFT_NAME(Popup.getContainer(forViewController:));
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPOPUPCONTAINERMANAGER_H */

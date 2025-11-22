@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYVISUALEFFECTVIEW_H
+#define TFYVISUALEFFECTVIEW_H
+
 //
 //  TFYVisualEffectView.h
 //  TFYPanModal
@@ -39,3 +43,5 @@ NS_SWIFT_NAME(VisualEffectView)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYVISUALEFFECTVIEW_H */

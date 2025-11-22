@@ -1,4 +1,8 @@
 //
+
+#ifndef TFYPOPUPCONTAINERTYPE_H
+#define TFYPOPUPCONTAINERTYPE_H
+
 //  TFYPopupContainerType.h
 //  TFYOCPanModelDemo
 //
@@ -117,3 +121,5 @@ NS_SWIFT_NAME(DefaultPopupContainerSelector)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPOPUPCONTAINERTYPE_H */

@@ -1,4 +1,8 @@
 //
+
+#ifndef TFYPOPUPKEYBOARDCONFIGURATION_H
+#define TFYPOPUPKEYBOARDCONFIGURATION_H
+
 //  TFYPopupKeyboardConfiguration.h
 //  TFYOCPanModelDemo
 //
@@ -46,3 +50,5 @@ NS_SWIFT_NAME(PopupKeyboardConfiguration)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPOPUPKEYBOARDCONFIGURATION_H */

@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYPANMODALPRESENTABLEHANDLER_H
+#define TFYPANMODALPRESENTABLEHANDLER_H
+
 //
 //  TFYPanModalPresentableHandler.h
 //  TFYPanModal
@@ -207,3 +211,5 @@ NS_SWIFT_NAME(PanModalPresentableHandler)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPANMODALPRESENTABLEHANDLER_H */

@@ -1,4 +1,8 @@
 //
+
+#ifndef TFYPOPUPBACKGROUNDVIEW_H
+#define TFYPOPUPBACKGROUNDVIEW_H
+
 //  TFYPopupBackgroundView.h
 //  TFYOCPanModelDemo
 //
@@ -66,3 +70,5 @@ NS_SWIFT_NAME(PopupBackgroundView)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPOPUPBACKGROUNDVIEW_H */

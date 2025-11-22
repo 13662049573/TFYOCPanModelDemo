@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYPANMODALHEIGHT_H
+#define TFYPANMODALHEIGHT_H
+
 //
 //  TFYPanModalHeight.h
 //  TFYPanModal
@@ -65,3 +69,5 @@ static inline BOOL TFY_TWO_FLOAT_IS_EQUAL(CGFloat x, CGFloat y) {
     return NO;
 }
 
+
+#endif /* TFYPANMODALHEIGHT_H */

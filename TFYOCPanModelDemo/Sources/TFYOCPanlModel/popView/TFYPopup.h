@@ -1,4 +1,8 @@
 //
+
+#ifndef TFYPOPUP_H
+#define TFYPOPUP_H
+
 //  TFYPopup.h
 //  TFYOCPanModelDemo
 //
@@ -192,3 +196,5 @@ FOUNDATION_EXPORT void TFYPopupLogPriorityQueue(void) NS_SWIFT_NAME(Popup.logPri
 NS_SWIFT_NAME(Popup)
 @interface TFYPopup: NSObject
 @end
+
+#endif /* TFYPOPUP_H */

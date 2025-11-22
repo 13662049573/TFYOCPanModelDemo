@@ -1,4 +1,8 @@
 //
+
+#ifndef TFYPOPUPCONTAINERCONFIGURATION_H
+#define TFYPOPUPCONTAINERCONFIGURATION_H
+
 //  TFYPopupContainerConfiguration.h
 //  TFYOCPanModelDemo
 //
@@ -98,3 +102,5 @@ NS_SWIFT_NAME(PopupContainerConfiguration)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPOPUPCONTAINERCONFIGURATION_H */

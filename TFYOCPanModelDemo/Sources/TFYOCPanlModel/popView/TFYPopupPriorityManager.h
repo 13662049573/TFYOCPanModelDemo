@@ -1,4 +1,8 @@
 //
+
+#ifndef TFYPOPUPPRIORITYMANAGER_H
+#define TFYPOPUPPRIORITYMANAGER_H
+
 //  TFYPopupPriorityManager.h
 //  TFYOCPanModelDemo
 //
@@ -173,3 +177,5 @@ FOUNDATION_EXPORT NSInteger TFYPopupPriorityGetValue(TFYPopupPriority priority) 
 FOUNDATION_EXPORT TFYPopupPriority TFYPopupPriorityFromValue(NSInteger value) NS_SWIFT_NAME(PopupPriorityFromValue(_:));
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPOPUPPRIORITYMANAGER_H */

@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYPANINDICATORVIEW_H
+#define TFYPANINDICATORVIEW_H
+
 //
 //  TFYPanIndicatorView.h
 //  TFYPanModal
@@ -26,3 +30,5 @@ NS_SWIFT_NAME(PanIndicatorView)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPANINDICATORVIEW_H */

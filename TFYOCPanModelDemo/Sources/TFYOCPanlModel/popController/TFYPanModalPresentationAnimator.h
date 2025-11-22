@@ -1,4 +1,8 @@
 //  本文件由TFY自动迁移工具生成，遵循现代Objective-C风格，全部中文注释。
+
+#ifndef TFYPANMODALPRESENTATIONANIMATOR_H
+#define TFYPANMODALPRESENTATIONANIMATOR_H
+
 //
 //  TFYPanModalPresentationAnimator.h
 //  TFYPanModal
@@ -40,3 +44,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPANMODALPRESENTATIONANIMATOR_H */

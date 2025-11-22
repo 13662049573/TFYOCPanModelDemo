@@ -1,4 +1,8 @@
 //
+
+#ifndef TFYPOPUPANIMATORLAYOUT_H
+#define TFYPOPUPANIMATORLAYOUT_H
+
 //  TFYPopupAnimatorLayout.h
 //  TFYOCPanModelDemo
 //
@@ -185,3 +189,5 @@ NS_SWIFT_NAME(PopupAnimatorLayoutTrailing)
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /* TFYPOPUPANIMATORLAYOUT_H */
