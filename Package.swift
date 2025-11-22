@@ -11,6 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "TFYOCPanlModel",
+            type: .static,
             targets: ["TFYOCPanlModel"]
         ),
     ],
