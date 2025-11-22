@@ -1,6 +1,0 @@
-framework module Pods_TFYOCPanModelDemoTests {
-  umbrella header "Pods-TFYOCPanModelDemoTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

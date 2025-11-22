@@ -6,12 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		2E1E43D2504F28B3084BC7C6 /* Pods_TFYOCPanModelDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA4FC7073A4FB7ABFF40B97 /* Pods_TFYOCPanModelDemo.framework */; };
-		764E3C482A231658AC9571D8 /* Pods_TFYOCPanModelDemo_TFYOCPanModelDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06DD90C550AC793D375564F /* Pods_TFYOCPanModelDemo_TFYOCPanModelDemoUITests.framework */; };
-		C62FB87E9066B03AF8E68817 /* Pods_TFYOCPanModelDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBA68C829C29A19CAEF892C /* Pods_TFYOCPanModelDemoTests.framework */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		849928472E2679D40069E0F2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -30,18 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		061A2EDE2A6C7DAA1AE8A873 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		36F9A9251B75C59D54B753A1 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4EA4FC7073A4FB7ABFF40B97 /* Pods_TFYOCPanModelDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFYOCPanModelDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5295FEA640D65B9E1D96C92D /* Pods-TFYOCPanModelDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFYOCPanModelDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-TFYOCPanModelDemoTests/Pods-TFYOCPanModelDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6DBA68C829C29A19CAEF892C /* Pods_TFYOCPanModelDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFYOCPanModelDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8499282B2E2679D20069E0F2 /* TFYOCPanModelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFYOCPanModelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849928462E2679D40069E0F2 /* TFYOCPanModelDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFYOCPanModelDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		849928502E2679D40069E0F2 /* TFYOCPanModelDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFYOCPanModelDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A5E4D35A6639308DBD22A59 /* Pods-TFYOCPanModelDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFYOCPanModelDemo.release.xcconfig"; path = "Target Support Files/Pods-TFYOCPanModelDemo/Pods-TFYOCPanModelDemo.release.xcconfig"; sourceTree = "<group>"; };
-		9018873E2DFBC739A3AED279 /* Pods-TFYOCPanModelDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFYOCPanModelDemoTests.release.xcconfig"; path = "Target Support Files/Pods-TFYOCPanModelDemoTests/Pods-TFYOCPanModelDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		E06DD90C550AC793D375564F /* Pods_TFYOCPanModelDemo_TFYOCPanModelDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFYOCPanModelDemo_TFYOCPanModelDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F09C5213356063B3B985F7EB /* Pods-TFYOCPanModelDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFYOCPanModelDemo.debug.xcconfig"; path = "Target Support Files/Pods-TFYOCPanModelDemo/Pods-TFYOCPanModelDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -65,11 +50,15 @@
 		};
 		849928492E2679D40069E0F2 /* TFYOCPanModelDemoTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = TFYOCPanModelDemoTests;
 			sourceTree = "<group>";
 		};
 		849928532E2679D40069E0F2 /* TFYOCPanModelDemoUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = TFYOCPanModelDemoUITests;
 			sourceTree = "<group>";
 		};
@@ -80,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E1E43D2504F28B3084BC7C6 /* Pods_TFYOCPanModelDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C62FB87E9066B03AF8E68817 /* Pods_TFYOCPanModelDemoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				764E3C482A231658AC9571D8 /* Pods_TFYOCPanModelDemo_TFYOCPanModelDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,12 +92,6 @@
 		5BE7176562B8F0281D7DA3C2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F09C5213356063B3B985F7EB /* Pods-TFYOCPanModelDemo.debug.xcconfig */,
-				8A5E4D35A6639308DBD22A59 /* Pods-TFYOCPanModelDemo.release.xcconfig */,
-				36F9A9251B75C59D54B753A1 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.debug.xcconfig */,
-				061A2EDE2A6C7DAA1AE8A873 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.release.xcconfig */,
-				5295FEA640D65B9E1D96C92D /* Pods-TFYOCPanModelDemoTests.debug.xcconfig */,
-				9018873E2DFBC739A3AED279 /* Pods-TFYOCPanModelDemoTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -124,7 +104,6 @@
 				849928532E2679D40069E0F2 /* TFYOCPanModelDemoUITests */,
 				8499282C2E2679D20069E0F2 /* Products */,
 				5BE7176562B8F0281D7DA3C2 /* Pods */,
-				E2575F651FD62512D7869049 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,16 +117,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2575F651FD62512D7869049 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4EA4FC7073A4FB7ABFF40B97 /* Pods_TFYOCPanModelDemo.framework */,
-				E06DD90C550AC793D375564F /* Pods_TFYOCPanModelDemo_TFYOCPanModelDemoUITests.framework */,
-				6DBA68C829C29A19CAEF892C /* Pods_TFYOCPanModelDemoTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,11 +124,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 849928592E2679D40069E0F2 /* Build configuration list for PBXNativeTarget "TFYOCPanModelDemo" */;
 			buildPhases = (
-				57E58CE2F67AE97F5CB33412 /* [CP] Check Pods Manifest.lock */,
 				849928272E2679D20069E0F2 /* Sources */,
 				849928282E2679D20069E0F2 /* Frameworks */,
 				849928292E2679D20069E0F2 /* Resources */,
-				38EEA2CD14D6902B38357FB2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,7 +144,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8499285E2E2679D40069E0F2 /* Build configuration list for PBXNativeTarget "TFYOCPanModelDemoTests" */;
 			buildPhases = (
-				1DBD0AF93A98CA903ACC3C24 /* [CP] Check Pods Manifest.lock */,
 				849928422E2679D40069E0F2 /* Sources */,
 				849928432E2679D40069E0F2 /* Frameworks */,
 				849928442E2679D40069E0F2 /* Resources */,
@@ -199,11 +165,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 849928612E2679D40069E0F2 /* Build configuration list for PBXNativeTarget "TFYOCPanModelDemoUITests" */;
 			buildPhases = (
-				89F23B05EFEFEBD5FB91F0D6 /* [CP] Check Pods Manifest.lock */,
 				8499284C2E2679D40069E0F2 /* Sources */,
 				8499284D2E2679D40069E0F2 /* Frameworks */,
 				8499284E2E2679D40069E0F2 /* Resources */,
-				CC50D6C147C89070F589FA92 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,7 +189,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					8499282A2E2679D20069E0F2 = {
 						CreatedOnToolsVersion = 16.4;
@@ -285,117 +249,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1DBD0AF93A98CA903ACC3C24 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TFYOCPanModelDemoTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		38EEA2CD14D6902B38357FB2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo/Pods-TFYOCPanModelDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo/Pods-TFYOCPanModelDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo/Pods-TFYOCPanModelDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		57E58CE2F67AE97F5CB33412 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TFYOCPanModelDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89F23B05EFEFEBD5FB91F0D6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC50D6C147C89070F589FA92 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		849928272E2679D20069E0F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -436,7 +289,6 @@
 /* Begin XCBuildConfiguration section */
 		8499285A2E2679D40069E0F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F09C5213356063B3B985F7EB /* Pods-TFYOCPanModelDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -467,7 +319,6 @@
 		};
 		8499285B2E2679D40069E0F2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A5E4D35A6639308DBD22A59 /* Pods-TFYOCPanModelDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -555,6 +406,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = Debug;
 		};
@@ -610,13 +462,13 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		8499285F2E2679D40069E0F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5295FEA640D65B9E1D96C92D /* Pods-TFYOCPanModelDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -635,7 +487,6 @@
 		};
 		849928602E2679D40069E0F2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9018873E2DFBC739A3AED279 /* Pods-TFYOCPanModelDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -654,7 +505,6 @@
 		};
 		849928622E2679D40069E0F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36F9A9251B75C59D54B753A1 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -672,7 +522,6 @@
 		};
 		849928632E2679D40069E0F2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 061A2EDE2A6C7DAA1AE8A873 /* Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
