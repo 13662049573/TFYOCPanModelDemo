@@ -6,10 +6,10 @@
 //  Created by heath wang on 2019/4/29.
 //
 
-#import "TFYPanModalPresentationDelegate.h"
-#import "TFYPanModalPresentationAnimator.h"
-#import "TFYPanModalPresentationController.h"
-#import "TFYPanModalInteractiveAnimator.h"
+#import <TFYOCPanlModel/TFYPanModalPresentationDelegate.h>
+#import <TFYOCPanlModel/TFYPanModalPresentationAnimator.h>
+#import <TFYOCPanlModel/TFYPanModalPresentationController.h>
+#import <TFYOCPanlModel/TFYPanModalInteractiveAnimator.h>
 
 /**
  * @brief PanModal弹窗的转场代理实现，负责动画与交互的管理。

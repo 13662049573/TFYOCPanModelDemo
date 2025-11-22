@@ -6,7 +6,7 @@
 //  Created by heath wang on 2019/9/5.
 //
 
-#import "TFYShoppingCartPresentingAnimation.h"
+#import <TFYOCPanlModel/TFYShoppingCartPresentingAnimation.h>
 
 @implementation TFYShoppingCartPresentingAnimation
 

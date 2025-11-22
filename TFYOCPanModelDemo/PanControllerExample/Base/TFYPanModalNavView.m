@@ -6,7 +6,6 @@
 //  Copyright © 2019 heath wang. All rights reserved.
 //
 
-#import <Masonry/View+MASAdditions.h>
 #import "TFYPanModalNavView.h"
 
 @interface TFYPanModalNavView ()

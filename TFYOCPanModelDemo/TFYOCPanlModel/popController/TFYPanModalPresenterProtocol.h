@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "TFYPanModalPresentable.h"
+#import <TFYOCPanlModel/TFYPanModalPresentable.h>
 
 @class TFYPanModalPresentationDelegate;
 

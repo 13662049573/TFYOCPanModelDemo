@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "TFYPanModalPresentationController.h" // 修复strong属性类型错误，需完整类型声明
+#import <TFYOCPanlModel/TFYPanModalPresentationController.h> // 修复strong属性类型错误，需完整类型声明
 
 @class TFYPanModalInteractiveAnimator;
 

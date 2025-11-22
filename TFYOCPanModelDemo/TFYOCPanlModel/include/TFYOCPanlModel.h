@@ -9,28 +9,28 @@
 #define TFYOCPanlModel_h
 
 // protocol
-#import "TFYPanModalPresentable.h"
-#import "TFYPanModalPanGestureDelegate.h"
-#import "TFYPanModalHeight.h"
-#import "TFYPanModalFrequentTapPrevention.h"
+#import <TFYOCPanlModel/TFYPanModalPresentable.h>
+#import <TFYOCPanlModel/TFYPanModalPanGestureDelegate.h>
+#import <TFYOCPanlModel/TFYPanModalHeight.h>
+#import <TFYOCPanlModel/TFYPanModalFrequentTapPrevention.h>
 
-#import "TFYPanModalPresenterProtocol.h"
+#import <TFYOCPanlModel/TFYPanModalPresenterProtocol.h>
 
 // category
-#import "UIViewController+PanModalDefault.h"
-#import "UIViewController+Presentation.h"
-#import "UIViewController+PanModalPresenter.h"
+#import <TFYOCPanlModel/UIViewController+PanModalDefault.h>
+#import <TFYOCPanlModel/UIViewController+Presentation.h>
+#import <TFYOCPanlModel/UIViewController+PanModalPresenter.h>
 
 // custom animation
-#import "TFYPresentingVCAnimatedTransitioning.h"
+#import <TFYOCPanlModel/TFYPresentingVCAnimatedTransitioning.h>
 
 // view
-#import "TFYPanModalIndicatorProtocol.h"
-#import "TFYPanIndicatorView.h"
-#import "TFYDimmedView.h"
+#import <TFYOCPanlModel/TFYPanModalIndicatorProtocol.h>
+#import <TFYOCPanlModel/TFYPanIndicatorView.h>
+#import <TFYOCPanlModel/TFYDimmedView.h>
 
 // panModal view
-#import "TFYPanModalContentView.h"
-#import "TFYPopup.h"
+#import <TFYOCPanlModel/TFYPanModalContentView.h>
+#import <TFYOCPanlModel/TFYPopup.h>
 
 #endif /* TFYOCPanlModel_h */

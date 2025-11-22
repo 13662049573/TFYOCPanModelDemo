@@ -7,8 +7,6 @@
 //
 
 #import "TFYShareViewController.h"
-#import "TFYOCPanlModel.h"
-#import <Masonry/View+MASAdditions.h>
 
 @interface TFYShareViewController () <TFYPanModalPresentable>
 

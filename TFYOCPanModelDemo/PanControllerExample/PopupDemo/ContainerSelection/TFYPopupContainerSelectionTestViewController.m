@@ -7,9 +7,6 @@
 //
 
 #import "TFYPopupContainerSelectionTestViewController.h"
-#import "TFYPopup.h"
-#import "TFYPopupContainerManager.h"
-#import "TFYPopupContainerType.h"
 
 @interface TFYPopupContainerSelectionTestViewController ()
 

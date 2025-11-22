@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "TFYPanModalHeight.h"
-#import "TFYPresentingVCAnimatedTransitioning.h"
-#import "TFYPanModalIndicatorProtocol.h"
-#import "TFYBackgroundConfig.h"
-#import "TFYPanModalShadow.h"
+#import <TFYOCPanlModel/TFYPanModalHeight.h>
+#import <TFYOCPanlModel/TFYPresentingVCAnimatedTransitioning.h>
+#import <TFYOCPanlModel/TFYPanModalIndicatorProtocol.h>
+#import <TFYOCPanlModel/TFYBackgroundConfig.h>
+#import <TFYOCPanlModel/TFYPanModalShadow.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

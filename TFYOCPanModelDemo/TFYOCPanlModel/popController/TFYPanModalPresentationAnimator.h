@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "TFYPanModalPresentationDelegate.h"
+#import <TFYOCPanlModel/TFYPanModalPresentationDelegate.h>
 
 /**
  * TransitionStyle

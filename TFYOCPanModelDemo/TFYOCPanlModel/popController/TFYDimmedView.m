@@ -6,9 +6,9 @@
 //  Created by heath wang on 2019/4/26.
 //
 
-#import "TFYDimmedView.h"
-#import "TFYVisualEffectView.h"
-#import "TFYBackgroundConfig.h"
+#import <TFYOCPanlModel/TFYDimmedView.h>
+#import <TFYOCPanlModel/TFYVisualEffectView.h>
+#import <TFYOCPanlModel/TFYBackgroundConfig.h>
 
 @interface TFYDimmedView ()
 

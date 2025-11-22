@@ -6,9 +6,9 @@
 //  Created by heath wang on 2019/4/29.
 //
 
-#import "UIViewController+Presentation.h"
-#import "UIViewController+LayoutHelper.h"
-#import "TFYPanModalPresentationController.h"
+#import <TFYOCPanlModel/UIViewController+Presentation.h>
+#import <TFYOCPanlModel/UIViewController+LayoutHelper.h>
+#import <TFYOCPanlModel/TFYPanModalPresentationController.h>
 
 @interface UIViewController ()
 

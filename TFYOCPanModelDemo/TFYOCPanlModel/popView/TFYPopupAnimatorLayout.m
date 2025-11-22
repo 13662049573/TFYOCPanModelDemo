@@ -6,7 +6,7 @@
 //  用途：弹窗动画器布局配置类实现
 //
 
-#import "TFYPopupAnimatorLayout.h"
+#import <TFYOCPanlModel/TFYPopupAnimatorLayout.h>
 
 #pragma mark - TFYPopupAnimatorLayout
 

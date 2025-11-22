@@ -7,8 +7,6 @@
 //
 
 #import "TFYPopupBasicAnimatorsViewController.h"
-#import "TFYPopup.h"
-#import <Masonry/Masonry.h>
 
 /// 基础动画器类型
 typedef NS_ENUM(NSInteger, TFYBasicAnimatorType) {

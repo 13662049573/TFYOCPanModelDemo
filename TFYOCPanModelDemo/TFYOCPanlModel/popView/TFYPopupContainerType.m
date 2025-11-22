@@ -6,7 +6,7 @@
 //  用途：弹窗容器类型实现
 //
 
-#import "TFYPopupContainerType.h"
+#import <TFYOCPanlModel/TFYPopupContainerType.h>
 
 #pragma mark - TFYPopupContainerInfo
 

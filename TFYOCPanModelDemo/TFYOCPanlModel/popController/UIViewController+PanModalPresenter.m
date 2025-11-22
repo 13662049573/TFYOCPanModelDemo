@@ -6,9 +6,9 @@
 //  Created by heath wang on 2019/4/29.
 //
 
-#import "UIViewController+PanModalPresenter.h"
-#import "TFYPanModalPresentationDelegate.h"
-#import "TFYPanModalFrequentTapPrevention.h"
+#import <TFYOCPanlModel/UIViewController+PanModalPresenter.h>
+#import <TFYOCPanlModel/TFYPanModalPresentationDelegate.h>
+#import <TFYOCPanlModel/TFYPanModalFrequentTapPrevention.h>
 
 /// 缓存待present的弹窗信息结构体
 @interface TFYPanModalPendingPresentInfo : NSObject

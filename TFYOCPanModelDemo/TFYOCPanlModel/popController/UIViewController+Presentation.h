@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "TFYPanModalPresentable.h"
-#import "TFYPanModalPresentationUpdateProtocol.h"
+#import <TFYOCPanlModel/TFYPanModalPresentable.h>
+#import <TFYOCPanlModel/TFYPanModalPresentationUpdateProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

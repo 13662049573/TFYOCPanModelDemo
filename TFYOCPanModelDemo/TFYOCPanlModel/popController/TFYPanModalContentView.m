@@ -6,8 +6,8 @@
 //  Created by heath wang on 2019/10/17.
 //
 
-#import "TFYPanModalContentView.h"
-#import "TFYPanModalContainerView.h"
+#import <TFYOCPanlModel/TFYPanModalContentView.h>
+#import <TFYOCPanlModel/TFYPanModalContainerView.h>
 
 @interface TFYPanModalContentView ()
 

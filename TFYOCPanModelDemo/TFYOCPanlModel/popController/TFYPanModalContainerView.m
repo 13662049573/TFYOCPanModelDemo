@@ -6,14 +6,14 @@
 //  Created by heath wang on 2019/10/17.
 //
 
-#import "TFYPanModalContainerView.h"
-#import "TFYPanModalContentView.h"
-#import "TFYPanModalPresentableHandler.h"
-#import "TFYDimmedView.h"
-#import "TFYPanContainerView.h"
-#import "UIView+TFY_Frame.h"
-#import "TFYPanIndicatorView.h"
-#import "TFYPanModalAnimator.h"
+#import <TFYOCPanlModel/TFYPanModalContainerView.h>
+#import <TFYOCPanlModel/TFYPanModalContentView.h>
+#import <TFYOCPanlModel/TFYPanModalPresentableHandler.h>
+#import <TFYOCPanlModel/TFYDimmedView.h>
+#import <TFYOCPanlModel/TFYPanContainerView.h>
+#import <TFYOCPanlModel/UIView+TFY_Frame.h>
+#import <TFYOCPanlModel/TFYPanIndicatorView.h>
+#import <TFYOCPanlModel/TFYPanModalAnimator.h>
 
 @interface TFYPanModalContainerView () <TFYPanModalPresentableHandlerDelegate, TFYPanModalPresentableHandlerDataSource>
 

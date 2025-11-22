@@ -6,7 +6,6 @@
 //
 
 #import "TFYImagePickerPanModalView.h"
-#import <Masonry/Masonry.h>
 
 @interface TFYImagePickerPanModalView ()
 

@@ -5,7 +5,7 @@
 //  Created by admin on 2025/7/16.
 //
 
-#import "TFYPanModalFrequentTapPrevention.h"
+#import <TFYOCPanlModel/TFYPanModalFrequentTapPrevention.h>
 
 @interface TFYPanModalFrequentTapPrevention ()
 

@@ -6,7 +6,7 @@
 //  用途：弹窗框架主实现文件，定义全局常量和函数
 //
 
-#import "TFYPopup.h"
+#import <TFYOCPanlModel/TFYPopup.h>
 
 #pragma mark - Notification Names
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TFYPanModalPresentable.h"
+#import <TFYOCPanlModel/TFYPanModalPresentable.h>
 
 @class TFYPanModalContentView;
 @class TFYDimmedView;

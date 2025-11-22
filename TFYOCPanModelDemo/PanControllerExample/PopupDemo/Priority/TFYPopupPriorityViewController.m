@@ -7,8 +7,6 @@
 //
 
 #import "TFYPopupPriorityViewController.h"
-#import "TFYPopup.h"
-#import "TFYPopupAnimators.h"
 #import "UIColor+TFY.h"
 #import "Masonry.h"
 

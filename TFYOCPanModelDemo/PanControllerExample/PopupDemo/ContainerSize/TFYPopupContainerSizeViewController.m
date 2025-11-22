@@ -7,8 +7,6 @@
 //
 
 #import "TFYPopupContainerSizeViewController.h"
-#import "TFYPopup.h"
-#import <Masonry/Masonry.h>
 #import "UIColor+TFY.h"
 
 /// 容器尺寸演示类型

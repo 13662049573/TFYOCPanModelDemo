@@ -6,7 +6,7 @@
 //  Created by heath wang on 2019/6/14.
 //
 
-#import "TFYVisualEffectView.h"
+#import <TFYOCPanlModel/TFYVisualEffectView.h>
 
 NSString * const kInternalCustomBlurEffect = @"_UICustomBlurEffect";
 NSString * const kTFYBlurEffectColorTintKey = @"colorTint";

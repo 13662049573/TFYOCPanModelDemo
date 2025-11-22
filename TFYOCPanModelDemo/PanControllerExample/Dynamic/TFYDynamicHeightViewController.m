@@ -7,8 +7,6 @@
 //
 
 #import "TFYDynamicHeightViewController.h"
-#import "TFYOCPanlModel.h"
-#import <Masonry/View+MASAdditions.h>
 
 typedef NS_ENUM(NSInteger, ChangeHeightType) {
 	ChangeHeightTypeShort,

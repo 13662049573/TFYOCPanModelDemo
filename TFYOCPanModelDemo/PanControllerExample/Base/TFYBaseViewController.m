@@ -6,7 +6,6 @@
 //  Copyright © 2019 HeathWang. All rights reserved.
 //
 
-#import "TFYOCPanlModel.h"
 #import "TFYBaseViewController.h"
 
 @interface TFYBaseViewController () <TFYPanModalPresentable, UITextFieldDelegate>

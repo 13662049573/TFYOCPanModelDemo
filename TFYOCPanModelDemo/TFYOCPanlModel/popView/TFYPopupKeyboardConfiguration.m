@@ -6,7 +6,7 @@
 //  用途：弹窗键盘配置类实现
 //
 
-#import "TFYPopupKeyboardConfiguration.h"
+#import <TFYOCPanlModel/TFYPopupKeyboardConfiguration.h>
 
 @implementation TFYPopupKeyboardConfiguration
 

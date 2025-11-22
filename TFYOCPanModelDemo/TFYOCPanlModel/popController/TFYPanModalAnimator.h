@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TFYPanModalPresentable.h"
+#import <TFYOCPanlModel/TFYPanModalPresentable.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

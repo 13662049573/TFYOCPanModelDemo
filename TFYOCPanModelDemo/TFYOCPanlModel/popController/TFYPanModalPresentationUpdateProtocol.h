@@ -6,7 +6,7 @@
 //  Created by heath wang on 2019/10/17.
 //
 
-#import "TFYPanModalPresentable.h"
+#import <TFYOCPanlModel/TFYPanModalPresentable.h>
 @class TFYDimmedView;
 
 /**

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TFYPopupViewConfiguration.h"
-#import "TFYPopupViewAnimator.h"
-#import "TFYPopupViewDelegate.h"
-#import "TFYPopupBackgroundView.h"
-#import "TFYPopupContainerType.h"
+#import <TFYOCPanlModel/TFYPopupViewConfiguration.h>
+#import <TFYOCPanlModel/TFYPopupViewAnimator.h>
+#import <TFYOCPanlModel/TFYPopupViewDelegate.h>
+#import <TFYOCPanlModel/TFYPopupBackgroundView.h>
+#import <TFYOCPanlModel/TFYPopupContainerType.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

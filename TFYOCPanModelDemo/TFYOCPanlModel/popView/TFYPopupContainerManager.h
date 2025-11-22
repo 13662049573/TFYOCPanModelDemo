@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "TFYPopupContainerType.h"
+#import <TFYOCPanlModel/TFYPopupContainerType.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

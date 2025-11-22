@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "TFYPresentingVCAnimatedTransitioning.h"
+#import <TFYOCPanlModel/TFYPresentingVCAnimatedTransitioning.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

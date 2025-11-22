@@ -1,26 +1,38 @@
 PODS:
-  - LookinServer (1.2.8):
-    - LookinServer/Core (= 1.2.8)
-  - LookinServer/Core (1.2.8)
   - Masonry (1.1.0)
   - MJRefresh (3.7.9)
+  - TFYOCPanlModel (1.6.2):
+    - TFYOCPanlModel/include (= 1.6.2)
+    - TFYOCPanlModel/popController (= 1.6.2)
+    - TFYOCPanlModel/popView (= 1.6.2)
+    - TFYOCPanlModel/Tools (= 1.6.2)
+  - TFYOCPanlModel/include (1.6.2):
+    - TFYOCPanlModel/popController
+    - TFYOCPanlModel/popView
+  - TFYOCPanlModel/popController (1.6.2):
+    - TFYOCPanlModel/Tools
+  - TFYOCPanlModel/popView (1.6.2)
+  - TFYOCPanlModel/Tools (1.6.2)
 
 DEPENDENCIES:
-  - LookinServer
   - Masonry
   - MJRefresh
+  - TFYOCPanlModel (from `.`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - LookinServer
     - Masonry
     - MJRefresh
 
+EXTERNAL SOURCES:
+  TFYOCPanlModel:
+    :path: "."
+
 SPEC CHECKSUMS:
-  LookinServer: 1b2b61c6402ae29fa22182d48f5cd067b4e99e80
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
+  TFYOCPanlModel: 74155c088297cf39f5d194c3f2a23e3ecf7c91a6
 
-PODFILE CHECKSUM: f5cbb93865722dea22b637bf386acfefd6dca9b1
+PODFILE CHECKSUM: 74803c4ca600faa9f17daf5fdb939e46d40331ca
 
 COCOAPODS: 1.16.2

@@ -7,13 +7,13 @@
 //  功能：提供完整的弹窗功能，包括显示、消失、优先级管理、容器自动发现等
 //
 
-#import "TFYPopupView.h"
-#import "TFYPopupBottomSheetAnimator.h"
-#import "TFYPopupBaseAnimator.h"
-#import "TFYPopupAnimators.h"
-#import "TFYPopupPriorityManager.h"
-#import "TFYPopupContainerManager.h"
-#import "TFYPopup.h"
+#import <TFYOCPanlModel/TFYPopupView.h>
+#import <TFYOCPanlModel/TFYPopupBottomSheetAnimator.h>
+#import <TFYOCPanlModel/TFYPopupBaseAnimator.h>
+#import <TFYOCPanlModel/TFYPopupAnimators.h>
+#import <TFYOCPanlModel/TFYPopupPriorityManager.h>
+#import <TFYOCPanlModel/TFYPopupContainerManager.h>
+#import <TFYOCPanlModel/TFYPopup.h>
 
 @interface TFYPopupView () <UIGestureRecognizerDelegate>
 

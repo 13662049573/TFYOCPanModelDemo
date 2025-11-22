@@ -19,35 +19,35 @@ FOUNDATION_EXPORT const unsigned char TFYPopupVersionString[];
 
 #pragma mark - Configuration Classes
 
-#import "TFYPopupKeyboardConfiguration.h"
-#import "TFYPopupContainerConfiguration.h"
-#import "TFYPopupViewConfiguration.h"
+#import <TFYOCPanlModel/TFYPopupKeyboardConfiguration.h>
+#import <TFYOCPanlModel/TFYPopupContainerConfiguration.h>
+#import <TFYOCPanlModel/TFYPopupViewConfiguration.h>
 
 #pragma mark - Protocol Definitions
 
-#import "TFYPopupViewAnimator.h"
-#import "TFYPopupViewDelegate.h"
+#import <TFYOCPanlModel/TFYPopupViewAnimator.h>
+#import <TFYOCPanlModel/TFYPopupViewDelegate.h>
 
 #pragma mark - Core Classes
 
-#import "TFYPopupBackgroundView.h"
-#import "TFYPopupView.h"
-#import "TFYPopupPriorityManager.h"
-#import "TFYPopupContainerManager.h"
+#import <TFYOCPanlModel/TFYPopupBackgroundView.h>
+#import <TFYOCPanlModel/TFYPopupView.h>
+#import <TFYOCPanlModel/TFYPopupPriorityManager.h>
+#import <TFYOCPanlModel/TFYPopupContainerManager.h>
 
 #pragma mark - Layout System
 
-#import "TFYPopupAnimatorLayout.h"
+#import <TFYOCPanlModel/TFYPopupAnimatorLayout.h>
 
 #pragma mark - Animator Classes
 
-#import "TFYPopupBaseAnimator.h"
-#import "TFYPopupAnimators.h"
-#import "TFYPopupBottomSheetAnimator.h"
+#import <TFYOCPanlModel/TFYPopupBaseAnimator.h>
+#import <TFYOCPanlModel/TFYPopupAnimators.h>
+#import <TFYOCPanlModel/TFYPopupBottomSheetAnimator.h>
 
 #pragma mark - Container Selection
 
-#import "TFYPopupContainerType.h"
+#import <TFYOCPanlModel/TFYPopupContainerType.h>
 
 #pragma mark - Convenience Macros
 

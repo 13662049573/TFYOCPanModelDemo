@@ -7,8 +7,6 @@
 //
 
 #import "TFYShoppingCartViewController.h"
-#import "TFYOCPanlModel.h"
-#import <Masonry/Masonry.h>
 
 @interface TFYShoppingCartViewController () <TFYPanModalPresentable>
 

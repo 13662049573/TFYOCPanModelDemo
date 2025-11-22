@@ -6,9 +6,9 @@
 //  用途：弹窗基础动画器类实现
 //
 
-#import "TFYPopupBaseAnimator.h"
-#import "TFYPopupView.h"
-#import "TFYPopupBackgroundView.h"
+#import <TFYOCPanlModel/TFYPopupBaseAnimator.h>
+#import <TFYOCPanlModel/TFYPopupView.h>
+#import <TFYOCPanlModel/TFYPopupBackgroundView.h>
 
 @implementation TFYPopupBaseAnimator
 

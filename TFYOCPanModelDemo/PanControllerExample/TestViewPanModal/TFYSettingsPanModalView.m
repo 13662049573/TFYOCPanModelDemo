@@ -6,7 +6,6 @@
 //
 
 #import "TFYSettingsPanModalView.h"
-#import <Masonry/Masonry.h>
 
 @interface TFYSettingsPanModalView ()
 

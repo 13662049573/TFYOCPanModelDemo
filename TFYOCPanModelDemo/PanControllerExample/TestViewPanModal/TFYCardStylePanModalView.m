@@ -6,7 +6,6 @@
 //
 
 #import "TFYCardStylePanModalView.h"
-#import <Masonry/Masonry.h>
 
 @interface TFYCardStylePanModalView ()
 

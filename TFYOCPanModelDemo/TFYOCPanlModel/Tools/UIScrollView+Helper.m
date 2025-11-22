@@ -6,7 +6,7 @@
 //  Created by heath wang on 2019/10/15.
 //
 
-#import "UIScrollView+Helper.h"
+#import <TFYOCPanlModel/UIScrollView+Helper.h>
 
 @implementation UIScrollView (Helper)
 

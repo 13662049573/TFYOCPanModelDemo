@@ -6,7 +6,7 @@
 //  用途：弹窗背景视图实现
 //
 
-#import "TFYPopupBackgroundView.h"
+#import <TFYOCPanlModel/TFYPopupBackgroundView.h>
 
 @interface TFYPopupBackgroundView ()
 

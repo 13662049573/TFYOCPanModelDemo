@@ -6,8 +6,8 @@
 //  用途：弹窗优先级管理器实现
 //
 
-#import "TFYPopupPriorityManager.h"
-#import "TFYPopupView.h"
+#import <TFYOCPanlModel/TFYPopupPriorityManager.h>
+#import <TFYOCPanlModel/TFYPopupView.h>
 #import <objc/runtime.h>
 
 // 为了访问 TFYPopupView 的私有方法，需要声明

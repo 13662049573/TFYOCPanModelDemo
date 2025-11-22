@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TFYPopupViewConfiguration.h"
+#import <TFYOCPanlModel/TFYPopupViewConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

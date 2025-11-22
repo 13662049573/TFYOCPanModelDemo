@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TFYPanModalIndicatorProtocol.h"
+#import <TFYOCPanlModel/TFYPanModalIndicatorProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

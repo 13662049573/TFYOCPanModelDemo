@@ -7,8 +7,6 @@
 //
 
 #import "TFYPopupDemoViewController.h"
-#import "TFYPopup.h"
-#import <Masonry/Masonry.h>
 
 /// 演示类型枚举
 typedef NS_ENUM(NSInteger, TFYPopupDemoType) {

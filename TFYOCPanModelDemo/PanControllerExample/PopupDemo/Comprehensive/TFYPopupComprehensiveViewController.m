@@ -7,8 +7,6 @@
 //
 
 #import "TFYPopupComprehensiveViewController.h"
-#import "TFYPopup.h"
-#import <Masonry/Masonry.h>
 
 @interface TFYPopupComprehensiveViewController ()
 

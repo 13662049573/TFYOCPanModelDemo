@@ -7,13 +7,13 @@
 //  Copyright (c) 2013 objc.io. All rights reserved.
 //
 
-#import "KeyValueObserver.h"
+#import <TFYOCPanlModel/KeyValueObserver.h>
 
 //
 // Created by chris on 7/24/13.
 //
 
-#import "KeyValueObserver.h"
+#import <TFYOCPanlModel/KeyValueObserver.h>
 
 @interface KeyValueObserver ()
 @property (nonatomic, weak) id observedObject;

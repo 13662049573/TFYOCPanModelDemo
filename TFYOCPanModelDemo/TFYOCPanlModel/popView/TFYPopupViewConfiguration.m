@@ -6,7 +6,7 @@
 //  用途：弹窗主配置类实现
 //
 
-#import "TFYPopupViewConfiguration.h"
+#import <TFYOCPanlModel/TFYPopupViewConfiguration.h>
 
 
 

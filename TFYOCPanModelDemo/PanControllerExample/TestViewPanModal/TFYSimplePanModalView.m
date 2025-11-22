@@ -9,7 +9,6 @@
 #import "TFYSimplePanModalView.h"
 #import "TFYColorCell.h"
 
-
 @interface TFYSimplePanModalView () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray<UIColor *> *colors;

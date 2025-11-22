@@ -8,9 +8,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TFYPanModalPresentable.h"
-#import "TFYPanModalPanGestureDelegate.h"
-#import "TFYPanModalPresentationDelegate.h"
+#import <TFYOCPanlModel/TFYPanModalPresentable.h>
+#import <TFYOCPanlModel/TFYPanModalPanGestureDelegate.h>
+#import <TFYOCPanlModel/TFYPanModalPresentationDelegate.h>
 
 /**
  * TFYPanModalPresentableHandlerMode

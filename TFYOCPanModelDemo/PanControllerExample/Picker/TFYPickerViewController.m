@@ -7,8 +7,6 @@
 //
 
 #import "TFYPickerViewController.h"
-#import "TFYOCPanlModel.h"
-#import <Masonry/View+MASAdditions.h>
 
 @interface TFYPickerViewController () <TFYPanModalPresentable>
 

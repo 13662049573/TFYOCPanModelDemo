@@ -7,12 +7,12 @@
 //  Copyright © 2019 TFY Team. All rights reserved.
 //
 
-#import "TFYPanModalPresentableHandler.h"
-#import "UIScrollView+Helper.h"
-#import "UIViewController+LayoutHelper.h"
-#import "UIView+TFY_Frame.h"
-#import "KeyValueObserver.h"
-#import "TFYPanModalContentView.h"
+#import <TFYOCPanlModel/TFYPanModalPresentableHandler.h>
+#import <TFYOCPanlModel/UIScrollView+Helper.h>
+#import <TFYOCPanlModel/UIViewController+LayoutHelper.h>
+#import <TFYOCPanlModel/UIView+TFY_Frame.h>
+#import <TFYOCPanlModel/KeyValueObserver.h>
+#import <TFYOCPanlModel/TFYPanModalContentView.h>
 
 static NSString *const kScrollViewKVOContentOffsetKey = @"contentOffset";
 

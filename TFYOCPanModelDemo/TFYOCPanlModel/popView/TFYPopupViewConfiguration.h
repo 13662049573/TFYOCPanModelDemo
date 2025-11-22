@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "TFYPopupKeyboardConfiguration.h"
-#import "TFYPopupContainerConfiguration.h"
-#import "TFYPopupPriorityManager.h"
-#import "TFYPopupContainerType.h"
+#import <TFYOCPanlModel/TFYPopupKeyboardConfiguration.h>
+#import <TFYOCPanlModel/TFYPopupContainerConfiguration.h>
+#import <TFYOCPanlModel/TFYPopupPriorityManager.h>
+#import <TFYOCPanlModel/TFYPopupContainerType.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

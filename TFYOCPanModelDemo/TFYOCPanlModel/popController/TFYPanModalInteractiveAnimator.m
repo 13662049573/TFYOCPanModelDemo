@@ -6,7 +6,7 @@
 //  Created by heath wang on 2019/5/14.
 //
 
-#import "TFYPanModalInteractiveAnimator.h"
+#import <TFYOCPanlModel/TFYPanModalInteractiveAnimator.h>
 
 @implementation TFYPanModalInteractiveAnimator
 

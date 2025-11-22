@@ -6,7 +6,7 @@
 //  Created by heath wang on 2019/5/20.
 //
 
-#import "UIView+TFY_Frame.h"
+#import <TFYOCPanlModel/UIView+TFY_Frame.h>
 
 @implementation UIView (TFY_Frame)
 

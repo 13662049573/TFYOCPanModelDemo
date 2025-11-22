@@ -6,9 +6,9 @@
 //  Created by heath wang on 2019/4/26.
 //
 
-#import "UIViewController+PanModalDefault.h"
-#import "UIViewController+LayoutHelper.h"
-#import "TFYPanModalFrequentTapPrevention.h"
+#import <TFYOCPanlModel/UIViewController+PanModalDefault.h>
+#import <TFYOCPanlModel/UIViewController+LayoutHelper.h>
+#import <TFYOCPanlModel/TFYPanModalFrequentTapPrevention.h>
 
 @implementation UIViewController (PanModalDefault)
 

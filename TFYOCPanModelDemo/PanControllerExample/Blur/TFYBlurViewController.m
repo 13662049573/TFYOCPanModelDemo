@@ -7,7 +7,6 @@
 //
 
 #import "TFYBlurViewController.h"
-#import "TFYOCPanlModel.h"
 
 @interface TFYBlurViewController () <TFYPanModalPresentable>
 

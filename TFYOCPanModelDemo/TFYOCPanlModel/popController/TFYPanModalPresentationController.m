@@ -6,18 +6,18 @@
 //  Created by heath wang on 2019/4/26.
 //
 
-#import "TFYPanModalPresentationController.h"
-#import "TFYDimmedView.h"
-#import "TFYPanContainerView.h"
-#import "UIViewController+LayoutHelper.h"
-#import "TFYPanModalAnimator.h"
-#import "TFYPanModalInteractiveAnimator.h"
-#import "TFYPanModalPresentationDelegate.h"
-#import "UIViewController+PanModalPresenter.h"
-#import "TFYPanIndicatorView.h"
-#import "UIView+TFY_Frame.h"
-#import "TFYPanModalPresentableHandler.h"
-#import "TFYPanModalFrequentTapPrevention.h"
+#import <TFYOCPanlModel/TFYPanModalPresentationController.h>
+#import <TFYOCPanlModel/TFYDimmedView.h>
+#import <TFYOCPanlModel/TFYPanContainerView.h>
+#import <TFYOCPanlModel/UIViewController+LayoutHelper.h>
+#import <TFYOCPanlModel/TFYPanModalAnimator.h>
+#import <TFYOCPanlModel/TFYPanModalInteractiveAnimator.h>
+#import <TFYOCPanlModel/TFYPanModalPresentationDelegate.h>
+#import <TFYOCPanlModel/UIViewController+PanModalPresenter.h>
+#import <TFYOCPanlModel/TFYPanIndicatorView.h>
+#import <TFYOCPanlModel/UIView+TFY_Frame.h>
+#import <TFYOCPanlModel/TFYPanModalPresentableHandler.h>
+#import <TFYOCPanlModel/TFYPanModalFrequentTapPrevention.h>
 
 /**
  * @brief 自定义弹窗的UIPresentationController，负责弹窗的展示、布局、交互等核心逻辑。

@@ -7,8 +7,6 @@
 //
 
 #import "TFYPopupBottomSheetViewController.h"
-#import "TFYPopup.h"
-#import <Masonry/Masonry.h>
 
 /// 底部弹出框演示类型
 typedef NS_ENUM(NSInteger, TFYBottomSheetDemoType) {

@@ -6,8 +6,8 @@
 //  Created by heath wang on 2019/5/16.
 //
 
-#import "UIView+TFY_Frame.h"
-#import "TFYPanIndicatorView.h"
+#import <TFYOCPanlModel/UIView+TFY_Frame.h>
+#import <TFYOCPanlModel/TFYPanIndicatorView.h>
 
 @interface TFYPanIndicatorView ()
 

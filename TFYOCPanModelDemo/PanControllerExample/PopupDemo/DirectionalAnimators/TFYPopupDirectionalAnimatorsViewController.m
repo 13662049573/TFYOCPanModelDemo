@@ -7,8 +7,6 @@
 //
 
 #import "TFYPopupDirectionalAnimatorsViewController.h"
-#import "TFYPopup.h"
-#import <Masonry/Masonry.h>
 
 /// 方向动画器类型
 typedef NS_ENUM(NSInteger, TFYDirectionalAnimatorType) {

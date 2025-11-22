@@ -6,9 +6,9 @@
 //  Created by heath wang on 2019/4/26.
 //
 
-#import "UIViewController+LayoutHelper.h"
-#import "TFYPanModalPresentationController.h"
-#import "UIViewController+PanModalDefault.h"
+#import <TFYOCPanlModel/UIViewController+LayoutHelper.h>
+#import <TFYOCPanlModel/TFYPanModalPresentationController.h>
+#import <TFYOCPanlModel/UIViewController+PanModalDefault.h>
 
 @implementation UIViewController (LayoutHelper)
 

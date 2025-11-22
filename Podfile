@@ -1,15 +1,16 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
+use_frameworks!
+inhibit_all_warnings!
 platform :ios, '15.0'
 
 
 target 'TFYOCPanModelDemo' do
-  use_frameworks!
-  inhibit_all_warnings!
   
+  pod 'TFYOCPanlModel', :path => '.'
   pod 'Masonry'
   pod 'MJRefresh'
-  pod 'LookinServer', :configurations => ['Debug']
+  #pod 'LookinServer', :configurations => ['Debug']
 
   target 'TFYOCPanModelDemoTests' do
     inherit! :search_paths

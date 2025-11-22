@@ -6,7 +6,7 @@
 //  Created by hb on 2023/8/3.
 //
 
-#import "TFYPanModalShadow.h"
+#import <TFYOCPanlModel/TFYPanModalShadow.h>
 
 @implementation TFYPanModalShadow
 

@@ -6,9 +6,9 @@
 //  用途：底部弹出框动画器实现
 //
 
-#import "TFYPopupBottomSheetAnimator.h"
-#import "TFYPopupView.h"
-#import "TFYPopupBackgroundView.h"
+#import <TFYOCPanlModel/TFYPopupBottomSheetAnimator.h>
+#import <TFYOCPanlModel/TFYPopupView.h>
+#import <TFYOCPanlModel/TFYPopupBackgroundView.h>
 
 #pragma mark - TFYPopupBottomSheetConfiguration
 

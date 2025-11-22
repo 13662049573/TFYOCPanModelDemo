@@ -6,7 +6,6 @@
 //
 
 #import "TFYFormInputPanModalView.h"
-#import <Masonry/Masonry.h>
 
 @interface TFYFormInputPanModalView ()
 

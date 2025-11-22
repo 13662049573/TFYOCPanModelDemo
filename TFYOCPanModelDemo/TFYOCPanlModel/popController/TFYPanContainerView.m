@@ -6,7 +6,7 @@
 //  Created by heath wang on 2019/4/26.
 //
 
-#import "TFYPanContainerView.h"
+#import <TFYOCPanlModel/TFYPanContainerView.h>
 
 @interface TFYPanContainerView ()
 

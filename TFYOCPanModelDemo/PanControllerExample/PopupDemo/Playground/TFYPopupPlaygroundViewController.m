@@ -7,8 +7,6 @@
 //
 
 #import "TFYPopupPlaygroundViewController.h"
-#import "TFYPopup.h"
-#import <Masonry/Masonry.h>
 
 @interface TFYPopupPlaygroundViewController ()
 

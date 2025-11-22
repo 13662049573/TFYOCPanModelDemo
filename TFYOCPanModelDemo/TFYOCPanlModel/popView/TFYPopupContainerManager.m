@@ -6,7 +6,7 @@
 //  用途：弹窗容器管理器实现
 //
 
-#import "TFYPopupContainerManager.h"
+#import <TFYOCPanlModel/TFYPopupContainerManager.h>
 
 // 定义通知常量
 NSNotificationName const TFYPopupContainerDidChangeNotification = @"TFYPopupContainerDidChangeNotification";

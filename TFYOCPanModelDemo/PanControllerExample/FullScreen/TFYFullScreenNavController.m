@@ -7,8 +7,6 @@
 //
 
 #import "TFYFullScreenNavController.h"
-#import "TFYOCPanlModel.h"
-#import <Masonry/View+MASAdditions.h>
 
 @interface TFYFullScreenViewController : UIViewController
 

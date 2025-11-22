@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TFYPanModalPresentable.h"
-#import "TFYPanModalPresentationUpdateProtocol.h"
-#import "UIViewController+LayoutHelper.h"
-#import "TFYPanModalPanGestureDelegate.h"
+#import <TFYOCPanlModel/TFYPanModalPresentable.h>
+#import <TFYOCPanlModel/TFYPanModalPresentationUpdateProtocol.h>
+#import <TFYOCPanlModel/UIViewController+LayoutHelper.h>
+#import <TFYOCPanlModel/TFYPanModalPanGestureDelegate.h>
 
 @class TFYPanModalContainerView;
 

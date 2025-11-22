@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TFYPageSheetPresentingAnimation.h"
+#import <TFYOCPanlModel/TFYPageSheetPresentingAnimation.h>
 
 @implementation TFYPageSheetPresentingAnimation
 

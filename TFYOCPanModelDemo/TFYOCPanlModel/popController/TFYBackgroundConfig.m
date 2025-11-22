@@ -6,7 +6,7 @@
 //  Created by heath wang on 2020/4/17.
 //
 
-#import "TFYBackgroundConfig.h"
+#import <TFYOCPanlModel/TFYBackgroundConfig.h>
 
 @implementation TFYBackgroundConfig
 

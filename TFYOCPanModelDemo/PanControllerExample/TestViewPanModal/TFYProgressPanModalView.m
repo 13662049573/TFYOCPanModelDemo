@@ -6,7 +6,6 @@
 //
 
 #import "TFYProgressPanModalView.h"
-#import <Masonry/Masonry.h>
 
 @interface TFYProgressPanModalView ()
 

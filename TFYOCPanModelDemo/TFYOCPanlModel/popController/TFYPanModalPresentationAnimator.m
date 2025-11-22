@@ -6,13 +6,13 @@
 //  Created by heath wang on 2019/4/29.
 //
 
-#import "TFYPanModalPresentationAnimator.h"
-#import "TFYPanModalAnimator.h"
-#import "UIViewController+LayoutHelper.h"
-#import "TFYPanContainerView.h"
-#import "UIView+TFY_Frame.h"
-#import "TFYPageSheetPresentingAnimation.h"
-#import "TFYShoppingCartPresentingAnimation.h"
+#import <TFYOCPanlModel/TFYPanModalPresentationAnimator.h>
+#import <TFYOCPanlModel/TFYPanModalAnimator.h>
+#import <TFYOCPanlModel/UIViewController+LayoutHelper.h>
+#import <TFYOCPanlModel/TFYPanContainerView.h>
+#import <TFYOCPanlModel/UIView+TFY_Frame.h>
+#import <TFYOCPanlModel/TFYPageSheetPresentingAnimation.h>
+#import <TFYOCPanlModel/TFYShoppingCartPresentingAnimation.h>
 
 // =====================
 // 详细中文注释与健壮性补充

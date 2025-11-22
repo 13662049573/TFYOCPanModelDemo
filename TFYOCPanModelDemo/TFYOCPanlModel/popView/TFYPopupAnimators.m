@@ -6,9 +6,9 @@
 //  用途：弹窗具体动画器类实现集合
 //
 
-#import "TFYPopupAnimators.h"
-#import "TFYPopupView.h"
-#import "TFYPopupBackgroundView.h"
+#import <TFYOCPanlModel/TFYPopupAnimators.h>
+#import <TFYOCPanlModel/TFYPopupView.h>
+#import <TFYOCPanlModel/TFYPopupBackgroundView.h>
 
 #pragma mark - TFYPopupFadeInOutAnimator
 
