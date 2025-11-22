@@ -1,4 +1,0 @@
-module TFYOCPanlModel {
-    umbrella header "/Users/admin/Desktop/my/TFYOCPanModelDemo/TFYOCPanModelDemo/Sources/TFYOCPanlModel/include/TFYOCPanlModel.h"
-    export *
-}
