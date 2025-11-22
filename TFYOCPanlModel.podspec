@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "TFYOCPanlModel"
 
-  spec.version      = "1.7.3"
+  spec.version      = "1.7.4"
 
   spec.summary      = "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。"
 

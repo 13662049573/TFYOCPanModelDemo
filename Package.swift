@@ -26,6 +26,10 @@ let package = Package(
                 .headerSearchPath("popController"),
                 .headerSearchPath("popView"),
                 .headerSearchPath("include")
+            ],
+            linkerSettings: [
+                .linkedFramework("UIKit", .when(platforms: [.iOS])),
+                .linkedFramework("Foundation", .when(platforms: [.iOS]))
             ]
         )
     ]
