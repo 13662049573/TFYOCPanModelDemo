@@ -7,8 +7,6 @@
 
 #import "ViewController.h"
 #import "TFYDemoTypeModel.h"
-#import <TFYOCPanlModel/UIViewController+PanModalPresenter.h>
-#import <Masonry/Masonry.h>
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;

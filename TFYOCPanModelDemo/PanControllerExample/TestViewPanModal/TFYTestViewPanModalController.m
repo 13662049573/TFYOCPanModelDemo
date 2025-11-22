@@ -7,7 +7,6 @@
 //
 
 #import "TFYTestViewPanModalController.h"
-#import <Masonry/Masonry.h>
 #import "TFYSimplePanModalView.h"
 #import "TFYCollectionPanModalView.h"
 #import "TFYFormInputPanModalView.h"

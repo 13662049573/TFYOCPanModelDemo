@@ -8,7 +8,6 @@
 
 #import "TFYAlertViewController.h"
 #import "TFYAlertView.h"
-#import <Masonry/View+MASAdditions.h>
 
 @interface TFYAlertViewController () <TFYPanModalPresentable>
 

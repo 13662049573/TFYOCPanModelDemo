@@ -6,7 +6,6 @@
 //  Copyright © 2019 Heath Wang. All rights reserved.
 //
 
-#import <Masonry/View+MASAdditions.h>
 #import "TFYFetchDataViewController.h"
 #import "TFYPanModalNavView.h"
 #import "UIDevice+TFY.h"

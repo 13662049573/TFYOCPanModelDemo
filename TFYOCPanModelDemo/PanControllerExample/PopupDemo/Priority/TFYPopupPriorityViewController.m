@@ -8,7 +8,6 @@
 
 #import "TFYPopupPriorityViewController.h"
 #import "UIColor+TFY.h"
-#import "Masonry.h"
 
 @interface TFYPopupPriorityViewController () <UITableViewDataSource, UITableViewDelegate>
 
