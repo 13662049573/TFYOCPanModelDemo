@@ -5,7 +5,10 @@ let package = Package(
     name: "TFYOCPanlModel",
     platforms: [.iOS(.v15)],
     products: [
-        .library(name: "TFYOCPanlModel", targets: ["TFYOCPanlModel"])
+        .library(
+            name: "TFYOCPanlModel",
+            targets: ["TFYOCPanlModel"]
+        )
     ],
     targets: [
         .target(
@@ -17,7 +20,6 @@ let package = Package(
                 "popController",
                 "popView"
             ],
-            publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("."),
                 .headerSearchPath("Tools"),

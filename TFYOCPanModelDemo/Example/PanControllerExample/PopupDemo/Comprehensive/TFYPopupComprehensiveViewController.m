@@ -149,9 +149,10 @@
                                completion:^(TFYPopupView * _Nullable pop) {
                 // 2秒后自动关闭
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    NSArray *popups = TFYPopupGetAllCurrentPopups();
-                    if (popups.count > 0) {
-                        [popups.lastObject dismissAnimated:YES completion:nil];
+                    NSArray<TFYPopupView *> *popups = TFYPopupGetAllCurrentPopups();
+                    TFYPopupView *lastPopup = popups.lastObject;
+                    if (lastPopup) {
+                        [lastPopup dismissAnimated:YES completion:nil];
                     }
                 });
             }];
