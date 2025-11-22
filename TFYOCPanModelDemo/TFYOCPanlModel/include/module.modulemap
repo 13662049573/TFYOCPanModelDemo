@@ -1,23 +1,5 @@
-
 framework module TFYOCPanlModel {
     umbrella header "TFYOCPanlModel.h"
-
-    // 显式导出所有你公开的头文件
-    header "TFYPanModalPresentable.h"
-    header "TFYPanModalPanGestureDelegate.h"
-    header "TFYPanModalHeight.h"
-    header "TFYPanModalFrequentTapPrevention.h"
-    header "TFYPanModalPresenterProtocol.h"
-    header "UIViewController+PanModalDefault.h"
-    header "UIViewController+Presentation.h"
-    header "UIViewController+PanModalPresenter.h"
-    header "TFYPresentingVCAnimatedTransitioning.h"
-    header "TFYPanModalIndicatorProtocol.h"
-    header "TFYPanIndicatorView.h"
-    header "TFYDimmedView.h"
-    header "TFYPanModalContentView.h"
-    header "TFYPopup.h"
-    // 如果还有其他 .h 被外部使用，也加进来
 
     export *
     module * { export * }
