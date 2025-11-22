@@ -29,7 +29,6 @@ let package = Package(
                 "popView",
                 "include",
             ],
-            publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("."),
                 .headerSearchPath("include"),
