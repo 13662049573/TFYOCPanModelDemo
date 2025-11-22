@@ -1,6 +1,23 @@
 framework module TFYOCPanlModel {
     umbrella header "TFYOCPanlModel.h"
     
+    explicit module Tools {
+        header "Tools/KeyValueObserver.h"
+        header "Tools/UIScrollView+Helper.h"
+        header "Tools/UIView+TFY_Frame.h"
+        export *
+    }
+    
+    explicit module popController {
+        header "popController/TFYPanModalPresentable.h"
+        export *
+    }
+    
+    explicit module popView {
+        header "popView/TFYPopup.h"
+        export *
+    }
+    
     export *
     module * { export * }
 }
