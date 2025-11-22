@@ -20,6 +20,7 @@ let package = Package(
                 "popController",
                 "popView"
             ],
+            publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("."),
                 .headerSearchPath("Tools"),
