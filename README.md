@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.5.6-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.6.4-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.5.6")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.6.4")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.5.6'
+pod 'TFYOCPanlModel', '~> 1.6.4'
 ```
 
 然后运行：
@@ -101,10 +101,24 @@ pod 'TFYOCPanlModel', '~> 1.5.6'
 pod install
 ```
 
+**注意**：从 1.6.3 版本开始，库已转换为 Pod 形式，所有头文件导入需要使用 `#import <TFYOCPanlModel/...>` 格式。
+
 ### 系统要求
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.6.4 新功能 (New in v1.6.4)
+- **📦 Pod 形式转换** - 库已完全转换为 Pod 形式，统一使用 `#import <TFYOCPanlModel/...>` 导入格式
+- **🔧 导入方式优化** - 所有头文件导入已更新为 Pod 标准格式，提升兼容性和可维护性
+- **✅ 完善 Pod 配置** - 优化了 Podfile 和 podspec 配置，支持本地开发和远程依赖
+- **🚀 版本号更新** - 更新至 1.6.4
+
+### 🆕 版本 1.6.3 新功能 (New in v1.6.3)
+- **📦 Pod 形式转换** - 将库转换为 Pod 形式，统一使用 `#import <TFYOCPanlModel/...>` 导入格式
+- **🔧 批量导入更新** - 批量更新所有库内文件的导入方式，提升代码规范性
+- **✅ 项目文件适配** - 更新项目中使用该库的文件导入为 Pod 格式
+- **🚀 版本号更新** - 更新至 1.6.3
 
 ### 🆕 版本 1.5.6 新功能 (New in v1.5.6)
 - **📁 文件夹结构重组** - 将库文件重新组织为四大类：Tools（工具类）、popController（控制弹出）、popView（pop弹出）、include（主头文件）
@@ -1382,8 +1396,15 @@ import TFYOCPanlModel
 ```
 
 ```objc
+// 导入主头文件（推荐）
 #import <TFYOCPanlModel/TFYOCPanlModel.h>
+
+// 或者导入具体的头文件
+#import <TFYOCPanlModel/TFYPanModalPresentable.h>
+#import <TFYOCPanlModel/TFYPopup.h>
 ```
+
+**注意**：从 1.6.3 版本开始，所有头文件导入必须使用 `#import <TFYOCPanlModel/...>` 格式，不再支持相对路径导入。
 
 #### Q: 出现 "No such module 'TFYOCPanlModel'" 错误怎么办？
 
