@@ -17,7 +17,14 @@ let package = Package(
                 "popController",
                 "popView"
             ],
-            publicHeadersPath: "include"
+            publicHeadersPath: "include",
+            cSettings: [
+                .headerSearchPath("."),
+                .headerSearchPath("Tools"),
+                .headerSearchPath("popController"),
+                .headerSearchPath("popView"),
+                .headerSearchPath("include")
+            ]
         )
     ]
 )
