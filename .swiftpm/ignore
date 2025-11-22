@@ -1,26 +1,33 @@
-# 排除 Demo 项目文件（相对于仓库根目录）
+# 排除所有不需要的文件和目录，只保留库源代码
+# 相对于仓库根目录
+
+# 排除 Demo 项目文件
 TFYOCPanModelDemo/Example/**
-TFYOCPanModelDemo/AppDelegate.*
-TFYOCPanModelDemo/ViewController.*
-TFYOCPanModelDemo/SceneDelegate.*
-TFYOCPanModelDemo/main.m
-TFYOCPanModelDemo/Info.plist
-TFYOCPanModelDemo/Assets.xcassets
-TFYOCPanModelDemo/Base.lproj
-TFYOCPanModelDemo/PanControllerExample/**
-TFYOCPanModelDemo/Model/**
-TFYOCPanModelDemo/Utils/**
+TFYOCPanModelDemo/Base.lproj/**
 
 # 排除测试项目
 TFYOCPanModelDemoTests/**
 TFYOCPanModelDemoUITests/**
 
-# 排除其他不需要的文件
+# 排除 CocoaPods 相关文件
 Podfile
 Podfile.lock
 Pods/**
+
+# 排除 Xcode 项目文件
 TFYOCPanModelDemo.xcodeproj/**
 TFYOCPanModelDemo.xcworkspace/**
-.build/**
 *.xcworkspace
 *.xcodeproj
+
+# 排除构建文件
+.build/**
+
+# 排除文档和配置文件（可选，如果想隐藏的话）
+README.md
+LICENSE
+TFYOCPanlModel.podspec
+
+# 注意：只保留以下内容在 Xcode 中显示：
+# - Package.swift（必须）
+# - TFYOCPanModelDemo/Sources/TFYOCPanlModel/**（库源代码）

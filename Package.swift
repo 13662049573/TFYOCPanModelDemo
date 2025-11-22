@@ -10,13 +10,20 @@ let package = Package(
     targets: [
         .target(
             name: "TFYOCPanlModel",
-            path: "Sources/TFYOCPanlModel",        // 改成这行！！
+            path: "TFYOCPanModelDemo/Sources/TFYOCPanlModel",
+            sources: [
+                "include",
+                "Tools",
+                "popController",
+                "popView"
+            ],
             publicHeadersPath: "include",
             cSettings: [
-                .headerSearchPath("include"),
+                .headerSearchPath("."),
                 .headerSearchPath("Tools"),
                 .headerSearchPath("popController"),
-                .headerSearchPath("popView")
+                .headerSearchPath("popView"),
+                .headerSearchPath("include")
             ]
         )
     ]
