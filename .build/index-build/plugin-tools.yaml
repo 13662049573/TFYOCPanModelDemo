@@ -9,13 +9,13 @@ targets:
   "test": []
 default: "main"
 nodes:
-  "/Users/admin/Desktop/my/TFYOCPanModelDemo/TFYOCPanModelDemo/TFYOCPanlModel/":
+  "/Users/admin/Desktop/my/TFYOCPanModelDemo/TFYOCPanModelDemo/Sources/TFYOCPanlModel/":
     is-directory-structure: true
     content-exclusion-patterns: [".git",".build"]
 commands:
   "PackageStructure":
     tool: package-structure-tool
-    inputs: ["/Users/admin/Desktop/my/TFYOCPanModelDemo/TFYOCPanModelDemo/TFYOCPanlModel/","/Users/admin/Desktop/my/TFYOCPanModelDemo/Package.swift","/Users/admin/Desktop/my/TFYOCPanModelDemo/Package.resolved"]
+    inputs: ["/Users/admin/Desktop/my/TFYOCPanModelDemo/TFYOCPanModelDemo/Sources/TFYOCPanlModel/","/Users/admin/Desktop/my/TFYOCPanModelDemo/Package.swift","/Users/admin/Desktop/my/TFYOCPanModelDemo/Package.resolved"]
     outputs: ["<PackageStructure>"]
     description: "Planning build"
     allow-missing-inputs: true

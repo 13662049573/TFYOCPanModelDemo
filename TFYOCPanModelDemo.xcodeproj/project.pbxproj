@@ -48,7 +48,7 @@
 		849928582E2679D40069E0F2 /* Exceptions for "TFYOCPanModelDemo" folder in "TFYOCPanModelDemo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Example/Resources/Info.plist,
 			);
 			target = 8499282A2E2679D20069E0F2 /* TFYOCPanModelDemo */;
 		};
@@ -65,15 +65,11 @@
 		};
 		849928492E2679D40069E0F2 /* TFYOCPanModelDemoTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = TFYOCPanModelDemoTests;
 			sourceTree = "<group>";
 		};
 		849928532E2679D40069E0F2 /* TFYOCPanModelDemoUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = TFYOCPanModelDemoUITests;
 			sourceTree = "<group>";
 		};
@@ -342,9 +338,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests/Pods-TFYOCPanModelDemo-TFYOCPanModelDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -359,9 +359,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo/Pods-TFYOCPanModelDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TFYOCPanModelDemo/Pods-TFYOCPanModelDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -441,9 +445,9 @@
 				DEVELOPMENT_TEAM = QH95759TSS;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = TFYOCPanModelDemo/PanModelPrefixHeader.pch;
+				GCC_PREFIX_HEADER = Example/Resources/PanModelPrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TFYOCPanModelDemo/Info.plist;
+				INFOPLIST_FILE = Example/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -474,9 +478,9 @@
 				DEVELOPMENT_TEAM = QH95759TSS;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = TFYOCPanModelDemo/PanModelPrefixHeader.pch;
+				GCC_PREFIX_HEADER = Example/Resources/PanModelPrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TFYOCPanModelDemo/Info.plist;
+				INFOPLIST_FILE = Example/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

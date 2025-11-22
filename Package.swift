@@ -10,9 +10,8 @@ let package = Package(
     targets: [
         .target(
             name: "TFYOCPanlModel",
-            path: "TFYOCPanModelDemo/TFYOCPanlModel",
-            sources: ["include", "Tools", "popController", "popView"],
-            publicHeadersPath: "include"
+            path: "Sources/TFYOCPanlModel",     // 改成这行！！！
+            publicHeadersPath: "Sources/TFYOCPanlModel/include"
         )
     ]
 )
