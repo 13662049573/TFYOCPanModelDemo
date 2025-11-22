@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.5.3-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.5.6-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.5.3")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.5.6")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.5.3'
+pod 'TFYOCPanlModel', '~> 1.5.6'
 ```
 
 然后运行：
@@ -106,35 +106,14 @@ pod install
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
 
-### 🆕 版本 1.5.3 新功能 (New in v1.5.3)
-- **🔧 修复 Swift Package 头文件路径问题** - 修复了 Package.swift 中错误的 exclude 配置，移除了对主头文件的错误排除
-- **✅ 完善头文件搜索路径** - 添加了 include 目录到 headerSearchPath，确保所有头文件可以正确找到
-- **📦 优化 SPM 配置** - 确保 Swift Package Manager 只显示库文件，不显示 Demo 等其他目录
-- **🚀 版本号更新** - 更新至 1.5.3
+### 🆕 版本 1.5.6 新功能 (New in v1.5.6)
+- **📁 文件夹结构重组** - 将库文件重新组织为四大类：Tools（工具类）、popController（控制弹出）、popView（pop弹出）、include（主头文件）
+- **🔧 修复依赖关系** - 优化了 podspec 和 Package.swift 的依赖关系，避免循环依赖问题
+- **✅ 完善 header_search_paths** - 修复了所有模块的头文件搜索路径，确保编译时能正确找到头文件
+- **📦 优化模块组织** - 按照功能模块清晰分类，安装后头文件按文件夹结构分类展示
+- **🚀 版本号更新** - 更新至 1.5.6
 
-### 🆕 版本 1.4.0 新功能 (New in v1.4.0)
-- **🔧 修复头文件路径问题** - 修复了 "file not found" 错误，所有头文件现在可以正确找到
-- **✅ 简化 SPM 配置** - 移除了 publicHeadersPath，使用 SPM 自动头文件处理
-- **📦 完整头文件支持** - 所有子目录中的头文件现在都可以正确导入
-- **🚀 版本号更新** - 从 1.4.0 开始新的版本号体系
 
-### 🆕 版本 1.3.9 新功能 (New in v1.3.9)
-- **🔧 修复 SPM 安装问题** - 修复了 "invalid header layout" 错误
-- **✅ 标准目录结构** - 使用标准的 include 目录结构，符合 SPM 规范
-- **📦 完整 SPM 支持** - 现在可以正常通过 Swift Package Manager 安装和使用
-
-### 🆕 版本 1.3.8 新功能 (New in v1.3.8)
-- **🔧 修复 SPM 模块映射问题** - 修复了 "umbrella header not found" 错误
-- **✅ 完善 SPM 支持** - 将 module.modulemap 重命名为 module.modulemap.cocoapods，SPM 自动生成模块映射
-- **📚 完善文档** - 添加详细的故障排除指南和常见问题解答
-
-### 🆕 版本 1.3.2 新功能 (New in v1.3.2)
-- **📦 Swift Package Manager 支持** - 现已支持 Swift Package Manager，更方便集成和管理依赖
-- **🔧 完善的 Package.swift 配置** - 完整的 SPM 配置，支持自动依赖解析和版本管理
-- **⚡ 更快的构建速度** - SPM 提供更快的依赖解析和构建速度
-- **🎯 更好的 Xcode 集成** - 原生支持 Xcode 的 Package Dependencies 功能
-
-### 🆕 版本 1.1.0 新功能 (New in v1.1.0)
 - **🎭 TFYPopup 弹窗框架** - 全新的弹窗框架，支持更丰富的动画和配置
 - **🎨 多种动画效果** - 支持淡入淡出、缩放、旋转、滑动、3D翻转等8种动画
 - **📏 灵活的容器配置** - 支持固定、自动、比例、自定义四种尺寸类型
@@ -1349,7 +1328,7 @@ config.keyboardConfiguration = keyboardConfig;
 
 按照上面的安装步骤重新添加即可。
 
-#### Q: 如何更新到新版本（如从 1.4.0 更新到 1.5.3）？
+#### Q: 如何更新到新版本（如从 1.5.3 更新到 1.5.6）？
 
 **方法 1：通过 Xcode 更新（推荐）**
 
@@ -1357,7 +1336,7 @@ config.keyboardConfiguration = keyboardConfig;
 2. 切换到 **Package Dependencies** 标签页
 3. 找到 `TFYOCPanModelDemo` 包
 4. 右键点击包，选择 **Update to Latest Package Versions**
-5. 或者点击包右侧的版本号，选择新版本（如 1.5.3）
+5. 或者点击包右侧的版本号，选择新版本（如 1.5.6）
 
 **如果更新按钮不可用或无法更新：**
 
@@ -1380,14 +1359,14 @@ config.keyboardConfiguration = keyboardConfig;
 
 1. 按照上面的删除步骤完全移除旧版本
 2. 清理缓存（见方法 2）
-3. 重新添加包，选择新版本（如 1.5.3）
+3. 重新添加包，选择新版本（如 1.5.6）
 
 **方法 4：手动指定版本（在 Package.swift 中）**
 
 如果你的项目使用 `Package.swift`，直接修改版本号：
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.5.3")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.5.6")
 ]
 ```
 然后在 Xcode 中：**File** → **Packages** → **Update to Latest Package Versions**
