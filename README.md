@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.6.4-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.6.8-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.6.4")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.6.8")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.6.4'
+pod 'TFYOCPanlModel', '~> 1.6.8'
 ```
 
 然后运行：
@@ -107,6 +107,12 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.6.8 新功能 (New in v1.6.8)
+- **📦 Package.swift 优化** - 优化了 Swift Package Manager 配置，添加了完整的头文件搜索路径
+- **🔧 路径配置修复** - 修正了 Package.swift 中的源代码路径配置，确保正确指向 `TFYOCPanModelDemo/Sources/TFYOCPanlModel`
+- **✅ 版本标签清理** - 清理了中间版本标签，仅保留 1.5.6 和 1.6.8 两个稳定版本
+- **🚀 版本号更新** - 更新至 1.6.8
 
 ### 🆕 版本 1.6.4 新功能 (New in v1.6.4)
 - **📦 Pod 形式转换** - 库已完全转换为 Pod 形式，统一使用 `#import <TFYOCPanlModel/...>` 导入格式
@@ -602,52 +608,46 @@ config.keyboardConfiguration = keyboardConfig;
 ## 📁 项目结构 Project Structure
 
 ```
-TFYOCPanlModel/
+TFYOCPanModelDemo/
 ├── Package.swift                    # Swift Package Manager 配置文件
 ├── TFYOCPanlModel.podspec          # CocoaPods 配置文件
-├── Presentable/                    # 协议与分类
-│   ├── TFYPanModalPresentable.h   # 核心协议
-│   ├── TFYPanModalHeight.h        # 高度配置
-│   ├── TFYPanModalPanGestureDelegate.h # 手势代理
-│   ├── TFYPanModalFrequentTapPrevention.{h,m} # 防频繁点击
-│   └── UIViewController+*.{h,m}   # 控制器分类
-├── Controller/                     # 弹窗控制器
-│   └── TFYPanModalPresentationController.{h,m}
-├── View/                          # 视图组件
-│   ├── TFYBackgroundConfig.{h,m}  # 背景配置
-│   ├── TFYDimmedView.{h,m}        # 背景遮罩
-│   ├── TFYPanModalShadow.{h,m}    # 阴影配置
-│   ├── TFYVisualEffectView.{h,m}  # 模糊效果
-│   └── PanModal/                  # 弹窗容器
-├── Animator/                      # 动画与转场
-│   ├── TFYPanModalPresentationAnimator.{h,m}
-│   ├── TFYPanModalAnimator.{h,m}
-│   └── PresentingVCAnimation/     # 父控制器动画
-├── Presenter/                     # 弹窗展示器
-│   ├── TFYPanModalPresenterProtocol.h
-│   └── UIViewController+PanModalPresenter.{h,m}
-├── Mediator/                      # 事件中介
-│   └── TFYPanModalPresentableHandler.{h,m}
-├── Delegate/                      # 转场代理
-│   └── TFYPanModalPresentationDelegate.{h,m}
-├── Category/                      # UIKit扩展
-│   ├── UIScrollView+Helper.{h,m}
-│   └── UIView+TFY_Frame.{h,m}
-├── KVO/                          # KVO辅助
-│   └── KeyValueObserver.{h,m}
-└── popup/                         # 弹窗框架 (新增)
-    ├── TFYPopup.h                 # 弹窗框架主头文件
-    ├── TFYPopupView.{h,m}         # 弹窗视图主类
-    ├── TFYPopupViewConfiguration.{h,m} # 弹窗配置
-    ├── TFYPopupViewAnimator.h     # 动画器协议
-    ├── TFYPopupViewDelegate.h     # 弹窗代理
-    ├── TFYPopupAnimators.{h,m}    # 基础动画器集合
-    ├── TFYPopupBaseAnimator.{h,m} # 基础动画器
-    ├── TFYPopupBottomSheetAnimator.{h,m} # 底部弹出框动画器
-    ├── TFYPopupAnimatorLayout.{h,m} # 布局配置系统
-    ├── TFYPopupBackgroundView.{h,m} # 背景视图
-    ├── TFYPopupContainerConfiguration.{h,m} # 容器配置
-    └── TFYPopupKeyboardConfiguration.{h,m} # 键盘配置
+└── Sources/
+    └── TFYOCPanlModel/              # 核心库源代码
+        ├── include/                 # 主头文件目录
+        │   ├── TFYOCPanlModel.h    # 主头文件
+        │   └── module.modulemap     # 模块映射文件
+        ├── Tools/                   # 工具类（无依赖）
+        │   ├── KeyValueObserver.{h,m}
+        │   ├── UIScrollView+Helper.{h,m}
+        │   └── UIView+TFY_Frame.{h,m}
+        ├── popController/           # 控制弹出模块（依赖 Tools）
+        │   ├── TFYPanModalPresentable.h          # 核心协议
+        │   ├── TFYPanModalHeight.h               # 高度配置
+        │   ├── TFYPanModalPanGestureDelegate.h   # 手势代理
+        │   ├── TFYPanModalFrequentTapPrevention.{h,m} # 防频繁点击
+        │   ├── UIViewController+PanModalDefault.{h,m}
+        │   ├── UIViewController+Presentation.{h,m}
+        │   ├── UIViewController+PanModalPresenter.{h,m}
+        │   ├── TFYPanModalPresentationController.{h,m}
+        │   ├── TFYBackgroundConfig.{h,m}         # 背景配置
+        │   ├── TFYDimmedView.{h,m}              # 背景遮罩
+        │   ├── TFYPanModalShadow.{h,m}          # 阴影配置
+        │   ├── TFYVisualEffectView.{h,m}        # 模糊效果
+        │   ├── TFYPanModalAnimator.{h,m}        # 动画器
+        │   └── ... (其他控制器相关文件)
+        └── popView/                 # 弹窗框架模块（独立模块）
+            ├── TFYPopup.h                        # 弹窗框架主头文件
+            ├── TFYPopupView.{h,m}                # 弹窗视图主类
+            ├── TFYPopupViewConfiguration.{h,m}   # 弹窗配置
+            ├── TFYPopupViewAnimator.h            # 动画器协议
+            ├── TFYPopupViewDelegate.h            # 弹窗代理
+            ├── TFYPopupAnimators.{h,m}           # 基础动画器集合
+            ├── TFYPopupBaseAnimator.{h,m}        # 基础动画器
+            ├── TFYPopupBottomSheetAnimator.{h,m} # 底部弹出框动画器
+            ├── TFYPopupAnimatorLayout.{h,m}      # 布局配置系统
+            ├── TFYPopupBackgroundView.{h,m}      # 背景视图
+            ├── TFYPopupContainerConfiguration.{h,m} # 容器配置
+            └── TFYPopupKeyboardConfiguration.{h,m}   # 键盘配置
 ```
 
 ---
@@ -1498,10 +1498,10 @@ rm -rf ~/Library/Caches/org.swift.swiftpm/
 这是 **Swift Package Manager 的正常行为**。Xcode 会显示整个 Git 仓库的文件树，但**实际编译和使用的只有 Package.swift 中定义的库文件**。
 
 **重要说明**：
-- ✅ **会被编译和使用**：`TFYOCPanModelDemo/TFYOCPanlModel/` 目录下的所有库文件
+- ✅ **会被编译和使用**：`TFYOCPanModelDemo/Sources/TFYOCPanlModel/` 目录下的所有库文件
 - ❌ **不会被编译和使用**：Demo 项目、测试项目、Podfile、Pods 等其他文件
 
-Package.swift 中的 `path: "TFYOCPanModelDemo/TFYOCPanlModel"` 配置确保了：
+Package.swift 中的 `path: "TFYOCPanModelDemo/Sources/TFYOCPanlModel"` 配置确保了：
 - 只有库的源代码会被编译和链接到你的项目中
 - Demo 项目、测试项目等**完全不会影响**你的项目
 - 你可以安全地忽略 Xcode 中显示的其他文件
