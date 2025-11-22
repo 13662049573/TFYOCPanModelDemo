@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.6.9-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.7.0-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.6.9")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.7.0")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.6.9'
+pod 'TFYOCPanlModel', '~> 1.7.0'
 ```
 
 然后运行：
@@ -107,6 +107,11 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.7.0 新功能 (New in v1.7.0)
+- **🔧 Package.swift 路径修复** - 修复了 sources 配置错误，使用正确的相对路径而不是绝对路径
+- **✅ 文件显示优化** - 更新了 .swiftpm/ignore 配置，隐藏不需要的文件（Example、Tests 等）
+- **🚀 版本号更新** - 更新至 1.7.0
 
 ### 🆕 版本 1.6.9 新功能 (New in v1.6.9)
 - **🔧 Swift Package Manager 修复** - 修复了 SPM 构建错误，排除了手动 module.modulemap，让 SPM 自动生成模块映射

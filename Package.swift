@@ -11,7 +11,6 @@ let package = Package(
         .target(
             name: "TFYOCPanlModel",
             path: "TFYOCPanModelDemo/Sources/TFYOCPanlModel",
-            exclude: ["include/module.modulemap"],
             sources: [
                 "include",
                 "Tools",
