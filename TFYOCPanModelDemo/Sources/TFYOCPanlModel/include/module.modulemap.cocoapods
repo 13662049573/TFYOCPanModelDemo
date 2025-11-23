@@ -1,6 +1,7 @@
 framework module TFYOCPanlModel {
     umbrella header "TFYOCPanlModel.h"
     
+    // ========== Tools 模块 ==========
     explicit module Tools {
         header "Tools/KeyValueObserver.h"
         header "Tools/UIScrollView+Helper.h"
@@ -8,17 +9,40 @@ framework module TFYOCPanlModel {
         export *
     }
     
+    // ========== popController 模块 ==========
     explicit module popController {
+        // Protocol 协议（对应 TFYOCPanlModel.h 中的导入）
         header "popController/TFYPanModalPresentable.h"
+        header "popController/TFYPanModalPanGestureDelegate.h"
+        header "popController/TFYPanModalHeight.h"
+        header "popController/TFYPanModalFrequentTapPrevention.h"
+        header "popController/TFYPanModalPresenterProtocol.h"
+        header "popController/TFYPanModalIndicatorProtocol.h"
+        
+        // Category 分类（对应 TFYOCPanlModel.h 中的导入）
+        header "popController/UIViewController+PanModalDefault.h"
+        header "popController/UIViewController+Presentation.h"
+        header "popController/UIViewController+PanModalPresenter.h"
+        
+        // Animation 动画（对应 TFYOCPanlModel.h 中的导入）
+        header "popController/TFYPresentingVCAnimatedTransitioning.h"
+        
+        // View 视图（对应 TFYOCPanlModel.h 中的导入）
+        header "popController/TFYPanIndicatorView.h"
+        header "popController/TFYDimmedView.h"
+        header "popController/TFYPanModalContentView.h"
+        
         export *
     }
     
+    // ========== popView 模块 ==========
     explicit module popView {
+        // Main 主类（对应 TFYOCPanlModel.h 中的导入）
         header "popView/TFYPopup.h"
+        
         export *
     }
     
     export *
     module * { export * }
 }
-
