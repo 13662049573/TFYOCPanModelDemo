@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.7.7-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.7.8-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.7.7")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.7.8")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.7.7'
+pod 'TFYOCPanlModel', '~> 1.7.8'
 ```
 
 然后运行：
@@ -107,6 +107,11 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.7.8 新功能 (New in v1.7.8)
+- **🔧 模块映射优化** - 修正 `module.modulemap.cocoapods`，只包含 `TFYOCPanlModel.h` 中实际导入的头文件，移除多余的头文件声明
+- **✅ 模块定义精确化** - 确保模块映射文件与主头文件导入保持一致，提升模块导入的准确性
+- **🚀 版本号更新** - 更新至 1.7.8
 
 ### 🆕 版本 1.7.7 新功能 (New in v1.7.7)
 - **🎨 文件显示严格优化** - 进一步优化 `.swiftpm/ignore` 配置，严格隐藏所有非库文件（README、LICENSE、Podfile、Pods、Tests等），SPM安装后只显示库源代码
