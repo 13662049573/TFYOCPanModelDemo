@@ -1,6 +1,6 @@
 {
   "name": "TFYOCPanlModel",
-  "version": "1.7.4",
+  "version": "1.7.9",
   "summary": "TFYOCPanlModel：高扩展性OC弹窗组件，支持多种弹窗样式与交互。",
   "description": "TFYOCPanlModel 是一套高扩展性的 Objective-C 弹窗组件，支持多种弹窗样式、交互动画与自定义扩展，适用于 iOS 各类弹窗场景。",
   "homepage": "https://github.com/13662049573/TFYOCPanModelDemo",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/13662049573/TFYOCPanModelDemo.git",
-    "tag": "1.7.4"
+    "tag": "1.7.9"
   },
   "requires_arc": true,
   "subspecs": [
