@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.8.0-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.8.2-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -107,6 +107,12 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.8.2 新功能 (New in v1.8.2)
+- **🔧 修复 SPM modulemap 配置** - 移除 umbrella header，直接列出所有头文件，彻底解决 "umbrella header not found" 错误
+- **✅ 修复头文件路径问题** - 优化 module.modulemap 路径配置，确保 SPM 能正确找到所有 47 个头文件
+- **🚀 兼容性优化** - 删除 module.modulemap.cocoapods（CocoaPods 使用自动生成的 modulemap），简化配置
+- **📦 版本号更新** - 更新至 1.8.2
 
 ### 🆕 版本 1.8.0 新功能 (New in v1.8.0)
 - **🔧 模块映射完善** - 补全 `module.modulemap.cocoapods`，包含所有库内部引用的头文件，解决SPM安装后"file not found"编译错误
