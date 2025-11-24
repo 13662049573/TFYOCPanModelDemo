@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.7.9-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.8.0-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.7.9")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.8.0")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.7.9'
+pod 'TFYOCPanlModel', '~> 1.8.0'
 ```
 
 然后运行：
@@ -107,6 +107,11 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.8.0 新功能 (New in v1.8.0)
+- **🔧 模块映射完善** - 补全 `module.modulemap.cocoapods`，包含所有库内部引用的头文件，解决SPM安装后"file not found"编译错误
+- **✅ 头文件暴露优化** - 确保所有库内部 `.m` 文件引用的头文件都能被正确找到和导入
+- **🚀 版本号更新** - 更新至 1.8.0
 
 ### 🆕 版本 1.7.9 新功能 (New in v1.7.9)
 - **🚀 版本号更新** - 更新至 1.7.9 支持Swift Package
