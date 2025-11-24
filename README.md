@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.8.2-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.8.3-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -107,6 +107,11 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.8.3 新功能 (New in v1.8.3)
+- **🔧 修复 SPM modulemap 路径解析问题** - 修改所有 header 路径为相对于 target 根目录的路径，与 Package.swift 中的 headerSearchPath 配置保持一致
+- **✅ 彻底解决路径解析错误** - 使用 `include/TFYOCPanlModel.h`、`Tools/...`、`popController/...` 等格式，确保 SPM 能正确解析所有头文件路径
+- **🚀 版本号更新** - 更新至 1.8.3
 
 ### 🆕 版本 1.8.2 新功能 (New in v1.8.2)
 - **🔧 修复 SPM modulemap 配置** - 移除 umbrella header，直接列出所有头文件，彻底解决 "umbrella header not found" 错误
