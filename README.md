@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.8.3-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.8.4-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -107,6 +107,11 @@ pod install
 - **iOS 15.0+**
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
+
+### 🆕 版本 1.8.4 新功能 (New in v1.8.4)
+- **🔧 修复 SPM modulemap 路径配置** - 修正所有 header 路径为相对于 modulemap 文件所在目录（include/），符合 Clang modulemap 规范
+- **✅ 彻底解决头文件找不到的问题** - include 目录文件使用文件名，其他目录使用 `../` 相对路径，确保 SPM 能正确解析所有 47 个头文件
+- **🚀 版本号更新** - 更新至 1.8.4
 
 ### 🆕 版本 1.8.3 新功能 (New in v1.8.3)
 - **🔧 修复 SPM modulemap 路径解析问题** - 修改所有 header 路径为相对于 target 根目录的路径，与 Package.swift 中的 headerSearchPath 配置保持一致
