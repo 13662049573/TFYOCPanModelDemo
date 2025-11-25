@@ -1,10 +1,14 @@
 framework module TFYOCPanlModel {
-    // modulemap 在 include/ 目录下，所有路径相对于 include/ 目录
+    // 使用 umbrella header，这是最简单可靠的方式
+    umbrella header "TFYOCPanlModel.h"
+    
+    // 显式导出所有头文件，确保可以通过 <TFYOCPanlModel/...> 格式访问
+    // 路径相对于 modulemap 文件所在目录（include/）
     
     // include 目录下的头文件（同一目录）
     header "TFYOCPanlModel.h"
     
-    // Tools 模块头文件（相对于 include/ 目录，使用 ../）
+    // Tools 模块头文件（相对于 include/ 目录）
     header "../Tools/KeyValueObserver.h"
     header "../Tools/UIScrollView+Helper.h"
     header "../Tools/UIView+TFY_Frame.h"
