@@ -1,7 +1,6 @@
 framework module TFYOCPanlModel {
     // 直接列出所有头文件，不使用 umbrella header
-    // 路径相对于 target 根目录（TFYOCPanModelDemo/Sources/TFYOCPanlModel）
-    // 因为 headerSearchPath(".") 设置了根目录在搜索路径中
+    // 路径相对于 target 根目录（因为 headerSearchPath(".") 设置了根目录在搜索路径中）
     
     // include 目录下的头文件
     header "include/TFYOCPanlModel.h"
