@@ -1,16 +1,17 @@
 framework module TFYOCPanlModel {
     // 直接列出所有头文件，不使用 umbrella header
-    // 路径相对于 target 根目录（因为 headerSearchPath(".") 设置了根目录在搜索路径中）
+    // modulemap 在 include/ 目录下，路径相对于 modulemap 文件所在目录
+    // 由于 headerSearchPath(".") 设置了根目录在搜索路径中，可以使用相对于根目录的路径
     
-    // include 目录下的头文件
-    header "include/TFYOCPanlModel.h"
+    // include 目录下的头文件（同一目录，直接使用文件名）
+    header "TFYOCPanlModel.h"
     
-    // Tools 模块头文件
+    // Tools 模块头文件（相对于根目录，因为 headerSearchPath(".") 设置了根目录）
     header "Tools/KeyValueObserver.h"
     header "Tools/UIScrollView+Helper.h"
     header "Tools/UIView+TFY_Frame.h"
     
-    // popController 模块头文件
+    // popController 模块头文件（相对于根目录）
     header "popController/TFYPanModalPresentable.h"
     header "popController/TFYPanModalPanGestureDelegate.h"
     header "popController/TFYPanModalHeight.h"
@@ -40,7 +41,7 @@ framework module TFYOCPanlModel {
     header "popController/TFYPanModalShadow.h"
     header "popController/TFYVisualEffectView.h"
     
-    // popView 模块头文件
+    // popView 模块头文件（相对于根目录）
     header "popView/TFYPopup.h"
     header "popView/TFYPopupView.h"
     header "popView/TFYPopupViewDelegate.h"
