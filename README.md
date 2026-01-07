@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/iOS-15%2B-orange.svg" alt="iOS"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-blue.svg" alt="language"/>
-  <img src="https://img.shields.io/badge/version-1.7.5-brightgreen.svg" alt="version"/>
+  <img src="https://img.shields.io/badge/version-1.8.4-brightgreen.svg" alt="version"/>
 </p>
 
 <p align="center">
@@ -83,7 +83,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.7.5")
+    .package(url: "https://github.com/13662049573/TFYOCPanModelDemo.git", from: "1.8.0")
 ]
 ```
 
@@ -92,7 +92,7 @@ dependencies: [
 在 `Podfile` 中添加：
 
 ```ruby
-pod 'TFYOCPanlModel', '~> 1.7.5'
+pod 'TFYOCPanlModel', '~> 1.8.0'
 ```
 
 然后运行：
@@ -108,54 +108,29 @@ pod install
 - **Xcode 12.0+**
 - **支持 Objective-C 和 Swift 项目**
 
-### 🆕 版本 1.7.5 新功能 (New in v1.7.5)
-- **🔧 module.modulemap 完善** - 添加 explicit module 定义，明确指定各个子模块的头文件，彻底解决 SPM 框架导入问题
-- **✅ SPM 兼容性修复** - 完善 module.modulemap 配置，确保所有子目录的头文件都能被正确识别和导入
-- **🚀 版本号更新** - 更新至 1.7.5
+### 🆕 版本 1.8.4 新功能 (New in v1.8.4)
+- **🔧 修复 SPM modulemap 路径配置** - 修正所有 header 路径为相对于 modulemap 文件所在目录（include/），符合 Clang modulemap 规范
+- **✅ 彻底解决头文件找不到的问题** - include 目录文件使用文件名，其他目录使用 `../` 相对路径，确保 SPM 能正确解析所有 47 个头文件
+- **🚀 版本号更新** - 更新至 1.8.4
 
-### 🆕 版本 1.7.4 新功能 (New in v1.7.4)
-- **🔧 Package.swift 配置优化** - 进一步优化 Swift Package Manager 配置，添加框架链接设置，改善模块构建兼容性
-- **🚀 版本号更新** - 更新至 1.7.4
+### 🆕 版本 1.8.3 新功能 (New in v1.8.3)
+- **🔧 修复 SPM modulemap 路径解析问题** - 修改所有 header 路径为相对于 target 根目录的路径，与 Package.swift 中的 headerSearchPath 配置保持一致
+- **✅ 彻底解决路径解析错误** - 使用 `include/TFYOCPanlModel.h`、`Tools/...`、`popController/...` 等格式，确保 SPM 能正确解析所有头文件路径
+- **🚀 版本号更新** - 更新至 1.8.3
 
-### 🆕 版本 1.7.3 新功能 (New in v1.7.3)
-- **🔧 Package.swift 配置优化** - 优化了 Swift Package Manager 配置，移除了不必要的 exclude 配置，确保模块正确构建
-- **🚀 版本号更新** - 更新至 1.7.3
+### 🆕 版本 1.8.2 新功能 (New in v1.8.2)
+- **🔧 修复 SPM modulemap 配置** - 移除 umbrella header，直接列出所有头文件，彻底解决 "umbrella header not found" 错误
+- **✅ 修复头文件路径问题** - 优化 module.modulemap 路径配置，确保 SPM 能正确找到所有 47 个头文件
+- **🚀 兼容性优化** - 删除 module.modulemap.cocoapods（CocoaPods 使用自动生成的 modulemap），简化配置
+- **📦 版本号更新** - 更新至 1.8.2
 
-### 🆕 版本 1.7.2 新功能 (New in v1.7.2)
-- **🎨 文件显示优化** - 更新了 .swiftpm/ignore 配置，安装后只显示库源代码，隐藏所有不需要的文件（Example、Tests、Pods 等）
-- **🚀 版本号更新** - 更新至 1.7.2
+### 🆕 版本 1.8.0 新功能 (New in v1.8.0)
+- **🔧 模块映射完善** - 补全 `module.modulemap.cocoapods`，包含所有库内部引用的头文件，解决SPM安装后"file not found"编译错误
+- **✅ 头文件暴露优化** - 确保所有库内部 `.m` 文件引用的头文件都能被正确找到和导入
+- **🚀 版本号更新** - 更新至 1.8.0
 
-### 🆕 版本 1.7.1 新功能 (New in v1.7.1)
-- **🔧 Package.swift 配置优化** - 进一步优化了 Package.swift 配置，确保模块正确构建
-- **🚀 版本号更新** - 更新至 1.7.1
-
-### 🆕 版本 1.7.0 新功能 (New in v1.7.0)
-- **🔧 Package.swift 路径修复** - 修复了 sources 配置错误，使用正确的相对路径而不是绝对路径
-- **✅ 文件显示优化** - 更新了 .swiftpm/ignore 配置，隐藏不需要的文件（Example、Tests 等）
-- **🚀 版本号更新** - 更新至 1.7.0
-
-### 🆕 版本 1.6.9 新功能 (New in v1.6.9)
-- **🔧 Swift Package Manager 修复** - 修复了 SPM 构建错误，排除了手动 module.modulemap，让 SPM 自动生成模块映射
-- **✅ 头文件搜索路径优化** - 优化了 Package.swift 中的头文件搜索路径配置，确保所有模块化导入的头文件都能正确找到
-- **🚀 版本号更新** - 更新至 1.6.9
-
-### 🆕 版本 1.6.8 新功能 (New in v1.6.8)
-- **📦 Package.swift 优化** - 优化了 Swift Package Manager 配置，添加了完整的头文件搜索路径
-- **🔧 路径配置修复** - 修正了 Package.swift 中的源代码路径配置，确保正确指向 `TFYOCPanModelDemo/Sources/TFYOCPanlModel`
-- **✅ 版本标签清理** - 清理了中间版本标签，仅保留 1.5.6 和 1.6.8 两个稳定版本
-- **🚀 版本号更新** - 更新至 1.6.8
-
-### 🆕 版本 1.6.4 新功能 (New in v1.6.4)
-- **📦 Pod 形式转换** - 库已完全转换为 Pod 形式，统一使用 `#import <TFYOCPanlModel/...>` 导入格式
-- **🔧 导入方式优化** - 所有头文件导入已更新为 Pod 标准格式，提升兼容性和可维护性
-- **✅ 完善 Pod 配置** - 优化了 Podfile 和 podspec 配置，支持本地开发和远程依赖
-- **🚀 版本号更新** - 更新至 1.6.4
-
-### 🆕 版本 1.6.3 新功能 (New in v1.6.3)
-- **📦 Pod 形式转换** - 将库转换为 Pod 形式，统一使用 `#import <TFYOCPanlModel/...>` 导入格式
-- **🔧 批量导入更新** - 批量更新所有库内文件的导入方式，提升代码规范性
-- **✅ 项目文件适配** - 更新项目中使用该库的文件导入为 Pod 格式
-- **🚀 版本号更新** - 更新至 1.6.3
+### 🆕 版本 1.7.9 新功能 (New in v1.7.9)
+- **🚀 版本号更新** - 更新至 1.7.9 支持Swift Package
 
 ### 🆕 版本 1.5.6 新功能 (New in v1.5.6)
 - **📁 文件夹结构重组** - 将库文件重新组织为四大类：Tools（工具类）、popController（控制弹出）、popView（pop弹出）、include（主头文件）
